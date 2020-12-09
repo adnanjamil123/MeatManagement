@@ -1,3 +1,11 @@
+<?php
+
+require_once ('db.php');
+require_once ('query_functions.php');
+require_once ('functions.php');
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,12 +40,20 @@
         <div class="row sales-section container-fluid" style="margin:auto">
 
             <div class="row col-4  justify-content-center items-section bg-dark" id="menu">
-                <script>
+                <!-- <script>
                     for (let index = 0; index < items.length; index++) {
                         
                         document.getElementById("menu").innerHTML += "<button style='margin:2px; width:100%' class='col-5 btn btn-success' value=" + index + ">" + (index+1)+". " + items[index] + "</button> </br>";                 
                     }
-                </script>
+                </script> -->
+
+                <?php
+
+                    create_buttons();
+                    
+                ?>
+
+
             </div>
 
                <div class="col-8  order-section">
