@@ -20,57 +20,99 @@ require_once ('functions.php');
   </head>
   <body>
       
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="global.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="global.js"></script>
 
-   
-    <div class="container-fluid vh-100">
+        <script>
+                $(document).ready(function(){
 
-        <nav class="navbar navbar-dark bg-info">
 
-            <h2 class="navbar-brand">Meat Management System</h2>
+            //this is click event by which modals open by clicking items
+            $('#item_clicked').click(function(){
+
+
+            $('#itemsModal').modal('show');
+
+                            
+
+            });
+
+            // this is for data to be transferred from button to modal
+
+            $('#itemsModal').on('show.bs.modal', function (e) {
+                                    
+            var $button = e.relatedTarget;
+
+                $name = $($button).attr('name');
+                //$uom = $($button).attr('data-uom');
+
+            $('#itemsModal .modal-title').text($name);
+            });
+
+
+
+            });
+           
+           
+        </script>
     
-        </nav>
-        
+        <div class="main container-fluid vh-100">
 
-        <div class="row sales-section container-fluid" style="margin:auto">
+                <nav class="navbar navbar-dark bg-info">
 
-            <div class="row col-4  justify-content-center items-section bg-dark" id="menu">
-                <!-- <script>
-                    for (let index = 0; index < items.length; index++) {
+                    <h2 class="navbar-brand">Meat Management System</h2>
+            
+                </nav>
+
+            <div class="row sales-section container-fluid" style="margin:auto">
+
+                <div class="row col-4  justify-content-center items-section bg-dark" id="menu">
+                    <?php
+
+                        create_buttons();
                         
-                        document.getElementById("menu").innerHTML += "<button style='margin:2px; width:100%' class='col-5 btn btn-success' value=" + index + ">" + (index+1)+". " + items[index] + "</button> </br>";                 
-                    }
-                </script> -->
+                    ?>
+                </div><!--item-section-->
 
-                <?php
+                <div class="modal" id="itemsModal">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">item description</h3>
+                                    <button type="button" class="close"><span>&times;</span></button>
+                                </div><!--modal-header-->
+                                    <div class="modal-body">
+                                        <p>this is the bootsrap modal!</p>
+                                    </div><!--modal-body-->
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary">
+                                            Confirm 
+                                    </button>
+                                </div><!--modal-footer-->
+                            </div><!--modal-content-->
+                        </div><!--modal-dialog-->
+                    </div><!--modal-->
 
-                    create_buttons();
-                    
-                ?>
+                <div class="col-8  order-section">
 
+                        <div class="col-12 row  justify-content-between btn-group btn-group-lg" role="group" aria-label="Basic example">
 
-            </div>
+                            <button type="button" class="btn btn-secondary col-2" onclick="updateDiv(event)">NEW</button>
+                            <button type="button" class="btn btn-secondary col-2">CLEAR</button>
+                            <button type="button" class="btn btn-secondary col-2">SAVE</button>
+                            <button type="button" class="btn btn-secondary col-2">PRINT</button>
+                            <button type="button" class="btn btn-secondary col-2">SAVE&PRINT</button>
 
-               <div class="col-8  order-section">
-                    <div class="col-12 row  justify-content-between btn-group btn-group-lg" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary col-2">NEW</button>
-                        <button type="button" class="btn btn-secondary col-2">CLEAR</button>
-                        <button type="button" class="btn btn-secondary col-2">SAVE</button>
-                        <button type="button" class="btn btn-secondary col-2">PRINT</button>
-                        <button type="button" class="btn btn-secondary col-2">SAVE&PRINT</button>
-                        </div>
-                    
-                </div>
+                        </div><!--order-section-->
+                        
+                </div><!--order-section-->
 
-        </div>
-        
-    </div>
-  
-  
-  </body>
+            </div><!--sales-section-->  
+
+        </div><!--main-->
+    </body>
 </html>
