@@ -28,34 +28,7 @@ require_once ('functions.php');
         <script src="global.js"></script>
 
         <script>
-                $(document).ready(function(){
-
-
-            //this is click event by which modals open by clicking items
-            $('#item_clicked').click(function(){
-
-
-            $('#itemsModal').modal('show');
-
-                            
-
-            });
-
-            // this is for data to be transferred from button to modal
-
-            $('#itemsModal').on('show.bs.modal', function (e) {
-                                    
-            var $button = e.relatedTarget;
-
-                $name = $($button).attr('name');
-                //$uom = $($button).attr('data-uom');
-
-            $('#itemsModal .modal-title').text($name);
-            });
-
-
-
-            });
+              
            
            
         </script>
@@ -78,7 +51,7 @@ require_once ('functions.php');
                     ?>
                 </div><!--item-section-->
 
-                <div class="modal" id="itemsModal">
+                <div class="modal modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">

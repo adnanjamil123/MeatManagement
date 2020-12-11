@@ -19,7 +19,7 @@ function query_items(){
     arabic_data();
 
     
-    $sql = "SELECT * FROM items";
+    $sql = "SELECT * FROM items ORDER BY serial_no ASC";
    
     $results = mysqli_query($db , $sql);
 
