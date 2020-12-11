@@ -58,8 +58,38 @@ require_once ('functions.php');
                                     <h3 class="modal-title">item description</h3>
                                     <button type="button" class="close"><span>&times;</span></button>
                                 </div><!--modal-header-->
-                                    <div class="modal-body">
-                                        <p>this is the bootsrap modal!</p>
+                                    <div class="row modal-body justify-content-between">
+                                        <div class="col-3">
+                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100"></input></div>
+                                            
+                                        </div>
+                                        <div class="col-3">
+                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100"></input></div>
+                                            
+                                        </div>
+                                        <div class="my-auto col-3">
+                                        <span id="fuom" class="modal-uom w-100"></span>
+                                        </div>
+                                        
+                                        <div class="row col-3 form-check">
+
+                                             <label class="col form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio" checked>None
+                                            </label>
+
+                                            <label class="col form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">BIG
+                                            </label>
+                                           
+                                            <label class="col form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">SMALL
+                                            </label>
+                                            
+                                            <label class="col form-check-label">
+                                                <input type="radio" class="form-check-input" name="optradio">LARGE
+                                            </label>
+
+                                        </div>
                                     </div><!--modal-body-->
                                 <div class="modal-footer">
                                     <button class="btn btn-secondary">

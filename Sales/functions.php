@@ -16,7 +16,7 @@ require_once ('query_functions.php');
 
             // echo "<button id='item_clicked' data-uom='$uom' 'value='$price' name='$description'  style='margin:2px;' class='col-5 btn btn-success'>".$post['item_description']."</button></br>";
         
-            echo "<button id='item_clicked' data-uom='$uom' 'value='$price' name='$description' data-toggle='modal' data-target='#itemsModal' style='margin:2px;' class='col-5 btn btn-success'>".$post['item_description']."</button></br>";
+            echo "<button id='item_clicked' data-uom='$uom' value='$price' name='$description' data-toggle='modal' data-target='#itemsModal' style='margin:2px;' class='col-5 btn btn-success'>".$post['item_description']."</button></br>";
         }
     }                
  ?>
