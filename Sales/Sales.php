@@ -58,16 +58,16 @@ require_once ('functions.php');
                                         
                                         <div class="row col-3 form-check">
 
-                                             <label class="col form-check-label">
+                                             <!-- <label class="col form-check-label">
                                                 <input type="radio" class="form-check-input radio-none" name="optradio" checked>None
-                                            </label>
+                                            </label> -->
 
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio">BIG
+                                                <input type="radio" class="form-check-input" name="optradio" checked>SMALL
                                             </label>
                                            
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio">SMALL
+                                                <input type="radio" class="form-check-input" name="optradio">BIG
                                             </label>
                                             
                                             <label class="col form-check-label">

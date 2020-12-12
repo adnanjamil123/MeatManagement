@@ -11,12 +11,12 @@ require_once ('query_functions.php');
 
             $vat = 0.15;
             $id = $post['item_code'];
-            $description = $post['item_description'];
+            $description = $post['display_name'];
             $uom = $post['uom'];
             $price = round(($post['selling_price']>0 ? $post['selling_price'] : 0.00)*(1+$vat),2);
 
         
-            echo "<button id='item_clicked' data-uom='$uom' value='$price' name='$description' data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px' class='col-5 btn btn-primary'>".$post['item_description']."</button></br>";
+            echo "<button id='item_clicked' data-uom='$uom' value='$price' name='$description' data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px' class='col-5 btn btn-primary'>".$post['display_name']."</button></br>";
         }
     }                
  ?>
