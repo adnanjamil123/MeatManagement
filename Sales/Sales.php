@@ -34,25 +34,9 @@ require_once ('functions.php');
            
         </script>
     
-        <div class="main container-fluid vh-100">
+        <div class="main container-fluid vh-100 bg-dark">
 
-                <nav class="navbar navbar-dark bg-info">
-
-                    <h2 class="navbar-brand">Meat Management System</h2>
-            
-                </nav>
-
-            <div class="row sales-section container-fluid" style="margin:auto">
-
-                <div class="row col-4  justify-content-center items-section bg-dark" id="menu">
-                    <?php
-
-                        create_buttons();
-                        
-                    ?>
-                </div><!--item-section-->
-
-                <div class="modal modal" id="itemsModal">
+        <div class="modal modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                             <div class="modal-content">
                                 <div class="modal-header bg-info text-light">
@@ -101,11 +85,29 @@ require_once ('functions.php');
                         </div><!--modal-dialog-->
                     </div><!--modal-->
 
-                <div class="col-8  order-section">
+                <nav class="navbar navbar-dark bg-info">
 
-                        <div class="col-10 row order-buttons justify-content-center btn-group btn-group-lg" role="group" aria-label="Basic example">
+                    <h2 class="navbar-brand">Meat Management System</h2>
+            
+                </nav>
 
-                            <button type="button" class="btn btn-secondary col-2" onclick="updateDiv(event)">NEW</button>
+            <div class="row sales-section container-fluid bg-dark" style="margin:auto">
+
+                <div class="row col-2  justify-content-around items-section bg-light" id="menu">
+                    <?php
+
+                        create_buttons();
+                        
+                    ?>
+                </div><!--item-section-->
+
+                
+
+                <div class="row col-10  order-section">
+
+                        <div class="col-12 row order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example">
+
+                            <button type="button" class="btn btn-secondary col-2"  >NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE</button>
                             <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
@@ -113,14 +115,16 @@ require_once ('functions.php');
 
                         </div><!--order-buttons-->
 
-                                <div class="col-10 items-table">
-                            <table class="table">
+                            <div class="col-10 items-table">
+                            <table class="table table-dark table-bordered table-hover">
                             <thead>
                                 <tr>
+                                <th scope="col"></th>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">ITEM DESCRIPTION</th>
+                                <th scope="col">QTY</th>
+                                <th scope="col">UOM</th>
+                                <th scope="col">PRICE</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -150,7 +154,8 @@ require_once ('functions.php');
 
                
             </div><!--sales-section-->  
-
+      
         </div><!--main-->
+        
     </body>
 </html>
