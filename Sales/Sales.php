@@ -26,6 +26,7 @@ require_once ('functions.php');
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="global.js"></script>
+        <script src="trap_focus.js"></script>
 
         <script>
               
@@ -52,7 +53,7 @@ require_once ('functions.php');
                 </div><!--item-section-->
 
                 <div class="modal modal" id="itemsModal">
-                        <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                             <div class="modal-content">
                                 <div class="modal-header bg-info text-light">
                                     <h3 class="modal-title">item description</h3>
@@ -92,7 +93,7 @@ require_once ('functions.php');
                                         </div>
                                     </div><!--modal-body-->
                                 <div class="modal-footer">
-                                    <button class="btn btn-secondary">
+                                    <button class="btn-confirm btn btn-secondary">
                                             Confirm 
                                     </button>
                                 </div><!--modal-footer-->
@@ -105,10 +106,10 @@ require_once ('functions.php');
                         <div class="col-12 row  justify-content-between btn-group btn-group-lg" role="group" aria-label="Basic example">
 
                             <button type="button" class="btn btn-secondary col-2" onclick="updateDiv(event)">NEW</button>
-                            <button type="button" class="btn btn-secondary col-2">CLEAR</button>
-                            <button type="button" class="btn btn-secondary col-2">SAVE</button>
-                            <button type="button" class="btn btn-secondary col-2">PRINT</button>
-                            <button type="button" class="btn btn-secondary col-2">SAVE&PRINT</button>
+                            <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
+                            <button type="button" class="btn btn-secondary col-2"  >SAVE</button>
+                            <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
+                            <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
 
                         </div><!--order-section-->
                         

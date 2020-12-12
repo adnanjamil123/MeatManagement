@@ -35,7 +35,20 @@ $(document).ready(function(){
 
     });
   
+    $('#itemsModal').on('shown.bs.modal', function (e) {
 
+      $('#fprice').focus();
+      $('#fprice').select();
+
+      // Listen for TAB on last child.
+  //   $('.tabs :tabable:last-child').on('keydown', function(e) {
+  //     if (e.which == 9) {
+  //         e.preventDefault();
+  //         $(this).siblings(':tabbable').eq(0).focus();
+  //     } 
+  // });
+
+    })
   
 });
 
