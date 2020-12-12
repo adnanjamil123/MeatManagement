@@ -54,13 +54,13 @@ require_once ('functions.php');
                 <div class="modal modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header bg-info text-light">
                                     <h3 class="modal-title">item description</h3>
                                     <button type="button" class="close"><span>&times;</span></button>
                                 </div><!--modal-header-->
                                     <div class="row modal-body justify-content-between">
                                         <div class="col-3">
-                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100"></input></div>
+                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100" step="0.01" autofocus></input></div>
                                             
                                         </div>
                                         <div class="col-3">

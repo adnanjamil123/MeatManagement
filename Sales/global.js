@@ -17,7 +17,8 @@ $(document).ready(function(){
 // this is for data to be transferred from button to modal
   
     $('#itemsModal').on('show.bs.modal', function (e) {
-                                          
+
+
     var $button = e.relatedTarget;
       
     $name = $($button).attr('name');
@@ -28,9 +29,9 @@ $(document).ready(function(){
 
     $('.modal-uom').text($uom);  
 
-    $('#fprice').val($price);  
 
-    debugger;
+    $('#fprice').val($price);  
+   
 
     });
   
