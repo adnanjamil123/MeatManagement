@@ -24,6 +24,8 @@ $(document).ready(function(){
     $name = $($button).attr('name');
     $uom = $($button).attr('data-uom');
     $price = $($button).val();
+
+    $('.radio-none').prop('checked' , true);
       
     $('#itemsModal .modal-title').text($name);
 
@@ -40,15 +42,12 @@ $(document).ready(function(){
       $('#fprice').focus();
       $('#fprice').select();
 
-      // Listen for TAB on last child.
-  //   $('.tabs :tabable:last-child').on('keydown', function(e) {
-  //     if (e.which == 9) {
-  //         e.preventDefault();
-  //         $(this).siblings(':tabbable').eq(0).focus();
-  //     } 
-  // });
-
+      
+  
     })
+
+
+    
   
 });
 

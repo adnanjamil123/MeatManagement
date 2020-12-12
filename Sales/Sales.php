@@ -75,7 +75,7 @@ require_once ('functions.php');
                                         <div class="row col-3 form-check">
 
                                              <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" checked>None
+                                                <input type="radio" class="form-check-input radio-none" name="optradio" checked>None
                                             </label>
 
                                             <label class="col form-check-label">
@@ -103,7 +103,7 @@ require_once ('functions.php');
 
                 <div class="col-8  order-section">
 
-                        <div class="col-12 row  justify-content-between btn-group btn-group-lg" role="group" aria-label="Basic example">
+                        <div class="col-10 row order-buttons justify-content-center btn-group btn-group-lg" role="group" aria-label="Basic example">
 
                             <button type="button" class="btn btn-secondary col-2" onclick="updateDiv(event)">NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
@@ -111,10 +111,44 @@ require_once ('functions.php');
                             <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
 
-                        </div><!--order-section-->
+                        </div><!--order-buttons-->
+
+                                <div class="col-10 items-table">
+                            <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                </div><!--items-table-->
                         
                 </div><!--order-section-->
 
+               
             </div><!--sales-section-->  
 
         </div><!--main-->
