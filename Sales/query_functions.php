@@ -20,7 +20,10 @@ function query_items(){
 
     
     // $sql = "SELECT * FROM items ORDER BY display_serial ASC";
-    $sql = "SELECT * FROM items";
+    $sql = "SELECT *
+    FROM items  JOIN  stock_cetegory ON items.cetegory_id = stock_cetegory.cetegory_id
+    WHERE items.status = '1'
+    ORDER BY items.display_name DESC";
    
     $results = mysqli_query($db , $sql);
 
