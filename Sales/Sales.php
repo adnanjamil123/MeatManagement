@@ -43,24 +43,21 @@ require_once ('functions.php');
                                     <h3 class="modal-title">item description</h3>
                                     <button type="button" class="close"><span>&times;</span></button>
                                 </div><!--modal-header-->
-                                    <div class="row modal-body justify-content-between">
+                                    <div class="row modal-body justify-content-center">
                                         <div class="col-3">
                                             <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100" step="0.01" autofocus></input></div>
                                             
                                         </div>
                                         <div class="col-3">
-                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100"></input></div>
+                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty"></input></div>
                                             
                                         </div>
-                                        <div class="my-auto col-3">
+                                        <div class="my-auto col-1">
                                         <span id="fuom" class="modal-uom w-100"></span>
                                         </div>
                                         
-                                        <div class="row col-3 form-check">
+                                        <div class="row col-3 form-check item-sizes">
 
-                                             <!-- <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input radio-none" name="optradio" checked>None
-                                            </label> -->
 
                                             <label class="col form-check-label">
                                                 <input type="radio" class="form-check-input" name="optradio" checked>SMALL
