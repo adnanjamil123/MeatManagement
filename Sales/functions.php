@@ -8,9 +8,6 @@ require_once ('query_functions.php');
         $posts = mysqli_fetch_all(query_items() , MYSQLI_ASSOC);
         $vat = (mysqli_fetch_all(get_vat() , MYSQLI_ASSOC))[0]['tax_value'];
         
-
-        //    echo $vat[0]['tax_value'];
-
         foreach ($posts as $post) {
 
             

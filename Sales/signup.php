@@ -29,7 +29,49 @@
         <button type="submit" name="submit">Sign Up</button>
     </form>
  
- </section>
+    <?php
 
+        if(isset($_GET["error"]))
+        {
+            if($_GET["error"]=="emptyinput")
+            {
+                echo "<div class='alert alert-primary w-50' role='alert'>
+                Please fill form, there are empty fields.
+                </div>";
+            }else if($_GET["error"]=="invaliduid")
+            {
+                echo "<div class='alert alert-warning w-50' role='alert'>
+                Username is Invalid, please use proper username.
+            </div>";
+            
+            }else if($_GET["error"]=="passwordsdontmatch")
+            {
+                echo "<div class='alert alert-warning w-50' role='alert'>
+                passwords dont match.
+            </div>";
+            
+            }else if($_GET["error"]=="usernametaken")
+            {
+                echo "<div class='alert alert-warning w-50' role='alert'>
+            Username already Taken.
+            </div>";
+            
+            }else if($_GET["error"]=="none")
+            {
+                echo "<div class='alert alert-success w-50' role='alert'>
+            Signup Succesfully!.
+            </div>";
+            
+            }else if($_GET["error"]=="stmtfailed")
+            {
+                echo "<div class='alert alert-danger w-50' role='alert'>
+            Sonething went Wrong
+            </div>";
+            
+            }
+        }
+?>
+ </section>
+ 
   </body>
 </html>

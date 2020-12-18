@@ -18,6 +18,8 @@ $(document).ready(function(){
   
     $('#itemsModal').on('show.bs.modal', function (e) {
 
+      
+
     var $button = e.relatedTarget;
       
     $name = $($button).attr('name');

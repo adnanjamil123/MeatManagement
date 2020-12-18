@@ -65,3 +65,67 @@ function uidExists($db , $username)
 
     mysqli_stmt_close($stmt);
 };
+
+function create_user($db, $name, $username, $branch, $pwd)
+{
+    $sql = "INSERT INTO users (name, username, user_password, branch_id) VALUES 
+            (?, ?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($db);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../signup.php?error=datainsertfailed");
+        exit();
+    }
+
+    $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $username, $hashedpwd, $branch);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../signup.php?error=none");
+};
+
+function emptyInputLogin($username, $pwd)
+{
+    $result;
+    if(empty($username) || empty($pwd))
+    {
+        $result = true;
+    }else
+    {
+        $result = false;
+    }
+    return $result;
+};
+
+function loginUser($db, $username, $pwd)
+{
+    $user_exist = uidExists($db , $username);
+
+    if($user_exist === false)
+    {
+        header("location: ../Login.php?error=wronglogin");
+        exit();
+    }
+
+    $pwdhashed = $user_exist["user_password"];
+    $checkpwd = password_verify($pwd, $pwdhashed);
+
+    if($checkpwd === false)
+    {
+        header("location: ../Login.php?error=wrongpassword");
+        exit();
+    }
+    elseif($checkpwd === true)
+    {
+        session_start();
+        $_SESSION["name"] = $user_exist["name"];
+        $_SESSION["username"] = $user_exist["username"];
+        $_SESSION["branch"] = $user_exist["branch"];
+        $_SESSION["active"] = $user_exist["active"];
+
+        header("location: ../index.php");
+        exit();
+    }
+};

@@ -1,25 +1,19 @@
 <?php
 
+session_start();
+
 require_once ('db.php');
 require_once ('query_functions.php');
 require_once ('functions.php');
 
-$username = $_POST['username'];
-$password = $_POST['password'];
 
-$username = stripcslashes($username);
-$password = stripslashes($password);
-//$username = mysql_real_escape_string($username);
-//$password = mysql_real_escape_string($password);
-
-if(isset($_POST["submit"]))
-{
-
-}else
-{
-    header ("location: Login.php");
-}
-
+if(!$_SESSION["active"])
+   {
+    session_start();
+    session_unset();
+    session_destroy();
+    header("location: Login.php?error=inactiveusername");
+   }
 ?>
 
 
@@ -102,7 +96,8 @@ if(isset($_POST["submit"]))
                 <nav class="navbar navbar-dark bg-info">
 
                     <h2 class="navbar-brand">Meat Management System</h2>
-                    <h6 class="navbar-text">user name</h6>
+                    <h6 class="navbar-text"><?php echo ($_SESSION["name"]); ?></h6>
+                    <a class="nav-link" href="includes/logout.inc.php">Log out</a>
                 </nav>
 
             <div class="row sales-section container-fluid bg-dark justify-content-between" style="margin:auto">

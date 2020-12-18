@@ -9,10 +9,9 @@ if(isset($_POST["submit"])){
     $pwdrepeat = $_POST["pwdrepeat"];
 
 
-    require_once ('../db.php');
+    require_once ('../config.php');
     require_once ('errors.inc.php');
 
-    $db = db_connect();
 
     if(emptyInputSignup($name, $username, $branch, $pwd, $pwdrepeat) !== false)
     {
@@ -35,7 +34,7 @@ if(isset($_POST["submit"])){
         exit();
     }
 
-   // create_user($name, $username, $branch, $pwd);
+   create_user($db, $name, $username, $branch, $pwd);
 }
 else
 {

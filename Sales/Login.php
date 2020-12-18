@@ -21,20 +21,48 @@
     <div class="id_frm container-fluid">
     
     <h2>Log In</h2>
-    <form action="login.inc.php" method ="POST" class="container-fluid">
+    <form action="includes/login.inc.php" method ="POST" class="container-fluid">
         <p>
             <label for="username">username:</label>
             <input type="text" id="username" name="username" placeholder= "please enter username"/>            
         </p>
         <p>
             <label for="username">password:</label>
-            <input type="password" id="password" name="password"/>            
+            <input type="password" id="password" name="pwd"/>            
         </p>
         <p>
             <button type="submit" name="submit">Log In</button>     
         </p>
     </form>
+    <?php
 
+if(isset($_GET["error"]))
+{
+    if($_GET["error"]=="emptyinput")
+    {
+        echo "<div class='alert alert-primary w-50' role='alert'>
+        Please fill form, there are empty fields.
+        </div>";
+    }else if($_GET["error"]=="wrongpassword")
+    {
+        echo "<div class='alert alert-warning w-50' role='alert'>
+        Wrong password Entered.
+    </div>";
+    
+    }else if($_GET["error"]=="wronglogin")
+    {
+        echo "<div class='alert alert-warning w-50' role='alert'>
+        Wrong Username Entered.
+    </div>";
+    } 
+    else if($_GET["error"]=="inactiveusername")
+    {
+        echo "<div class='alert alert-danger w-50' role='alert'>
+        User is inactive.
+    </div>";
+    } 
+}
+?>
 </div>
   
   </body>
