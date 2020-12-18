@@ -112,6 +112,12 @@ function loginUser($db, $username, $pwd)
     $pwdhashed = $user_exist["user_password"];
     $checkpwd = password_verify($pwd, $pwdhashed);
 
+    if(!$user_exist["active"])
+    {
+        header("location: ../Login.php?error=inactiveusername");
+        exit();
+    }
+
     if($checkpwd === false)
     {
         header("location: ../Login.php?error=wrongpassword");
