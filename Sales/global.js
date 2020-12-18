@@ -30,15 +30,15 @@ $(document).ready(function(){
 
     $('#fprice').val($price);  
 
+    $('#fqty').val(1);
+
     });
   
     $('#itemsModal').on('shown.bs.modal', function (e) {
 
-    
-
       var $button = e.relatedTarget;
       
-    
+      
      
       $show_sizes = $($button).attr('data-size');
       $qty_disabled = $($button).attr('data-qty-disable');

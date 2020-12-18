@@ -3,6 +3,23 @@
 require_once ('db.php');
 require_once ('query_functions.php');
 require_once ('functions.php');
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$username = stripcslashes($username);
+$password = stripslashes($password);
+//$username = mysql_real_escape_string($username);
+//$password = mysql_real_escape_string($password);
+
+if(isset($_POST["submit"]))
+{
+
+}else
+{
+    header ("location: Login.php");
+}
+
 ?>
 
 
@@ -49,7 +66,7 @@ require_once ('functions.php');
                                             
                                         </div>
                                         <div class="col-3">
-                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty"></input></div>
+                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="0"></input></div>
                                             
                                         </div>
                                         <div class="my-auto col-1">
@@ -85,12 +102,12 @@ require_once ('functions.php');
                 <nav class="navbar navbar-dark bg-info">
 
                     <h2 class="navbar-brand">Meat Management System</h2>
-            
+                    <h6 class="navbar-text">user name</h6>
                 </nav>
 
-            <div class="row sales-section container-fluid bg-dark" style="margin:auto">
+            <div class="row sales-section container-fluid bg-dark justify-content-between" style="margin:auto">
 
-                <div class="row col-2  justify-content-around items-section bg-light" id="menu">
+                <div class="row col-2  justify-content-around items-section bg-light" id="menu" style="height:700px">
                     <?php
 
                         create_buttons();
@@ -100,9 +117,9 @@ require_once ('functions.php');
 
                 
 
-                <div class="row col-10  order-section">
+                <div class="row col-10  order-section"  style = "height: 700px; background : gray">
 
-                        <div class="col-12 row order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example">
+                        <div class="col-12 row order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
 
                             <button type="button" class="btn btn-secondary col-2"  >NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
@@ -112,8 +129,8 @@ require_once ('functions.php');
 
                         </div><!--order-buttons-->
 
-                            <div class="col-10 items-table">
-                            <table class="table table-dark table-bordered table-hover">
+                            <div class="row col-10 items-table" style="margin-top:-300px">
+                            <table class="table table-dark table-bordered table-hover" >
                             <thead>
                                 <tr>
                                 <th scope="col"></th>

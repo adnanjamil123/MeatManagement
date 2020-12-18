@@ -18,8 +18,6 @@ function query_items(){
 
     arabic_data();
 
-    
-    // $sql = "SELECT * FROM items ORDER BY display_serial ASC";
     $sql = "SELECT *
     FROM items  JOIN  stock_cetegory ON items.cetegory_id = stock_cetegory.cetegory_id
     WHERE items.status = '1'
@@ -29,10 +27,29 @@ function query_items(){
 
     confirm_result_set($results);
 
-    close_connection($db);
+   // close_connection($db);
 
         return $results;
 }
+
+function get_vat()
+{
+    global $db;
+
+
+    $sql = "SELECT tax_value FROM tax
+    LIMIT 1";
+
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+
+    close_connection($db);
+
+        return $results;
+
+}
+
 // function query_all_accounts_byID($ID){
 
 //     global $db;
