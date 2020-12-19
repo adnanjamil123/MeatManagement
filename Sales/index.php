@@ -7,6 +7,8 @@ require_once ('query_functions.php');
 require_once ('functions.php');
 
 
+//echo test();
+
 if(!isset($_SESSION["active"]))
    {
     session_start();
@@ -33,12 +35,15 @@ if(!isset($_SESSION["active"]))
       
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
         <script src="jscript/global.js"></script>
         <script src="jscript/trap_focus.js"></script>
-
+        <script src="jscript/functions.js"></script>
+        
         <script>
               
            
@@ -96,7 +101,7 @@ if(!isset($_SESSION["active"]))
                 <nav class="navbar navbar-dark bg-info">
 
                     <h2 class="navbar-brand">Meat Management System</h2>
-                    <h6 class="navbar-text"><?php echo ($_SESSION["name"]); ?></h6>
+                    <h6 class="navbar-text"><?php echo ("<p id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></h6>
                     <a class="nav-link" href="includes/logout.inc.php">Log out</a>
                 </nav>
 
@@ -116,49 +121,56 @@ if(!isset($_SESSION["active"]))
 
                         <div class="col-12 row order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
 
-                            <button type="button" class="btn btn-secondary col-2"  >NEW</button>
+                            <button type="button" class="new btn btn-secondary col-2"  >NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE</button>
                             <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
 
                         </div><!--order-buttons-->
+                            
+                        <div class="row col-12 invoice">
+                            <div class="col-10 items-table" style="margin-top:-300px">
 
-                            <div class="row col-10 items-table" style="margin-top:-300px">
-                            <table class="table table-dark table-bordered table-hover" >
-                            <thead>
-                                <tr>
-                                <th scope="col"></th>
-                                <th scope="col">#</th>
-                                <th scope="col">ITEM DESCRIPTION</th>
-                                <th scope="col">QTY</th>
-                                <th scope="col">UOM</th>
-                                <th scope="col">PRICE</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                            </table>
-                </div><!--items-table-->
-                        
+                                <table class="table table-dark table-bordered table-hover" >
+                                <thead>
+                                    <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">#</th>
+                                    <th scope="col">ITEM DESCRIPTION</th>
+                                    <th scope="col">QTY</th>
+                                    <th scope="col">UOM</th>
+                                    <th scope="col">PRICE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div><!--items-table-->
+
+                                <div class="col-2 invoice-header" id="invoice-header">
+                                  
+                                </div><!--total-->
+
+                 </div><!--invoice-->
                 </div><!--order-section-->
 
                

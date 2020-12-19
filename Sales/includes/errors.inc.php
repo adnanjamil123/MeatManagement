@@ -55,6 +55,7 @@ function uidExists($db , $username)
     $resultData = mysqli_stmt_get_result($stmt);
 
     if($row = mysqli_fetch_assoc($resultData)){
+        
         return $row;
     }
     else
@@ -128,8 +129,9 @@ function loginUser($db, $username, $pwd)
         session_start();
         $_SESSION["name"] = $user_exist["name"];
         $_SESSION["username"] = $user_exist["username"];
-        $_SESSION["branch"] = $user_exist["branch"];
+        $_SESSION["branch"] = $user_exist["branch_id"];
         $_SESSION["active"] = $user_exist["active"];
+        $_SESSION["uid"] = $user_exist["user_id"];
 
         header("location: ../index.php");
         exit();
