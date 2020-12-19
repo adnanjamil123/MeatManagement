@@ -168,7 +168,7 @@ if(!isset($_SESSION["active"]))
 
                                 <div class="col-2 invoice-header" id="invoice-header">
                                   
-                                </div><!--total-->
+                                </div><!--invoice-header-->
 
                  </div><!--invoice-->
                 </div><!--order-section-->
