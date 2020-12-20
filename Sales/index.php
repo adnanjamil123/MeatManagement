@@ -77,15 +77,15 @@ if(!isset($_SESSION["active"]))
 
 
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" checked>SMALL
+                                                <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
                                             </label>
                                            
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio">BIG
+                                                <input type="radio" class="form-check-input" name="optradio" value="big">BIG
                                             </label>
                                             
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio">LARGE
+                                                <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
                                             </label>
 
                                         </div>
@@ -141,28 +141,20 @@ if(!isset($_SESSION["active"]))
                                     <th scope="col">ITEM DESCRIPTION</th>
                                     <th scope="col">QTY</th>
                                     <th scope="col">UOM</th>
+                                    <th scope="col">SIZE</th>
                                     <th scope="col">PRICE</th>
+                                    <th scope="col">VAT</th>
+                                    <th scope="col">TOTAL</th>
+                                    <th scope="col">TOTAL(VAT)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <!-- <tr>
                                     <th scope="row">1</th>
                                     <td>Mark</td>
                                     <td>Otto</td>
                                     <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                                 </table>
 

@@ -82,7 +82,14 @@ $(document).ready(function(){
   
     })
 
+    $(".btn-confirm").click(function(){
 
+     $desc = $('#itemsModal .modal-title').text();
+     $qty = $('#fqty').val();
+     $uom =$('.modal-uom').text($uom); 
+     $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :"none";
+      debugger;
+    })
     
   
 });
