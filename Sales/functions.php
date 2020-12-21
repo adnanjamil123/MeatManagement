@@ -20,7 +20,7 @@ require_once ('query_functions.php');
 
             echo "<button id='item_clicked' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
              data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px' 
-             class='col-5 btn btn-primary h-auto'>".$post['display_name']."</button></br>";
+             class='col-5 btn btn-primary'>".$post['display_name']."</button></br>";
         }
     } 
     

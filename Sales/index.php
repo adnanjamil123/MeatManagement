@@ -108,7 +108,7 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section container-fluid bg-dark justify-content-between" style="margin:auto">
 
-                <div class="row col-2  justify-content-around items-section bg-light" id="menu" style="height:700px">
+                <div class="col-2  justify-content-around items-section bg-light" id="menu" style="height:700px">
                     <?php
 
                         create_buttons();
