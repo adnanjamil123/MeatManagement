@@ -62,11 +62,11 @@ if(!isset($_SESSION["active"]))
                                 </div><!--modal-header-->
                                     <div class="row modal-body justify-content-center">
                                         <div class="col-3">
-                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100" step="0.01" autofocus></input></div>
+                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100" step="1" autofocus></input></div>
                                             
                                         </div>
                                         <div class="col-3">
-                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="0"></input></div>
+                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="1"></input></div>
                                             
                                         </div>
                                         <div class="my-auto col-1">
@@ -130,10 +130,10 @@ if(!isset($_SESSION["active"]))
 
                         </div><!--order-buttons-->
                             
-                        <div class="row col-12 invoice"  style="margin-top:-300px">
-                            <div class="col-10 items-table">
+                        <div class="row col-12 invoice"  style="">
+                            <div class="col-10 items-table table-responsive">
 
-                                <table class="table table-dark table-bordered table-hover">
+                                <table id="tbody" class="table table-dark table-bordered table-hover">
                                 <thead>
                                     <tr>
                                     <th scope="col"></th>

@@ -81,14 +81,71 @@ $(document).ready(function(){
       }
   
     })
-
+    var rowIdx = 0; 
     $(".btn-confirm").click(function(){
+
+      $price_with_vat= $('#fprice').val();  
+      $qty = $('#fqty').val();
+
+      if( $price_with_vat < 1)
+      {
+        
+        $('#fprice').focus();
+        $('#fprice').select();
+        
+        return;
+      }
+
+      if( $qty < 1)
+      {
+        
+        $('#fqty').focus();
+        $('#fqty').select();
+        
+        return;
+      }
 
      $desc = $('#itemsModal .modal-title').text();
      $qty = $('#fqty').val();
-     $uom =$('.modal-uom').text($uom); 
-     $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :"none";
-      debugger;
+     $uom =$('.modal-uom').text(); 
+     $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
+     $vat = $("#item_clicked").attr('data-vat');
+    //  $price_with_vat= $('#fprice').val();  
+     $price_without_vat= ($('#fprice').val())*(1-$vat);  
+     $total = $qty * $price_with_vat;
+     $total_without_vat = $qty * $price_without_vat;
+     
+     $('#tbody').append(`<tr id="R${++rowIdx}"> 
+      <td class="text-center"> 
+       <button class="btn btn-danger remove" 
+           type="button">Remove</button> 
+       </td> 
+       <td class="row-index text-center"> 
+           <p>${rowIdx}</p></td> 
+
+           <td class="row-index text-center"> 
+            ${$desc}</td>
+
+            <td class="row-index text-center"> 
+            ${$qty}</td>
+
+            <td class="row-index text-center"> 
+            ${$uom}</td>
+
+            <td class="row-index text-center"> 
+            ${$size}</td>
+
+            <td class="row-index text-center"> 
+            ${$price_with_vat}</td>
+            
+            <td class="row-index text-center"> 
+            ${$vat}</td>
+            <td class="row-index text-center"> 
+            ${$total_without_vat}</td>
+
+            <td class="row-index text-center"> 
+            ${$total}</td>
+      </tr>`); 
     })
     
   
