@@ -130,8 +130,8 @@ if(!isset($_SESSION["active"]))
 
                         </div><!--order-buttons-->
                             
-                        <div class="row invoice"  style="">
-                            <div class="col-10 items-table table-responsive">
+                        <div class="row invoice" style="margin-top:10px">
+                            <div class="col-9 items-table table-responsive" style="max-height:600px">
 
                                 <table id="tbody" class="table table-dark table-bordered table-hover">
                                 <thead>
@@ -161,9 +161,9 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-2 invoice-header" id="invoice-header">
+                            <div class="col-3 invoice-header" id="invoice-header">
                                   
-                                  </div><!--invoice-header-->
+                                </div><!--invoice-header-->
                                 
 
                  </div><!--invoice-->

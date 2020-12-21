@@ -9,8 +9,13 @@ require_once ('functions.php');
     $branch = $_POST['branch'];
 
     $order = create_order($db, $username, $branch);
+    $date = (mysqli_fetch_all(get_date("date","orders","order_no",$order) , MYSQLI_ASSOC))[0]['date'];
+    
 
-      echo  "<p class='invoice-no'>ORDER NO.$order</p>
-        <p class='invoice-branch'>BRANCH:$branch</p>
-        <p class='invoice-user'>USER:$username</p>";
+      echo  "<ul class='list-group'>
+      <li class='order-no list-group-item active'>$date</li>
+      <li class='order-date list-group-item '>ORDER NO.$order</li>
+        <li class='order-branch list-group-item '>BRANCH:$branch</li>
+        <li class='order-user list-group-item '>USER:$username</li>
+        </ul>";
  }

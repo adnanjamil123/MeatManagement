@@ -47,4 +47,21 @@ function get_vat()
         return $results;
 
 }
+function get_date($date,$table,$col,$id){
+
+    global $db;
+
+    $sql = "SELECT $date FROM $table
+        WHERE $col = $id
+    LIMIT 1";
+
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+
+    close_connection($db);
+
+        return $results;
+
+};
 
