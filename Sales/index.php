@@ -118,9 +118,9 @@ if(!isset($_SESSION["active"]))
 
                 
 
-                <div class="row col-10  order-section"  style = "height: 700px; background : gray">
+                <div class="col-10  order-section"  style = "background : gray">
 
-                        <div class="col-12 row order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
+                        <div class="row col-12 order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
 
                             <button type="button" class="new btn btn-secondary col-2"  >NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
@@ -130,7 +130,7 @@ if(!isset($_SESSION["active"]))
 
                         </div><!--order-buttons-->
                             
-                        <div class="row col-12 invoice"  style="">
+                        <div class="row invoice"  style="">
                             <div class="col-10 items-table table-responsive">
 
                                 <table id="tbody" class="table table-dark table-bordered table-hover">
