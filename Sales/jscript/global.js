@@ -15,7 +15,31 @@ $(document).ready(function(){
 
 
 // this is for data to be transferred from button to modal
-  
+function update_totals()
+{
+
+    var total = 0;
+    
+    var total_vat = 0;
+
+    $("#tbody tr:not(:first)").each(function(){
+
+        total += parseFloat($(this).find(".item-without-vat").text());
+       
+        total_vat += parseFloat($(this).find(".item-total").text());
+                
+        
+
+        
+    })
+
+   $(".invoice-tv").text(total_vat.toFixed(2));
+   
+   $(".invoice-twv").text(total.toFixed(2));
+
+   $(".invoice-v").text(($(".invoice-tv").text()-$(".invoice-twv").text()).toFixed(2));
+}
+
     $('#itemsModal').on('show.bs.modal', function (e) {
 
       
@@ -110,43 +134,47 @@ $(document).ready(function(){
      $uom =$('.modal-uom').text(); 
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
      $vat = $("#item_clicked").attr('data-vat');
-    //  $price_with_vat= $('#fprice').val();  
+     
      $price_without_vat= ($('#fprice').val())*(1-$vat);  
      $total = $qty * $price_with_vat;
-     $total_without_vat = $qty * $price_without_vat;
+     $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      
      $('#tbody').append(`<tr id="R${++rowIdx}"> 
       <td class="text-center"> 
        <button class="btn btn-danger remove" 
            type="button">Remove</button> 
        </td> 
-       <td class="row-index text-center"> 
-           <p>${rowIdx}</p></td> 
 
-           <td class="row-index text-center"> 
+           <td class="row-index text-center item-text"> 
             ${$desc}</td>
 
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-qty"> 
             ${$qty}</td>
 
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-uom"> 
             ${$uom}</td>
 
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-size"> 
             ${$size}</td>
 
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-price"> 
             ${$price_with_vat}</td>
             
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-vat vat-display"> 
             ${$vat}</td>
-            <td class="row-index text-center"> 
+
+            <td class="row-index text-center item-without-vat vat-display"> 
             ${$total_without_vat}</td>
 
-            <td class="row-index text-center"> 
+            <td class="row-index text-center item-total"> 
             ${$total}</td>
       </tr>`); 
+
+
+      update_totals();
     })
+
+    
     
   
 });

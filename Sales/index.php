@@ -50,6 +50,14 @@ if(!isset($_SESSION["active"]))
            
            
         </script>
+
+        <style>
+
+        .vat-display{
+           /* display:none;  */
+        }
+        
+        </style>
     
         <div class="main container-fluid vh-100 bg-dark">
 
@@ -137,15 +145,14 @@ if(!isset($_SESSION["active"]))
                                 <thead>
                                     <tr>
                                     <th scope="col"></th>
-                                    <th scope="col">#</th>
                                     <th scope="col">ITEM DESCRIPTION</th>
                                     <th scope="col">QTY</th>
                                     <th scope="col">UOM</th>
                                     <th scope="col">SIZE</th>
                                     <th scope="col">PRICE</th>
-                                    <th scope="col">VAT</th>
+                                    <th scope="col" class="vat-display">VAT</th>
+                                    <th scope="col" class="vat-display">TOTAL(V)</th>
                                     <th scope="col">TOTAL</th>
-                                    <th scope="col">TOTAL(VAT)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
