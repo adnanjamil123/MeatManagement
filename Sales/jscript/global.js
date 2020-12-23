@@ -40,19 +40,19 @@ function update_totals()
    $(".invoice-v").text(($(".invoice-tv").text()-$(".invoice-twv").text()).toFixed(2));
 }
 
+   //show.bs.modal
 
     $('#itemsModal').on('show.bs.modal', function (e) {
-
-      
 
     var $button = e.relatedTarget;
       
     $name = $($button).attr('name');
     $uom = $($button).attr('data-uom');
+    $id = $($button).attr('data-id');
     $price = $($button).val();
    
     $('#itemsModal .modal-title').text($name);
-
+    $('#itemsModal .modal-title').attr('data-id', $id);
     $('.modal-uom').text($uom);  
 
     $('#fprice').val($price);  
@@ -135,7 +135,7 @@ function update_totals()
      $uom =$('.modal-uom').text(); 
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
      $vat = $("#item_clicked").attr('data-vat');
-     
+     $id = $("#item_clicked").attr('data-id');
      $price_without_vat= ($('#fprice').val())*(1-$vat);  
      $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
@@ -145,6 +145,9 @@ function update_totals()
        <button class="btn btn-danger remove" 
            type="button" onclick='$(this).parent().parent().remove(); update_totals();'>Remove</button> 
        </td> 
+
+            <td class="row-index text-center item-id"> 
+            ${$id}</td>
 
            <td class="row-index text-center item-text"> 
             ${$desc}</td>

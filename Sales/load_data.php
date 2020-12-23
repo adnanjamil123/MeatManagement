@@ -13,9 +13,9 @@ require_once ('functions.php');
     
 
       echo  "<ul class='list-group'>
-      <li class='order-user list-group-item active'><h4>Order details</h4></li>
-      <li class='order-no list-group-item'><b>$date</b></li>
-      <li class='order-date list-group-item'>ORDER NO: <b>$order</b></li>
+        <li class='order-user list-group-item active'><h4>Order details</h4></li>
+        <li class='order-date list-group-item'><b>$date</b></li>
+        <li class='order-no list-group-item'>ORDER NO: <b>$order</b></li>
         <li class='order-branch list-group-item'>BRANCH: <b>$branch</b></li>
         <li class='order-user list-group-item'>USER: <b>$username</b></li><br><br>
         <li class='order-user list-group-item active'><h4>Invoice details</h4></li>

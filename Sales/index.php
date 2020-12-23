@@ -145,6 +145,7 @@ if(!isset($_SESSION["active"]))
                                 <thead>
                                     <tr>
                                     <th scope="col"></th>
+                                    <th scope="col">ITEM CODE</th>
                                     <th scope="col">ITEM DESCRIPTION</th>
                                     <th scope="col">QTY</th>
                                     <th scope="col">UOM</th>
