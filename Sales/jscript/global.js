@@ -40,6 +40,7 @@ function update_totals()
    $(".invoice-v").text(($(".invoice-tv").text()-$(".invoice-twv").text()).toFixed(2));
 }
 
+
     $('#itemsModal').on('show.bs.modal', function (e) {
 
       
@@ -142,7 +143,7 @@ function update_totals()
      $('#tbody').append(`<tr id="R${++rowIdx}"> 
       <td class="text-center"> 
        <button class="btn btn-danger remove" 
-           type="button">Remove</button> 
+           type="button" onclick='$(this).parent().parent().remove(); update_totals();'>Remove</button> 
        </td> 
 
            <td class="row-index text-center item-text"> 
@@ -171,10 +172,12 @@ function update_totals()
       </tr>`); 
 
 
-      update_totals();
+      
     })
 
-    
+    $("#tbody").bind("DOMSubtreeModified", function() {
+      update_totals();
+  });  
     
   
 });

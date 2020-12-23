@@ -89,7 +89,7 @@ if(!isset($_SESSION["active"]))
                                             </label>
                                            
                                             <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" value="big">BIG
+                                                <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
                                             </label>
                                             
                                             <label class="col form-check-label">
