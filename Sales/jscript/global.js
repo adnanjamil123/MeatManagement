@@ -13,6 +13,7 @@ var items = [ "عجل كامل" ,
 
 $(document).ready(function(){
 
+  
 
 // this is for data to be transferred from button to modal
 function update_totals()

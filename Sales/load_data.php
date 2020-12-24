@@ -19,9 +19,12 @@ require_once ('functions.php');
         <li class='order-branch list-group-item'>BRANCH: <b>$branch</b></li>
         <li class='order-user list-group-item'>USER: <b>$username</b></li><br><br>
         <li class='order-user list-group-item active'><h4>Invoice details</h4></li>
-        <li class='order-no list-group-item'><b></b></li>
+        <li class='invoice-number list-group-item'><b></b></li>
         <li class='order-date list-group-item  vat-display'>TOTAL(Without VAT): <span class='invoice-twv font-weight-bold'></span></li>
         <li class='order-branch list-group-item vat-display'>VAT: <span class='invoice-v font-weight-bold'></span></li>
         <li class='order-branch list-group-item'>TOTAL: <span class='invoice-tv font-weight-bold'></span></li>
         </ul>";
  }
+
+
+ 

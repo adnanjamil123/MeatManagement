@@ -130,9 +130,9 @@ if(!isset($_SESSION["active"]))
 
                         <div class="row col-12 order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
 
-                            <button type="button" class="new btn btn-secondary col-2"  >NEW</button>
+                            <button type="button" class="new btn btn-secondary col-2" >NEW</button>
                             <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
-                            <button type="button" class="btn btn-secondary col-2"  >SAVE</button>
+                            <button type="button" class="btn btn-secondary col-2 save" >SAVE</button>
                             <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
 
