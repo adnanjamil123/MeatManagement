@@ -82,10 +82,10 @@ require_once ('functions.php');
 
     
 
-    $sql2="UPDATE orders SET invoice_no = $invoice_no WHERE order_no = $order_no";
+    $sql2="UPDATE orders SET invoice_no = $invoice_no, status = 'invoiced' WHERE order_no = $order_no";
 
     if(mysqli_query($db , $sql2)){
-      echo "success";
+      echo $invoice_no;
     }else
     {
       echo "failed";

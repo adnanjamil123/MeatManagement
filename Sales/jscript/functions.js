@@ -84,7 +84,7 @@ $(document).ready(function(){
             invoice_total:$invoice_total
         },function(data){
             if(data){
-                alert(data);
+                
                 $("div .invoice-number").text(data); 
             }
             
