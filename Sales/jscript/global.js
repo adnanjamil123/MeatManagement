@@ -53,7 +53,7 @@ function update_totals()
     $price = $($button).val();
    
     $('#itemsModal .modal-title').text($name);
-    $('#itemsModal .modal-title').attr('data-id', $id);
+    $('#itemsModal .modal-title').attr('data-id-item', $id);
     $('.modal-uom').text($uom);  
 
     $('#fprice').val($price);  
@@ -107,7 +107,7 @@ function update_totals()
       }
   
     })
-    var rowIdx = 0; 
+    //var rowIdx = 0; 
     $(".btn-confirm").click(function(){
 
       $price_with_vat= $('#fprice').val();  
@@ -136,19 +136,20 @@ function update_totals()
      $uom =$('.modal-uom').text(); 
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
      $vat = $("#item_clicked").attr('data-vat');
-     $id = $("#item_clicked").attr('data-id');
+     $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $price_without_vat= ($('#fprice').val())*(1-$vat);  
      $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
-     
-     $('#tbody').append(`<tr id="R${++rowIdx}"> 
+     $vat2 = ($total-$total_without_vat).toFixed(2);
+
+     $('#tbody').append(`<tr id="Row"> 
       <td class="text-center"> 
        <button class="btn btn-danger remove" 
-           type="button" onclick='$(this).parent().parent().remove(); update_totals();'>Remove</button> 
+           type="button" onclick='$(this).parent().parent().remove()'>Remove</button> 
        </td> 
 
             <td class="row-index text-center item-id"> 
-            ${$id}</td>
+            ${$item_id}</td>
 
            <td class="row-index text-center item-text"> 
             ${$desc}</td>
@@ -166,7 +167,7 @@ function update_totals()
             ${$price_with_vat}</td>
             
             <td class="row-index text-center item-vat vat-display"> 
-            ${$vat}</td>
+            ${$vat2}</td>
 
             <td class="row-index text-center item-without-vat vat-display"> 
             ${$total_without_vat}</td>
@@ -174,7 +175,6 @@ function update_totals()
             <td class="row-index text-center item-total"> 
             ${$total}</td>
       </tr>`); 
-
 
       
     })

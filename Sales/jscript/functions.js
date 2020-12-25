@@ -19,7 +19,8 @@ $(document).ready(function(){
 
     $(".save").click(function(){
         
-       
+        
+
         save_items();
         
       });
@@ -41,7 +42,11 @@ $(document).ready(function(){
             $item_total = $(this).find('.item-total').text();
 
 
-            $.post('insert_data.php',{
+            // $.post( "insert_data.php" , function(data){
+            //     alert (data);
+            // });
+
+            $.post("insert_data.php",{
                 order_no: $order_no,
                 item_id: $item_id,
                 item_qty: $item_qty,
@@ -52,9 +57,11 @@ $(document).ready(function(){
                 item_text: $item_text,
                 item_wv: $item_without_vat,
                 item_total: $item_total
-            },function(){
-                debugger;
+            },function(data){
+                alert(data);
             });
+
+           
         })
     }
 
