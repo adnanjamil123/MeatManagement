@@ -61,8 +61,21 @@ require_once ('functions.php');
     {
       $sql = "UPDATE orders SET payment_type = 'atm' WHERE order_no = $order_no";
       mysqli_query($db , $sql);
-      echo "success";
+      echo "atm";
     }else{
-      echo "failed";
+      echo "cash";
     }
+  }
+
+  if(isset($_POST['invoice_total']) && isset($_POST['invoice_wv']))
+  {
+    $invoice_total = $_POST['invoice_total'];
+    $invoice_wv = $_POST['invoice_wv'];
+    $order_no = $_POST['order_no'];
+    $invoice_vat = $_POST['invoice_v'];
+
+    
+
+    create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total );
+    //invoice_no	order_no	date	status	total_wvat	vat	total
   }

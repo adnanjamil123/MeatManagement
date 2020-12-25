@@ -105,5 +105,32 @@ require_once ('query_functions.php');
             
             
         };
+
+       function create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total ){
+         //invoice_no	order_no	date	status	total_wvat	vat	total
+
+         arabic_data();
+
+         $sql = "INSERT INTO invoice (order_no,	total_wvat,	vat,total) VALUES 
+         (?, ?, ?, ?);";
+
+            $stmt = mysqli_stmt_init($db);
+                    
+            if(!mysqli_stmt_prepare($stmt, $sql)){
+                echo"failed";
+                exit();
+            }
+            mysqli_stmt_bind_param($stmt, "iddd", $order_no, $invoice_wv, $invoice_vat, $invoice_total);
+
+            if(mysqli_stmt_execute($stmt)) { 
+                //$invocie_number = mysqli_insert_id($db);
+                //echo "$invocie_number";
+             } else {
+                echo "failed";
+             }
+          
+            mysqli_stmt_close($stmt);
+       };
+
         
  

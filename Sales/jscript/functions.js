@@ -28,6 +28,14 @@ $(document).ready(function(){
 
     function save_items()
     {
+        $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
+        $order_no = parseInt($(".order-no").text(),10);   // integer
+
+        $invoice_wv = parseFloat($(".invoice-twv").text());//invoice without vat in decimals
+        $invoice_vat = parseFloat($(".invoice-v").text());//invoice  vat in decimals
+        $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
+
+        
         $("#tbody tr:not(:first)").each(function(){
 
             $order_no = parseInt($(".order-no").text(),10);   // integer
@@ -40,10 +48,7 @@ $(document).ready(function(){
             $item_text = $(this).find('.item-text').text(); //text
             $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
             $item_total = parseFloat($(this).find('.item-total').text());// decimal
-            $payment_method = $("input[name='payment-opt']:checked").val();
-
-           
-            debugger;
+            
 
             $.post("load_data.php",{
                 order_no: $order_no,
@@ -57,25 +62,28 @@ $(document).ready(function(){
                 item_wv: $item_without_vat,
                 item_total: $item_total,
                 // payment_method: $payment_method 
-            }, function(data){
-                if(data == "success")
-                {   
-                    $.post("load_data.php",{
-                        order_no: $order_no,
-                        payment_method: $payment_method 
-                    },function(data){
-                        alert(data);
-                    })
-                }else
-                {
-                    
-                    alert("failed");
-                }
-            } )           
+            }
+               
+             )           
                 
             
 
            
+        })
+
+        $.post("load_data.php",{
+            order_no: $order_no,
+            payment_method: $payment_method 
+        })
+            
+        debugger;
+        $.post("load_data.php",{
+            order_no: $order_no,
+            invoice_wv:$invoice_wv,
+            invoice_v:$invoice_vat,
+            invoice_total:$invoice_total
+        },function(data){
+            alert(data);
         })
     }
 
