@@ -88,10 +88,21 @@ require_once ('query_functions.php');
                 echo"failed";
                 exit();
             }
-        
+
+            
+
             mysqli_stmt_bind_param($stmt, "iisiddddss", $order_no,$item_id,$item_text,$item_qty,$item_price,$item_without_vat,$item_vat,$item_total,$item_size,$item_uom);
-            mysqli_stmt_execute($stmt);
+            // mysqli_stmt_execute($stmt);
+
+            if(mysqli_stmt_execute($stmt)) { 
+                echo "success";
+             } else {
+                echo "failed";
+             }
+          
             mysqli_stmt_close($stmt);
+
+            
             
         };
         

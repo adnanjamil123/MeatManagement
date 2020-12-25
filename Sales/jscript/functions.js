@@ -40,8 +40,9 @@ $(document).ready(function(){
             $item_text = $(this).find('.item-text').text(); //text
             $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
             $item_total = parseFloat($(this).find('.item-total').text());// decimal
+            $payment_method = $("input[name='payment-opt']:checked").val();
 
-
+           
             debugger;
 
             $.post("load_data.php",{
@@ -54,11 +55,25 @@ $(document).ready(function(){
                 item_vat: $item_vat,
                 item_text: $item_text,
                 item_wv: $item_without_vat,
-                item_total: $item_total
-            },function(data){
-                alert(data);
+                item_total: $item_total,
+                // payment_method: $payment_method 
+            }, function(data){
+                if(data == "success")
+                {   
+                    $.post("load_data.php",{
+                        order_no: $order_no,
+                        payment_method: $payment_method 
+                    },function(data){
+                        alert(data);
+                    })
+                }else
+                {
+                    
+                    alert("failed");
+                }
+            } )           
                 
-            });
+            
 
            
         })
