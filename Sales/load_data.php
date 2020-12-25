@@ -15,7 +15,7 @@ require_once ('functions.php');
       echo  "<ul class='list-group'>
         <li class='order-user list-group-item active'><h4>Order details</h4></li>
         <li class='order-date list-group-item'><b>$date</b></li>
-        <li class='order-no list-group-item'>ORDER NO: <b>$order</b></li>
+        <li class='order-no list-group-item'><b>$order</b></li>
         <li class='order-branch list-group-item'>BRANCH: <b>$branch</b></li>
         <li class='order-user list-group-item'>USER: <b>$username</b></li><br><br>
         <li class='order-user list-group-item active'><h4>Invoice details</h4></li>
@@ -26,5 +26,22 @@ require_once ('functions.php');
         </ul>";
  }
 
+ if(isset($_POST['item_id']) && isset($_POST['order_no']))
+ {
+    $order_no = $_POST['order_no'];
+    $item_id = $_POST['item_id'];
+    $item_uom = $_POST['item_uom'];
+    $item_qty= $_POST['item_qty'];
+    $item_size = $_POST['item_size'];
+    $item_price= $_POST['item_price'];
+    $item_vat = $_POST['item_vat'];
+    $item_price= $_POST['item_price'];
+    $item_without_vat = $_POST['item_wv'];
+    $item_total= $_POST['item_total'];
+    $item_text= $_POST['item_text'];
 
+    insert_items($db, $order_no, $item_id,$item_text, $item_uom, $item_qty, $item_size, $item_price, $item_vat ,$item_without_vat,$item_total);
+
+    echo("success");
+ }
  

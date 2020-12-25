@@ -77,22 +77,22 @@ require_once ('query_functions.php');
      
         function insert_items($db, $order_no, $item_id,$item_text, $item_uom, $item_qty, $item_size, $item_price, $item_vat ,$item_without_vat,$item_total)
         {   
-            
+            arabic_data();
 
-            $sql = "INSERT INTO sales (order_no,	item,	item_description,	quantity,	price,	amount,	vat,	amount-vat,	size,	uom	) VALUES 
+            $sql = "INSERT INTO sales (order_no,	item,	item_description,	quantity,	price,	amount,	vat,	amount_vat,	size,	uom	) VALUES 
                     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         
             $stmt = mysqli_stmt_init($db);
         
             if(!mysqli_stmt_prepare($stmt, $sql)){
-                header("location: index.php?error=datainsertfailed");
+                echo"failed";
                 exit();
             }
         
             mysqli_stmt_bind_param($stmt, "iisiddddss", $order_no,$item_id,$item_text,$item_qty,$item_price,$item_without_vat,$item_vat,$item_total,$item_size,$item_uom);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
-            header("location: ../signup.php?error=none");
+            
         };
         
  

@@ -30,23 +30,21 @@ $(document).ready(function(){
     {
         $("#tbody tr:not(:first)").each(function(){
 
-            $order_no = $(".order-no").text();   
-            $item_id = $(this).find(".item-id").text();
-            $item_qty = $(this).find('.item-qty').text();
-            $item_uom = $(this).find('.item-uom').text();
-            $item_size = $(this).find('.item-size').text();
-            $item_price = $(this).find('.item-price').text();
-            $item_vat = $(this).find('.item-vat').text();
-            $item_text = $(this).find('.item-text').text();
-            $item_without_vat = $(this).find('.item-without-vat').text();
-            $item_total = $(this).find('.item-total').text();
+            $order_no = parseInt($(".order-no").text(),10);   // integer
+            $item_id = parseInt($(this).find(".item-id").text(),10); // integer
+            $item_qty = parseInt($(this).find('.item-qty').text(),10); // integer
+            $item_uom = $(this).find('.item-uom').text(); // text
+            $item_size = $(this).find('.item-size').text(); // text
+            $item_price = parseFloat($(this).find('.item-price').text());// decimal
+            $item_vat = parseFloat($(this).find('.item-vat').text());// decimal
+            $item_text = $(this).find('.item-text').text(); //text
+            $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
+            $item_total = parseFloat($(this).find('.item-total').text());// decimal
 
 
-            // $.post( "insert_data.php" , function(data){
-            //     alert (data);
-            // });
+            debugger;
 
-            $.post("insert_data.php",{
+            $.post("load_data.php",{
                 order_no: $order_no,
                 item_id: $item_id,
                 item_qty: $item_qty,
@@ -59,6 +57,7 @@ $(document).ready(function(){
                 item_total: $item_total
             },function(data){
                 alert(data);
+                
             });
 
            
