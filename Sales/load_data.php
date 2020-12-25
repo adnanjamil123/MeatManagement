@@ -69,6 +69,8 @@ require_once ('functions.php');
 
   if(isset($_POST['invoice_total']) && isset($_POST['invoice_wv']))
   {
+    global $db;
+
     $invoice_total = $_POST['invoice_total'];
     $invoice_wv = $_POST['invoice_wv'];
     $order_no = $_POST['order_no'];
@@ -76,6 +78,17 @@ require_once ('functions.php');
 
     
 
-    create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total );
-    //invoice_no	order_no	date	status	total_wvat	vat	total
+    $invoice_no = (int)create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total );
+
+    
+
+    $sql2="UPDATE orders SET invoice_no = $invoice_no WHERE order_no = $order_no";
+
+    if(mysqli_query($db , $sql2)){
+      echo "success";
+    }else
+    {
+      echo "failed";
+    }
+    
   }

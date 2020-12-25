@@ -123,8 +123,8 @@ require_once ('query_functions.php');
             mysqli_stmt_bind_param($stmt, "iddd", $order_no, $invoice_wv, $invoice_vat, $invoice_total);
 
             if(mysqli_stmt_execute($stmt)) { 
-                //$invocie_number = mysqli_insert_id($db);
-                //echo "$invocie_number";
+                $invocie_number = mysqli_insert_id($db);
+                return "$invocie_number";
              } else {
                 echo "failed";
              }

@@ -83,7 +83,11 @@ $(document).ready(function(){
             invoice_v:$invoice_vat,
             invoice_total:$invoice_total
         },function(data){
-            alert(data);
+            if(data){
+                alert(data);
+                $("div .invoice-number").text(data); 
+            }
+            
         })
     }
 
