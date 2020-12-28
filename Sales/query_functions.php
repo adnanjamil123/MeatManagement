@@ -42,7 +42,7 @@ function get_vat()
 
     confirm_result_set($results);
 
-    close_connection($db);
+  //  close_connection($db);
 
         return $results;
 
@@ -59,9 +59,25 @@ function get_date($date,$table,$col,$id){
 
     confirm_result_set($results);
 
-    close_connection($db);
+   // close_connection($db);
 
         return $results;
 
 };
+
+function get_branch_name($branch_id)
+{
+    global $db;
+
+    $sql = "SELECT branch_name FROM branch JOIN users ON users.branch_id = branch.id WHERE users.branch_id = $branch_id;";
+
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+
+    //close_connection($db2);
+
+        return $results;
+};
+
 

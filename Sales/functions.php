@@ -18,9 +18,9 @@ require_once ('query_functions.php');
             $show_sizes = ($post['item_size']>0 ? 'TRUE' : 'FALSE');
             $quantity_disable = ($post['quantity_fixed']>0 ? 'TRUE' : 'FALSE');
 
-            echo "<button id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
+            echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
              data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px' 
-             class='col-12 btn btn-success'>".$post['display_name']."</button></br>";
+             class='col-12 item-buttons btn btn-success'>".$post['display_name']."</button></br>";
         }
     } 
     
@@ -49,31 +49,31 @@ require_once ('query_functions.php');
        echo "";
         }
 
-        function test()
-        {
+        // function test()
+        // {
             
-            global $db;
+        //     global $db;
 
-             $sql = "SELECT * FROM users WHERE username = 'admin' ";
+        //      $sql = "SELECT * FROM users WHERE username = 'admin' ";
 
-            $results = mysqli_query($db , $sql);
+        //     $results = mysqli_query($db , $sql);
 
-            confirm_result_set($results);
+        //     confirm_result_set($results);
 
-            while($row= mysqli_fetch_row($results))
-            {
-                echo $row[0]. "<br>";
-                echo $row[1]. "<br>";
-                echo $row[2]. "<br>";
-                echo $row[3]. "<br>";
-                echo $row[4]. "<br>";
-                echo $row[5]. "<br>";
-                echo $row[6]. "<br>";
+        //     while($row= mysqli_fetch_row($results))
+        //     {
+        //         echo $row[0]. "<br>";
+        //         echo $row[1]. "<br>";
+        //         echo $row[2]. "<br>";
+        //         echo $row[3]. "<br>";
+        //         echo $row[4]. "<br>";
+        //         echo $row[5]. "<br>";
+        //         echo $row[6]. "<br>";
                
 
-            }
+        //     }
 
-        }
+        // }
      
         function insert_items($db, $order_no, $item_id,$item_text, $item_uom, $item_qty, $item_size, $item_price, $item_vat ,$item_without_vat,$item_total)
         {   
@@ -132,5 +132,5 @@ require_once ('query_functions.php');
             mysqli_stmt_close($stmt);
        };
 
+       
         
- 

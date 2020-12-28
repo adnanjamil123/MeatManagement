@@ -1,27 +1,47 @@
 $(document).ready(function(){
 
+    var old_order_html = $(".invoice-header").html();
+    var old_table_html = $("#tbody").html();
+
     $(".new").click(function(){
 
-        $user = $("#user-data").attr("data-username");
-        $branch = $("#user-data").attr("data-branch");
+        
+        $(".item-buttons").prop("disabled", false);
+        $("div .invoice-header").css("display","block");
+
+        $(".invoice-header").html(old_order_html);
+        $("#tbody").html(old_table_html);
+        
+    })
+
+    $(".clear").click(function(){
 
         
+        $(".item-buttons").prop("disabled", true);
+        $("div .invoice-header").css("display","none");
 
-     $("div .invoice-header").load('load_data.php',{
-            user:$user,
-            branch:$branch
-     },function(){
-         
-         
-     });
+        $(".invoice-header").html(old_order_html);
+        $("#tbody").html(old_table_html);
         
     })
 
     $(".save").click(function(){
         
+            $user = $("#user-data").attr("data-username");
+        $branch = $("#user-data").attr("data-branch");
+
         
 
+     $("div ul .order-no").load('load_data.php',{
+            user:$user,
+            branch:$branch
+     },function(){
+         
         save_items();
+         
+     });
+
+        
         
       });
 
@@ -61,22 +81,20 @@ $(document).ready(function(){
                 item_text: $item_text,
                 item_wv: $item_without_vat,
                 item_total: $item_total,
-                // payment_method: $payment_method 
+               
             }
                
              )           
                 
-            
-
            
         })
-
+        
         $.post("load_data.php",{
             order_no: $order_no,
             payment_method: $payment_method 
         })
             
-        debugger;
+        
         $.post("load_data.php",{
             order_no: $order_no,
             invoice_wv:$invoice_wv,

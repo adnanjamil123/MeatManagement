@@ -6,7 +6,6 @@ require_once ('db.php');
 require_once ('query_functions.php');
 require_once ('functions.php');
 
-
 //echo test();
 
 if(!isset($_SESSION["active"]))
@@ -131,7 +130,7 @@ if(!isset($_SESSION["active"]))
                         <div class="row col-12 order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
 
                             <button type="button" class="new btn btn-secondary col-2" >NEW</button>
-                            <button type="button" class="btn btn-secondary col-2"  >CLEAR</button>
+                            <button type="button" class="clear btn btn-secondary col-2"  >CLEAR</button>
                             <button type="button" class="btn btn-secondary col-2 save" >SAVE</button>
                             <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
                             <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
@@ -164,8 +163,27 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-3 invoice-header" id="invoice-header">
-                                  
+                            <div class="col-3 invoice-header" id="invoice-header" style="display:none">
+                                 <ul class='list-group'>
+                                <li class='order-user list-group-item active'><h4>Order details</h4></li>
+                                
+                                <li class='order-no list-group-item bg-success'><b></b></li>
+                                <li class='order-branch list-group-item'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
+                                <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['branch_name'];?></b></li>
+                                <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
+                                <li class='order-user list-group-item'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
+                                <li class='order-user list-group-item active'><h4>Invoice details</h4></li>
+                                <li class='invoice-number list-group-item bg-success'><b></b></li>
+                                <li class='invoice-date list-group-item '><b></b></li>
+                                <li class='inv-wt list-group-item  vat-display'>TOTAL(Without VAT): <span class='invoice-twv font-weight-bold'></span></li>
+                                <li class='invvat list-group-item vat-display'>VAT: <span class='invoice-v font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'>TOTAL: <span class='invoice-tv font-weight-bold'></span></li>
+
+                                <li class='list-group-item active'><div class='form-check-inline'><input class='form-check-input' type='radio' name='payment-opt' value='cash' checked>cash</input> 
+                                </div>
+                                
+                                <div class='form-check-inline'><input class='form-check-input' type='radio' name='payment-opt' value='atm'>atm</input>
+                                </div></li></ul>"
                                 </div><!--invoice-header-->
                                 
 
