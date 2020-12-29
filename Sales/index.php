@@ -58,7 +58,7 @@ if(!isset($_SESSION["active"]))
         
         </style>
     
-        <div class="main container-fluid vh-100 bg-dark">
+        <div class="main container-fluid vh-100" style="background:#204b6d">
 
         <div class="modal modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
@@ -106,16 +106,19 @@ if(!isset($_SESSION["active"]))
                         </div><!--modal-dialog-->
                     </div><!--modal-->
 
-                <nav class="navbar navbar-dark bg-info">
+                <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
-                    <h2 class="navbar-brand">Meat Management System</h2>
-                    <h6 class="navbar-text"><?php echo ("<p id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></h6>
+                     <a class="navbar-brand" href="#"><img src="logo.png" width="50" height="50"></a>   
+                     <span  class="navbar-text"><strong>Meat Management</strong> </span>   
+                     
+                    <span class="navbar-text"><?php echo ("<p id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
                     <a class="nav-link" href="includes/logout.inc.php">Log out</a>
+
                 </nav>
 
-            <div class="row sales-section container-fluid bg-dark justify-content-between" style="margin:auto">
+            <div class="row sales-section bg-light justify-content-between" style="margin:auto, height:90vh">
 
-                <div class="col-2  justify-content-around items-section bg-light" id="menu" style="height:700px">
+                <div class="col-2  justify-content-around items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
                     <?php
 
                         create_buttons();
@@ -125,39 +128,40 @@ if(!isset($_SESSION["active"]))
 
                 
 
-                <div class="col-10  order-section"  style = "background : gray">
+                <div class="col-10  order-section">
 
-                        <div class="row col-12 order-buttons justify-content-around btn-group btn-group-lg" role="group" aria-label="Basic example" style = "height: 50px">
+                        <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
 
-                            <button type="button" class="new btn btn-secondary col-2" >NEW</button>
-                            <button type="button" class="clear btn btn-secondary col-2"  >CLEAR</button>
-                            <button type="button" class="btn btn-secondary col-2 save" >SAVE</button>
-                            <button type="button" class="btn btn-secondary col-2"  >PRINT</button>
-                            <button type="button" class="btn btn-secondary col-2"  >SAVE&PRINT</button>
+                            <a type="button" class="new btn  col-2" >NEW</a>
+                            <a type="button" class="clear btn col-2"  >CLEAR</a>
+                            <a type="button" class="btn  col-2 save" >SAVE</a>
+                            <a type="button" class="btn  col-2"  >PRINT</a>
+                            <a type="button" class="btn col-2"  >SAVE&PRINT</a>
 
                         </div><!--order-buttons-->
                             
-                        <div class="row invoice" style="margin-top:10px">
-                            <div class="col-9 items-table table-responsive" style="max-height:600px">
+                        <div class="row invoice" style="margin-top:10px;">
 
-                                <table id="tbody" class="table table-dark table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">ITEM CODE</th>
-                                    <th scope="col">ITEM DESCRIPTION</th>
-                                    <th scope="col">QTY</th>
-                                    <th scope="col">UOM</th>
-                                    <th scope="col">SIZE</th>
-                                    <th scope="col">PRICE</th>
-                                    <th scope="col" class="vat-display">VAT</th>
-                                    <th scope="col" class="vat-display">TOTAL(V)</th>
-                                    <th scope="col">TOTAL</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
+                            <div class="col-9 items-table table-responsive" style="height:600px">
+
+                                <table id="tbody" class="table table-light table-striped table-bordered table-hover" style="display:none">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">ITEM CODE</th>
+                                        <th scope="col">ITEM DESCRIPTION</th>
+                                        <th scope="col">QTY</th>
+                                        <th scope="col">UOM</th>
+                                        <th scope="col">SIZE</th>
+                                        <th scope="col">PRICE</th>
+                                        <th scope="col" class="vat-display">VAT</th>
+                                        <th scope="col" class="vat-display">TOTAL(V)</th>
+                                        <th scope="col">TOTAL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
                                 </table>
 
                                

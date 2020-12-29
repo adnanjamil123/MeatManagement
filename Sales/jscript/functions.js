@@ -8,6 +8,7 @@ $(document).ready(function(){
         
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
+        $("div #tbody").css("display","block");
 
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);
@@ -19,6 +20,7 @@ $(document).ready(function(){
         
         $(".item-buttons").prop("disabled", true);
         $("div .invoice-header").css("display","none");
+        $("div #tbody").css("display","none");
 
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);

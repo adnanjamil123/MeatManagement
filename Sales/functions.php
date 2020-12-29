@@ -19,8 +19,8 @@ require_once ('query_functions.php');
             $quantity_disable = ($post['quantity_fixed']>0 ? 'TRUE' : 'FALSE');
 
             echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
-             data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px' 
-             class='col-12 item-buttons btn btn-success'>".$post['display_name']."</button></br>";
+             data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px; background:#204b6d' 
+             class='col-12 item-buttons btn text-light'>".$post['display_name']."</button></br>";
         }
     } 
     
