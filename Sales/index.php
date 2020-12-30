@@ -142,7 +142,7 @@ if(!isset($_SESSION["active"]))
                             
                         <div class="row invoice" style="margin-top:10px;">
 
-                            <div class="col-9  items-table table-responsive" style="height:600px; border-right:10px solid; border-color:#204b6d">
+                            <div class="col-9  items-table table-responsive" style="height:600px;">
 
                                 <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden; ">
                                     <thead class="text-light" style="background:#204b6d">
@@ -167,7 +167,7 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-3 invoice-header" id="invoice-header" style="display:none">
+                            <div class="col-3 invoice-header" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d">
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light' style="background:#204b6d"><h4>Order details</h4></li>
                                 
