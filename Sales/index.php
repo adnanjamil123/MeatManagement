@@ -53,7 +53,7 @@ if(!isset($_SESSION["active"]))
         <style>
 
         .vat-display{
-           /* display:none;  */
+           display:none; 
         }
         
         </style>
@@ -63,7 +63,7 @@ if(!isset($_SESSION["active"]))
         <div class="modal modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                             <div class="modal-content">
-                                <div class="modal-header bg-info text-light">
+                                <div class="modal-header text-light" style="background:#204b6d">
                                     <h3 class="modal-title">item description</h3>
                                     <button type="button" class="close"><span>&times;</span></button>
                                 </div><!--modal-header-->
@@ -98,7 +98,7 @@ if(!isset($_SESSION["active"]))
                                         </div>
                                     </div><!--modal-body-->
                                 <div class="modal-footer">
-                                    <button class="btn-confirm btn btn-secondary">
+                                    <button class="btn-confirm btn text-light" style="background:#204b6d">
                                             Confirm 
                                     </button>
                                 </div><!--modal-footer-->
@@ -108,10 +108,10 @@ if(!isset($_SESSION["active"]))
 
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
-                     <a class="navbar-brand" href="#"><img src="logo.png" width="50" height="50"></a>   
-                     <span  class="navbar-text"><strong>Meat Management</strong> </span>   
+                     <a class="navbar-brand" href="#">MMS |</a>   
+                     <span  class="navbar-text text-white"><strong>Meat Management |</strong> </span>   
                      
-                    <span class="navbar-text"><?php echo ("<p id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
+                    <span class="navbar-text"><?php echo ("<p  style = 'text-transform:uppercase;' id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
                     <a class="nav-link" href="includes/logout.inc.php">Log out</a>
 
                 </nav>
@@ -132,20 +132,20 @@ if(!isset($_SESSION["active"]))
 
                         <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
 
-                            <a type="button" class="new btn  col-2" >NEW</a>
-                            <a type="button" class="clear btn col-2"  >CLEAR</a>
-                            <a type="button" class="btn  col-2 save" >SAVE</a>
-                            <a type="button" class="btn  col-2"  >PRINT</a>
-                            <a type="button" class="btn col-2"  >SAVE&PRINT</a>
+                            <button type="button" class="new btn  col-2" >NEW</button>
+                            <button type="button" class="clear btn col-2"  >CLEAR</button>
+                            <button type="button" class="btn  col-2 save" >SAVE</button>
+                            <button type="button" class="btn  col-2"  >PRINT</button>
+                            <button type="button" class="btn col-2"  >SAVE&PRINT</button>
 
                         </div><!--order-buttons-->
                             
                         <div class="row invoice" style="margin-top:10px;">
 
-                            <div class="col-9 items-table table-responsive" style="height:600px">
+                            <div class="col-9  items-table table-responsive" style="height:600px">
 
-                                <table id="tbody" class="table table-light table-striped table-bordered table-hover" style="display:none">
-                                    <thead class="thead-dark">
+                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden">
+                                    <thead class="text-light" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>
                                         <th scope="col">ITEM CODE</th>
@@ -168,26 +168,26 @@ if(!isset($_SESSION["active"]))
                             </div><!--items-table-->
                             
                             <div class="col-3 invoice-header" id="invoice-header" style="display:none">
-                                 <ul class='list-group'>
-                                <li class='order-user list-group-item active'><h4>Order details</h4></li>
+                                 <ul class='list-group list-group'>
+                                <li class='order-user list-group-item text-light' style="background:#204b6d"><h4>Order details</h4></li>
                                 
-                                <li class='order-no list-group-item bg-success'><b></b></li>
+                                <li class='order-no list-group-item'><b></b></li>
                                 <li class='order-branch list-group-item'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
                                 <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['branch_name'];?></b></li>
                                 <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
                                 <li class='order-user list-group-item'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
-                                <li class='order-user list-group-item active'><h4>Invoice details</h4></li>
-                                <li class='invoice-number list-group-item bg-success'><b></b></li>
-                                <li class='invoice-date list-group-item '><b></b></li>
+                                <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>
+                                <li class='invoice-number list-group-item'><b></b></li>
+                                <li class='invoice-status list-group-item text-danger'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display'>TOTAL(Without VAT): <span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'>VAT: <span class='invoice-v font-weight-bold'></span></li>
                                 <li class='inv-total list-group-item'>TOTAL: <span class='invoice-tv font-weight-bold'></span></li>
 
-                                <li class='list-group-item active'><div class='form-check-inline'><input class='form-check-input' type='radio' name='payment-opt' value='cash' checked>cash</input> 
+                                <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light' type='radio' name='payment-opt' value='cash' checked>cash</input> 
                                 </div>
                                 
-                                <div class='form-check-inline'><input class='form-check-input' type='radio' name='payment-opt' value='atm'>atm</input>
-                                </div></li></ul>"
+                                <div class='form-check-inline text-light'><input class='form-check-input' type='radio' name='payment-opt' value='atm'>atm</input>
+                                </div></li></ul>
                                 </div><!--invoice-header-->
                                 
 

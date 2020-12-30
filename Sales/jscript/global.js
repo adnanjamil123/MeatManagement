@@ -144,7 +144,7 @@ function update_totals()
 
      $('#tbody').append(`<tr id="Row"> 
       <td class="text-center"> 
-       <button class="btn btn-danger remove" 
+       <button class="btn btn-remove text-light" style="background:#204b6d"
            type="button" onclick='$(this).parent().parent().remove()'>Remove</button> 
        </td> 
 

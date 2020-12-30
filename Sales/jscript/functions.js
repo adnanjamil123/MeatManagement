@@ -8,26 +8,56 @@ $(document).ready(function(){
         
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
-        $("div #tbody").css("display","block");
-
+        $("div #tbody").css("visibility","visible");
+        $(".save").prop("disabled",false);
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);
+        $(".clear").prop("disabled",false);
+        $(".invoice-status").text("Open");
+
+        $(".new").prop("disabled",true);
+        
+
         
     })
 
     $(".clear").click(function(){
 
-        
-        $(".item-buttons").prop("disabled", true);
+        if(confirm("Are you sure to clear all items?"))
+        {
+            $(".item-buttons").prop("disabled", true);
         $("div .invoice-header").css("display","none");
-        $("div #tbody").css("display","none");
+        $("div #tbody").css("visibility","hidden");
 
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);
+        $(".new").prop("disabled",false);
+        $(".save").prop("disabled",true);
+        $(".clear").prop("disabled",true);
+        }
+        
         
     })
 
     $(".save").click(function(){
+
+        
+
+        var tbody = $("#tbody tbody");
+
+        debugger;
+        if (tbody.children().length == 0) {
+            alert("Please enter items.");
+            return;
+        }
+
+        if (confirm('Are you sure you want to save this invoice?')) {
+            // Save it!
+            
+          } else {
+            // Do nothing!
+            return;
+          }
         
             $user = $("#user-data").attr("data-username");
         $branch = $("#user-data").attr("data-branch");
@@ -40,7 +70,11 @@ $(document).ready(function(){
      },function(){
          
         save_items();
-         
+        $(".btn-remove").prop("disabled", true); 
+        $(".invoice-status").text("Invoice-Closed");
+        $(".save").prop("disabled",true);
+        $(".item-buttons").prop("disabled", true);
+        $(".new").prop("disabled",false);
      });
 
         
