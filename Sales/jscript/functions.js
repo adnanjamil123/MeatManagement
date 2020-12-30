@@ -3,6 +3,8 @@ $(document).ready(function(){
     var old_order_html = $(".invoice-header").html();
     var old_table_html = $("#tbody").html();
 
+    $(".save, .print, .save-print, .clear").prop("disabled",true);
+
     $(".new").click(function(){
 
         

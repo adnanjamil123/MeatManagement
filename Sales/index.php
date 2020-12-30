@@ -135,16 +135,16 @@ if(!isset($_SESSION["active"]))
                             <button type="button" class="new btn  col-2" >NEW</button>
                             <button type="button" class="clear btn col-2"  >CLEAR</button>
                             <button type="button" class="btn  col-2 save" >SAVE</button>
-                            <button type="button" class="btn  col-2"  >PRINT</button>
-                            <button type="button" class="btn col-2"  >SAVE&PRINT</button>
+                            <button type="button" class="print btn  col-2"  >PRINT</button>
+                            <button type="button" class="save-print btn col-2"  >SAVE&PRINT</button>
 
                         </div><!--order-buttons-->
                             
                         <div class="row invoice" style="margin-top:10px;">
 
-                            <div class="col-9  items-table table-responsive" style="height:600px">
+                            <div class="col-9  items-table table-responsive" style="height:600px; border-right:10px solid; border-color:#204b6d">
 
-                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden">
+                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden; ">
                                     <thead class="text-light" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>

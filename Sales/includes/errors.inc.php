@@ -1,5 +1,7 @@
 <?php
 
+require_once ('../query_functions.php');
+
 function emptyInputSignup($name, $username, $branch, $pwd, $pwdrepeat)
 {
     $result;
@@ -69,6 +71,8 @@ function uidExists($db , $username)
 
 function create_user($db, $name, $username, $branch, $pwd)
 {
+    arabic_data();
+
     $sql = "INSERT INTO users (name, username, user_password, branch_id) VALUES 
             (?, ?, ?, ?);";
 
@@ -102,6 +106,8 @@ function emptyInputLogin($username, $pwd)
 
 function loginUser($db, $username, $pwd)
 {
+    arabic_data();
+    
     $user_exist = uidExists($db , $username);
 
     if($user_exist === false)
