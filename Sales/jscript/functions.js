@@ -47,7 +47,7 @@ $(document).ready(function(){
 
         var tbody = $("#tbody tbody");
 
-        debugger;
+        
         if (tbody.children().length == 0) {
             alert("Please enter items.");
             return;
@@ -93,6 +93,7 @@ $(document).ready(function(){
         $invoice_vat = parseFloat($(".invoice-v").text());//invoice  vat in decimals
         $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
 
+        var items_print = new Array();
         
         $("#tbody tr:not(:first)").each(function(){
 
@@ -107,6 +108,9 @@ $(document).ready(function(){
             $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
             $item_total = parseFloat($(this).find('.item-total').text());// decimal
             
+            var items_values = {name:"item name", qty:$item_qty, price:$item_total};
+           
+            items_print.push(items_values);
 
             $.post("load_data.php",{
                 order_no: $order_no,
@@ -123,10 +127,20 @@ $(document).ready(function(){
             }
                
              )           
-                
            
-        })
+             
+           
+        }
+       
+        )
+        console.log(items_print);
         
+        $.post("printer/index.php",{
+            itemsprint:items_print
+            
+        })
+
+
         $.post("load_data.php",{
             order_no: $order_no,
             payment_method: $payment_method 
