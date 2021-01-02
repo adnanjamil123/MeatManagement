@@ -61,7 +61,7 @@ $(document).ready(function(){
             return;
           }
         
-            $user = $("#user-data").attr("data-username");
+        $user = $("#user-data").attr("data-username");
         $branch = $("#user-data").attr("data-branch");
 
         
@@ -134,16 +134,16 @@ $(document).ready(function(){
        
         )
 
-        console.log(items_print);
+        // console.log(items_print);
         
-        $.post("printer/index.php",{
-            itemsprint:items_print
+        // $.post("printer/index.php",{
+        //     itemsprint:items_print
              
-        },function(data){
+        // },function(data){
             
-            alert (data);
+        //     alert (data);
             
-        })
+        // })
 
 
         $.post("load_data.php",{

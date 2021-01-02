@@ -6,10 +6,10 @@ require_once ('functions.php');
  if(isset($_POST['user']) && isset($_POST['branch']))
  {
     $username = $_POST['user'];
-    $branch = $_POST['branch'];
+    $branch = (int)$_POST['branch'];
 
     $order = create_order($db, $username, $branch);
-    $date = (mysqli_fetch_all(get_date("date","orders","order_no",$order) , MYSQLI_ASSOC))[0]['date'];
+   // $date = (mysqli_fetch_all(get_date("date","orders","order_no",$order) , MYSQLI_ASSOC))[0]['date'];
     
   
     echo $order;
@@ -44,7 +44,7 @@ require_once ('functions.php');
 
     if($payment_method == "atm")
     {
-      $sql = "UPDATE orders SET payment_type = 'atm' WHERE order_no = $order_no";
+      $sql = "UPDATE meat_orders SET payment_method = 'atm' WHERE id = $order_no";
       mysqli_query($db , $sql);
       echo "atm";
     }else{
@@ -67,7 +67,7 @@ require_once ('functions.php');
 
     
 
-    $sql2="UPDATE orders SET invoice_no = $invoice_no, status = 'invoiced' WHERE order_no = $order_no";
+    $sql2="UPDATE meat_orders SET invoice_no = $invoice_no, status = 'invoiced' WHERE id = $order_no";
 
     if(mysqli_query($db , $sql2)){
       echo $invoice_no;

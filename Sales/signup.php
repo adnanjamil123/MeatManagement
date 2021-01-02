@@ -65,7 +65,7 @@
             }else if($_GET["error"]=="stmtfailed")
             {
                 echo "<div class='alert alert-danger w-50' role='alert'>
-            Sonething went Wrong
+            Something went Wrong
             </div>";
             
             }

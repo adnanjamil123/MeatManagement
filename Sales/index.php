@@ -53,7 +53,7 @@ if(!isset($_SESSION["active"]))
         <style>
 
         .vat-display{
-           display:none; 
+           /* display:none;  */
         }
         
         </style>
@@ -116,9 +116,9 @@ if(!isset($_SESSION["active"]))
 
                 </nav>
 
-            <div class="row sales-section bg-light justify-content-between" style="margin:auto, height:90vh">
+            <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh">
 
-                <div class="col-2  justify-content-around items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
+                <div class="row col-3  justify-content-around items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
                     <?php
 
                         create_buttons();
@@ -128,7 +128,7 @@ if(!isset($_SESSION["active"]))
 
                 
 
-                <div class="col-10  order-section">
+                <div class="col-9  order-section">
 
                         <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
 
@@ -173,7 +173,7 @@ if(!isset($_SESSION["active"]))
                                 
                                 <li class='order-no list-group-item'><b></b></li>
                                 <li class='order-branch list-group-item'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
-                                <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['branch_name'];?></b></li>
+                                <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
                                 <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
                                 <li class='order-user list-group-item'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>

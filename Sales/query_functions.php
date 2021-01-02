@@ -18,10 +18,10 @@ function query_items(){
 
     arabic_data();
 
-    $sql = "SELECT *
-    FROM items  JOIN  stock_cetegory ON items.cetegory_id = stock_cetegory.cetegory_id
-    WHERE items.status = '1'
-    ORDER BY items.display_name DESC";
+    $sql = "SELECT *, meat_sale_items.id AS itemsid
+    FROM meat_sale_items  JOIN  meat_sale_categories ON meat_sale_items.sale_cat_id = meat_sale_categories.id
+    WHERE meat_sale_items.is_allow = '0'
+    ORDER BY meat_sale_items.name DESC LIMIT 24";
    
     $results = mysqli_query($db , $sql);
 
@@ -69,7 +69,7 @@ function get_branch_name($branch_id)
 {
     global $db;
 
-    $sql = "SELECT branch_name FROM branch JOIN users ON users.branch_id = branch.id WHERE users.branch_id = $branch_id;";
+    $sql = "SELECT meat_branches.name FROM meat_branches JOIN meat_sellers ON meat_sellers.branch_id = meat_branches.id WHERE meat_sellers.branch_id = $branch_id;";
 
     $results = mysqli_query($db , $sql);
 

@@ -43,7 +43,7 @@ function pwdMatch($pwd, $pwdrepeat)
 
 function uidExists($db , $username)
 {
-    $sql = "SELECT * FROM users WHERE username = ?;";
+    $sql = "SELECT * FROM meat_sellers WHERE username = ?;";
     $stmt = mysqli_stmt_init($db);
 
     if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -73,7 +73,7 @@ function create_user($db, $name, $username, $branch, $pwd)
 {
     arabic_data();
 
-    $sql = "INSERT INTO users (name, username, user_password, branch_id) VALUES 
+    $sql = "INSERT INTO meat_sellers (name, username, password, branch_id) VALUES 
             (?, ?, ?, ?);";
 
     $stmt = mysqli_stmt_init($db);
@@ -116,10 +116,10 @@ function loginUser($db, $username, $pwd)
         exit();
     }
 
-    $pwdhashed = $user_exist["user_password"];
+    $pwdhashed = $user_exist["password"];
     $checkpwd = password_verify($pwd, $pwdhashed);
 
-    if(!$user_exist["active"])
+    if(!$user_exist["is_allow"])
     {
         header("location: ../Login.php?error=inactiveusername");
         exit();
@@ -136,8 +136,8 @@ function loginUser($db, $username, $pwd)
         $_SESSION["name"] = $user_exist["name"];
         $_SESSION["username"] = $user_exist["username"];
         $_SESSION["branch"] = $user_exist["branch_id"];
-        $_SESSION["active"] = $user_exist["active"];
-        $_SESSION["uid"] = $user_exist["user_id"];
+        $_SESSION["active"] = $user_exist["is_allow"];
+        $_SESSION["uid"] = $user_exist["id"];
 
         header("location: ../index.php");
         exit();
