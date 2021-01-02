@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -19,6 +20,7 @@ if(!isset($_SESSION["active"]))
 
 
 <!doctype html>
+
 <html lang="en">
   <head>
     <title>Sales</title>
@@ -31,10 +33,9 @@ if(!isset($_SESSION["active"]))
     
   </head>
   <body>
-      
+  
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-       
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -118,12 +119,35 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh">
 
-                <div class="row col-3  justify-content-around items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
+                <div class="row col-3  justify-content-between items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
+                    
+                <div class="col-12 row justify-content-between" style="margin-top:5px" >
+                        
+                            <div class="dropdown col-5">
+                            <button class="item-buttons disabled btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
+                                <li><a href="#">asds</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                            </div>   
+                        
+                            <div class="dropdown col-5">
+                            <button class="item-buttons disabled btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
+                                <li><a href="#">asds</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                            </div>   
+                       
+                </div>
+
                     <?php
 
                         create_buttons();
                         
                     ?>
+
+
                 </div><!--item-section-->
 
                 
