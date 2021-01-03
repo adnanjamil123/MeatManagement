@@ -44,12 +44,14 @@ require_once ('functions.php');
 
     if($payment_method == "atm")
     {
-      $sql = "UPDATE meat_orders SET payment_method = 'atm' WHERE id = $order_no";
-      mysqli_query($db , $sql);
-      echo "atm";
+      $sql = "UPDATE meat_orders SET payment_method = 'CREDIT/DEBIT CARD' WHERE id = $order_no";
+     
+     // echo "CREDIT/DEBIT CARD";
     }else{
-      echo "cash";
+      $sql = "UPDATE meat_orders SET payment_method = 'CASH' WHERE id = $order_no";
     }
+    mysqli_query($db , $sql);
+
   }
 
   if(isset($_POST['invoice_total']) && isset($_POST['invoice_wv']))
