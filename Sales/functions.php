@@ -25,6 +25,29 @@ require_once ('query_functions.php');
              class='col-5 item-buttons btn text-light'>".$post['name']."</button></br>";
         }
     } 
+
+    function create_special_items_buttons()
+    {   
+        $posts = mysqli_fetch_all(query_special_items() , MYSQLI_ASSOC);
+        $vat = (mysqli_fetch_all(get_vat() , MYSQLI_ASSOC))[0]['tax_value'];
+        
+        
+        foreach ($posts as $post) {
+
+            
+            $id = $post['itemsid'];
+            $description = $post['name'];
+            // $uom = $post['uom'];
+            $uom="NA";
+            $price = round(($post['price']>0 ? $post['price'] : 0.00) * (1+$vat),2);
+            $show_sizes = ($post['options_status']>0 ? 'TRUE' : 'FALSE');
+            $quantity_disable = ($post['weight_status']>0 ? 'FALSE' : 'TRUE');
+
+            echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
+             data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:50px; background:#204b6d' 
+             class='item-buttons btn text-light w-100'>".$post['name']."</button></br>";
+        }
+    } 
     
     function create_order($db, $username, $branch)
     {
@@ -55,7 +78,7 @@ require_once ('query_functions.php');
         {   
             arabic_data();
 
-            $sql = "INSERT INTO sales (order_no,	item,	item_description,	quantity,	price,	amount,	vat,	amount_vat,	size,	uom	) VALUES 
+            $sql = "INSERT INTO meat_items (order_id,	sale_item_id,	item_description,	qty,	price,	amount,	vat,	amount_vat,	size,	uom	) VALUES 
                     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         
             $stmt = mysqli_stmt_init($db);

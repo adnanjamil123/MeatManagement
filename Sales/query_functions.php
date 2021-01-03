@@ -20,8 +20,27 @@ function query_items(){
 
     $sql = "SELECT *, meat_sale_items.id AS itemsid
     FROM meat_sale_items  JOIN  meat_sale_categories ON meat_sale_items.sale_cat_id = meat_sale_categories.id
-    WHERE meat_sale_items.is_allow = '0'
+    WHERE meat_sale_items.is_allow = '0' AND  sale_cat_id='1'
     ORDER BY meat_sale_items.name DESC LIMIT 24";
+   
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+
+
+        return $results;
+}
+
+function query_special_items(){
+
+    global $db;
+
+    arabic_data();
+
+    $sql = "SELECT *, meat_sale_items.id AS itemsid
+    FROM meat_sale_items  JOIN  meat_sale_categories ON meat_sale_items.sale_cat_id = meat_sale_categories.id
+    WHERE meat_sale_items.is_allow = '0' AND  sale_cat_id='2'
+    ORDER BY meat_sale_items.name DESC";
    
     $results = mysqli_query($db , $sql);
 

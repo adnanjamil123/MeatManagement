@@ -124,18 +124,20 @@ if(!isset($_SESSION["active"]))
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
                             <div class="dropdown col-5">
-                            <button class="item-buttons disabled btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
+                            <button class="item-buttons  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
-                                <li><a href="#">asds</a></li>
-                                <li class="divider"></li>
+                               
+                                
                             </ul>
                             </div>   
                         
                             <div class="dropdown col-5">
-                            <button class="item-buttons disabled btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
+                            <button class="item-buttons  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
-                                <li><a href="#">asds</a></li>
-                                <li class="divider"></li>
+                                 <?php
+                                    create_special_items_buttons()
+                                ?>
+                                
                             </ul>
                             </div>   
                        
