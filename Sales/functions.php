@@ -3,7 +3,7 @@
 require_once ('db.php');
 require_once ('query_functions.php');
                     
-    function create_buttons($category_id, $limit = 20, $offset= 0, $col=5)
+    function create_buttons($category_id, $limit = 20, $offset= 0, $col=5, $background="#204b6d", $text="text-light")
     {   
         $posts = mysqli_fetch_all(query_items($category_id, $limit, $offset) , MYSQLI_ASSOC);
         $vat = (mysqli_fetch_all(get_vat() , MYSQLI_ASSOC))[0]['tax_value'];
@@ -21,8 +21,8 @@ require_once ('query_functions.php');
             $quantity_disable = ($post['weight_status']>0 ? 'FALSE' : 'TRUE');
 
             echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
-             data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:60px; background:#204b6d' 
-             class='col-$col item-buttons btn text-light'>".$post['name']."</button></br>";
+             data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:60px; background:$background' 
+             class='col-$col item-buttons btn $text'>".$post['name']."</button></br>";
         }
     } 
 

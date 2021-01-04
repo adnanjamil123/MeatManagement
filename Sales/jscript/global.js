@@ -176,6 +176,7 @@ function update_totals()
             ${$total}</td>
       </tr>`); 
 
+      $('.modal').modal('hide');
       
     })
 

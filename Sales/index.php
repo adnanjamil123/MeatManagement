@@ -61,12 +61,12 @@ if(!isset($_SESSION["active"]))
     
         <div class="main container-fluid vh-100" style="background:#204b6d">
 
-        <div class="modal modal" id="itemsModal">
+        <div class="modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                             <div class="modal-content">
                                 <div class="modal-header text-light" style="background:#204b6d">
                                     <h3 class="modal-title">item description</h3>
-                                    <button type="button" class="close"><span>&times;</span></button>
+                                    <button type="button" data-dismiss="modal" class="close text-white"><span>&times;</span></button>
                                 </div><!--modal-header-->
                                     <div class="row modal-body justify-content-center">
                                         <div class="col-3">
@@ -129,11 +129,11 @@ if(!isset($_SESSION["active"]))
                         
                             <div class="dropdown col-5 ">
                             <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
-                            <ul class="dropdown-menu bg-info" role="menu" aria-labelledby="dLabel">            
+                            <ul class="dropdown-menu pl-2  overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px; background:lightgray">            
                                     
                             <?php
                                 // arguements category(general or special), optional limit, optional offset, optional grid column
-                                create_buttons(1, 50, 15, 12);
+                                create_buttons(1, 50, 15, 11,"white","text-black");
 
                             ?>
                                 
@@ -142,10 +142,10 @@ if(!isset($_SESSION["active"]))
                         
                             <div class="dropdown col-5">
                             <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
-                            <ul class="dropdown-menu bg-danger " role="menu" aria-labelledby="dLabel">            
+                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px; background:lightgray">            
                                  <?php
                                     // arguements category(general or special), optional limit, optional offset, optional grid column
-                                    create_buttons(2,50,0, 12);
+                                    create_buttons(2,50,0,11,"white","text-black");
                                 ?>
                                 
                             </ul>
