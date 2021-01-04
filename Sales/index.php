@@ -77,11 +77,11 @@ if(!isset($_SESSION["active"]))
                                             <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="1"></input></div>
                                             
                                         </div>
-                                        <div class="my-auto col-1">
-                                        <span id="fuom" class="modal-uom w-100"></span>
+                                        <div class="col-1 pt-4">
+                                        <span id="fuom" class="modal-uom"></span>
                                         </div>
                                         
-                                        <div class="row col-3 form-check item-sizes">
+                                        <div class="row col-5 form-check item-sizes pl-5">
 
 
                                             <label class="col form-check-label">
@@ -112,30 +112,40 @@ if(!isset($_SESSION["active"]))
                      <a class="navbar-brand" href="#">MMS |</a>   
                      <span  class="navbar-text text-white"><strong>Meat Management |</strong> </span>   
                      
-                    <span class="navbar-text"><?php echo ("<p  style = 'text-transform:uppercase;' id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
-                    <a class="nav-link" href="includes/logout.inc.php">Log out</a>
+                  
+                       <p class="ml-auto">
+                            <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
+                            <a class="nav-link" href="includes/logout.inc.php">Log out</a></span>
+                       </p>
+                 
 
                 </nav>
 
-            <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh">
+            <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh, background:aliceblue;">
 
-                <div class="row col-3  justify-content-between items-section bg-light" id="menu" style="height:90vh; border-right:10px solid; border-color:#204b6d">
+                <div class="row col-3 justify-content-center items-section" id="menu" style="height:90vh; border-right:10px solid;background:aliceblue; border-color:#204b6d">
                     
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
-                            <div class="dropdown col-5">
-                            <button class="item-buttons  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
-                               
+                            <div class="dropdown col-5 ">
+                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
+                            <ul class="dropdown-menu bg-info" role="menu" aria-labelledby="dLabel">            
+                                    
+                            <?php
+                                // arguements category(general or special), optional limit, optional offset, optional grid column
+                                create_buttons(1, 50, 15, 12);
+
+                            ?>
                                 
                             </ul>
                             </div>   
                         
                             <div class="dropdown col-5">
-                            <button class="item-buttons  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">            
+                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
+                            <ul class="dropdown-menu bg-danger " role="menu" aria-labelledby="dLabel">            
                                  <?php
-                                    create_special_items_buttons()
+                                    // arguements category(general or special), optional limit, optional offset, optional grid column
+                                    create_buttons(2,50,0, 12);
                                 ?>
                                 
                             </ul>
@@ -144,8 +154,8 @@ if(!isset($_SESSION["active"]))
                 </div>
 
                     <?php
-
-                        create_buttons();
+                        // arguements category(general or special), optional limit, optional offset, optional grid column
+                        create_buttons(1);
                         
                     ?>
 
