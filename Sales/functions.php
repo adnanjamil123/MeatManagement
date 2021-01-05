@@ -17,7 +17,8 @@ require_once ('query_functions.php');
             // $uom = $post['uom'];
             $uom=$post['unit_type']==0?"":($post['unit_type']==1?"KG":"PC");
             $price = round(($post['price']>0 ? $post['price'] : 0.00) * (1+$vat),2);
-            $show_sizes = ($post['options_status']>0 ? 'TRUE' : 'FALSE');
+            // $show_sizes = ($post['options_status']>0 ? 'TRUE' : 'FALSE');
+            $show_sizes = $post['options_status'];
             $quantity_disable = ($post['weight_status']>0 ? 'FALSE' : 'TRUE');
 
             echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'

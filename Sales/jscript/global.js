@@ -66,7 +66,7 @@ function update_totals()
 
       var $button = e.relatedTarget;
       
-      
+                  
      
       $show_sizes = $($button).attr('data-size');
       $qty_disabled = $($button).attr('data-qty-disable');
@@ -86,15 +86,46 @@ function update_totals()
         $('#fprice').select();
       }
       
-      if($show_sizes == "FALSE")
+      if($show_sizes == 0)
       {
         
         $('div .item-sizes').hide();
         
-      }else
+      }else if($show_sizes == 1)
       {
         $('div .item-sizes').show();
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-success">
+              <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
+          </label>
+          
+          <label class="col form-check-label text-primary">
+              <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
+          </label>
+          
+          <label class="col form-check-label text-info">
+              <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
+          </label>`
+        );
+
+      }else if($show_sizes == 2)
+      {
+        $('div .item-sizes').show();
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-danger">
+              <input type="radio" class="form-check-input" name="optradio" value="full" checked>FULL
+          </label>
+          
+          <label class="col form-check-label  text-primary">
+              <input type="radio" class="form-check-input" name="optradio" value="half">HALF
+          </label>
+          
+          <label class="col form-check-label  text-success">
+              <input type="radio" class="form-check-input" name="optradio" value="quarter">QUARTER
+          </label>`
+        );
       }
+      
 
       if($qty_disabled == "FALSE")
       {

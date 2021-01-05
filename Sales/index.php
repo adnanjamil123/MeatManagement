@@ -56,7 +56,10 @@ if(!isset($_SESSION["active"]))
         .vat-display{
            /* display:none;  */
         }
-        
+        .list-group-item{
+             
+            background:azure;
+        }
         </style>
     
         <div class="main container-fluid vh-100" style="background:#204b6d">
@@ -84,17 +87,7 @@ if(!isset($_SESSION["active"]))
                                         <div class="row col-5 form-check item-sizes pl-5">
 
 
-                                            <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
-                                            </label>
-                                           
-                                            <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
-                                            </label>
                                             
-                                            <label class="col form-check-label">
-                                                <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
-                                            </label>
 
                                         </div>
                                     </div><!--modal-body-->
@@ -207,7 +200,7 @@ if(!isset($_SESSION["active"]))
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light' style="background:#204b6d"><h4>Order details</h4></li>
                                 
-                                <li class='order-no list-group-item'><b></b></li>
+                                <li class='order-no list-group-item' ><b></b></li>
                                 <li class='order-branch list-group-item'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
                                 <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
                                 <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
