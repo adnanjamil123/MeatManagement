@@ -62,7 +62,7 @@ if(!isset($_SESSION["active"]))
         }
         </style>
     
-        <div class="main container-fluid vh-100" style="background:#204b6d">
+        <div class="main container-fluid" style="background:#204b6d;height:97vh">
 
         <div class="modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
@@ -227,6 +227,12 @@ if(!isset($_SESSION["active"]))
             </div><!--sales-section-->  
       
         </div><!--main-->
-        
+        <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
+  <!-- Copyright -->
+  <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2020 Copyright: MMS
+     </div>
+  <!-- Copyright -->
+</footer>
     </body>
 </html>
