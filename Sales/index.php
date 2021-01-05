@@ -40,11 +40,11 @@ if(!isset($_SESSION["active"]))
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
+        <script src="http://translate.google.com/support/#googtrans(en|fr) "></script>
         <script src="jscript/global.js"></script>
         <script src="jscript/trap_focus.js"></script>
         <script src="jscript/functions.js"></script>
-        
+        <script src="jscript/language.js"></script>
         <script>
               
            
@@ -159,13 +159,13 @@ if(!isset($_SESSION["active"]))
 
                 <div class="col-9  order-section">
 
-                        <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
+                        <div lang="ar" class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
 
-                            <button type="button" class="new btn  col-2" >NEW</button>
+                            <button type="button" class="new btn  col-2" data-key="btn-new">DEFAULT</button>
                             <button type="button" class="clear btn col-2"  >CLEAR</button>
                             <button type="button" class="btn  col-2 save" >SAVE</button>
                             <button type="button" class="print btn  col-2"  >PRINT</button>
-                            <button type="button" class="save-print btn col-2"  >SAVE&PRINT</button>
+                            <button type="button" class="save-print btn col-2"  >SAVE & PRINT</button>
 
                         </div><!--order-buttons-->
                             
@@ -230,7 +230,7 @@ if(!isset($_SESSION["active"]))
         <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
   <!-- Copyright -->
   <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
-        <span class="internet-status"></span>
+        <span class="internet-status"><script></script></span>
      </div>
   <!-- Copyright -->
 </footer>
