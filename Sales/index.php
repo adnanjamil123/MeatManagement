@@ -230,7 +230,7 @@ if(!isset($_SESSION["active"]))
         <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
   <!-- Copyright -->
   <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
-    © 2020 Copyright: MMS
+        <span class="internet-status"></span>
      </div>
   <!-- Copyright -->
 </footer>

@@ -12,8 +12,24 @@ var items = [ "عجل كامل" ,
 
 
 $(document).ready(function(){
+  $("div .internet-status").text("Connected");
 
+  // this is for checking internet connection.
+  function handleConnectionChange(event){
+    
+    if(event.type == "offline"){
+        $("div .internet-status").text("Disconnected");
+    }
+    if(event.type == "online"){
+     
+      $("div .internet-status").text("Connected");
+    }
+    
+    console.log(new Date(event.timeStamp));
+}
   
+window.addEventListener('online', handleConnectionChange);
+window.addEventListener('offline', handleConnectionChange);
 
 // this is for data to be transferred from button to modal
 function update_totals()
@@ -138,6 +154,7 @@ function update_totals()
       }
   
     })
+
     //var rowIdx = 0; 
     $(".btn-confirm").click(function(){
 

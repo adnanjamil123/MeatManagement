@@ -48,6 +48,13 @@ $(document).ready(function(){
 
         var tbody = $("#tbody tbody");
 
+        if(navigator.onLine){
+
+        }else
+        {
+            alert("No internet Connection");
+            return;
+        }
         
         if (tbody.children().length == 0) {
             alert("Please enter items.");
