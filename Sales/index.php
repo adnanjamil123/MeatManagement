@@ -175,7 +175,7 @@ if(!isset($_SESSION["active"]))
 
                             <div  class="col-9  items-table table-responsive" style="height:600px;">
 
-                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;>
+                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
                                     <thead class="text-light" style="background:#204b6d">
                                         <tr>
