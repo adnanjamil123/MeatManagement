@@ -8,7 +8,6 @@ $(document).ready(function(){
 
     $(".new").click(function(){
 
-        
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
         $("div #tbody").css("visibility","visible");

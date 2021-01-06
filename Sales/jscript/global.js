@@ -129,15 +129,15 @@ function update_totals()
         $('div .item-sizes').show();
         $('div .item-sizes').html(
           `<label class="col form-check-label text-danger">
-              <input type="radio" class="form-check-input" name="optradio" value="full" checked>FULL
+              <input type="radio" class="form-check-input" name="optradio" value="full" checked data-key="lng-full">FULL
           </label>
           
           <label class="col form-check-label  text-primary">
-              <input type="radio" class="form-check-input" name="optradio" value="half">HALF
+              <input type="radio" class="form-check-input" name="optradio" value="half" data-key="lng-half">HALF
           </label>
           
           <label class="col form-check-label  text-success">
-              <input type="radio" class="form-check-input" name="optradio" value="quarter">QUARTER
+              <input type="radio" class="form-check-input" name="optradio" value="quarter" data-key="lng-quarter">QUARTER
           </label>`
         );
       }
@@ -231,12 +231,16 @@ function update_totals()
     $("#tbody").bind("DOMSubtreeModified", function() {
       update_totals();
   });  
+
+  
     function close_modal()
     {
       var modal = document .getElementById("itemsModal");
       
     }
   
+
+    
 });
 
 

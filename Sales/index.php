@@ -21,7 +21,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="en">
+<html lang="ar">
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -40,14 +40,15 @@ if(!isset($_SESSION["active"]))
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="http://translate.google.com/support/#googtrans(en|fr) "></script>
-        <script src="jscript/global.js"></script>
-        <script src="jscript/trap_focus.js"></script>
-        <script src="jscript/functions.js"></script>
         <script src="jscript/language.js"></script>
+        <script src="jscript/global.js"></script>
+        <script src="jscript/functions.js"></script>
+        <script src="jscript/trap_focus.js"></script>
+       
+        
         <script>
               
-           
+             
            
         </script>
 
@@ -73,11 +74,11 @@ if(!isset($_SESSION["active"]))
                                 </div><!--modal-header-->
                                     <div class="row modal-body justify-content-center">
                                         <div class="col-3">
-                                            <div><label for="fprice">Price:</label><input id="fprice"type = "number" class="w-100" step="1" autofocus></input></div>
+                                            <div><label for="fprice" data-key="lng-price">Price:</label><input id="fprice"type = "number" class="w-100" step="1" autofocus></input></div>
                                             
                                         </div>
                                         <div class="col-3">
-                                            <div><label for="fqty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="1"></input></div>
+                                            <div><label for="fqty" data-key="lng-qty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="1"></input></div>
                                             
                                         </div>
                                         <div class="col-1 pt-4">
@@ -159,33 +160,33 @@ if(!isset($_SESSION["active"]))
 
                 <div class="col-9  order-section">
 
-                        <div lang="ar" class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
+                        <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
 
-                            <button type="button" class="new btn  col-2" data-key="btn-new">DEFAULT</button>
-                            <button type="button" class="clear btn col-2"  >CLEAR</button>
-                            <button type="button" class="btn  col-2 save" >SAVE</button>
-                            <button type="button" class="print btn  col-2"  >PRINT</button>
-                            <button type="button" class="save-print btn col-2"  >SAVE & PRINT</button>
+                            <button type="button" class="new btn  col-2" data-key="btn-new">NEW</button>
+                            <button type="button" class="clear btn col-2" data-key="btn-clear" >CLEAR</button>
+                            <button type="button" class="btn  col-2 save" data-key="btn-save">SAVE</button>
+                            <button type="button" class="print btn  col-2" data-key="btn-print" >PRINT</button>
+                            <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button>
 
                         </div><!--order-buttons-->
                             
                         <div class="row invoice" style="margin-top:10px;">
 
-                            <div class="col-9  items-table table-responsive" style="height:600px;">
+                            <div  class="col-9  items-table table-responsive" style="height:600px;">
 
-                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden; ">
+                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;>
                                     <thead class="text-light" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>
-                                        <th scope="col">ITEM CODE</th>
-                                        <th scope="col">ITEM DESCRIPTION</th>
-                                        <th scope="col">QTY</th>
-                                        <th scope="col">UOM</th>
-                                        <th scope="col">SIZE</th>
-                                        <th scope="col">PRICE</th>
-                                        <th scope="col" class="vat-display">VAT</th>
-                                        <th scope="col" class="vat-display">TOTAL(V)</th>
-                                        <th scope="col">TOTAL</th>
+                                        <th scope="col" data-key="lng-code">ITEM CODE</th>
+                                        <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
+                                        <th scope="col" data-key="lng-qty">QTY</th>
+                                        <th scope="col"  data-key="lng-uom">UOM</th>
+                                        <th scope="col" data-key="lng-size">SIZE</th>
+                                        <th scope="col" data-key="lng-price">PRICE</th>
+                                        <th scope="col" class="vat-display" data-key="lng-vat">VAT</th>
+                                        <th scope="col" class="vat-display" data-key="lng-wvat">TOTAL(V)</th>
+                                        <th scope="col" data-key="lng-total">TOTAL</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -208,9 +209,9 @@ if(!isset($_SESSION["active"]))
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>
                                 <li class='invoice-number list-group-item'><b></b></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
-                                <li class='inv-wt list-group-item  vat-display'>TOTAL(Without VAT): <span class='invoice-twv font-weight-bold'></span></li>
-                                <li class='invvat list-group-item vat-display'>VAT: <span class='invoice-v font-weight-bold'></span></li>
-                                <li class='inv-total list-group-item'>TOTAL: <span class='invoice-tv font-weight-bold'></span></li>
+                                <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<span class='invoice-twv font-weight-bold'></span></li>
+                                <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<span class='invoice-v font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span>&#58;&nbsp;<span class='invoice-tv font-weight-bold'></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light' type='radio' name='payment-opt' value='cash' checked>cash</input> 
                                 </div>
@@ -235,4 +236,5 @@ if(!isset($_SESSION["active"]))
   <!-- Copyright -->
 </footer>
     </body>
+    
 </html>
