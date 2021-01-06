@@ -42,8 +42,9 @@ if(!isset($_SESSION["active"]))
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="jscript/language.js"></script>
         <script src="jscript/global.js"></script>
-        <script src="jscript/functions.js"></script>
         <script src="jscript/trap_focus.js"></script>
+        <script src="jscript/functions.js"></script>
+        
        
         
         <script>
@@ -175,6 +176,7 @@ if(!isset($_SESSION["active"]))
                             <div  class="col-9  items-table table-responsive" style="height:600px;">
 
                                 <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;>
+                                   
                                     <thead class="text-light" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>
