@@ -115,7 +115,7 @@ $(document).ready(function(){
             $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
             $item_total = parseFloat($(this).find('.item-total').text());// decimal
             
-            var items_values = {name:"123", qty:$item_qty, price:$item_total};
+            var items_values = {name:$item_text, qty:$item_qty, price:$item_total};
            
             items_print.push(items_values);
 
@@ -141,16 +141,16 @@ $(document).ready(function(){
        
         )
 
-        // console.log(items_print);
+        console.log(items_print);
         
-        // $.post("printer/index.php",{
-        //     itemsprint:items_print
+        $.post("printer/index.php",{
+            itemsprint:items_print
              
-        // },function(data){
+        },function(data){
             
-        //     alert (data);
+            alert (data);
             
-        // })
+        })
 
 
         $.post("load_data.php",{
