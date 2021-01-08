@@ -143,7 +143,7 @@ $(document).ready(function(){
 
         console.log(items_print);
         
-        $.post("printer/index.php",{
+        $.post("printer/index2.php",{
             itemsprint:items_print
              
         },function(data){

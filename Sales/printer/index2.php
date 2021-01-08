@@ -142,46 +142,46 @@ $printer -> setPrintBuffer($buffer);
 		$printer->feed(1);
 		$printer->setEmphasis(false);
 		
-		$items = [];
+		$items = $_POST['itemsprint'];
 		
-		$items[] = [
-			'name' => addSpacesToCompleteString($Arabic -> utf8Glyphs('Ali علي')),
-			'qty' => '5',
-			'price' => 'SAR 3,575.00'
+		// $items[] = [
+		// 	'name' => addSpacesToCompleteString($Arabic -> utf8Glyphs('Ali علي')),
+		// 	'qty' => '5',
+		// 	'price' => 'SAR 3,575.00'
 
-		];
+		// ];
 		
 		
-		$items[] = [
-			'name' => 'Web Design Development JS',
-			'qty' => '3',
-			'price' => 'SAR 225.00'
+		// $items[] = [
+		// 	'name' => 'Web Design Development JS',
+		// 	'qty' => '3',
+		// 	'price' => 'SAR 225.00'
 
-		];
+		// ];
 		
 		
-		$items[] = [
-			'name' => 'Web Design Development JS C++ PHP',
-			'qty' => '5',
-			'price' => 'SAR 375.00'
+		// $items[] = [
+		// 	'name' => 'Web Design Development JS C++ PHP',
+		// 	'qty' => '5',
+		// 	'price' => 'SAR 375.00'
 
-		];
+		// ];
 		
 		
-		$items[] = [
-			'name' => 'Web  Development JS',
-			'qty' => '20',
-			'price' => 'SAR 1500.00'
+		// $items[] = [
+		// 	'name' => 'Web  Development JS',
+		// 	'qty' => '20',
+		// 	'price' => 'SAR 1500.00'
 
-		];
+		// ];
 		
 		
-		$items[] = [
-			'name' => addSpacesToCompleteString('Web Design'),
-			'qty' => '10',
-			'price' => 'SAR 750.00'
+		// $items[] = [
+		// 	'name' => addSpacesToCompleteString('Web Design'),
+		// 	'qty' => '10',
+		// 	'price' => 'SAR 750.00'
 
-		];
+		// ];
 		
 		
 		$buffer -> setFontSize(25);
