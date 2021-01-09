@@ -1,4 +1,5 @@
 <?php
+$invoice_data=$_POST['invoice_data'];
 
 date_default_timezone_set ("Asia/Riyadh");
 	//phpinfo();
@@ -18,7 +19,13 @@ date_default_timezone_set ("Asia/Riyadh");
 
 		return $string;
 	}
-	
+		function arStringLength($str) 
+		{
+		if(mb_detect_encoding($str) == 'UTF-8') {
+			$str = utf8_decode($str);
+		}
+		return strlen($str);
+		}
 	
 	function addSpacesToCompleteString($string) {
 
@@ -128,7 +135,7 @@ $printer -> setPrintBuffer($buffer);
 		
 		$buffer -> setFontSize(45);
 		//$printer->text($Arabic -> utf8Glyphs("Invoice#") .$InvoiceNo);
-		$printer->text( $Arabic -> utf8Glyphs($InvoiceNo) . $Arabic -> utf8Glyphs("فاتورة#"));
+		$printer->text($invoice_data[0]['inv'] . $Arabic -> utf8Glyphs("فاتورة#"));
 		$printer->feed(1);
 		$buffer -> setFontSize(28);
 		//$printer->text(addSpaces("Cashier: " . substr($Cashier, 0, 18) , 26) . " " . addSpaces($Date , 22));
@@ -143,6 +150,7 @@ $printer -> setPrintBuffer($buffer);
 		$printer->setEmphasis(false);
 		
 		$items = $_POST['itemsprint'];
+		
 		
 		// $items[] = [
 		// 	'name' => addSpacesToCompleteString($Arabic -> utf8Glyphs('Ali علي')),
@@ -187,8 +195,14 @@ $printer -> setPrintBuffer($buffer);
 		$buffer -> setFontSize(25);
 		
 		foreach ($items as $item) {
-		   $printer->text(addSpaces(substr($item['name'], 0 , 18), 40) . addSpaces($Arabic -> utf8Glyphs($item['qty']), 10) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
-		   $printer->feed(1);
+		//    $printer->text(addSpaces(substr($item['name'], 0 , 18), 40) . addSpaces($Arabic -> utf8Glyphs($item['qty']), 10) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
+		//    $printer->text(addSpaces(mb_substr($item['name'],10,1,'utf-8')) . addSpaces($Arabic -> utf8Glyphs($item['qty']), 10) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
+		// $printer->text(addSpaces("item",45). addSpaces($Arabic -> utf8Glyphs($item['qty']), 15) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
+		$printer->text("--------------------------------------------------------------------------------------------");
+		$printer->text(addSpaces("item",45). addSpaces($item['qty'],15) . addSpaces($item['price'],30));
+		
+		$printer->text($Arabic -> utf8Glyphs($item['name'])); 
+		$printer->feed(1);
 		   
 		}
 		
@@ -206,11 +220,11 @@ $printer -> setPrintBuffer($buffer);
 		$buffer -> setFontSize(30);
 		$printer->feed(2);
 		$printer->setEmphasis(true);
-		$printer->text(addSpaces('', 20) .  addSpaces(substr('SAR 100.00',0,17), 17) . addSpaces($Arabic -> utf8Glyphs('مجموع : '), 14) );
+		$printer->text(addSpaces('', 20) .  addSpaces(substr($invoice_data[0]['total'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('مجموع : '), 14) );
 		$printer->feed(1);
-		$printer->text(addSpaces('', 20) . addSpaces(substr('SAR 5,000.00',0,17), 17) . addSpaces($Arabic -> utf8Glyphs('السيولة النقدية : '), 14) );
+		$printer->text(addSpaces('', 20) . addSpaces(substr($invoice_data[0]['cash'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المبلغ المستلم : '), 14) );
 		$printer->feed(1);
-		$printer->text(addSpaces('', 20) .  addSpaces(substr('SAR 1,355.75',0,17), 17) . addSpaces($Arabic -> utf8Glyphs('توازن : '), 14) );
+		$printer->text(addSpaces('', 20) .  addSpaces(substr($invoice_data[0]['bal'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المتبقية : '), 14) );
 		$printer->feed(2);
 		$printer->setEmphasis(false);
 		
