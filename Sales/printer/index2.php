@@ -1,6 +1,7 @@
 <?php
 $invoice_data=$_POST['invoice_data'];
 $invoice_number=$_POST['inv_no'];
+$user=$_POST['user'];
 
 date_default_timezone_set ("Asia/Riyadh");
 	//phpinfo();
@@ -72,7 +73,9 @@ $Arabic = new I18N_Arabic('Glyphs');
  * Inputs are some text, line wrapping options, and a font size. 
  */
 
-$Cashier = $Arabic -> utf8Glyphs("علي ج");
+// $Cashier = $Arabic -> utf8Glyphs($user[0]);
+$username = explode(" ", $user[1],2);
+$cashier= $username[0];
 	$Date = date("d/m/Y H:i A");
 	$InvoiceNo = "1704";
 	
@@ -124,7 +127,7 @@ $printer -> setPrintBuffer($buffer);
 		
 		$buffer -> setFontSize(55);
 		//$printer->text($Arabic -> utf8Glyphs("Main Street, Branch 1"));
-		$printer->text($Arabic -> utf8Glyphs("الشارع الرئيسي ، فرع 1"));
+		$printer->text($user[0].$Arabic -> utf8Glyphs("الشارع الرئيسي ، فرع "));
 		$printer->feed(1);
 		//$printer->text($Arabic -> utf8Glyphs("Al Kandara, Saudia Arabia"));
 		//$printer->text($Arabic -> utf8Glyphs("الكندرة ، المملكة العربية السعودية"));
@@ -140,7 +143,9 @@ $printer -> setPrintBuffer($buffer);
 		$printer->feed(1);
 		$buffer -> setFontSize(28);
 		//$printer->text(addSpaces("Cashier: " . substr($Cashier, 0, 18) , 26) . " " . addSpaces($Date , 22));
-		$printer->text(addSpaces( substr($Cashier, 0, 18) . $Arabic -> utf8Glyphs("أمين الصندوق : ")   , 26) . " " . addSpaces($Date , 22));
+		$printer->text(addSpaces( substr($cashier, 0, 10) . $Arabic -> utf8Glyphs("أمين الصندوق : ")   , 26) . " " . addSpaces($Date , 22));
+		
+		
 		$printer->feed(2);
 		$buffer -> setFontSize(35);
 		$printer->setJustification(Printer::JUSTIFY_LEFT);

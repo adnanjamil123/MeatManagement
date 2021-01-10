@@ -4,6 +4,7 @@ $(document).ready(function(){
     var items_print = new Array();
     var invoice_data = new Array();
     var invoice_number = 0;
+    var user_data = new Array();
 
     var old_order_html = $(".invoice-header").html();
     var old_table_html = $("#tbody").html();
@@ -13,7 +14,8 @@ $(document).ready(function(){
         $.post("printer/index2.php",{
             itemsprint:items_print,
             invoice_data:invoice_data,
-            inv_no:invoice_number
+            inv_no:invoice_number,
+            user:user_data
         },function(data){
             
             // alert (data);
@@ -117,7 +119,10 @@ $(document).ready(function(){
         
         $user = $("#user-data").attr("data-uid");
         $branch = $("#user-data").attr("data-branch");
+        $username = $("#user-data").attr("data-username");
 
+        user_data[0] = $branch;
+        user_data[1] = $username;
         
 
      $("div ul .order-no").load('load_data.php',{

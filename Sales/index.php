@@ -59,7 +59,7 @@ if(!isset($_SESSION["active"]))
            /* display:none;  */
         }
         .list-group-item{
-             
+            padding: .25rem 1rem;
             background:azure;
         }
         </style>
@@ -212,9 +212,9 @@ if(!isset($_SESSION["active"]))
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>
                                 <li class='invoice-number list-group-item'><b></b></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
-                                <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<span class='invoice-twv font-weight-bold'></span></li>
-                                <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<span class='invoice-v font-weight-bold'></span></li>
-                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span>&#58;&nbsp;<span class='invoice-tv font-weight-bold'></span></li>
+                                <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
+                                <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span>&#58;&nbsp;<br><span class='invoice-tv font-weight-bold'></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light' type='radio' name='payment-opt' value='cash' checked>cash</input> 
                                 </div>
