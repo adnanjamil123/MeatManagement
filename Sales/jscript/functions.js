@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     var items_print = new Array();
     var invoice_data = new Array();
+    var invoice_number = 0;
 
     var old_order_html = $(".invoice-header").html();
     var old_table_html = $("#tbody").html();
@@ -11,14 +12,15 @@ $(document).ready(function(){
     {
         $.post("printer/index2.php",{
             itemsprint:items_print,
-            invoice_data:invoice_data
+            invoice_data:invoice_data,
+            inv_no:invoice_number
         },function(data){
             
             // alert (data);
             
         })
     }
-    $(".save, .save-print, .clear").prop("disabled",true);
+    $(".save, .print, .clear").prop("disabled",true);
 
     $(".new").click(function(){
 
@@ -26,6 +28,7 @@ $(document).ready(function(){
         $("div .invoice-header").css("display","block");
         $("div #tbody").css("visibility","visible");
         $(".save").prop("disabled",false);
+        $(".print").prop("disabled",true);
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);
         $(".clear").prop("disabled",false);
@@ -50,7 +53,7 @@ $(document).ready(function(){
             $(".item-buttons").prop("disabled", true);
         $("div .invoice-header").css("display","none");
         $("div #tbody").css("visibility","hidden");
-
+        $(".print").prop("disabled",true);
         $(".invoice-header").html(old_order_html);
         $("#tbody").html(old_table_html);
         $(".new").prop("disabled",false);
@@ -62,8 +65,12 @@ $(document).ready(function(){
     })
 
     $(".save").click(function(){
+       
+        $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
+        $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
 
-        
+        var cash_received;
+        var balance;
 
         var tbody = $("#tbody tbody");
 
@@ -88,10 +95,27 @@ $(document).ready(function(){
             return;
           }
 
-         
+          if($payment_method == "cash")
+          {
+             
+            cash_received = prompt("المبلغ المستلم");
+            if(cash_received==null)
+            {
+                return;
+            }
 
+              
+              balance=cash_received-$invoice_total;
+          }
+          if($payment_method == "atm")
+          {
+              cash_received = 0;
+              balance = 0;
+          }
+         
+          $(".print").prop("disabled",false);
         
-        $user = $("#user-data").attr("data-username");
+        $user = $("#user-data").attr("data-uid");
         $branch = $("#user-data").attr("data-branch");
 
         
@@ -101,7 +125,7 @@ $(document).ready(function(){
             branch:$branch
      },function(){
          
-        save_items();
+        save_items(balance,cash_received);
         $(".btn-remove").prop("disabled", true); 
         $(".invoice-status").text("Invoice-Closed");
         $(".save").prop("disabled",true);
@@ -114,14 +138,13 @@ $(document).ready(function(){
       });
 
 
-    function save_items()
+    function save_items(bal,received)
     {
-        var cash_received = 0;
-        var balance = 0;
+        var cash_received = received;
+        var balance = bal;
         var invoice_values = new Array();
-        var invoice_number = 0;
 
-        $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
+        
         $order_no = parseInt($(".order-no").text(),10);   // integer
 
         $invoice_wv = parseFloat($(".invoice-twv").text());//invoice without vat in decimals
@@ -129,21 +152,7 @@ $(document).ready(function(){
         $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
         
        
-        
 
-        if($payment_method == "cash")
-        {
-            cash_received = prompt(".المبلغ المستلم");
-            balance=cash_received-$invoice_total;
-        }
-        if($payment_method == "atm")
-        {
-            cash_received = 0;
-            balance = 0;
-        }
-
-        
-       
        
         $("#tbody tr:not(:first)").each(function(){
 
@@ -178,16 +187,9 @@ $(document).ready(function(){
                
              )           
            
-             
-           
-        }
-       
-        )
+        })
 
-        
-        
-        
-       
+        invoice_values = {wvat:$invoice_wv, vat:$invoice_vat, total:$invoice_total, cash:cash_received, bal:balance};
 
 
         $.post("load_data.php",{
@@ -204,24 +206,14 @@ $(document).ready(function(){
         },function(data){
             if(data){
                
-                alert(data);
                 $("div .invoice-number").text(data); 
+                invoice_number = data;
             }
             
         })
-        invoice_number = $("div .invoice-number").text(); 
-        invoice_values = {wvat:$invoice_wv, vat:$invoice_vat, total:$invoice_total, cash:cash_received, bal:balance, inv:invoice_number};
-        invoice_data.push(invoice_values);
-        console.log(invoice_data);
-
-        $.post("printer/index2.php",{
-            itemsprint:items_print,
-            invoice_data:invoice_data
-        },function(data){
-            
-            alert (data);
-            
-        })
+        
+            invoice_data.push(invoice_values);
+       
     }
 
 })

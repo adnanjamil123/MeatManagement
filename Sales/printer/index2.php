@@ -1,5 +1,6 @@
 <?php
 $invoice_data=$_POST['invoice_data'];
+$invoice_number=$_POST['inv_no'];
 
 date_default_timezone_set ("Asia/Riyadh");
 	//phpinfo();
@@ -135,7 +136,7 @@ $printer -> setPrintBuffer($buffer);
 		
 		$buffer -> setFontSize(45);
 		//$printer->text($Arabic -> utf8Glyphs("Invoice#") .$InvoiceNo);
-		$printer->text($invoice_data[0]['inv'] . $Arabic -> utf8Glyphs("فاتورة#"));
+		$printer->text($invoice_number . $Arabic -> utf8Glyphs("فاتورة#"));
 		$printer->feed(1);
 		$buffer -> setFontSize(28);
 		//$printer->text(addSpaces("Cashier: " . substr($Cashier, 0, 18) , 26) . " " . addSpaces($Date , 22));

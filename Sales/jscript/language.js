@@ -42,7 +42,7 @@
 $
                       //  $(element).text(langdata.languages[lang].strings[key]);
                         element.textContent = langdata.languages[lang].strings[key];
-                        console.log(element+"  "+langdata.languages[lang].strings[key]);
+                        //console.log(element+"  "+langdata.languages[lang].strings[key]);
                     }
                 });
             })
@@ -53,8 +53,8 @@ $
             let locales = Intl.getCanonicalLocales(keys); //from our data validated
             let lang = navigator.language; //from browser 
             let locale = Intl.getCanonicalLocales(lang); //from browser validated
-            console.log('browser language', lang);
-            console.log('locales from data file', locale);
+           // console.log('browser language', lang);
+           // console.log('locales from data file', locale);
 
             //find the match for locale inside locales
             let langMatch = document.documentElement.getAttribute('lang'); //default

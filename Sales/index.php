@@ -21,7 +21,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="ar">
+<html lang="en">
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -109,7 +109,8 @@ if(!isset($_SESSION["active"]))
                      
                   
                        <p class="ml-auto">
-                            <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' data-username='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
+                            <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' 
+                            data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
                             <a class="nav-link" href="includes/logout.inc.php">Log out</a></span>
                        </p>
                  
@@ -161,19 +162,19 @@ if(!isset($_SESSION["active"]))
 
                 <div class="col-9  order-section">
 
-                        <div class="row col-12 order-buttons  justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example">
+                        <div class="row col-12 order-buttons justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
 
-                            <button type="button" class="new btn  col-2" data-key="btn-new">NEW</button>
-                            <button type="button" class="clear btn col-2" data-key="btn-clear" >CLEAR</button>
-                            <button type="button" class="btn  col-2 save" data-key="btn-save">SAVE</button>
-                            <button type="button" class="print btn  col-2" data-key="btn-print" >PRINT</button>
-                            <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button>
+                            <button type="button" class="new btn  col-2 text-light" data-key="btn-new" style="background:#204b6d">NEW</button>
+                            <button type="button" class="clear btn col-2 text-light" data-key="btn-clear" style="background:#204b6d">CLEAR</button>
+                            <button type="button" class="btn  col-2 save text-light" data-key="btn-save" style="background:#204b6d">SAVE</button>
+                            <button type="button" class="print btn  col-2 text-light" data-key="btn-print" style="background:#204b6d">PRINT</button>
+                            <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
                             
                         <div class="row invoice" style="margin-top:10px;">
 
-                            <div  class="col-8  items-table table-responsive" style="height:600px;">
+                            <div  class="col-9  items-table table-responsive" style="height:600px;">
 
                                 <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
@@ -199,15 +200,15 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-4 invoice-header" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d; height:600px;">
+                            <div class="col-3 invoice-header" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d; height:600px;">
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light' style="background:#204b6d"><h4>Order details</h4></li>
                                 
                                 <li class='order-no list-group-item' ><b></b></li>
-                                <li class='order-branch list-group-item'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
+                                <li class='order-branch list-group-item' style='display:none'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
                                 <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
                                 <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
-                                <li class='order-user list-group-item'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
+                                <li class='order-user list-group-item' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>
                                 <li class='invoice-number list-group-item'><b></b></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
