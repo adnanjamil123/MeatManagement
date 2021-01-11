@@ -105,13 +105,13 @@ if(!isset($_SESSION["active"]))
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#">MMS |</a>   
-                     <span  class="navbar-text text-white"><strong>Meat Management |</strong> </span>   
+                     <span  class="navbar-text text-white" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                      
                   
                        <p class="ml-auto">
                             <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
-                            <a class="nav-link" href="includes/logout.inc.php">Log out</a></span>
+                            <a class="nav-link" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span>
                        </p>
                  
 
