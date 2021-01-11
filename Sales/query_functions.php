@@ -21,7 +21,7 @@ function query_items($category_id, $limit = 20, $offset= 0){
     $sql = "SELECT *, meat_sale_items.id AS itemsid
     FROM meat_sale_items  JOIN  meat_sale_categories ON meat_sale_items.sale_cat_id = meat_sale_categories.id
     WHERE meat_sale_items.is_allow = '0' AND  sale_cat_id=$category_id
-    ORDER BY meat_sale_items.name DESC LIMIT $limit OFFSET $offset";
+    ORDER BY meat_sale_items.id ASC LIMIT $limit OFFSET $offset";
    
     $results = mysqli_query($db , $sql);
 
