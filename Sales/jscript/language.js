@@ -8,6 +8,18 @@
             const html = document.querySelector('html')
             let container =  html.setAttribute("lang",lang);
             html.className = 'lang-match';
+
+
+            function changelanguage()
+            {
+            let zones = document.querySelectorAll('[lang]');
+            applyStrings(zones);
+
+            let lang = findLocaleMatch();
+            const html = document.querySelector('html')
+            let container =  html.setAttribute("lang",lang);
+            html.className = 'lang-match';
+            }
             
            })
            
@@ -85,6 +97,14 @@ let langdata = {
                 "lng-full":"FULL",
                 "lng-half":"HALF",
                 "lng-quarter":"QUARTER",
+                "lng-special":"special",
+                "lng-more":"more",
+                "lng-cash":"cash",
+                "lng-atm":"atm",
+                "lng-branch":"Branch",
+                "lng-user":"User",
+                "lng-orderdetails":"ORDER DETAILS",
+                "lng-invoicedetails":"INVOICE DETAILS",
             }
         },
         "ar":{ 
@@ -106,6 +126,15 @@ let langdata = {
                 "lng-full":"كامل",
                 "lng-half":"نصف",
                 "lng-quarter":"ربع",
+                "lng-special":"خاص",
+                "lng-more":"إضافي",
+                "lng-cash":"نقد",
+                "lng-atm":"بطاقة",
+                "lng-branch":"فرع",
+                "lng-user":"المستخدم",
+                "lng-orderdetails":"تفاصيل الطلب",
+                "lng-invoicedetails":"فاصيل الفاتورة",
+               
 
             }
         }

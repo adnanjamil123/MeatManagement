@@ -60,7 +60,7 @@ function update_totals()
    //show.bs.modal
 
     $('#itemsModal').on('show.bs.modal', function (e) {
-
+      
     var $button = e.relatedTarget;
       
     $name = $($button).attr('name');
@@ -82,7 +82,7 @@ function update_totals()
 
       var $button = e.relatedTarget;
       
-                  
+             
      
       $show_sizes = $($button).attr('data-size');
       $qty_disabled = $($button).attr('data-qty-disable');

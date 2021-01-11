@@ -21,7 +21,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="en">
+<html lang="ar">
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -124,7 +124,7 @@ if(!isset($_SESSION["active"]))
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
                             <div class="dropdown col-5 ">
-                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">More</button>
+                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" data-key="lng-more">More</button>
                             <ul class="dropdown-menu pl-2  overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px; background:lightgray">            
                                     
                             <?php
@@ -137,7 +137,7 @@ if(!isset($_SESSION["active"]))
                             </div>   
                         
                             <div class="dropdown col-5">
-                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d">Special</button>
+                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" data-key="lng-special">Special</button>
                             <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px; background:lightgray">            
                                  <?php
                                     // arguements category(general or special), optional limit, optional offset, optional grid column
@@ -202,24 +202,24 @@ if(!isset($_SESSION["active"]))
                             
                             <div class="col-3 invoice-header" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d; height:600px;">
                                  <ul class='list-group list-group'>
-                                <li class='order-user list-group-item text-light' style="background:#204b6d"><h4>Order details</h4></li>
+                                <li class='order-user list-group-item text-light' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
                                 <li class='order-no list-group-item' ><b></b></li>
-                                <li class='order-branch list-group-item' style='display:none'>BRANCH ID: <b><?php echo $_SESSION['branch']?></b></li>
-                                <li class='order-branch-name list-group-item'>BRANCH: <b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
-                                <li class='order-user-name list-group-item'>USER: <b><?php echo $_SESSION['name'] ?></b></li>
+                                <li class='order-branch list-group-item' style='display:none'>id<b><?php echo $_SESSION['branch']?></b></li>
+                                <li class='order-branch-name list-group-item'><span data-key="lng-branch">Branch</span><br><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
+                                <li class='order-user-name list-group-item'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
                                 <li class='order-user list-group-item' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
-                                <li class='order-user list-group-item active text-light' style="background:#204b6d"><h4>Invoice details</h4></li>
+                                <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>
                                 <li class='invoice-number list-group-item'><b></b></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
                                 <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span>&#58;&nbsp;<br><span class='invoice-tv font-weight-bold'></span></li>
 
-                                <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light' type='radio' name='payment-opt' value='cash' checked>cash</input> 
+                                <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light'  type='radio' name='payment-opt' value='cash' checked><span data-key="lng-cash">cash</span></input> 
                                 </div>
                                 
-                                <div class='form-check-inline text-light'><input class='form-check-input' type='radio' name='payment-opt' value='atm'>atm</input>
+                                <div class='form-check-inline text-light'><input class='form-check-input' type='radio' name='payment-opt' value='atm'><span data-key="lng-atm">atm</span></input>
                                 </div></li></ul>
                                 </div><!--invoice-header-->
                                 
