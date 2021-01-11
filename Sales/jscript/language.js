@@ -105,6 +105,7 @@ let langdata = {
                 "lng-user":"User",
                 "lng-orderdetails":"ORDER DETAILS",
                 "lng-invoicedetails":"INVOICE DETAILS",
+                "lng-add":"ADD ITEM",
             }
         },
         "ar":{ 
@@ -134,7 +135,7 @@ let langdata = {
                 "lng-user":"المستخدم",
                 "lng-orderdetails":"تفاصيل الطلب",
                 "lng-invoicedetails":"فاصيل الفاتورة",
-               
+                "lng-add":"اضافة عنصر",
 
             }
         }

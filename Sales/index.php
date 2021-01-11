@@ -83,7 +83,7 @@ if(!isset($_SESSION["active"]))
                                             
                                         </div>
                                         <div class="col-1 pt-4">
-                                        <span id="fuom" class="modal-uom"></span>
+                                        <span id="fuom" class="modal-uom" data-key="lng-kilo"></span>
                                         </div>
                                         
                                         <div class="row col-5 form-check item-sizes pl-5">
@@ -94,7 +94,7 @@ if(!isset($_SESSION["active"]))
                                         </div>
                                     </div><!--modal-body-->
                                 <div class="modal-footer">
-                                    <button class="btn-confirm btn text-light" style="background:#204b6d">
+                                    <button class="btn-confirm btn text-light" style="background:#204b6d" data-key="lng-add">
                                             Confirm 
                                     </button>
                                 </div><!--modal-footer-->

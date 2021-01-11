@@ -81,7 +81,7 @@ function update_totals()
     $('#itemsModal').on('shown.bs.modal', function (e) {
 
       var $button = e.relatedTarget;
-      
+      var theLanguage = $('html').attr("lang");
              
      
       $show_sizes = $($button).attr('data-size');
@@ -110,36 +110,78 @@ function update_totals()
       }else if($show_sizes == 1)
       {
         $('div .item-sizes').show();
-        $('div .item-sizes').html(
-          `<label class="col form-check-label text-success">
-              <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
-          </label>
+        if(theLanguage == "en")
+        {
           
-          <label class="col form-check-label text-primary">
-              <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
-          </label>
-          
-          <label class="col form-check-label text-info">
-              <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
-          </label>`
-        );
+          $('div .item-sizes').html(
+            `<label class="col form-check-label text-success">
+                <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
+            </label>
+            
+            <label class="col form-check-label text-primary">
+                <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
+            </label>
+            
+            <label class="col form-check-label text-info">
+                <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
+            </label>`
+          );
+        }else if(theLanguage == "ar")
+        {
+           
+          $('div .item-sizes').html(
+            `<label class="col form-check-label text-success">
+                <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>صغير
+            </label>
+            
+            <label class="col form-check-label text-primary">
+                <input type="radio" class="form-check-input" name="optradio" value="متوسط">متوسط
+            </label>
+            
+            <label class="col form-check-label text-info">
+                <input type="radio" class="form-check-input" name="optradio" value="كبير">كبير
+            </label>`
+          );
+        }
 
       }else if($show_sizes == 2)
       {
         $('div .item-sizes').show();
-        $('div .item-sizes').html(
-          `<label class="col form-check-label text-danger">
-              <input type="radio" class="form-check-input" name="optradio" value="full" checked data-key="lng-full">FULL
-          </label>
+        if(theLanguage == "en")
+        {
           
-          <label class="col form-check-label  text-primary">
-              <input type="radio" class="form-check-input" name="optradio" value="half" data-key="lng-half">HALF
-          </label>
-          
-          <label class="col form-check-label  text-success">
-              <input type="radio" class="form-check-input" name="optradio" value="quarter" data-key="lng-quarter">QUARTER
-          </label>`
-        );
+          $('div .item-sizes').html(
+            `<label class="col form-check-label text-danger">
+                <input type="radio" class="form-check-input" name="optradio" value="full" checked>FULL
+            </label>
+            
+            <label class="col form-check-label  text-primary">
+                <input type="radio" class="form-check-input" name="optradio" value="half">HALF
+            </label>
+            
+            <label class="col form-check-label  text-success">
+                <input type="radio" class="form-check-input" name="optradio" value="quarter">QUARTER
+            </label>`
+          );
+        }else if(theLanguage == "ar")
+        {
+           
+          $('div .item-sizes').html(
+            `<label class="col form-check-label text-danger">
+                <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>كامل
+            </label>
+            
+            <label class="col form-check-label  text-primary">
+                <input type="radio" class="form-check-input" name="optradio" value="نصف">نصف
+            </label>
+            
+            <label class="col form-check-label  text-success">
+                <input type="radio" class="form-check-input" name="optradio" value="ربع">ربع
+            </label>`
+          );
+        }
+
+        
       }
       
 
@@ -193,7 +235,7 @@ function update_totals()
      $('#tbody').append(`<tr id="Row"> 
       <td class="text-center"> 
        <button class="btn btn-remove text-light" style="background:#204b6d"
-           type="button" onclick='$(this).parent().parent().remove()'>Remove</button> 
+           type="button" onclick='$(this).parent().parent().remove()'>حذف</button> 
        </td> 
 
             <td class="row-index text-center item-id"> 

@@ -15,7 +15,7 @@ require_once ('query_functions.php');
             $id = $post['itemsid'];
             $description = $post['name'];
             // $uom = $post['uom'];
-            $uom=$post['unit_type']==0?"":($post['unit_type']==1?"KG":"PC");
+            $uom=$post['unit_type']==0?"":($post['unit_type']==1?"كيلو":"قطعة");
             $price = round(($post['price']>0 ? $post['price'] : 0.00) * (1+$vat),2);
             // $show_sizes = ($post['options_status']>0 ? 'TRUE' : 'FALSE');
             $show_sizes = $post['options_status'];
