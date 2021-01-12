@@ -21,7 +21,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="ar">
+<html lang="en">
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -30,7 +30,9 @@ if(!isset($_SESSION["active"]))
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <script src="https://use.fontawesome.com/4859d08ded.js"></script>
+    <script src="https://kit.fontawesome.com/99c2d0b968.js"></script>
+    <link rel="stylesheet" href="font-awesome.css">
   </head>
   <body>
   
@@ -164,10 +166,10 @@ if(!isset($_SESSION["active"]))
 
                         <div class="row col-12 order-buttons justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
 
-                            <button type="button" class="new btn  col-2 text-light" data-key="btn-new" style="background:#204b6d">NEW</button>
-                            <button type="button" class="clear btn col-2 text-light" data-key="btn-clear" style="background:#204b6d">CLEAR</button>
-                            <button type="button" class="btn  col-2 save text-light" data-key="btn-save" style="background:#204b6d">SAVE</button>
-                            <button type="button" class="print btn  col-2 text-light" data-key="btn-print" style="background:#204b6d">PRINT</button>
+                            <button type="button" class="top-btns new btn  col-2 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-new">NEW</span></button>
+                            <button type="button" class="top-btns clear btn col-2 text-light" style="background:#204b6d"><span><i class="far fa-chart-bar fa-6x m-icons"></i></span><span data-key="btn-clear">CLEAR</span></button>
+                            <button type="button" class="top-btns btn  col-2 save text-light"  style="background:#204b6d"><span><i class="fa fa-backspace m-icons"></i></span><span data-key="btn-save">SAVE</span></button>
+                            <button type="button" class="top-btns print btn  col-2 text-light" style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-print">PRINT</span></button>
                             <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
