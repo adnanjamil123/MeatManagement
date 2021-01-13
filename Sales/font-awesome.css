@@ -1,3 +1,8 @@
+.btn
+{
+    border-radius: 10px;
+}
+
 .m-icons
 {
     color: white;
@@ -32,8 +37,15 @@
 }
 .btn-icons
 {
-    color: rgb(20, 77, 233);
+    color: lightgray;
     font-size:20px;
-    padding-right: 10px;
+    float:left;
 
+}
+
+.item-buttons:hover:enabled i
+{
+    color: red;
+    padding-left: 5px;
+   
 }

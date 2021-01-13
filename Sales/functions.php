@@ -23,7 +23,7 @@ require_once ('query_functions.php');
 
             echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
              data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:60px; background:$background' 
-             class='col-$col item-buttons btn $text'><i class='fa fa-share btn-icons'></i>".$post['name']."</button></br>";
+             class='col-$col item-buttons btn $text'><i class='fa fa-check-circle btn-icons'></i>".$post['name']."</button></br>";
         }
     } 
 

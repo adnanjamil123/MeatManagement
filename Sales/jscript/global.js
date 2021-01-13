@@ -281,7 +281,10 @@ function update_totals()
       
     }
   
-
+function changelanguage()
+{
+  alert("hello");
+}
     
 });
 

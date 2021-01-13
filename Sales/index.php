@@ -2,6 +2,7 @@
 <?php
 
 session_start();
+setcookie("lang", "ar" , time()+3600*12*30);
 
 require_once ('db.php');
 require_once ('query_functions.php');
@@ -21,7 +22,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="ar">
+<html lang=<?php echo $_COOKIE["lang"]?>>
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -49,7 +50,25 @@ if(!isset($_SESSION["active"]))
        
         
         <script>
-              
+
+
+              function changelanguage_en()
+                {
+                    
+                    <?php
+                       
+                        if($_COOKIE["lang"]=="en"){
+
+                            setcookie("lang", "ar" , time()+3600*12*30);
+                        }else
+                        {
+                            setcookie("lang", "en" , time()+3600*12*30);
+                        }
+
+                    ?>
+                }
+
+               
              
            
         </script>
@@ -60,7 +79,7 @@ if(!isset($_SESSION["active"]))
            /* display:none;  */
         }
         .list-group-item{
-            padding: .25rem 1rem;
+            padding: .5rem 0.5rem;
             background:azure;
         }
         </style>
@@ -107,12 +126,11 @@ if(!isset($_SESSION["active"]))
 
                      <a class="navbar-brand" href="#">MMS |</a>   
                      <span  class="navbar-text text-white" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
-                     
                   
                        <p class="ml-auto">
                             <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
-                            <a class="nav-link" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span>
+                            <a class="nav-link text-light" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
                        </p>
                  
 
@@ -120,7 +138,7 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh, background:aliceblue;">
 
-                <div class="row col-3 justify-content-center items-section" id="menu" style="height:90vh; border-right:10px solid;background:aliceblue; border-color:#204b6d">
+                <div class="row col-3 justify-content-around items-section" id="menu" style="height:90vh; border-right:10px solid;background:aliceblue; border-color:#204b6d">
                     
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
@@ -177,7 +195,7 @@ if(!isset($_SESSION["active"]))
 
                             <div  class="col-9  items-table table-responsive" style="height:600px;">
 
-                                <table id="tbody" class="table table-dark table-striped table-bordered table-hover" style="visibility:hidden;">
+                                <table id="tbody" class="table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
                                     <thead class="text-light" style="background:#204b6d">
                                         <tr>
@@ -236,8 +254,9 @@ if(!isset($_SESSION["active"]))
   <!-- Copyright -->
   <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
         <span class="internet-status"><script></script></span>
+        
      </div>
-  <!-- Copyright -->
+         <!-- Copyright -->
 </footer>
     </body>
     
