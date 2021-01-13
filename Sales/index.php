@@ -21,7 +21,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang="en">
+<html lang="ar">
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -31,7 +31,6 @@ if(!isset($_SESSION["active"]))
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/4859d08ded.js"></script>
-    <script src="https://kit.fontawesome.com/99c2d0b968.js"></script>
     <link rel="stylesheet" href="font-awesome.css">
   </head>
   <body>
@@ -126,8 +125,8 @@ if(!isset($_SESSION["active"]))
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
                             <div class="dropdown col-5 ">
-                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" data-key="lng-more">More</button>
-                            <ul class="dropdown-menu pl-2  overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px; background:lightgray">            
+                            <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons"></i></span><span data-key="lng-more">More</span></button>
+                            <ul class="dropdown-menu pl-2  overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px">            
                                     
                             <?php
                                 // arguements category(general or special), optional limit, optional offset, optional grid column
@@ -139,8 +138,8 @@ if(!isset($_SESSION["active"]))
                             </div>   
                         
                             <div class="dropdown col-5">
-                            <button class="item-dropdown  btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" data-key="lng-special">Special</button>
-                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px; background:lightgray">            
+                            <button class="item-dropdown top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d"><span><i class="fa fa-star m-icons"></i></span><span data-key="lng-special">Special</span></button>
+                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px">            
                                  <?php
                                     // arguements category(general or special), optional limit, optional offset, optional grid column
                                     create_buttons(2,50,0,11,"white","text-black");
@@ -167,9 +166,9 @@ if(!isset($_SESSION["active"]))
                         <div class="row col-12 order-buttons justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
 
                             <button type="button" class="top-btns new btn  col-2 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-new">NEW</span></button>
-                            <button type="button" class="top-btns clear btn col-2 text-light" style="background:#204b6d"><span><i class="far fa-chart-bar fa-6x m-icons"></i></span><span data-key="btn-clear">CLEAR</span></button>
-                            <button type="button" class="top-btns btn  col-2 save text-light"  style="background:#204b6d"><span><i class="fa fa-backspace m-icons"></i></span><span data-key="btn-save">SAVE</span></button>
-                            <button type="button" class="top-btns print btn  col-2 text-light" style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-print">PRINT</span></button>
+                            <button type="button" class="top-btns clear btn col-2 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons"></i></span><span data-key="btn-clear">CLEAR</span></button>
+                            <button type="button" class="top-btns btn  col-2 save text-light"  style="background:#204b6d"><span><i class="fa fa-save m-icons"></i></span><span data-key="btn-save">SAVE</span></button>
+                            <button type="button" class="top-btns print btn  col-2 text-light" style="background:#204b6d"><span><i class="fa fa-print m-icons"></i></span><span data-key="btn-print">PRINT</span></button>
                             <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
