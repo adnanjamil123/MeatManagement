@@ -124,7 +124,7 @@ if(!isset($_SESSION["active"]))
 
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
-                     <a class="navbar-brand" href="#">MMS |</a>   
+                     <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                   
                        <p class="ml-auto">
