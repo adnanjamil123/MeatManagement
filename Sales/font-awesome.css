@@ -50,11 +50,14 @@
     padding-left: 5px;
    
 }
+
 .language a
 {
-    color: red;
+        margin-top:2px;
+        font-size: 16px;
+        color: white;
 }
-.lang-selected
+a.lang-selected
 {
     background-color: white;
     color: black;
