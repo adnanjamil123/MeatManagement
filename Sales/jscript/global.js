@@ -298,11 +298,11 @@ function update_totals()
   });  
 
   
-    function close_modal()
-    {
-      var modal = document .getElementById("itemsModal");
+    // function close_modal()
+    // {
+    //   var modal = document .getElementById("itemsModal");
       
-    }
+    // }
   
 
     

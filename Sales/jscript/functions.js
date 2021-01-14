@@ -50,7 +50,9 @@ $(document).ready(function(){
 
     $(".clear").click(function(){
 
-        if(confirm("Are you sure to clear all items?"))
+        var lang = $('html').attr('lang');
+        var clear_items=lang=="en"?"Are you sure to clear all items?":"هل أنت متأكد من مسح كافة العناصر؟";
+        if(confirm(clear_items))
         {
             $(".item-buttons").prop("disabled", true);
         $("div .invoice-header").css("display","none");
@@ -70,7 +72,9 @@ $(document).ready(function(){
        
         $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
         $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
-
+        var lang = $('html').attr('lang');
+        var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
+        var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
         var cash_received;
         var balance;
 
@@ -85,11 +89,11 @@ $(document).ready(function(){
         }
         
         if (tbody.children().length == 0) {
-            alert("Please enter items.");
+            alert(entet_items);
             return;
         }
 
-        if (confirm('Are you sure you want to save this invoice?')) {
+        if (confirm(save_text)) {
             // Save it!
             
           } else {
