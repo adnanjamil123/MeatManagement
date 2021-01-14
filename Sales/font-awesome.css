@@ -3,7 +3,10 @@
     border-radius: 10px;
     
 }
-
+.btn-remove:hover:enabled .fa-trash
+{
+    color: orange;
+}
 .m-icons
 {
     color: white;
@@ -50,7 +53,10 @@
     padding-left: 5px;
    
 }
-
+.item-buttons:disabled
+{
+    background-color: black;
+}
 .language a
 {
         margin-top:2px;

@@ -248,14 +248,14 @@ function update_totals()
      $vat = $("#item_clicked").attr('data-vat');
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $price_without_vat= ($('#fprice').val())*(1-$vat);  
-     $total = $qty * $price_with_vat;
+     $total = ($qty * $price_with_vat).toFixed(2);
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
 
      $('#tbody').append(`<tr id="Row"> 
       <td class="text-center"> 
        <button class="btn btn-remove text-light" style="background:#204b6d"
-           type="button" onclick='$(this).parent().parent().remove()'> <i class="fa fa-trash style="background:red"></i> حذف</button> 
+           type="button" onclick='$(this).parent().parent().remove()'> <i class="fa fa-trash"></i></button> 
        </td> 
 
             <td class="row-index text-center item-id"> 
