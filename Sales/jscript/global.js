@@ -227,6 +227,7 @@ function update_totals()
       {
         
         $('#fprice').focus();
+        $('#fprice').val(0);
         $('#fprice').select();
         
         return;
@@ -236,6 +237,7 @@ function update_totals()
       {
         
         $('#fqty').focus();
+        $('#fqty').val(0);
         $('#fqty').select();
         
         return;
