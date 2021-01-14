@@ -10,6 +10,25 @@ var items = [ "عجل كامل" ,
             "نص خروف",
             "خروف ربع"];
 
+ 
+function lang_change(lng)
+ {
+ $.post("includes/language.inc.php",{
+   language:lng
+ },function(){
+  
+ })
+
+}
+
+$(document).ready(function(){
+
+  $lang = $("html").attr("lang");
+  $('a').removeClass("lang-selected");
+  $('.'+$lang).addClass("lang-selected");
+       
+ 
+})
 
 $(document).ready(function(){
   $("div .internet-status").text("Connected");
@@ -30,6 +49,7 @@ $(document).ready(function(){
   
 window.addEventListener('online', handleConnectionChange);
 window.addEventListener('offline', handleConnectionChange);
+
 
 // this is for data to be transferred from button to modal
 function update_totals()
@@ -281,10 +301,7 @@ function update_totals()
       
     }
   
-function changelanguage()
-{
-  alert("hello");
-}
+
     
 });
 

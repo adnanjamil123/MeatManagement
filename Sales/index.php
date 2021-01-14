@@ -2,8 +2,17 @@
 <?php
 
 session_start();
-setcookie("lang", "ar" , time()+3600*12*30);
 
+function language()
+{
+    if(isset($_COOKIE['lang']))
+    {
+        echo $_COOKIE['lang'];
+    }else
+    {
+        echo "ar";
+    }
+}
 require_once ('db.php');
 require_once ('query_functions.php');
 require_once ('functions.php');
@@ -22,7 +31,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang=<?php echo $_COOKIE["lang"]?>>
+<html lang=<?php echo language();?>>
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -51,24 +60,6 @@ if(!isset($_SESSION["active"]))
         
         <script>
 
-
-              function changelanguage_en()
-                {
-                    
-                    <?php
-                       
-                        if($_COOKIE["lang"]=="en"){
-
-                            setcookie("lang", "ar" , time()+3600*12*30);
-                        }else
-                        {
-                            setcookie("lang", "en" , time()+3600*12*30);
-                        }
-
-                    ?>
-                }
-
-               
              
            
         </script>
@@ -170,7 +161,7 @@ if(!isset($_SESSION["active"]))
 
                     <?php
                         // arguements category(general or special), optional limit, optional offset, optional grid column
-                        create_buttons(1);
+                        create_buttons(1,15,0,5,"white","text-black");
                         
                     ?>
 
@@ -254,7 +245,7 @@ if(!isset($_SESSION["active"]))
   <!-- Copyright -->
   <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
         <span class="internet-status"><script></script></span>
-        
+        <span class="language" style="float:left; padding-left:10px"><a href="" class="en lang-selected" onclick="lang_change('en')">EN</a>|<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
      </div>
          <!-- Copyright -->
 </footer>

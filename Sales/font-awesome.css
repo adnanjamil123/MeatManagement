@@ -1,6 +1,7 @@
 .btn
 {
     border-radius: 10px;
+    
 }
 
 .m-icons
@@ -45,7 +46,16 @@
 
 .item-buttons:hover:enabled i
 {
-    color: red;
+    color: rgb(0, 255, 85);
     padding-left: 5px;
    
+}
+.language a
+{
+    color: red;
+}
+.lang-selected
+{
+    background-color: white;
+    color: black;
 }
