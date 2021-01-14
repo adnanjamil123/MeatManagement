@@ -242,7 +242,8 @@ function update_totals()
       }
 
      $desc = $('#itemsModal .modal-title').text();
-     $qty = $('#fqty').val();
+     $qty2 = $('#fqty').val();
+     $qty = (parseFloat($qty2)).toFixed(2);
      $uom =$('.modal-uom').text(); 
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
      $vat = $("#item_clicked").attr('data-vat');
