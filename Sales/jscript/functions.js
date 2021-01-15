@@ -25,7 +25,9 @@ $(document).ready(function(){
     $(".save, .print, .clear").prop("disabled",true);
 
     $(".new").click(function(){
-
+        invoice_data=[];
+        user_data=[];
+        items_print=[];
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
         $("div #tbody").css("visibility","visible");
