@@ -207,8 +207,8 @@ $printer -> setPrintBuffer($buffer);
 		$printer->text("--------------------------------------------------------------------------------------------");
 		$printer->text(addSpaces("item",45). addSpaces($item['qty'],15) . addSpaces($item['price'],30));
 		
-		$printer->text($Arabic -> utf8Glyphs($item['name'])); 
-		$printer->feed(1);
+		$printer->text(addSpaces($Arabic -> utf8Glyphs($item['name']), 70)); 
+		//$printer->feed(1);
 		   
 		}
 		

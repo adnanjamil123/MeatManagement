@@ -511,7 +511,7 @@ class I18N_Arabic_Glyphs
         $output  = '';
         
         for ($j = $maxLine - 1; $j >= 0; $j--) {
-            $output .= $lines[$j] . "\n";
+            $output .= $lines[$j];
         }
         
         $output = rtrim($output);
