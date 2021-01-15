@@ -129,6 +129,7 @@ $(document).ready(function(){
         $user = $("#user-data").attr("data-uid");
         $branch = $("#user-data").attr("data-branch");
         $username = $("#user-data").attr("data-username");
+        
 
         user_data[0] = $branch;
         user_data[1] = $username;

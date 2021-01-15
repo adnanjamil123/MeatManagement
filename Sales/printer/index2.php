@@ -74,8 +74,9 @@ $Arabic = new I18N_Arabic('Glyphs');
  */
 
 // $Cashier = $Arabic -> utf8Glyphs($user[0]);
+//$user1 = $Arabic -> utf8Glyphs($user[1]);
 $username = explode(" ", $user[1],2);
-$cashier= $username[0];
+$cashier= $Arabic -> utf8Glyphs($username[0]);
 	$Date = date("d/m/Y H:i A");
 	$InvoiceNo = "1704";
 	
@@ -127,23 +128,23 @@ $printer -> setPrintBuffer($buffer);
 		
 		$buffer -> setFontSize(55);
 		//$printer->text($Arabic -> utf8Glyphs("Main Street, Branch 1"));
-		$printer->text($user[0].$Arabic -> utf8Glyphs("الشارع الرئيسي ، فرع "));
+		$printer->text($user[0].$Arabic -> utf8Glyphs("الشارع الرئيسي ، فرع -  "));
 		$printer->feed(1);
 		//$printer->text($Arabic -> utf8Glyphs("Al Kandara, Saudia Arabia"));
 		//$printer->text($Arabic -> utf8Glyphs("الكندرة ، المملكة العربية السعودية"));
 		//$printer->text("Phone No. 0504675794");
 		$buffer -> setFontSize(30);
-		$printer->text( "0504675794 " . $Arabic -> utf8Glyphs("رقم الهات"));
-		$printer->text( "30030208860003 " . $Arabic -> utf8Glyphs("ظريبه الشراء"));
+		$printer->text( "0504675794 " . $Arabic -> utf8Glyphs("رقم الهاتف"));
+		$printer->text( "30030208860003 " . $Arabic -> utf8Glyphs("الرقم الضريبي"));
 		$printer->feed(2);
 		
 		$buffer -> setFontSize(45);
 		//$printer->text($Arabic -> utf8Glyphs("Invoice#") .$InvoiceNo);
-		$printer->text($invoice_number . $Arabic -> utf8Glyphs("فاتورة#"));
+		$printer->text($invoice_number ." ". $Arabic -> utf8Glyphs(" رقم الفاتورة "));
 		$printer->feed(1);
 		$buffer -> setFontSize(28);
 		//$printer->text(addSpaces("Cashier: " . substr($Cashier, 0, 18) , 26) . " " . addSpaces($Date , 22));
-		$printer->text(addSpaces( substr($cashier, 0, 10) . $Arabic -> utf8Glyphs("أمين الصندوق : ")   , 26) . " " . addSpaces($Date , 22));
+		$printer->text(addSpaces($cashier. $Arabic -> utf8Glyphs("أمين الصندوق : ")   , 26) . " " . addSpaces($Date , 22));
 		
 		
 		$printer->feed(2);
@@ -151,7 +152,7 @@ $printer -> setPrintBuffer($buffer);
 		$printer->setJustification(Printer::JUSTIFY_LEFT);
 		$printer->setEmphasis(true);
 		//$printer->text(addSpaces('Item', 40) . addSpaces('Qty', 20) . addSpaces('Price', 30));
-		$printer->text(addSpaces($Arabic -> utf8Glyphs('بند'), 30) . addSpaces($Arabic -> utf8Glyphs('الكمية'), 15) . addSpaces($Arabic -> utf8Glyphs('السعر'), 30));
+		$printer->text(addSpaces($Arabic -> utf8Glyphs('الصنف'), 30) . addSpaces($Arabic -> utf8Glyphs('الكمية'), 15) . addSpaces($Arabic -> utf8Glyphs('السعر'), 30));
 		$printer->feed(1);
 		$printer->setEmphasis(false);
 		
@@ -205,7 +206,7 @@ $printer -> setPrintBuffer($buffer);
 		//    $printer->text(addSpaces(mb_substr($item['name'],10,1,'utf-8')) . addSpaces($Arabic -> utf8Glyphs($item['qty']), 10) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
 		// $printer->text(addSpaces("item",45). addSpaces($Arabic -> utf8Glyphs($item['qty']), 15) . addSpaces($Arabic -> utf8Glyphs($item['price']), 30));
 		$printer->text("--------------------------------------------------------------------------------------------");
-		$printer->text(addSpaces("item",45). addSpaces($item['qty'],15) . addSpaces($item['price'],30));
+		$printer->text(addSpaces("    ",45). addSpaces(number_format($item['qty'],2),15) . addSpaces(number_format($item['price'],2),30));
 		
 		$printer->text(addSpaces($Arabic -> utf8Glyphs($item['name']), 70)); 
 		//$printer->feed(1);
@@ -226,18 +227,18 @@ $printer -> setPrintBuffer($buffer);
 		$buffer -> setFontSize(30);
 		$printer->feed(2);
 		$printer->setEmphasis(true);
-		$printer->text(addSpaces('', 20) .  addSpaces(substr($invoice_data[0]['total'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('مجموع : '), 14) );
+		$printer->text(addSpaces('', 20) .  addSpaces(substr(number_format($invoice_data[0]['total'],2),0,17), 17) . addSpaces($Arabic -> utf8Glyphs('مجموع : '), 14) );
 		$printer->feed(1);
-		$printer->text(addSpaces('', 20) . addSpaces(substr($invoice_data[0]['cash'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المبلغ المستلم : '), 14) );
+		$printer->text(addSpaces('', 20) . addSpaces(substr(number_format($invoice_data[0]['cash'],2),0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المبلغ المستلم : '), 14) );
 		$printer->feed(1);
-		$printer->text(addSpaces('', 20) .  addSpaces(substr($invoice_data[0]['bal'],0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المتبقية : '), 14) );
+		$printer->text(addSpaces('', 20) .  addSpaces(substr(number_format($invoice_data[0]['bal'],2),0,17), 17) . addSpaces($Arabic -> utf8Glyphs('المتبقية : '), 14) );
 		$printer->feed(2);
 		$printer->setEmphasis(false);
 		
 		$printer->setJustification(Printer::JUSTIFY_CENTER);
 		
 		//$printer->text("VAT 15% is inclusive");
-		$printer->text($Arabic -> utf8Glyphs("ضريبة القيمة المضافة 15٪ شاملة"));
+		$printer->text($Arabic -> utf8Glyphs("شاملة")." 15% ".$Arabic -> utf8Glyphs("ضريبة القيمة المضافة "));
 		$printer->feed(2);
 		$buffer -> setFontSize(40);
 		//$printer->text("Thank You for your purchase");
