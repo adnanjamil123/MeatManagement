@@ -51,7 +51,10 @@ $(document).ready(function(){
     })
 
     $(".clear").click(function(){
-
+        invoice_data=[];
+        user_data=[];
+        items_print=[];
+        
         var lang = $('html').attr('lang');
         var clear_items=lang=="en"?"Are you sure to clear all items?":"هل أنت متأكد من مسح كافة العناصر؟";
         if(confirm(clear_items))
