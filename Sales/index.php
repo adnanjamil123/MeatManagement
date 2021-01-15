@@ -67,7 +67,7 @@ if(!isset($_SESSION["active"]))
         <style>
 
         .vat-display{
-           /* display:none;  */
+           display:none; 
         }
         .list-group-item{
             padding: .5rem 0.5rem;

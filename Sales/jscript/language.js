@@ -122,7 +122,7 @@ let langdata = {
                 "lng-uom":"قياس",
                 "lng-size":"بحجم",
                 "lng-wvat":"المجموع بدون ضريبة",
-                "lng-desc":"وصف",
+                "lng-desc":"الصنف",
                 "lng-code":"كودالصنف",
                 "lng-log":"تسجيل خروج",
                 "lng-logo":"متجر اللحوم",
