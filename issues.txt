@@ -1,0 +1,16 @@
+Our issues before deliver:
+
+
+1. UOM should be based on selected language.
+2. Responsive arrows issue for (Special and More) categories.
+3. Design a return popup model.
+4. When click on any input field, it should be selected one it.
+5. All text should be passed in the database in capital letters (SMALL, BIG, LARGE).
+6. The price column should be display values in decimal 2 digits format in HTML table.
+7. Please put SAR with all prices text.
+8. 
+
+
+
+
+Client issues after testing:
