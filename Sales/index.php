@@ -60,7 +60,51 @@ if(!isset($_SESSION["active"]))
         
         <script>
 
-             
+            function DisplayCurrentTime() {
+		
+        var currentdate = new Date();
+		currentdate.toLocaleString('en-US', { timeZone: 'America/New_York' })
+		
+		var date = ('0' + currentdate.getDate()).slice(-2);
+		
+		var month = ('0' + currentdate.getMonth()+1).slice(-2);
+		
+		var year = currentdate.getFullYear();
+		
+        var hours = currentdate.getHours() > 12 ? currentdate.getHours() - 12 : currentdate.getHours();
+		
+        var am_pm = currentdate.getHours() >= 12 ? "PM" : "AM";
+		
+        hours = hours < 10 ? "0" + hours : hours;
+		
+        var minutes = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes();
+		
+        time = date + "/" + month + "/" + year + " " + hours + " " + minutes + " " + " " + am_pm;
+		
+		return time;
+        
+    };
+
+    let user_data =localStorage.getItem("meat_userdata");
+    let lines_data =  localStorage.getItem("line_data");
+    let meat_invoice_no =  localStorage.getItem("meat_invoice_no");
+    let meat_invoicedata =  localStorage.getItem("meat_invoicedata");
+    let items_data = JSON.parse(lines_data);
+    let userdata = JSON.parse(user_data);
+    let meat_invoice = JSON.parse(meat_invoicedata);
+
+    var currentdate = DisplayCurrentTime();
+
+
+
+	var branch_name = userdata[1];
+	var branch_no = userdata[0];
+	var invoice_no = meat_invoice_no;
+	var cashir_name = userdata[2];
+	var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
+	var invoice_total = meat_invoice[0]['total'];
+	var balance = meat_invoice[0]['cash'];
+	var return_amount = meat_invoice[0]['bal'];
            
         </script>
 
@@ -73,9 +117,22 @@ if(!isset($_SESSION["active"]))
             padding: .5rem 0.5rem;
             background:azure;
         }
+        .yesprint
+        {
+            display:none;
+        }
+        @media print {
+        .noprint {
+            visibility: hidden;
+        }
+        .print
+        {
+            display:block;
+        }
+        }
         </style>
     
-        <div class="main container-fluid" style="background:#204b6d;height:97vh">
+        <div class="main container-fluid noprint" style="background:#204b6d;height:97vh">
 
         <div class="modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
@@ -182,13 +239,13 @@ if(!isset($_SESSION["active"]))
 
                         </div><!--order-buttons-->
                             
-                        <div class="row invoice" style="margin-top:10px;">
+                        <div class="row invoice noprint" style="margin-top:10px;">
 
                             <div  class="col-9  items-table table-responsive" style="height:600px;">
 
-                                <table id="tbody" class="table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
+                                <table id="tbody" class="noprint table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
-                                    <thead class="text-light" style="background:#204b6d">
+                                    <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>
                                         <th scope="col" data-key="lng-code">ITEM CODE</th>
@@ -202,7 +259,7 @@ if(!isset($_SESSION["active"]))
                                         <th scope="col" data-key="lng-total">TOTAL</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="noprint">
                                         
                                     </tbody>
                                 </table>
@@ -243,7 +300,7 @@ if(!isset($_SESSION["active"]))
         </div><!--main-->
         <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
   <!-- Copyright -->
-  <div class="text-center text-light" style="background-color: rgba(0, 0, 0, 0.2)">
+  <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
         <span class="internet-status"><script></script></span>
         <span class="language" style="float:left; padding-left:10px">
         <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
@@ -251,6 +308,96 @@ if(!isset($_SESSION["active"]))
      </div>
          <!-- Copyright -->
 </footer>
+    
+<div class="ticket print yesprint">
+            
+            <p class="centered">
+              <b>   <span style="font-size: 28px;" >فاتورة اللحوم   </span> </b>  <br/><br/> 
+
+                     <span > <script> document.write(branch_name); </script> -  فرع -  <script> document.write(branch_no); </script> </span> <br/><br/>
+                     <span> (0504675794) - رقم الهاتف </span> <br/><br/>
+                     <span> (30030208860003) - الرقم الضريبي </span> <br/><br/> 
+                 <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">  <script> document.write(invoice_no); </script> رقم الفاتورة   </span> </b>  <br/><br/>
+					 <span>  أمين الصندوق : <script> document.write(cashir_name); </script> </span>  <br/><br/>
+					 <span>  أمين الصندوق :</span><span class="print-user-data"></span> <br/><br/>
+					<span> <script> document.write(current_date); </script> : تاريخ  </span>  
+				 
+			</p> <br/><br/> 
+				
+            <table id="itemsTables">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th class="description">الصنف</th>
+                        <th class="quantity">الكمية</th>
+                        <th class="price">السعر</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-print">
+                    <script>
+                        
+                        $.each(items_data,function(key, value){
+                            var number = key +1;
+
+                            $("#tbody-print").append(
+                            `<tr>
+                            <td class="description">${number}</td>
+                            <td class="description">${value['name']}</td>
+                            <td class="quantity">${value['qty']}</td>
+                            <td class="price">${value['price']}</td>
+                             </tr>`
+                            )
+                        })
+                    </script>
+                </tbody>
+            </table>
+			
+			
+			<br/><br/>
+			
+			<center>
+			
+			<table id="totalAmountTable">
+			
+				<tbody>
+					<tr>
+						<td> <span> ريال <script> document.write(invoice_total); </script>  </span> </td>
+						<td> <b> <span>  مجموع </span> </b> </td>
+					</tr>
+					
+					<tr>
+						<td> <span> ريال <script> document.write(balance); </script>  </span> </td>
+						<td> <b> <span>  المبلغ المستلم </span> </b> </td>
+					</tr>
+					
+					<tr>
+
+						<td> <span> ريال <script> document.write(return_amount); </script> </span>  </td>
+						<td> <b> <span> المتبقية </span> </b>  </td>
+					</tr>
+				</tbody>
+				
+			</table>
+				
+			</center>
+			
+			<br/><br/>
+			
+            <p class="centered">
+				
+				<span style="font-size: 28px;">  15% ضريبة القيمة المضافة </span>   <br/><br/>
+				<span style="font-size: 24px;"> شكرا لك على الشراء </span>  <br/><br/>
+				<span style="font-size: 22px;"> قيم تجربتك معنا اليوم </span>  <br/><br/>
+			
+			
+			</p>
+			
+            
+            <br/><br/><br/><br/>
+           <button id="btnPrint" class="hidden-print">Print</button>
+			
+        </div>
+        <script src="jscript/script.js"></script>
     </body>
     
 </html>

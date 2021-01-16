@@ -256,7 +256,7 @@ function update_totals()
      $vat2 = ($total-$total_without_vat).toFixed(2);
 
      $('#tbody').append(`<tr id="Row"> 
-      <td class="text-center"> 
+      <td class="text-center noprint"> 
        <button class="btn btn-remove text-light" style="background:#204b6d"
            type="button" onclick='$(this).parent().parent().remove()'> <i class="fa fa-trash"></i></button> 
        </td> 

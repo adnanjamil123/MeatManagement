@@ -19,8 +19,9 @@ $(document).ready(function(){
         localStorage.setItem("line_data", items_data);
         localStorage.setItem("meat_invoice_no", invoice_number);
         localStorage.setItem("meat_invoicedata", meat_invoicedata);
-
-        window.open("http://localhost/MeatManagement/Sales/print.php", "_new");
+        window.print();
+        //window.open("http://localhost/MeatManagement/Sales/print.php");
+        //http:localhost/ksa_meet_project/temp_seller/MeatManagement/Sales/print.php
        // $(".print-user-data").text("adnan jamil");
         // $.post("print.php",{
         //     // itemsprint:items_print,
