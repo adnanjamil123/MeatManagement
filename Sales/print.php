@@ -6,7 +6,6 @@
     let lines_data =  localStorage.getItem("line_data");
     let meat_invoice_no =  localStorage.getItem("meat_invoice_no");
     let meat_invoicedata =  localStorage.getItem("meat_invoicedata");
-
     let items_data = JSON.parse(lines_data);
     let userdata = JSON.parse(user_data);
     let meat_invoice = JSON.parse(meat_invoicedata);

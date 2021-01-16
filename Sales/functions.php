@@ -13,7 +13,7 @@ require_once ('query_functions.php');
 
             
             $id = $post['itemsid'];
-            $description = $post['name'];
+            $description = $post['itemsname'];
             // $uom = $post['uom'];
             $uom=$post['unit_type']==0?"":($post['unit_type']==1?"كيلو":"قطعة");
             $price = round(($post['price']>0 ? $post['price'] : 0.00) * (1+$vat),2);
@@ -23,7 +23,7 @@ require_once ('query_functions.php');
 
             echo "<button disabled id='item_clicked' data-id='$id' data-vat='$vat' data-uom='$uom' data-qty-disable = '$quantity_disable' data-size = '$show_sizes' value='$price' name='$description'
              data-toggle='modal' data-target='#itemsModal' style='margin:1px; height:60px; background:$background' 
-             class='col-$col item-buttons btn $text'><i class='fa fa-check-circle btn-icons'></i>".$post['name']."</button></br>";
+             class='col-$col item-buttons btn $text'><i class='fa fa-check-circle btn-icons'></i>".$post['itemsname']."</button></br>";
         }
     } 
 
