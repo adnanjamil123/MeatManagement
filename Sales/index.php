@@ -216,7 +216,7 @@ if(!isset($_SESSION["active"]))
                                 
                                 <li class='order-no list-group-item' ><b></b></li>
                                 <li class='order-branch list-group-item' style='display:none'>id<b><?php echo $_SESSION['branch']?></b></li>
-                                <li class='order-branch-name list-group-item'><span data-key="lng-branch">Branch</span><br><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></li>
+                                <li class='order-branch-name list-group-item'><span data-key="lng-branch">Branch</span><br><span id="branch-name"><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></span></li>
                                 <li class='order-user-name list-group-item'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
                                 <li class='order-user list-group-item' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>

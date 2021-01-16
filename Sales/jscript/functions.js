@@ -10,17 +10,30 @@ $(document).ready(function(){
     var old_table_html = $("#tbody").html();
 
     function print()
-    {
-        $.post("printer/index2.php",{
-            itemsprint:items_print,
-            invoice_data:invoice_data,
-            inv_no:invoice_number,
-            user:user_data
-        },function(data){
+    {   
+        let items_data = JSON.stringify(items_print);
+        let userdata = JSON.stringify(user_data);
+        let meat_invoicedata= JSON.stringify(invoice_data);
+
+        localStorage.setItem("meat_userdata", userdata);
+        localStorage.setItem("line_data", items_data);
+        localStorage.setItem("meat_invoice_no", invoice_number);
+        localStorage.setItem("meat_invoicedata", meat_invoicedata);
+
+        window.open("http://localhost/MeatManagement/Sales/print.php", "_new");
+       // $(".print-user-data").text("adnan jamil");
+        // $.post("print.php",{
+        //     // itemsprint:items_print,
+        //     // invoice_data:invoice_data,
+        //     // inv_no:invoice_number,
             
-            // alert (data);
+        //     user:"adnan jamil"
+        // },function(data){
             
-        })
+        //     // alert (data);
+            
+        // })
+        
     }
     $(".save, .print, .clear").prop("disabled",true);
 
@@ -129,10 +142,12 @@ $(document).ready(function(){
         $user = $("#user-data").attr("data-uid");
         $branch = $("#user-data").attr("data-branch");
         $username = $("#user-data").attr("data-username");
+        $branch_name=$("#branch-name").text()
         
 
         user_data[0] = $branch;
-        user_data[1] = $username;
+        user_data[1] = $branch_name;
+        user_data[2] = $username;
         
 
      $("div ul .order-no").load('load_data.php',{
@@ -178,7 +193,7 @@ $(document).ready(function(){
             $item_size = $(this).find('.item-size').text(); // text
             $item_price = parseFloat($(this).find('.item-price').text());// decimal
             $item_vat = parseFloat($(this).find('.item-vat').text());// decimal
-            $item_text = $(this).find('.item-text').text(); //text
+            $item_text = $(this).find('.item-text').text().trim(); //text
             $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
             $item_total = parseFloat($(this).find('.item-total').text());// decimal
             
