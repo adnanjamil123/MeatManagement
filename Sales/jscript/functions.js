@@ -12,15 +12,6 @@ $(document).ready(function(){
     function print()
     {   
         
-        let items_data = JSON.stringify(items_print);
-        let userdata = JSON.stringify(user_data);
-        let meat_invoicedata= JSON.stringify(invoice_data);
-
-        localStorage.setItem("meat_userdata", userdata);
-        localStorage.setItem("line_data", items_data);
-        localStorage.setItem("meat_invoice_no", invoice_number);
-        localStorage.setItem("meat_invoicedata", meat_invoicedata);
-
 
         $(".print-branch-name").text(user_data[1]);
         $(".print-branch-number").text(user_data[0]);
@@ -30,9 +21,7 @@ $(document).ready(function(){
         $(".print-cash-received").text(invoice_data[0]['cash']);
         $(".print-cash-balance").text(invoice_data[0]['bal']);
 
-    //     var invoice_total = meat_invoice[0]['total'];
-	// var balance = meat_invoice[0]['cash'];
-	// var return_amount = meat_invoice[0]['bal'];
+    
       
             $.each(items_print,function(key, value){
                 var number = key +1;

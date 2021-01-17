@@ -227,7 +227,7 @@ if(!isset($_SESSION["active"]))
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
-                                <li class='order-no list-group-item' ><b></b></li>
+                                <li class='order-no list-group-item' style='display:none'><b></b></li>
                                 <li class='order-branch list-group-item' style='display:none'>id<b><?php echo $_SESSION['branch']?></b></li>
                                 <li class='order-branch-name list-group-item'><span data-key="lng-branch">Branch</span><br><span id="branch-name"><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></span></li>
                                 <li class='order-user-name list-group-item'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
@@ -293,26 +293,10 @@ if(!isset($_SESSION["active"]))
         
     };
 
-    let user_data =localStorage.getItem("meat_userdata");
-    let lines_data =  localStorage.getItem("line_data");
-    let meat_invoice_no =  localStorage.getItem("meat_invoice_no");
-    let meat_invoicedata =  localStorage.getItem("meat_invoicedata");
-    let items_data = JSON.parse(lines_data);
-    let userdata = JSON.parse(user_data);
-    let meat_invoice = JSON.parse(meat_invoicedata);
 
     var currentdate = DisplayCurrentTime();
-
-
-
-	var branch_name = userdata[1];
-	var branch_no = userdata[0];
-	var invoice_no = meat_invoice_no;
-	var cashir_name =user_data[2];
 	var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
-	var invoice_total = meat_invoice[0]['total'];
-	var balance = meat_invoice[0]['cash'];
-	var return_amount = meat_invoice[0]['bal'];
+	
 
        </script>     
             <p class="centered">

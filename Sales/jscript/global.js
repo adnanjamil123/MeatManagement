@@ -135,15 +135,15 @@ function update_totals()
           
           $('div .item-sizes').html(
             `<label class="col form-check-label text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="small" checked>SMALL
+                <input type="radio" class="form-check-input" name="optradio" value="SMALL" checked>SMALL
             </label>
             
             <label class="col form-check-label text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="medium">MEDIUM
+                <input type="radio" class="form-check-input" name="optradio" value="MEDIUM">MEDIUM
             </label>
             
             <label class="col form-check-label text-info">
-                <input type="radio" class="form-check-input" name="optradio" value="large">LARGE
+                <input type="radio" class="form-check-input" name="optradio" value="LARGE">LARGE
             </label>`
           );
         }else if(theLanguage == "ar")
@@ -172,15 +172,15 @@ function update_totals()
           
           $('div .item-sizes').html(
             `<label class="col form-check-label text-danger">
-                <input type="radio" class="form-check-input" name="optradio" value="full" checked>FULL
+                <input type="radio" class="form-check-input" name="optradio" value="FULL" checked>FULL
             </label>
             
             <label class="col form-check-label  text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="half">HALF
+                <input type="radio" class="form-check-input" name="optradio" value="HALF">HALF
             </label>
             
             <label class="col form-check-label  text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="quarter">QUARTER
+                <input type="radio" class="form-check-input" name="optradio" value="QUARTER">QUARTER
             </label>`
           );
         }else if(theLanguage == "ar")
