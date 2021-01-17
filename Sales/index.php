@@ -245,6 +245,7 @@ if(!isset($_SESSION["active"]))
                                 <div class='form-check-inline text-light'><input class='form-check-input' type='radio' name='payment-opt' value='atm'><span data-key="lng-atm">atm</span></input>
                                 </div></li></ul>
                                 <div class="balance-data">
+                                    <br>
                                     <li class='list-group-item' style="background:#204b6d"><span><span data-key="lng-cr" class="text-light">Cash Received</span><span><span class="text-light"> : </span></span><span class="invoice-cr text-light" >0.00</span></span></li>
                                     <li class='list-group-item' style="background:#204b6d"><span><span data-key="lng-bal" class="text-light">Balance</span><span><span class="text-light"> : </span></span><span class="invoice-balance text-light" >0.00</span></span></li>
                                 </div class="balance-data">
