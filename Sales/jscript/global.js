@@ -232,7 +232,7 @@ function update_totals()
       $price_with_vat= ($price_w).toFixed(2);  
       $qty = $('#fqty').val();
 
-      if( $price_with_vat < 1)
+      if( $price_with_vat < 0)
       {
         
         $('#fprice').focus();
@@ -242,7 +242,7 @@ function update_totals()
         return;
       }
 
-      if( $qty < 1)
+      if( $qty < 0)
       {
         
         $('#fqty').focus();
