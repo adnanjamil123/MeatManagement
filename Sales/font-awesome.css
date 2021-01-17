@@ -65,3 +65,73 @@ a.lang-selected
     background-color: white;
     color: black;
 }
+
+/*print*/
+
+.yesprint {
+    font-size: 22px;
+    font-family: 'Times New Roman';
+	margin:0px;
+	padding:0px;
+}
+
+#itemsTables td,
+ th,
+ tr,
+ table {
+    border-top: 1px solid black;
+    border-collapse: collapse;
+	text-align:center;
+padding:10px;
+	
+}
+
+#itemsTables th{
+    font-size: 28px;
+    
+}
+#itemsTables td.description,
+#itemsTable th.description {
+    width: 250px;
+    max-width: 250px;
+     word-break: break-all;
+}
+
+#itemsTables td.quantity,
+#itemsTable th.quantity {
+    width: 75px;
+    max-width: 75px;
+    word-break: break-all;
+}
+
+#itemsTables td.price,
+#itemsTable th.price {
+    width: 150px;
+    max-width: 150px;
+    word-break: break-all;
+}
+
+.centered {
+    text-align: center;
+    align-content: center;
+}
+
+.ticket {
+    width: 425px; /* 155 */
+    max-width: 425px;
+}
+
+
+@media print {
+    .hidden-print,
+    .hidden-print * {
+        display: none !important;
+    }
+}
+
+#totalAmountTable td {
+	
+	padding:10px;
+	border: 2px solid black;
+	
+}
