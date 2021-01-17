@@ -60,51 +60,7 @@ if(!isset($_SESSION["active"]))
         
         <script>
 
-            function DisplayCurrentTime() {
-		
-        var currentdate = new Date();
-		currentdate.toLocaleString('en-US', { timeZone: 'America/New_York' })
-		
-		var date = ('0' + currentdate.getDate()).slice(-2);
-		
-		var month = ('0' + currentdate.getMonth()+1).slice(-2);
-		
-		var year = currentdate.getFullYear();
-		
-        var hours = currentdate.getHours() > 12 ? currentdate.getHours() - 12 : currentdate.getHours();
-		
-        var am_pm = currentdate.getHours() >= 12 ? "PM" : "AM";
-		
-        hours = hours < 10 ? "0" + hours : hours;
-		
-        var minutes = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes();
-		
-        time = date + "/" + month + "/" + year + " " + hours + " " + minutes + " " + " " + am_pm;
-		
-		return time;
-        
-    };
-
-    let user_data =localStorage.getItem("meat_userdata");
-    let lines_data =  localStorage.getItem("line_data");
-    let meat_invoice_no =  localStorage.getItem("meat_invoice_no");
-    let meat_invoicedata =  localStorage.getItem("meat_invoicedata");
-    let items_data = JSON.parse(lines_data);
-    let userdata = JSON.parse(user_data);
-    let meat_invoice = JSON.parse(meat_invoicedata);
-
-    var currentdate = DisplayCurrentTime();
-
-
-
-	var branch_name = userdata[1];
-	var branch_no = userdata[0];
-	var invoice_no = meat_invoice_no;
-	var cashir_name = userdata[2];
-	var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
-	var invoice_total = meat_invoice[0]['total'];
-	var balance = meat_invoice[0]['cash'];
-	var return_amount = meat_invoice[0]['bal'];
+           
            
         </script>
 
@@ -123,7 +79,7 @@ if(!isset($_SESSION["active"]))
         }
         @media print {
         .noprint {
-            visibility: hidden;
+            display:none;
         }
         .print
         {
@@ -309,17 +265,64 @@ if(!isset($_SESSION["active"]))
          <!-- Copyright -->
 </footer>
     
-<div class="ticket print yesprint">
-            
+<div class="ticket print yesprint" id="print-div">
+
+       <script>
+            function DisplayCurrentTime() {
+		
+        var currentdate = new Date();
+		currentdate.toLocaleString('en-US', { timeZone: 'America/New_York' })
+		
+		var date = ('0' + currentdate.getDate()).slice(-2);
+		
+		var month = ('0' + currentdate.getMonth()+1).slice(-2);
+		
+		var year = currentdate.getFullYear();
+		
+        var hours = currentdate.getHours() > 12 ? currentdate.getHours() - 12 : currentdate.getHours();
+		
+        var am_pm = currentdate.getHours() >= 12 ? "PM" : "AM";
+		
+        hours = hours < 10 ? "0" + hours : hours;
+		
+        var minutes = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes();
+		
+        time = date + "/" + month + "/" + year + " " + hours + " " + minutes + " " + " " + am_pm;
+		
+		return time;
+        
+    };
+
+    let user_data =localStorage.getItem("meat_userdata");
+    let lines_data =  localStorage.getItem("line_data");
+    let meat_invoice_no =  localStorage.getItem("meat_invoice_no");
+    let meat_invoicedata =  localStorage.getItem("meat_invoicedata");
+    let items_data = JSON.parse(lines_data);
+    let userdata = JSON.parse(user_data);
+    let meat_invoice = JSON.parse(meat_invoicedata);
+
+    var currentdate = DisplayCurrentTime();
+
+
+
+	var branch_name = userdata[1];
+	var branch_no = userdata[0];
+	var invoice_no = meat_invoice_no;
+	var cashir_name =user_data[2];
+	var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
+	var invoice_total = meat_invoice[0]['total'];
+	var balance = meat_invoice[0]['cash'];
+	var return_amount = meat_invoice[0]['bal'];
+
+       </script>     
             <p class="centered">
               <b>   <span style="font-size: 28px;" >فاتورة اللحوم   </span> </b>  <br/><br/> 
 
-                     <span > <script> document.write(branch_name); </script> -  فرع -  <script> document.write(branch_no); </script> </span> <br/><br/>
+                     <span class="print-branch-name"></span><span>-  فرع - </span><span class="print-branch-number"></span><br/><br/>
                      <span> (0504675794) - رقم الهاتف </span> <br/><br/>
                      <span> (30030208860003) - الرقم الضريبي </span> <br/><br/> 
-                 <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">  <script> document.write(invoice_no); </script> رقم الفاتورة   </span> </b>  <br/><br/>
-					 <span>  أمين الصندوق : <script> document.write(cashir_name); </script> </span>  <br/><br/>
-					 <span>  أمين الصندوق :</span><span class="print-user-data"></span> <br/><br/>
+                 <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">   رقم الفاتورة   </span><span class="print-invoice-number"></span> </b>  <br/><br/>
+					 <span>  أمين الصندوق : </span><span class="print-username"></span>  <br/><br/>
 					<span> <script> document.write(current_date); </script> : تاريخ  </span>  
 				 
 			</p> <br/><br/> 
@@ -334,21 +337,7 @@ if(!isset($_SESSION["active"]))
                     </tr>
                 </thead>
                 <tbody id="tbody-print">
-                    <script>
-                        
-                        $.each(items_data,function(key, value){
-                            var number = key +1;
-
-                            $("#tbody-print").append(
-                            `<tr>
-                            <td class="description">${number}</td>
-                            <td class="description">${value['name']}</td>
-                            <td class="quantity">${value['qty']}</td>
-                            <td class="price">${value['price']}</td>
-                             </tr>`
-                            )
-                        })
-                    </script>
+                    
                 </tbody>
             </table>
 			
@@ -361,18 +350,18 @@ if(!isset($_SESSION["active"]))
 			
 				<tbody>
 					<tr>
-						<td> <span> ريال <script> document.write(invoice_total); </script>  </span> </td>
+						<td> <span> ريال </span><span class="print-invoice-total"></span> </td>
 						<td> <b> <span>  مجموع </span> </b> </td>
 					</tr>
 					
 					<tr>
-						<td> <span> ريال <script> document.write(balance); </script>  </span> </td>
+						<td> <span> ريال </span><span class="print-cash-received"></span> </td>
 						<td> <b> <span>  المبلغ المستلم </span> </b> </td>
 					</tr>
 					
 					<tr>
 
-						<td> <span> ريال <script> document.write(return_amount); </script> </span>  </td>
+						<td> <span> ريال  </span><span class="print-cash-balance"></span>  </td>
 						<td> <b> <span> المتبقية </span> </b>  </td>
 					</tr>
 				</tbody>
