@@ -86,13 +86,13 @@ function update_totals()
     $name = $($button).attr('name');
     $uom = $($button).attr('data-uom');
     $id = $($button).attr('data-id');
-    $price = $($button).val();
+    $price = parseFloat($($button).val());
    
     $('#itemsModal .modal-title').text($name);
     $('#itemsModal .modal-title').attr('data-id-item', $id);
     $('.modal-uom').text($uom);  
 
-    $('#fprice').val($price);  
+    $('#fprice').val($price.toFixed(2));  
 
     $('#fqty').val(1);
 
@@ -232,7 +232,7 @@ function update_totals()
       $price_with_vat= ($price_w).toFixed(2);  
       $qty = $('#fqty').val();
 
-      if( $price_with_vat <= 0)
+      if( $price_with_vat < 0)
       {
         
         $('#fprice').focus();
@@ -242,7 +242,7 @@ function update_totals()
         return;
       }
 
-      if( $qty <= 0)
+      if( $qty < 0)
       {
         
         $('#fqty').focus();

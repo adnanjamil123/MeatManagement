@@ -65,7 +65,10 @@ a.lang-selected
     background-color: white;
     color: black;
 }
-
+.balance-data
+{
+    display:none;
+}
 /*print*/
 
 .yesprint {

@@ -233,7 +233,7 @@ if(!isset($_SESSION["active"]))
                                 <li class='order-user-name list-group-item'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
                                 <li class='order-user list-group-item' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>
-                                <li class='invoice-number list-group-item'><b></b></li>
+                                <li class='list-group-item'><span data-key="lng-invoice"></span><br><span class="invoice-number"></span></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
@@ -244,6 +244,10 @@ if(!isset($_SESSION["active"]))
                                 
                                 <div class='form-check-inline text-light'><input class='form-check-input' type='radio' name='payment-opt' value='atm'><span data-key="lng-atm">atm</span></input>
                                 </div></li></ul>
+                                <div class="balance-data">
+                                    <li class='active list-group-item'><span><span data-key="lng-cr">Cash Received</span><span><span> : </span></span><span class="invoice-cr" >0.00</span></span></li>
+                                    <li class='active list-group-item'><span><span data-key="lng-bal">Balance</span><span><span> : </span></span><span class="invoice-balance" >0.00</span></span></li>
+                                </div class="balance-data">
                                 </div><!--invoice-header-->
                                 
 
@@ -258,7 +262,6 @@ if(!isset($_SESSION["active"]))
   <!-- Copyright -->
   <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
         <span class="internet-status"></span>
-        <span style="float:right;margin-right:100px"><span data-key="lng-bal">Cash</span><span>  </span><span class="invoice-balance" >0.00</span></span>
         <span class="language" style="float:left; padding-left:10px">
         <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
         |<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
@@ -269,35 +272,7 @@ if(!isset($_SESSION["active"]))
 <div class="ticket print yesprint" id="print-div">
 
        <script>
-            function DisplayCurrentTime() {
-		
-        var currentdate = new Date();
-		currentdate.toLocaleString('en-US', { timeZone: 'America/New_York' })
-		
-		var date = ('0' + currentdate.getDate()).slice(-2);
-		
-		var month = ('0' + currentdate.getMonth()+1).slice(-2);
-		
-		var year = currentdate.getFullYear();
-		
-        var hours = currentdate.getHours() > 12 ? currentdate.getHours() - 12 : currentdate.getHours();
-		
-        var am_pm = currentdate.getHours() >= 12 ? "PM" : "AM";
-		
-        hours = hours < 10 ? "0" + hours : hours;
-		
-        var minutes = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes();
-		
-        time = date + "/" + month + "/" + year + " " + hours + " " + minutes + " " + " " + am_pm;
-		
-		return time;
-        
-    };
-
-
-    var currentdate = DisplayCurrentTime();
-	var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
-	
+          
 
        </script>     
             <p class="centered">
@@ -310,7 +285,7 @@ if(!isset($_SESSION["active"]))
                      <span >   رقم الفاتورة   </span><span class="print-invoice-number"></span>
                          </span> </b>  <br/><br/>
 					 <span>  أمين الصندوق : </span><span class="print-username"></span>  <br/><br/>
-					<span> <script> document.write(current_date); </script> : تاريخ  </span>  
+					<span class="print-date"></span><span> : تاريخ  </span>  
 				 
 			</p> <br/><br/> 
 				

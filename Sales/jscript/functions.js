@@ -9,9 +9,34 @@ $(document).ready(function(){
     var old_order_html = $(".invoice-header").html();
     var old_table_html = $("#tbody").html();
 
+    function DisplayCurrentTime() {
+		
+        var currentdate = new Date();
+		currentdate.toLocaleString('en-US', { timeZone: 'America/New_York' })
+		
+		var date = ('0' + currentdate.getDate()).slice(-2);
+		
+		var month = ('0' + currentdate.getMonth()+1).slice(-2);
+		
+		var year = currentdate.getFullYear();
+		
+        var hours = currentdate.getHours() > 12 ? currentdate.getHours() - 12 : currentdate.getHours();
+		
+        var am_pm = currentdate.getHours() >= 12 ? "PM" : "AM";
+		
+        hours = hours < 10 ? "0" + hours : hours;
+		
+        var minutes = currentdate.getMinutes() < 10 ? "0" + currentdate.getMinutes() : currentdate.getMinutes();
+		
+        time = date + "/" + month + "/" + year + " " + hours + " " + minutes + " " + " " + am_pm;
+		
+		return time;
+        
+    };
     function print()
     {   
-        
+        var currentdate = DisplayCurrentTime();
+	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
 
         $(".print-branch-name").text(user_data[1]);
         $(".print-branch-number").text(user_data[0]);
@@ -20,6 +45,7 @@ $(document).ready(function(){
         $(".print-invoice-total").text(invoice_data[0]['total']);
         $(".print-cash-received").text(invoice_data[0]['cash']);
         $(".print-cash-balance").text(invoice_data[0]['bal']);
+        $(".print-date").text(current_date);
 
     
       
@@ -49,6 +75,8 @@ $(document).ready(function(){
         user_data=[];
         items_print=[];
         $('.invoice-balance').text("0.00");
+        $('.invoice-cr').text("0.00");
+        $(".balance-data").css("display","none");
 
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
@@ -77,6 +105,9 @@ $(document).ready(function(){
         user_data=[];
         items_print=[];
         $('.invoice-balance').text("0.00");
+        $('.invoice-cr').text("0.00");
+        $(".balance-data").css("display","none");
+
         var lang = $('html').attr('lang');
         var clear_items=lang=="en"?"Are you sure to clear all items?":"هل أنت متأكد من مسح كافة العناصر؟";
         if(confirm(clear_items))
@@ -102,6 +133,7 @@ $(document).ready(function(){
         var lang = $('html').attr('lang');
         var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
         var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
+        var cash_received = lang=="en"?"Cash Received":"المبلغ المستلم  .";
         var cash_received;
         var balance;
 
@@ -131,7 +163,7 @@ $(document).ready(function(){
           if($payment_method == "cash")
           {
              
-            cash_received = prompt("المبلغ المستلم");
+            cash_received = prompt(cash_received);
             if(cash_received==null)
             {
                 return;
@@ -251,6 +283,8 @@ $(document).ready(function(){
             
         })
             $('.invoice-balance').text(balance);
+            $('.invoice-cr').text(cash_received);
+            $(".balance-data").css("display","block");
             invoice_data.push(invoice_values);
        
     }
