@@ -1,14 +1,14 @@
-var items = [ "عجل كامل" ,
-              "نص عجل",
-              "عجل ربع",
-               "ثمن",
-             "لحم عجل بلدي",
-             "لحم عجل وسط",
-             "لحم عجل وسط",
-             "لحم صافي",
-            "كامل خروف" ,
-            "نص خروف",
-            "خروف ربع"];
+// var items = [ "عجل كامل" ,
+//               "نص عجل",
+//               "عجل ربع",
+//                "ثمن",
+//              "لحم عجل بلدي",
+//              "لحم عجل وسط",
+//              "لحم عجل وسط",
+//              "لحم صافي",
+//             "كامل خروف" ,
+//             "نص خروف",
+//             "خروف ربع"];
 
  
 function lang_change(lng)
@@ -220,7 +220,8 @@ function update_totals()
     //var rowIdx = 0; 
     $(".btn-confirm").click(function(){
 
-      $price_with_vat= $('#fprice').val();  
+      $price_w = parseFloat($('#fprice').val());  
+      $price_with_vat= ($price_w).toFixed(2);  
       $qty = $('#fqty').val();
 
       if( $price_with_vat < 1)
@@ -250,7 +251,7 @@ function update_totals()
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
      $vat = $("#item_clicked").attr('data-vat');
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
-     $price_without_vat= ($('#fprice').val())*(1-$vat);  
+     $price_without_vat= ($('#fprice').val())*(1-$vat).toFixed(2);  
      $total = ($qty * $price_with_vat).toFixed(2);
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
@@ -297,12 +298,6 @@ function update_totals()
       update_totals();
   });  
 
-  
-    // function close_modal()
-    // {
-    //   var modal = document .getElementById("itemsModal");
-      
-    // }
   
 
     

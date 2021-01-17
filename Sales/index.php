@@ -370,7 +370,6 @@ if(!isset($_SESSION["active"]))
            <button id="btnPrint" class="hidden-print">Print</button>
 			
         </div>
-        <script src="jscript/script.js"></script>
     </body>
     
 </html>

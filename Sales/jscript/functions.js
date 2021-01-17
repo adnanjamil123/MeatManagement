@@ -96,7 +96,7 @@ $(document).ready(function(){
     $(".save").click(function(){
        
         $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
-        $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
+        $invoice_total = parseFloat($(".invoice-tv").text()).toFixed(2);//invoice total vat in decimals
         var lang = $('html').attr('lang');
         var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
         var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
@@ -140,8 +140,8 @@ $(document).ready(function(){
           }
           if($payment_method == "atm")
           {
-              cash_received = 0;
-              balance = 0;
+              cash_received = 0.00;
+              balance = 0.00;
           }
          
           $(".print").prop("disabled",false);
@@ -177,8 +177,8 @@ $(document).ready(function(){
 
     function save_items(bal,received)
     {
-        var cash_received = received;
-        var balance = bal;
+        var cash_received = parseFloat(received).toFixed(2);
+        var balance = parseFloat(bal).toFixed(2);
         var invoice_values = new Array();
 
         
@@ -195,14 +195,14 @@ $(document).ready(function(){
 
             $order_no = parseInt($(".order-no").text(),10);   // integer
             $item_id = parseInt($(this).find(".item-id").text(),10); // integer
-            $item_qty = parseInt($(this).find('.item-qty').text(),10); // integer
+            $item_qty = parseFloat($(this).find('.item-qty').text(),2); // integer
             $item_uom = $(this).find('.item-uom').text(); // text
             $item_size = $(this).find('.item-size').text(); // text
             $item_price = parseFloat($(this).find('.item-price').text());// decimal
             $item_vat = parseFloat($(this).find('.item-vat').text());// decimal
             $item_text = $(this).find('.item-text').text().trim(); //text
-            $item_without_vat = parseFloat($(this).find('.item-without-vat').text());// decimal
-            $item_total = parseFloat($(this).find('.item-total').text());// decimal
+            $item_without_vat = parseFloat($(this).find('.item-without-vat').text()).toFixed(2);// decimal
+            $item_total = parseFloat($(this).find('.item-total').text()).toFixed(2);// decimal
             
             var items_values = {name:$item_text, qty:$item_qty, price:$item_total};
            
