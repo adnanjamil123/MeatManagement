@@ -107,7 +107,15 @@ function update_totals()
       $show_sizes = $($button).attr('data-size');
       $qty_disabled = $($button).attr('data-qty-disable');
       $price = $($button).val();
-   
+      
+      if($('#fqty').focus())
+      {
+        $('#fqty').select();
+      }
+      if($('#fprice').focus())
+      {
+        $('#fprice').select();
+      }
       if($price > 0 )
       {
         

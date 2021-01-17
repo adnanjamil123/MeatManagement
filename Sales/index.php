@@ -257,7 +257,8 @@ if(!isset($_SESSION["active"]))
         <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
   <!-- Copyright -->
   <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
-        <span class="internet-status"><script></script></span>
+        <span class="internet-status"></span>
+        <span style="float:right;margin-right:100px"><span data-key="lng-bal">Cash</span><span>  </span><span class="invoice-balance" >0.00</span></span>
         <span class="language" style="float:left; padding-left:10px">
         <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
         |<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
@@ -305,7 +306,9 @@ if(!isset($_SESSION["active"]))
                      <span class="print-branch-name"></span><span>-  فرع - </span><span class="print-branch-number"></span><br/><br/>
                      <span> (0504675794) - رقم الهاتف </span> <br/><br/>
                      <span> (30030208860003) - الرقم الضريبي </span> <br/><br/> 
-                 <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">   رقم الفاتورة   </span><span class="print-invoice-number"></span> </b>  <br/><br/>
+                         <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">
+                     <span >   رقم الفاتورة   </span><span class="print-invoice-number"></span>
+                         </span> </b>  <br/><br/>
 					 <span>  أمين الصندوق : </span><span class="print-username"></span>  <br/><br/>
 					<span> <script> document.write(current_date); </script> : تاريخ  </span>  
 				 

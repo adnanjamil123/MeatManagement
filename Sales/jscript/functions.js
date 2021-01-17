@@ -48,6 +48,8 @@ $(document).ready(function(){
         invoice_data=[];
         user_data=[];
         items_print=[];
+        $('.invoice-balance').text("0.00");
+
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
         $("div #tbody").css("visibility","visible");
@@ -74,7 +76,7 @@ $(document).ready(function(){
         invoice_data=[];
         user_data=[];
         items_print=[];
-        
+        $('.invoice-balance').text("0.00");
         var lang = $('html').attr('lang');
         var clear_items=lang=="en"?"Are you sure to clear all items?":"هل أنت متأكد من مسح كافة العناصر؟";
         if(confirm(clear_items))
@@ -196,8 +198,8 @@ $(document).ready(function(){
             $order_no = parseInt($(".order-no").text(),10);   // integer
             $item_id = parseInt($(this).find(".item-id").text(),10); // integer
             $item_qty = parseFloat($(this).find('.item-qty').text(),2); // integer
-            $item_uom = $(this).find('.item-uom').text(); // text
-            $item_size = $(this).find('.item-size').text(); // text
+            $item_uom = $(this).find('.item-uom').text().trim(); // text
+            $item_size = $(this).find('.item-size').text().trim(); // text
             $item_price = parseFloat($(this).find('.item-price').text());// decimal
             $item_vat = parseFloat($(this).find('.item-vat').text());// decimal
             $item_text = $(this).find('.item-text').text().trim(); //text
@@ -248,7 +250,7 @@ $(document).ready(function(){
             }
             
         })
-        
+            $('.invoice-balance').text(balance);
             invoice_data.push(invoice_values);
        
     }
