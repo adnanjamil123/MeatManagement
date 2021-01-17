@@ -218,9 +218,9 @@ $(document).ready(function(){
         
         $order_no = parseInt($(".order-no").text(),10);   // integer
 
-        $invoice_wv = parseFloat($(".invoice-twv").text());//invoice without vat in decimals
-        $invoice_vat = parseFloat($(".invoice-v").text());//invoice  vat in decimals
-        $invoice_total = parseFloat($(".invoice-tv").text());//invoice total vat in decimals
+        $invoice_wv = parseFloat($(".invoice-twv").text()).toFixed(2);//invoice without vat in decimals
+        $invoice_vat = parseFloat($(".invoice-v").text()).toFixed(2);//invoice  vat in decimals
+        $invoice_total = parseFloat($(".invoice-tv").text()).toFixed(2);//invoice total vat in decimals
         
        
 
@@ -229,7 +229,7 @@ $(document).ready(function(){
 
             $order_no = parseInt($(".order-no").text(),10);   // integer
             $item_id = parseInt($(this).find(".item-id").text(),10); // integer
-            $item_qty = parseFloat($(this).find('.item-qty').text(),2); // integer
+            $item_qty = parseFloat($(this).find('.item-qty').text()).toFixed(2); // integer
             $item_uom = $(this).find('.item-uom').text().trim(); // text
             $item_size = $(this).find('.item-size').text().trim(); // text
             $item_price = parseFloat($(this).find('.item-price').text());// decimal
