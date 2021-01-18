@@ -82,9 +82,32 @@ function update_totals()
     $('#itemsModal').on('show.bs.modal', function (e) {
       
     var $button = e.relatedTarget;
-      
-    $name = $($button).attr('name');
+    var theLanguage = $('html').attr("lang");
     $uom = $($button).attr('data-uom');
+
+    if($uom == "2")
+    {
+      if(theLanguage == "en")
+      {
+        $uom = "piece";
+      }else
+      {
+        $uom = "قطعة"
+      }
+    }else if($uom == "1")
+    {
+      if(theLanguage == "en")
+      {
+        $uom = "Kg";
+      }else
+      {
+        $uom = "كيلو"
+      }
+    }else{
+      $uom = "";
+    }
+
+    $name = $($button).attr('name');
     $id = $($button).attr('data-id');
     $price = parseFloat($($button).val());
    
@@ -159,15 +182,15 @@ function update_totals()
            
           $('div .item-sizes').html(
             `<label class="col form-check-label text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>صغير
+                <input type="radio" class="form-check-input" name="optradio" value="SMALL" checked>صغير
             </label>
             
             <label class="col form-check-label text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="متوسط">متوسط
+            <input type="radio" class="form-check-input" name="optradio" value="MEDIUM">متوسط
             </label>
             
             <label class="col form-check-label text-info">
-                <input type="radio" class="form-check-input" name="optradio" value="كبير">كبير
+            <input type="radio" class="form-check-input" name="optradio" value="LARGE">كبير
             </label>`
           );
         }
@@ -196,15 +219,15 @@ function update_totals()
            
           $('div .item-sizes').html(
             `<label class="col form-check-label text-danger">
-                <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>كامل
+                <input type="radio" class="form-check-input" name="optradio" value="FULL" checked>كامل
             </label>
             
             <label class="col form-check-label  text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="نصف">نصف
+            <input type="radio" class="form-check-input" name="optradio" value="HALF">نصف
             </label>
             
             <label class="col form-check-label  text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="ربع">ربع
+            <input type="radio" class="form-check-input" name="optradio" value="QUARTER">ربع
             </label>`
           );
         }
