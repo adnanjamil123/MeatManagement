@@ -54,7 +54,7 @@ $(document).ready(function(){
 
                 $("#tbody-print").append(
                ` <tr>
-                <td class="description">${number}</td>
+                <td class="serial">${number}</td>
                 <td class="description">${value['name']}</td>
                 <td class="quantity">${value['qty']}</td>
                 <td class="price">${value['price']}</td>

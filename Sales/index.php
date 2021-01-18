@@ -293,7 +293,7 @@ if(!isset($_SESSION["active"]))
             <table id="itemsTables">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th class="serial">#</th>
                         <th class="description">الصنف</th>
                         <th class="quantity">الكمية</th>
                         <th class="price">السعر</th>

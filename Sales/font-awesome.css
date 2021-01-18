@@ -113,6 +113,12 @@ padding:10px;
     max-width: 150px;
     word-break: break-all;
 }
+#itemsTables td.serial,
+#itemsTable th.serial {
+    width: 100px;
+    max-width: 100px;
+    word-break: break-all;
+}
 
 .centered {
     text-align: center;
