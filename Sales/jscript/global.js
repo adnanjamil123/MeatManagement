@@ -166,15 +166,15 @@ function update_totals()
           
           $('div .item-sizes').html(
             `<label class="col form-check-label text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="SMALL" checked>SMALL
+                <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>SMALL
             </label>
             
             <label class="col form-check-label text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="MEDIUM">MEDIUM
+                <input type="radio" class="form-check-input" name="optradio" value="متوسط">MEDIUM
             </label>
             
             <label class="col form-check-label text-info">
-                <input type="radio" class="form-check-input" name="optradio" value="LARGE">LARGE
+                <input type="radio" class="form-check-input" name="optradio" value="كبير">LARGE
             </label>`
           );
         }else if(theLanguage == "ar")
@@ -182,15 +182,15 @@ function update_totals()
            
           $('div .item-sizes').html(
             `<label class="col form-check-label text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="SMALL" checked>صغير
+                <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>صغير
             </label>
             
             <label class="col form-check-label text-primary">
-            <input type="radio" class="form-check-input" name="optradio" value="MEDIUM">متوسط
+            <input type="radio" class="form-check-input" name="optradio" value="متوسط">متوسط
             </label>
             
             <label class="col form-check-label text-info">
-            <input type="radio" class="form-check-input" name="optradio" value="LARGE">كبير
+            <input type="radio" class="form-check-input" name="optradio" value="كبير">كبير
             </label>`
           );
         }
@@ -203,15 +203,15 @@ function update_totals()
           
           $('div .item-sizes').html(
             `<label class="col form-check-label text-danger">
-                <input type="radio" class="form-check-input" name="optradio" value="FULL" checked>FULL
+                <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>FULL
             </label>
             
             <label class="col form-check-label  text-primary">
-                <input type="radio" class="form-check-input" name="optradio" value="HALF">HALF
+                <input type="radio" class="form-check-input" name="optradio" value="نصف">HALF
             </label>
             
             <label class="col form-check-label  text-success">
-                <input type="radio" class="form-check-input" name="optradio" value="QUARTER">QUARTER
+                <input type="radio" class="form-check-input" name="optradio" value="ربع">QUARTER
             </label>`
           );
         }else if(theLanguage == "ar")
@@ -219,15 +219,15 @@ function update_totals()
            
           $('div .item-sizes').html(
             `<label class="col form-check-label text-danger">
-                <input type="radio" class="form-check-input" name="optradio" value="FULL" checked>كامل
+                <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>كامل
             </label>
             
             <label class="col form-check-label  text-primary">
-            <input type="radio" class="form-check-input" name="optradio" value="HALF">نصف
+            <input type="radio" class="form-check-input" name="optradio" value="نصف">نصف
             </label>
             
             <label class="col form-check-label  text-success">
-            <input type="radio" class="form-check-input" name="optradio" value="QUARTER">ربع
+            <input type="radio" class="form-check-input" name="optradio" value="ربع">ربع
             </label>`
           );
         }

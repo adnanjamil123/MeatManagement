@@ -125,7 +125,9 @@ if(!isset($_SESSION["active"]))
                             </div><!--modal-content-->
                         </div><!--modal-dialog-->
                     </div><!--modal-->
-
+        <div class="modal" id="cash-collect">
+            
+        </div>
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   

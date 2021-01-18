@@ -115,8 +115,8 @@ padding:10px;
 }
 #itemsTables td.serial,
 #itemsTable th.serial {
-    width: 100px;
-    max-width: 100px;
+    width: 50px;
+    max-width: 50px;
     word-break: break-all;
 }
 
