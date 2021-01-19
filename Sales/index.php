@@ -60,7 +60,14 @@ if(!isset($_SESSION["active"]))
         
         <script>
 
-           
+            function focusout(elem)
+        {
+            
+            var val = elem.value
+            var val2 = parseFloat(val).toFixed(2);
+            elem.value=val2;
+
+        }
            
         </script>
 
@@ -125,8 +132,27 @@ if(!isset($_SESSION["active"]))
                             </div><!--modal-content-->
                         </div><!--modal-dialog-->
                     </div><!--modal-->
+
+
         <div class="modal" id="cash-collect">
-            
+            <div class="modal-dialog modal-dialog-centered" aria-modal="true">
+                <div class="modal-content">
+                    <div class="modal-header text-light" style="background:#204b6d">
+                        <h2 class="modal-title" data-key="lng-cr">
+                        </h2>
+                    </div>
+                    <div class="row modal-body justify-content-center">
+                    <div><input id="received" onfocusout="focusout(received)" type = "number" class="w-100" step="0.01" autofocus value = 0></input></div>
+                    <div class="modal-footer">
+                        <button class="btn-add btn text-light" style="background:#204b6d" data-key="lng-enter">
+                            Add 
+                        </button>
+                    </div>
+                     </div>
+
+                     
+                </div>
+            </div>
         </div>
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 

@@ -33,6 +33,17 @@ $(document).ready(function(){
 		return time;
         
     };
+   
+
+    function cash_prompt()
+    {
+        $('#cash-collect').modal('show');
+        $("#received").val(0);
+        $("#received").focus();
+        $("#received").select();
+        
+    }
+
     function print()
     {   
         var currentdate = DisplayCurrentTime();
@@ -125,17 +136,50 @@ $(document).ready(function(){
         
         
     })
+    $(".btn-add ").click(function(){
 
-    $(".save").click(function(){
-       
+        var cash = $("#received").val();
+
+        if(cash <= 0)
+        {
+            $("#received").focus();
+            $("#received").select();
+        }else if(cash > 0)
+        {
+            save_invoice(cash);
+            $('#cash-collect').modal('hide');
+        }
+        
+
+    })
+
+    $(".save").click(function (){
+
+
         $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
+
+
+        if($payment_method == "cash")
+        {
+            cash_prompt();
+            return;
+        }else
+        {
+            save_invoice(0);
+        }
+
+
+    })
+     function save_invoice(cash_received){
+       
+        
         $invoice_total = parseFloat($(".invoice-tv").text()).toFixed(2);//invoice total vat in decimals
         var lang = $('html').attr('lang');
         var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
         var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
-        var cash_received = lang=="en"?"Cash Received":"المبلغ المستلم  .";
+       // var cash_received = lang=="en"?"Cash Received":"المبلغ المستلم  .";
         var cash_received;
-        var balance;
+        var balance = 0;
 
         var tbody = $("#tbody tbody");
 
@@ -160,23 +204,13 @@ $(document).ready(function(){
             return;
           }
 
-          if($payment_method == "cash")
+          if(cash_received>0)
           {
-             
-            cash_received = prompt(cash_received);
-            if(cash_received==null)
-            {
-                return;
-            }
-
               
               balance=cash_received-$invoice_total;
+
           }
-          if($payment_method == "atm")
-          {
-              cash_received = 0.00;
-              balance = 0.00;
-          }
+          
          
           $(".print").prop("disabled",false);
         
@@ -206,7 +240,7 @@ $(document).ready(function(){
 
         
         
-      });
+      };
 
 
     function save_items(bal,received)

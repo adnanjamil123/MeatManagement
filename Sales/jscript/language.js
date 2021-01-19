@@ -109,6 +109,7 @@ let langdata = {
                 "lng-bal":"Balance",
                 "lng-invoice":"Invoice#",
                 "lng-cr":"Cash Received",
+                "lng-enter":"Enter",
             }
         },
         "ar":{ 
@@ -142,6 +143,7 @@ let langdata = {
                 "lng-bal":"رصيد حساب",
                 "lng-invoice":"#الفاتورة",
                 "lng-cr":"المبلغ المستلم",
+                "lng-enter":"أدخل",
 
             }
         }
