@@ -134,21 +134,24 @@ if(!isset($_SESSION["active"]))
                     </div><!--modal-->
 
 
-        <div class="modal" id="cash-collect">
+        <div class="modal fade" id="cash-collect">
             <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                 <div class="modal-content">
-                    <div class="modal-header text-light" style="background:#204b6d">
+                    <div class="modal-header bg-white text-dark">
                         <h2 class="modal-title" data-key="lng-cr">
                         </h2>
                     </div>
                     <div class="row modal-body justify-content-center">
                     <div><input id="received" onfocusout="focusout(received)" type = "number" class="w-100" step="0.01" autofocus value = 0></input></div>
-                    <div class="modal-footer">
-                        <button class="btn-add btn text-light" style="background:#204b6d" data-key="lng-enter">
-                            Add 
-                        </button>
                     </div>
-                     </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel btn text-light btn-secondary" id="btn-cancel" data-key="lng-cancel">
+                            Close 
+                        </button>
+                        <button class="btn-add btn text-light btn-primary" id="btn-add"data-key="lng-enter">
+                            Save changes 
+                        </button>
+                </div>
 
                      
                 </div>

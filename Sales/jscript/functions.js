@@ -33,16 +33,18 @@ $(document).ready(function(){
 		return time;
         
     };
-   
+    $("#received").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#btn-add").click();
+        }
+    });
 
-    function cash_prompt()
-    {
-        $('#cash-collect').modal('show');
+
+    $('#cash-collect').on('shown.bs.modal', function () {
         $("#received").val(0);
         $("#received").focus();
         $("#received").select();
-        
-    }
+    })
 
     function print()
     {   
@@ -153,6 +155,10 @@ $(document).ready(function(){
 
     })
 
+    $(".btn-cancel").click(function(){
+        $('#cash-collect').modal('hide');
+    })
+
     $(".save").click(function (){
 
 
@@ -161,7 +167,7 @@ $(document).ready(function(){
 
         if($payment_method == "cash")
         {
-            cash_prompt();
+            $('#cash-collect').modal('show');
             return;
         }else
         {
@@ -195,14 +201,17 @@ $(document).ready(function(){
             alert(entet_items);
             return;
         }
-
-        if (confirm(save_text)) {
-            // Save it!
-            
-          } else {
-            // Do nothing!
-            return;
-          }
+        if(cash_received <= 0)
+        {
+            if (confirm(save_text)) {
+                // Save it!
+                
+              } else {
+                // Do nothing!
+                return;
+              }
+        }
+        
 
           if(cash_received>0)
           {
