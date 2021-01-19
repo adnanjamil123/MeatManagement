@@ -160,7 +160,7 @@ if(!isset($_SESSION["active"]))
                 <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
-                     <span  class="navbar-text text-white" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
+                     <span  class="navbar-text text-white user-select-none" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                   
                        <p class="ml-auto">
                             <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' 
@@ -266,9 +266,9 @@ if(!isset($_SESSION["active"]))
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>
                                 <li class='list-group-item'><span data-key="lng-invoice"></span><br><span class="invoice-number"></span></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
-                                <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
+                                <li class='inv-wt list-group-item  vat-display '><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
-                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span>&#58;&nbsp;<br><span class='invoice-tv font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br><span class='invoice-tv font-weight-bold'></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light'  type='radio' name='payment-opt' value='cash' checked><span data-key="lng-cash">cash</span></input> 
                                 </div>
