@@ -95,7 +95,7 @@ if(!isset($_SESSION["active"]))
         }
         </style>
     
-        <div class="main container-fluid noprint" style="background:#204b6d;height:97vh">
+        <div class="main container-fluid noprint vh-100" style="background:#204b6d">
 
         <div class="modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
@@ -157,16 +157,16 @@ if(!isset($_SESSION["active"]))
                 </div>
             </div>
         </div>
-                <nav class="navbar navbar-expand-md navbar-dark" style="background:#204b6d">
+                <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white user-select-none" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                   
-                       <p class="ml-auto">
-                            <span class="navbar-text"><?php echo ("<p class='text-white' style = 'text-transform:uppercase;' id='user-data' 
+                       <div class="ml-auto">
+                            <span class="navbar-text"><?php echo ("<p class='text-white m-0' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
-                            <a class="nav-link text-light" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
-                       </p>
+                            <a class="nav-link text-light p-0 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
+                       </div>
                  
 
                 </nav>
@@ -289,17 +289,17 @@ if(!isset($_SESSION["active"]))
                
             </div><!--sales-section-->  
       
+            <footer class="text-center text-lg-start fixed-bottom" style="background:#204b6d">
+      <!-- Copyright -->
+      <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
+            <span class="internet-status"></span>
+            <span class="language" style="float:left; padding-left:10px">
+            <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
+            |<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
+         </div>
+             <!-- Copyright -->
+    </footer>
         </div><!--main-->
-        <footer class="text-center text-lg-start" style="height:3vh;background:#204b6d">
-  <!-- Copyright -->
-  <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
-        <span class="internet-status"></span>
-        <span class="language" style="float:left; padding-left:10px">
-        <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
-        |<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
-     </div>
-         <!-- Copyright -->
-</footer>
     
 <div class="ticket print yesprint" id="print-div">
 
