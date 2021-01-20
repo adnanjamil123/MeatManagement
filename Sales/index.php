@@ -163,7 +163,7 @@ if(!isset($_SESSION["active"]))
                      <span  class="navbar-text text-white user-select-none" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                   
                        <div class="ml-auto">
-                            <span class="navbar-text"><?php echo ("<p class='text-white m-0' style = 'text-transform:uppercase;' id='user-data' 
+                            <span class="navbar-text"><?php echo ("<p class='text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
                             <a class="nav-link text-light p-0 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
                        </div>
@@ -171,9 +171,9 @@ if(!isset($_SESSION["active"]))
 
                 </nav>
 
-            <div class="row sales-section bg-light justify-content-around" style="margin:auto, height:90vh, background:aliceblue;">
+            <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col-3 justify-content-around items-section" id="menu" style="height:90vh; border-right:10px solid;background:aliceblue; border-color:#204b6d">
+                <div class="row col-3 justify-content-around items-section" id="menu" style="border-right:10px solid;background:aliceblue; border-color:#204b6d">
                     
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
