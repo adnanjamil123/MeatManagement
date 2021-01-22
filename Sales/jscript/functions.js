@@ -44,11 +44,6 @@ $(document).ready(function(){
             $(".btn-confirm").click();
         }
     })
-    $("#received").keyup(function(event) {
-        if (event.keyCode === 13) {
-            $("#btn-add").click();
-        }
-    });
 
 
     $('#cash-collect').on('shown.bs.modal', function () {
