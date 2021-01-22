@@ -31,7 +31,7 @@ if(!isset($_SESSION["active"]))
 
 <!doctype html>
 
-<html lang=<?php echo language();?>>
+<html  lang=<?php echo language();?>>
   <head>
     <title>Sales</title>
     <!-- Required meta tags -->
@@ -177,9 +177,9 @@ if(!isset($_SESSION["active"]))
                     
                 <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
-                            <div class="dropdown col-5">
-                            <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons"></i></span><span data-key="lng-more">More</span></button>
-                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px">            
+                            <div class="dropdown col-12 col-lg-6 pr-1 p-0 mb-1">
+                            <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons d-none d-lg-inline"></i></span><span data-key="lng-more">More</span></button>
+                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:80vh">            
                                     
                             <?php
                                 // arguements category(general or special), optional limit, optional offset, optional grid column
@@ -190,9 +190,9 @@ if(!isset($_SESSION["active"]))
                             </ul>
                             </div>   
                         
-                            <div class="dropdown col-6">
-                            <button class="item-dropdown top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d"><span><i class="fa fa-star m-icons"></i></span><span data-key="lng-special">Special</span></button>
-                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px">            
+                            <div class="dropdown col-12 col-lg-6 p-0">
+                            <button class="item-dropdown top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d"><span><i class="fa fa-star m-icons d-none d-lg-inline"></i></span><span data-key="lng-special">Special</span></button>
+                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:80vh">            
                                  <?php
                                     // arguements category(general or special), optional limit, optional offset, optional grid column
                                     create_buttons(2,50,0,11,"white","text-black");
@@ -206,7 +206,7 @@ if(!isset($_SESSION["active"]))
 
                     <?php
                         // arguements category(general or special), optional limit, optional offset, optional grid column
-                        create_buttons(1,50,0,5,"white","text-black");
+                        create_buttons(1,15,0,5,"white","text-black");
                         
                     ?>
 
@@ -236,11 +236,11 @@ if(!isset($_SESSION["active"]))
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"></th>
-                                        <th scope="col" data-key="lng-code">ITEM CODE</th>
+                                        <th scope="col" class=" d-none d-md-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
-                                        <th scope="col" class="d-none d-md-table-cell" data-key="lng-uom">UOM</th>
-                                        <th scope="col" class="d-none d-md-table-cell" data-key="lng-size">SIZE</th>
+                                        <th scope="col" class="d-none d-lg-table-cell" data-key="lng-uom">UOM</th>
+                                        <th scope="col" class="d-none d-lg-table-cell" data-key="lng-size">SIZE</th>
                                         <th scope="col" data-key="lng-price">PRICE</th>
                                         <th scope="col" class="vat-display" data-key="lng-vat">VAT</th>
                                         <th scope="col" class="vat-display" data-key="lng-wvat">TOTAL(V)</th>
@@ -255,15 +255,15 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-3 invoice-header" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d; height:600px;">
+                            <div class="col-3 invoice-header overflow-auto" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;">
                                  <ul class='list-group list-group'>
-                                <li class='order-user list-group-item text-light' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
+                                <li class='order-user list-group-item text-light d-none d-lg-block' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
-                                <li class='order-no list-group-item' style='display:none'><b></b></li>
-                                <li class='order-branch list-group-item' style='display:none'>id<b><?php echo $_SESSION['branch']?></b></li>
-                                <li class='order-branch-name list-group-item'><span data-key="lng-branch">Branch</span><br><span id="branch-name"><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></span></li>
-                                <li class='order-user-name list-group-item'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
-                                <li class='order-user list-group-item' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
+                                <li class='order-no list-group-item d-none' style='display:none'><b></b></li>
+                                <li class='order-branch list-group-item d-none' style='display:none'>id<b><?php echo $_SESSION['branch']?></b></li>
+                                <li class='order-branch-name list-group-item d-none d-lg-block'><span data-key="lng-branch">Branch</span><br><span id="branch-name"><b><?php echo(mysqli_fetch_all(get_branch_name($_SESSION['branch']), MYSQLI_ASSOC))[0]['name'];?></b></span></li>
+                                <li class='order-user-name list-group-item d-none d-lg-block'><span data-key="lng-user">USER:</span><br><b><?php echo $_SESSION['name'] ?></b></li>
+                                <li class='order-user list-group-item d-none' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>
                                 <li class='list-group-item'><span data-key="lng-invoice"></span><br><span class="invoice-number"></span></li>
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>

@@ -293,7 +293,7 @@ function update_totals()
            type="button" onclick='$(this).parent().parent().remove()'> <i class="fa fa-trash"></i></button> 
        </td> 
 
-            <td class="row-index text-center item-id"> 
+            <td class="row-index text-center item-id d-none d-md-table-cell"> 
             ${$item_id}</td>
 
            <td class="row-index text-center item-text"> 
@@ -302,10 +302,10 @@ function update_totals()
             <td class="row-index text-center item-qty"> 
             ${$qty}</td>
 
-            <td class="row-index text-center item-uom d-none d-md-table-cell"> 
+            <td class="row-index text-center item-uom d-none d-lg-table-cell"> 
             ${$uom}</td>
 
-            <td class="row-index text-center item-size d-none d-md-table-cell"> 
+            <td class="row-index text-center item-size d-none d-lg-table-cell"> 
             ${$size}</td>
 
             <td class="row-index text-center item-price"> 
