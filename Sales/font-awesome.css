@@ -145,6 +145,12 @@ padding:10px;
 	
 }
 
-/* html:lang(ar) {
+[lang='ar'] ul li{
     text-align: right;
-  } */
+}
+
+
+ul li span:nth-child(3)
+{
+   
+}

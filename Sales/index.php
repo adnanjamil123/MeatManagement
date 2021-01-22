@@ -77,8 +77,8 @@ if(!isset($_SESSION["active"]))
            display:none; 
         }
         .list-group-item{
-            padding: .5rem 0.5rem;
-            background:azure;
+            /* padding: .5rem 0.5rem; */
+            background:white;
         }
         .yesprint
         {
@@ -160,7 +160,7 @@ if(!isset($_SESSION["active"]))
                 <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
-                     <span  class="navbar-text text-white user-select-none" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
+                     <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                   
                        <div class="ml-auto">
                             <span class="navbar-text"><?php echo ("<p class='text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
@@ -171,9 +171,11 @@ if(!isset($_SESSION["active"]))
 
                 </nav>
 
+              
+
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col-3 justify-content-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d; max-height:90vh">
+                <div class="row col col-sm-3 justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d; max-height:90vh">
                     
                 <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
@@ -215,21 +217,21 @@ if(!isset($_SESSION["active"]))
 
                 
 
-                <div class="col-9  order-section">
+                <div class="col col-sm-9  order-section">
 
-                        <div class="row col-12 order-buttons justify-content-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
+                        <div class="row col-12 order-buttons justify-content-center justify-content-md-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
 
-                            <button type="button" class="top-btns new btn  col-2 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-new">NEW</span></button>
-                            <button type="button" class="top-btns clear btn col-2 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons"></i></span><span data-key="btn-clear">CLEAR</span></button>
-                            <button type="button" class="top-btns btn  col-2 save text-light"  style="background:#204b6d"><span><i class="fa fa-save m-icons"></i></span><span data-key="btn-save">SAVE</span></button>
-                            <button type="button" class="top-btns print btn  col-2 text-light" style="background:#204b6d"><span><i class="fa fa-print m-icons"></i></span><span data-key="btn-print">PRINT</span></button>
+                            <button type="button" class="top-btns new btn  col-md-2   col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons d-none d-sm-inline"></i></span><span data-key="btn-new">NEW</span></button>
+                            <button type="button" class="top-btns clear btn col-md-2  col-3 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons d-none d-sm-inline"></i></span><span data-key="btn-clear">CLEAR</span></button>
+                            <button type="button" class="top-btns btn  col-md-2 save  col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-save m-icons d-none d-sm-inline"></i></span><span data-key="btn-save">SAVE</span></button>
+                            <button type="button" class="top-btns print btn  col-md-2 col-3 text-light" style="background:#204b6d"><span><i class="fa fa-print m-icons d-none d-sm-inline"></i></span><span data-key="btn-print">PRINT</span></button>
                             <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
                             
                         <div class="row invoice noprint" style="margin-top:10px;">
 
-                            <div  class="col-9  items-table table-responsive" style="max-height:80vh">
+                            <div  class="col-7 col-md-9  items-table table-responsive" style="max-height:80vh">
 
                                 <table id="tbody" class="noprint table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
@@ -255,7 +257,7 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-3 invoice-header overflow-auto" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;">
+                            <div class="col-5 col-md-3 invoice-header overflow-auto user-select-none" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;">
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light d-none d-lg-block' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
@@ -269,7 +271,7 @@ if(!isset($_SESSION["active"]))
                                 <li class='invoice-status list-group-item text-danger'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display '><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
-                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br><span class='invoice-tv font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br/><span class='invoice-tv font-weight-bold'></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light'  type='radio' name='payment-opt' value='cash' checked><span data-key="lng-cash">cash</span></input> 
                                 </div>
