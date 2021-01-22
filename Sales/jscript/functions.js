@@ -164,18 +164,37 @@ $(document).ready(function(){
 
         $payment_method = $("input[name='payment-opt']:checked").val(); // atm or cash
 
+        if(check_items_entered())
+        {
 
-        if($payment_method == "cash")
-        {
-            $('#cash-collect').modal('show');
-            return;
-        }else
-        {
-            save_invoice(0);
+            if($payment_method == "cash")
+            {
+                $('#cash-collect').modal('show');
+                return;
+            }else
+            {
+                save_invoice(0);
+            }
         }
 
 
     })
+    function check_items_entered()
+    {
+        var tbody = $("#tbody tbody");
+        var lang = $('html').attr('lang');
+
+        var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
+
+        if (tbody.children().length == 0) {
+            alert(entet_items);
+            return 0;
+        }else
+        {
+            return 1;
+        }
+
+    }
      function save_invoice(cash_received){
        
         

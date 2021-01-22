@@ -293,9 +293,9 @@ if(!isset($_SESSION["active"]))
       <!-- Copyright -->
       <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
             <span class="internet-status"></span>
-            <span class="language" style="float:left; padding-left:10px">
+            <span class="language ml-3" style="float:left">
             <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
-            |<a href="" class="ar" onclick="lang_change('ar')">AR</a></span>
+            |<a href="" class="ar pl-1" onclick="lang_change('ar')">AR</a></span>
          </div>
              <!-- Copyright -->
     </footer>
