@@ -293,7 +293,7 @@ $(document).ready(function(){
 
         $invoice_wv = parseFloat($(".invoice-twv").text()).toFixed(2);//invoice without vat in decimals
         $invoice_vat = parseFloat($(".invoice-v").text()).toFixed(2);//invoice  vat in decimals
-        $invoice_total = parseFloat($(".invoice-tv").text()).toFixed(2);//invoice total vat in decimals
+        $invoice_total = parseFloat($("#total-inv").text()).toFixed(2);//invoice total vat in decimals
         
        
 
