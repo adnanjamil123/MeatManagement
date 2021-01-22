@@ -73,9 +73,9 @@ if(!isset($_SESSION["active"]))
 
         <style>
 
-        .vat-display{
+        /* .vat-display{
            display:none; 
-        }
+        } */
         .list-group-item{
             /* padding: .5rem 0.5rem; */
             background:white;
@@ -110,7 +110,7 @@ if(!isset($_SESSION["active"]))
                                             
                                         </div>
                                         <div class="col-3">
-                                            <div><label for="fqty" data-key="lng-qty">Qty:</label><input id="fqty"type = "number" value=1 class="w-100 fqty" step="1"></input></div>
+                                            <div><label for="fqty" data-key="lng-qty">Qty:</label><input id="fqty" type = "number" value=1 class="w-100 fqty" step="1"></input></div>
                                             
                                         </div>
                                         <div class="col-1 pt-4">
@@ -271,7 +271,7 @@ if(!isset($_SESSION["active"]))
                                 <li class='invoice-status list-group-item text-danger d-none'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
-                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br/><span class='invoice-tv font-weight-bold'></span></li>
+                                <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br/><span class='invoice-tv font-weight-bold' id="total-inv"></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light'  type='radio' name='payment-opt' value='cash' checked><span data-key="lng-cash">cash</span></input> 
                                 </div>

@@ -39,6 +39,17 @@ $(document).ready(function(){
         }
     });
 
+    $("#fprice, #fqty").keyup(function(event){
+        if (event.keyCode === 13) {
+            $(".btn-confirm").click();
+        }
+    })
+    $("#received").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#btn-add").click();
+        }
+    });
+
 
     $('#cash-collect').on('shown.bs.modal', function () {
         $("#received").val(0);
@@ -198,14 +209,14 @@ $(document).ready(function(){
      function save_invoice(cash_received){
        
         
-        $invoice_total = parseFloat($(".invoice-tv").text()).toFixed(2);//invoice total vat in decimals
+        $invoice_total = parseFloat($("#total-inv").text()).toFixed(2);//invoice total vat in decimals
         var lang = $('html').attr('lang');
         var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
         var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
        // var cash_received = lang=="en"?"Cash Received":"المبلغ المستلم  .";
         var cash_received;
         var balance = 0;
-
+        
         var tbody = $("#tbody tbody");
 
         if(navigator.onLine){

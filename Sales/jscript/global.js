@@ -253,13 +253,38 @@ function update_totals()
       }
 
     })
-
+   
     //var rowIdx = 0;
     $(".btn-confirm").click(function(){
 
       $price_w = parseFloat($('#fprice').val());
       $price_with_vat= ($price_w).toFixed(2);
       $qty = $('#fqty').val();
+      
+      if(isNaN($price_with_vat))
+      {
+        $('#fprice').focus();
+        $('#fprice').val(0);
+        $('#fprice').select();
+
+        return;
+      }
+      if(isNaN($qty))
+      {
+        $('#fprice').focus();
+        $('#fprice').val(0);
+        $('#fprice').select();
+
+        return;
+      }
+      if($price_with_vat == "-")
+      {
+        $('#fprice').focus();
+        $('#fprice').val(0);
+        $('#fprice').select();
+
+        return;
+      }
 
       if( $price_with_vat <= 0)
       {
@@ -289,10 +314,11 @@ function update_totals()
      $vat = $("#item_clicked").attr('data-vat');
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $price_without_vat= ($('#fprice').val())*(1-$vat).toFixed(2);
-     $total = ($qty * $price_with_vat).toFixed(2);
+      $total = ($qty * $price_with_vat).toFixed(2);
+    //  $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
-
+      
      $('#tbody').append(`<tr id="Row">
       <td class="text-center noprint">
        <button class="btn btn-remove text-light" style="background:#204b6d"
