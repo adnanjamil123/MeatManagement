@@ -175,7 +175,7 @@ if(!isset($_SESSION["active"]))
 
                 <div class="row col-3 justify-content-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d; max-height:90vh">
                     
-                <div class="col-12 row justify-content-between" style="margin-top:5px" >
+                <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
                             <div class="dropdown col-5">
                             <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons"></i></span><span data-key="lng-more">More</span></button>
@@ -190,7 +190,7 @@ if(!isset($_SESSION["active"]))
                             </ul>
                             </div>   
                         
-                            <div class="dropdown col-5">
+                            <div class="dropdown col-6">
                             <button class="item-dropdown top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d"><span><i class="fa fa-star m-icons"></i></span><span data-key="lng-special">Special</span></button>
                             <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:600px">            
                                  <?php
