@@ -302,10 +302,10 @@ function update_totals()
             <td class="row-index text-center item-qty"> 
             ${$qty}</td>
 
-            <td class="row-index text-center item-uom"> 
+            <td class="row-index text-center item-uom d-none d-md-table-cell"> 
             ${$uom}</td>
 
-            <td class="row-index text-center item-size"> 
+            <td class="row-index text-center item-size d-none d-md-table-cell"> 
             ${$size}</td>
 
             <td class="row-index text-center item-price"> 

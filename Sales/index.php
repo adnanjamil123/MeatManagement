@@ -173,13 +173,13 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col-3 justify-content-around items-section" id="menu" style="border-right:10px solid;background:aliceblue; border-color:#204b6d">
+                <div class="row col-3 justify-content-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d; max-height:90vh">
                     
                 <div class="col-12 row justify-content-between" style="margin-top:5px" >
                         
-                            <div class="dropdown col-5 ">
+                            <div class="dropdown col-5">
                             <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons"></i></span><span data-key="lng-more">More</span></button>
-                            <ul class="dropdown-menu pl-2  overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px">            
+                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:600px">            
                                     
                             <?php
                                 // arguements category(general or special), optional limit, optional offset, optional grid column
@@ -202,10 +202,11 @@ if(!isset($_SESSION["active"]))
                             </div>   
                        
                 </div>
+                
 
                     <?php
                         // arguements category(general or special), optional limit, optional offset, optional grid column
-                        create_buttons(1,15,0,5,"white","text-black");
+                        create_buttons(1,50,0,5,"white","text-black");
                         
                     ?>
 
@@ -228,7 +229,7 @@ if(!isset($_SESSION["active"]))
                             
                         <div class="row invoice noprint" style="margin-top:10px;">
 
-                            <div  class="col-9  items-table table-responsive" style="height:600px;">
+                            <div  class="col-9  items-table table-responsive" style="max-height:80vh">
 
                                 <table id="tbody" class="noprint table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
@@ -238,8 +239,8 @@ if(!isset($_SESSION["active"]))
                                         <th scope="col" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
-                                        <th scope="col"  data-key="lng-uom">UOM</th>
-                                        <th scope="col" data-key="lng-size">SIZE</th>
+                                        <th scope="col" class="d-none d-md-table-cell" data-key="lng-uom">UOM</th>
+                                        <th scope="col" class="d-none d-md-table-cell" data-key="lng-size">SIZE</th>
                                         <th scope="col" data-key="lng-price">PRICE</th>
                                         <th scope="col" class="vat-display" data-key="lng-vat">VAT</th>
                                         <th scope="col" class="vat-display" data-key="lng-wvat">TOTAL(V)</th>
