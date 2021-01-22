@@ -73,9 +73,9 @@ if(!isset($_SESSION["active"]))
 
         <style>
 
-        .vat-display{
+        /* .vat-display{
            display:none; 
-        }
+        } */
         .list-group-item{
             /* padding: .5rem 0.5rem; */
             background:white;
@@ -161,12 +161,12 @@ if(!isset($_SESSION["active"]))
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
-                  
                        <div class="ml-auto">
                             <span class="navbar-text"><?php echo ("<p class='text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
                             <a class="nav-link text-light p-0 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
                        </div>
+                       <button class="btn btn-primary d-md-none d-block bg-white text-dark ml-5" data-toggle="collapse" data-target="#menu" data-key="lng-item"></button>
                  
 
                 </nav>
@@ -175,7 +175,7 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col col-sm-3 justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d; max-height:90vh">
+                <div class="row col col-sm-3 d-md-flex justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d;min-width:200px; max-height:90vh">
                     
                 <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
@@ -217,9 +217,9 @@ if(!isset($_SESSION["active"]))
 
                 
 
-                <div class="col col-sm-9  order-section">
+                <div class="col  order-section">
 
-                        <div class="row col-12 order-buttons justify-content-center justify-content-md-between btn-group btn-group-sm bg-light w-100" role="group" aria-label="Basic example" style="margin-top:10px">
+                        <div class="row col-12 order-buttons justify-content-center justify-content-md-between btn-group btn-group-sm bg-light w-100 mx-0" role="group" aria-label="Basic example" style="margin-top:10px">
 
                             <button type="button" class="top-btns new btn  col-md-2   col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons d-none d-sm-inline"></i></span><span data-key="btn-new">NEW</span></button>
                             <button type="button" class="top-btns clear btn col-md-2  col-3 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons d-none d-sm-inline"></i></span><span data-key="btn-clear">CLEAR</span></button>
@@ -231,7 +231,7 @@ if(!isset($_SESSION["active"]))
                             
                         <div class="row invoice noprint" style="margin-top:10px;">
 
-                            <div  class="col-7 col-md-9  items-table table-responsive" style="max-height:80vh">
+                            <div  class="col  items-table table-responsive" style="max-height:80vh">
 
                                 <table id="tbody" class="noprint table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
@@ -257,7 +257,7 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-5 col-md-3 invoice-header overflow-auto user-select-none" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;">
+                            <div class="col-3 d-none d-sm-block invoice-header overflow-auto" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;min-width:200px;">
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light d-none d-lg-block' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
@@ -268,8 +268,8 @@ if(!isset($_SESSION["active"]))
                                 <li class='order-user list-group-item d-none' style='display:none'>USER ID: <b><?php echo $_SESSION['uid'] ?></b></li>
                                 <li class='order-user list-group-item active text-light' style="background:#204b6d" data-key="lng-invoicedetails"><h4>Invoice details</h4></li>
                                 <li class='list-group-item'><span data-key="lng-invoice"></span><br><span class="invoice-number"></span></li>
-                                <li class='invoice-status list-group-item text-danger'><b></b></li>
-                                <li class='inv-wt list-group-item  vat-display '><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
+                                <li class='invoice-status list-group-item text-danger d-none'><b></b></li>
+                                <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
                                 <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
                                 <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br/><span class='invoice-tv font-weight-bold'></span></li>
 
@@ -294,13 +294,19 @@ if(!isset($_SESSION["active"]))
       
             <footer class="text-center text-lg-start fixed-bottom" style="background:#204b6d">
       <!-- Copyright -->
-      <div class="text-center text-light noprint" style="background-color: rgba(0, 0, 0, 0.2)">
-            <span class="internet-status"></span>
-            <span class="language ml-3" style="float:left">
+         <div class="text-center text-light noprint " style="background-color: rgba(0, 0, 0, 0.2)">
+            <span class="internet-status d-none d-sm-inline-block"></span>
+            <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
             <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
             |<a href="" class="ar pl-1" onclick="lang_change('ar')">AR</a></span>
+            <span class="float-right pr-5 d-sm-none">
+                <span data-key="lng-invoice"></span>
+                <span class="invoice-number"></span>
+                <span>-</span>
+                <span data-key="lng-total">Total</span>
+                <span class='invoice-tv font-weight-bold'></span>
+            </span>
          </div>
-             <!-- Copyright -->
     </footer>
         </div><!--main-->
     
