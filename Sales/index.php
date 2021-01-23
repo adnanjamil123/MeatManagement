@@ -191,13 +191,13 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col col-sm-3 d-md-flex collapse justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d;min-width:200px; max-height:90vh">
+                <div class="row col col-sm-3 d-md-flex pr-0 collapse justify-content-center justify-content-xl-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d;min-width:200px; max-height:90vh">
                     
                 <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
-                            <div class="dropdown col-12 col-lg-6 pr-1 p-0 mb-1">
+                            <div class="dropdown col-12 col-xl-6 pr-1 p-0 mb-1">
                             <button class="item-dropdown  top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d" ><span><i class="fa fa-anchor m-icons d-none d-lg-inline"></i></span><span data-key="lng-more">More</span></button>
-                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel" style="max-height:80vh">            
+                            <ul class="dropdown-menu pl-2 overflow-auto w-100" role="menu" aria-labelledby="dLabel" style="max-height:80vh">            
                                     
                             <?php
                                 // arguements category(general or special), optional limit, optional offset, optional grid column
@@ -208,9 +208,9 @@ if(!isset($_SESSION["active"]))
                             </ul>
                             </div>   
                         
-                            <div class="dropdown col-12 col-lg-6 p-0">
+                            <div class="dropdown col-12 col-xl-6 p-0">
                             <button class="item-dropdown top-btns btn dropdown-toggle w-100 text-light" data-toggle="dropdown" style="background:#204b6d"><span><i class="fa fa-star m-icons d-none d-lg-inline"></i></span><span data-key="lng-special">Special</span></button>
-                            <ul class="dropdown-menu pl-2 overflow-auto" role="menu" aria-labelledby="dLabel"  style="max-height:80vh">            
+                            <ul class="dropdown-menu pl-2 overflow-auto w-100" role="menu" aria-labelledby="dLabel"  style="max-height:80vh">            
                                  <?php
                                     // arguements category(general or special), optional limit, optional offset, optional grid column
                                     create_buttons(2,50,0,11,"white","text-black");
@@ -249,17 +249,17 @@ if(!isset($_SESSION["active"]))
 
                             <div  class="col  items-table table-responsive" style="max-height:80vh">
 
-                                <table id="tbody" class="noprint table table-light table-striped table-bordered table-hover" style="visibility:hidden;">
+                                <table id="tbody" class="noprint table  table-light table-striped table-bordered table-hover" style="visibility:hidden;">
                                    
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
-                                        <th scope="col"></th>
-                                        <th scope="col" class=" d-none d-md-table-cell" data-key="lng-code">ITEM CODE</th>
+                                        <th scope="col" class=""></th>
+                                        <th scope="col" class=" d-none d-lg-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
                                         <th scope="col" class="d-none d-lg-table-cell" data-key="lng-uom">UOM</th>
                                         <th scope="col" class="d-none d-lg-table-cell" data-key="lng-size">SIZE</th>
-                                        <th scope="col" data-key="lng-price">PRICE</th>
+                                        <th scope="col" class="d-none d-sm-table-cell" data-key="lng-price">PRICE</th>
                                         <th scope="col" class="vat-display" data-key="lng-vat">VAT</th>
                                         <th scope="col" class="vat-display" data-key="lng-wvat">TOTAL(V)</th>
                                         <th scope="col" data-key="lng-total">TOTAL</th>
@@ -273,7 +273,7 @@ if(!isset($_SESSION["active"]))
                                
                             </div><!--items-table-->
                             
-                            <div class="col-3 d-none d-sm-block invoice-header overflow-auto" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;min-width:200px;">
+                            <div class="col-3 d-none d-md-block invoice-header overflow-auto" id="invoice-header" style="display:none;  border-left:10px solid; border-color:#204b6d;height:80vh;min-width:200px;">
                                  <ul class='list-group list-group'>
                                 <li class='order-user list-group-item text-light d-none d-lg-block' style="background:#204b6d" data-key="lng-orderdetails"><h4>Order details</h4></li>
                                 
@@ -313,9 +313,9 @@ if(!isset($_SESSION["active"]))
          <div class="text-center text-light noprint " style="background-color: rgba(0, 0, 0, 0.2)">
             <span class="internet-status d-none d-sm-inline-block"></span>
             <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
-            <a href=""  class="en lang-selected" onclick="lang_change('en')">EN</a>
-            |<a href="" class="ar pl-1" onclick="lang_change('ar')">AR</a></span>
-            <span class="float-right pr-5 d-sm-none">
+            <a href=""  class="en lang-selected pr-2" onclick="lang_change('en')">EN</a>
+            |<a href="" class="ar pl-2" onclick="lang_change('ar')">AR</a></span>
+            <span class="float-right pr-5 d-md-none">
                 <span data-key="lng-invoice"></span>
                 <span class="invoice-number" id="mb-invoice"></span>
                 <span>-</span>
