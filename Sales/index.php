@@ -175,7 +175,7 @@ if(!isset($_SESSION["active"]))
 
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 
-                <div class="row col col-sm-3 d-md-flex justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d;min-width:200px; max-height:90vh">
+                <div class="row col col-sm-3 d-md-flex collapse justify-content-center justify-content-sm-around items-section" id="menu" style="overflow-x:auto;border-right:10px solid;background:aliceblue; border-color:#204b6d;min-width:200px; max-height:90vh">
                     
                 <div class="col-12 row justify-content-around" style="margin-top:5px" >
                         
