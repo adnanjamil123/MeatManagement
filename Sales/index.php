@@ -237,10 +237,10 @@ if(!isset($_SESSION["active"]))
 
                         <div class="row col-12 order-buttons justify-content-center justify-content-md-between btn-group btn-group-sm bg-light w-100 mx-0" role="group" aria-label="Basic example" style="margin-top:10px">
 
-                            <button type="button" class="top-btns new btn  col-md-2   col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons d-none d-sm-inline"></i></span><span data-key="btn-new">NEW</span></button>
-                            <button type="button" class="top-btns clear btn col-md-2  col-3 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons d-none d-sm-inline"></i></span><span data-key="btn-clear">CLEAR</span></button>
-                            <button type="button" class="top-btns btn  col-md-2 save  col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-save m-icons d-none d-sm-inline"></i></span><span data-key="btn-save">SAVE</span></button>
-                            <button type="button" class="top-btns print btn  col-md-2 col-3 text-light" style="background:#204b6d"><span><i class="fa fa-print m-icons d-none d-sm-inline"></i></span><span data-key="btn-print">PRINT</span></button>
+                            <button type="button" class="top-btns new btn  col-md-2   col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-cart-plus m-icons"></i></span><span data-key="btn-new" class="d-none d-sm-inline">NEW</span></button>
+                            <button type="button" class="top-btns clear btn col-md-2  col-3 text-light" style="background:#204b6d"><span><i class="fa fa-times m-icons"></i></span><span data-key="btn-clear" class="d-none d-sm-inline">CLEAR</span></button>
+                            <button type="button" class="top-btns btn  col-md-2 save  col-3 text-light"  style="background:#204b6d"><span><i class="fa fa-save m-icons"></i></span><span data-key="btn-save" class="d-none d-sm-inline">SAVE</span></button>
+                            <button type="button" class="top-btns print btn  col-md-2 col-3 text-light" style="background:#204b6d"><span><i class="fa fa-print m-icons"></i></span><span data-key="btn-print" class="d-none d-sm-inline">PRINT</span></button>
                             <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
@@ -257,7 +257,7 @@ if(!isset($_SESSION["active"]))
                                         <th scope="col" class=" d-none d-lg-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
-                                        <th scope="col" class="d-none d-lg-table-cell" data-key="lng-uom">UOM</th>
+                                        <th scope="col" class="d-none d-xl-table-cell" data-key="lng-uom">UOM</th>
                                         <th scope="col" class="d-none d-lg-table-cell" data-key="lng-size">SIZE</th>
                                         <th scope="col" class="d-none d-sm-table-cell" data-key="lng-price">PRICE</th>
                                         <th scope="col" class="vat-display" data-key="lng-vat">VAT</th>

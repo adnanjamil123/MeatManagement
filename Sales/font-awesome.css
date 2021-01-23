@@ -151,8 +151,14 @@ padding:10px;
 
 
  @media screen and (min-width: 0px) and (max-width: 415px) {
-    table thead th{
+    .items-table table thead th{
         font-size: 10px !important;
+        
+    }
+}
+@media screen and (min-width: 572px) and (max-width: 596) {
+    .items-table table thead th{
+       padding-right: 0px;
         
     }
 }

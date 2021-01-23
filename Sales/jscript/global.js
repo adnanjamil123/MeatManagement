@@ -334,7 +334,7 @@ function update_totals()
             <td class="row-index text-center item-qty">
             ${$qty}</td>
 
-            <td class="row-index text-center item-uom d-none d-lg-table-cell">
+            <td class="row-index text-center item-uom d-none d-xl-table-cell">
             ${$uom}</td>
 
             <td class="row-index text-center item-size d-none d-lg-table-cell">
