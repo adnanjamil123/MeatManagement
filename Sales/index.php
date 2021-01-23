@@ -68,6 +68,19 @@ if(!isset($_SESSION["active"]))
             elem.value=val2;
 
         }
+        function switch_cash()
+        {
+            $("#received").val("0.00");
+            var checked = $("#checkbox").prop("checked");
+
+            if(checked){
+                $("#received").prop("disabled",true);
+                
+            }else if(!checked)
+            {
+                $("#received").prop("disabled",false); 
+            }
+        }
            
         </script>
 
@@ -142,7 +155,10 @@ if(!isset($_SESSION["active"]))
                         </h2>
                     </div>
                     <div class="row modal-body justify-content-center">
-                    <div><input id="received" onfocusout="focusout(received)" type = "number" class="w-100" step="0.01" autofocus value = 0></input></div>
+                        <div><input id="received" onfocusout="focusout(received)" type = "number" class="w-100" step="0.01" autofocus value = 0></input></div>
+                        <div class="px-5 d-sm-none">
+                            <label for="checkbox" class="px-2" data-key="lng-atm">Atm</label><input type="checkbox" id="checkbox" onchange="switch_cash()" unchecked></input>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn-cancel btn text-light btn-secondary" id="btn-cancel" data-key="lng-cancel">

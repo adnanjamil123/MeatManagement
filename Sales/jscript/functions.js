@@ -47,10 +47,14 @@ $(document).ready(function(){
 
 
     $('#cash-collect').on('shown.bs.modal', function () {
+        $("#checkbox").prop("checked",false);
+        $("#received").prop("disabled",false);
         $("#received").val(0);
         $("#received").focus();
         $("#received").select();
+
     })
+    
 
     function print()
     {   
@@ -149,6 +153,7 @@ $(document).ready(function(){
     $(".btn-add ").click(function(){
 
         var cash = $("#received").val();
+        var checked = $("#checkbox").prop("checked");
 
         if(cash <= 0)
         {
@@ -160,7 +165,12 @@ $(document).ready(function(){
             $('#cash-collect').modal('hide');
         }
         
-
+        if(cash <=0 && checked)
+        {
+            save_invoice(0);
+            $('#cash-collect').modal('hide');
+            $('.form-check-input').prop('checked',true);
+        }
     })
 
     $(".btn-cancel").click(function(){
@@ -210,10 +220,9 @@ $(document).ready(function(){
         var lang = $('html').attr('lang');
         var save_text = lang=="en"?"Are you sure you want to save this invoice?":"هل أنت متأكد أنك تريد حفظ هذه الفاتورة؟";
         var entet_items = lang=="en"?"Please enter Items":"الرجاء إدخال العناصر.";
-       // var cash_received = lang=="en"?"Cash Received":"المبلغ المستلم  .";
         var cash_received;
         var balance = 0;
-        
+       
         var tbody = $("#tbody tbody");
 
         if(navigator.onLine){
@@ -284,7 +293,7 @@ $(document).ready(function(){
         var cash_received = parseFloat(received).toFixed(2);
         var balance = parseFloat(bal).toFixed(2);
         var invoice_values = new Array();
-
+        $payment_method = $("input[name='payment-opt']:checked").val();
         
         $order_no = parseInt($(".order-no").text(),10);   // integer
 
