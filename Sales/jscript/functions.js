@@ -96,6 +96,7 @@ $(document).ready(function(){
         $('.invoice-balance').text("0.00");
         $('.invoice-cr').text("0.00");
         $(".balance-data").css("display","none");
+        $("#mb-invoice").text("");
 
         $(".item-buttons").prop("disabled", false);
         $("div .invoice-header").css("display","block");
@@ -126,7 +127,8 @@ $(document).ready(function(){
         $('.invoice-balance').text("0.00");
         $('.invoice-cr').text("0.00");
         $(".balance-data").css("display","none");
-
+        $("#mb-invoice").text("");
+        
         var lang = $('html').attr('lang');
         var clear_items=lang=="en"?"Are you sure to clear all items?":"هل أنت متأكد من مسح كافة العناصر؟";
         if(confirm(clear_items))

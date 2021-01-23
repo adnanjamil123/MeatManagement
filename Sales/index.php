@@ -293,7 +293,7 @@ if(!isset($_SESSION["active"]))
             </div><!--sales-section-->  
       
             <footer class="text-center text-lg-start fixed-bottom" style="background:#204b6d">
-      <!-- Copyright -->
+      
          <div class="text-center text-light noprint " style="background-color: rgba(0, 0, 0, 0.2)">
             <span class="internet-status d-none d-sm-inline-block"></span>
             <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
@@ -301,7 +301,7 @@ if(!isset($_SESSION["active"]))
             |<a href="" class="ar pl-1" onclick="lang_change('ar')">AR</a></span>
             <span class="float-right pr-5 d-sm-none">
                 <span data-key="lng-invoice"></span>
-                <span class="invoice-number"></span>
+                <span class="invoice-number" id="mb-invoice"></span>
                 <span>-</span>
                 <span data-key="lng-total">Total</span>
                 <span class='invoice-tv font-weight-bold'></span>
