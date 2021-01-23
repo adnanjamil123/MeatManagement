@@ -11,16 +11,12 @@
   </head>
   
   <style>
-      
-      input{
-          padding:10px;
-          width:310px;
-      }
-      
-      button {
-           padding:10px;
-          width:400px;
-      }
+    .id_frm {
+  height: 100vh;
+  width: 100vw;
+  background-color: grey;
+  background-image: linear-gradient(10deg, lightgrey 50%, transparent 50%), linear-gradient(-60deg, brown 30%, transparent 30%);
+  }
       
   </style>
   <body>
@@ -32,21 +28,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
   <center>
-    <div class="id_frm container-fluid">
+    <div class="id_frm">
     
     <h2 style="background:black; color:white; padding:10px;">Login as a Cashier</h2>
     <br/>
-    <form action="includes/login.inc.php" method ="POST" class="container-fluid">
+    <form action="includes/login.inc.php" method ="POST" class="container-fluid p-5 rounded">
         <p> 
-            <label for="username">Username:</label> &nbsp;
+            <label for="username" class="font-weight-bold">Username:</label> &nbsp;
             <input type="text" id="username" name="username" placeholder= "Username" required/>            
         </p>
         <p> 
-            <label for="username">Password:</label>  &nbsp;
+            <label for="username" class="font-weight-bold">Password:</label>  &nbsp;
             <input type="password" id="password" name="pwd" placeholder= "Password" required/>            
         </p>
         <p>
-            <button type="submit" name="submit">Log In</button>     
+            <button type="submit" class="btn btn-primary" name="submit">Log In</button>     
         </p>
     </form>
     
