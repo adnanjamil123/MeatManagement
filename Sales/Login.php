@@ -14,8 +14,18 @@
     .id_frm {
   height: 100vh;
   width: 100vw;
-  background-color: grey;
-  background-image: linear-gradient(10deg, lightgrey 50%, transparent 50%), linear-gradient(-60deg, brown 30%, transparent 30%);
+  background-color: white;
+  background-image: linear-gradient(10deg, #204b6d 50%, transparent 50%), linear-gradient(-60deg, brown 30%, transparent 30%); 
+  }
+  
+  input {
+	  
+	  padding:10px;
+	  width:300px;
+  }
+  
+  label {
+	  color:navy;
   }
       
   </style>
@@ -30,7 +40,7 @@
   <center>
     <div class="id_frm">
     
-    <h2 style="background:black; color:white; padding:10px;">Login as a Cashier</h2>
+    <h2 style="background:#204b6d; color:white; padding:10px;">Login as a Cashier</h2>
     <br/>
     <form action="includes/login.inc.php" method ="POST" class="container-fluid p-5 rounded">
         <p> 
