@@ -59,15 +59,86 @@ if(!isset($_SESSION["active"]))
        
         
         <script>
-
-            function focusout(elem)
-        {
+        $(document).ready(function(){
+            var elem = "#fprice";
+            var elem2 = "#fqty";
+            var value = $(elem).val();
+            var value2 = $(elem2).val();
+            var auto = false;
+            var auto2 = false;
             
-            var val = elem.value
-            var val2 = parseFloat(val).toFixed(2);
-            elem.value=val2;
+            $(".item-buttons").on('click', function()
+            {
+                auto = false;
+                auto2 = false;
+            })
 
-        }
+            $(elem2).on('click focusout change', function(e) {
+            
+                if(e.type == "click")
+                {   
+                    value2 = $(elem2).val();
+                    $(elem2).val("");
+                    auto2 = true;
+                }
+                if(e.type == "focusout")
+                {  
+                if(auto2)
+                {
+                    $(elem2).val(value2);
+                }
+                    
+                    
+                }
+                if(e.type == "change")
+                {
+                    auto2 = true;
+                    value2 = $(elem2).val();
+                }
+
+            });
+
+         
+            $(elem).on('click focusout change', function(e) {
+                
+                if(e.type == "click")
+                {   
+                    
+                    value = $(elem).val();
+                    $(elem).val("");
+                    auto=true;
+                }
+                if(e.type == "focusout")
+                {  
+                if(auto)
+                {
+                    $(elem).val(value);
+                }
+                    
+                    
+                }
+                if(e.type == "change")
+                {
+                    auto = true;
+                    value = $(elem).val();
+                }
+
+                });
+
+             })
+        
+
+        
+        
+             function focusout(elem)
+            {
+                
+                var val = elem.value
+                var val2 = parseFloat(val).toFixed(2);
+                elem.value=val2;
+
+            }
+
         function switch_cash()
         {
             $("#received").val("0.00");
@@ -119,7 +190,7 @@ if(!isset($_SESSION["active"]))
                                 </div><!--modal-header-->
                                     <div class="row modal-body justify-content-center">
                                         <div class="col-3">
-                                            <div><label for="fprice" data-key="lng-price">Price:</label><input id="fprice"type = "number" class="w-100" step="1" autofocus></input></div>
+                                            <div><label for="fprice" data-key="lng-price">Price:</label><input id="fprice" type = "number" class="w-100" step="1" autofocus></input></div>
                                             
                                         </div>
                                         <div class="col-3">
