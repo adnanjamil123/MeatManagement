@@ -137,26 +137,26 @@ function update_totals()
       $qty_disabled = $($button).attr('data-qty-disable');
       $price = $($button).val();
 
-      if($('#fqty').focus())
-      {
-        $('#fqty').select();
-      }
-      if($('#fprice').focus())
-      {
-        $('#fprice').select();
-      }
+      // if($('#fqty').focus())
+      // {
+      //   $('#fqty').select();
+      // }
+      // if($('#fprice').focus())
+      // {
+      //   $('#fprice').select();
+      // }
       if($price > 0 )
       {
 
         $( "#fprice" ).prop( "disabled", true );
-        $('#fqty').focus();
-        $('#fqty').select();
+        // $('#fqty').focus();
+          $('#fqty').select();
 
       }else
       {
         $( "#fprice" ).prop( "disabled", false );
-        $('#fprice').focus();
-        $('#fprice').select();
+        // $('#fprice').focus();
+         $('#fprice').select();
       }
 
       if($show_sizes == 0)
@@ -263,7 +263,7 @@ function update_totals()
       
       if(isNaN($price_with_vat))
       {
-        $('#fprice').focus();
+       // $('#fprice').focus();
         $('#fprice').val(0);
         $('#fprice').select();
 
@@ -271,7 +271,7 @@ function update_totals()
       }
       if(isNaN($qty))
       {
-        $('#fprice').focus();
+       // $('#fprice').focus();
         $('#fprice').val(0);
         $('#fprice').select();
 
@@ -279,7 +279,7 @@ function update_totals()
       }
       if($price_with_vat == "-")
       {
-        $('#fprice').focus();
+        //$('#fprice').focus();
         $('#fprice').val(0);
         $('#fprice').select();
 
@@ -289,7 +289,7 @@ function update_totals()
       if( $price_with_vat <= 0)
       {
 
-        $('#fprice').focus();
+        //$('#fprice').focus();
         $('#fprice').val(0);
         $('#fprice').select();
 
@@ -299,7 +299,7 @@ function update_totals()
       if( $qty <= 0)
       {
 
-        $('#fqty').focus();
+       // $('#fqty').focus();
         $('#fqty').val(0);
         $('#fqty').select();
 
