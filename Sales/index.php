@@ -254,13 +254,21 @@ if(!isset($_SESSION["active"]))
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
-                       <div class="ml-auto">
-                            <span class="navbar-text"><?php echo ("<p class='text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
-                            data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?>
-                            <a class="nav-link text-light p-0 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a></span><i class="fa fa-user-times" style="color:orange"></i>
+                       <div class="ml-auto mr-5 dropdown">
+                            <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
+                            data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li class="dropdown-item">
+                                    <a class="nav-link p-0 text-center d-inline" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
+                                    <i class="fa fa-user-times" style="color:orange"></i>
+                                </li>
+                                <a class="dropdown-item" href="#">
+                                    <span>Expenses</span>
+                                </a>
+                           </ul>
                        </div>
                        <button class="btn btn-primary d-md-none d-block bg-white text-dark ml-5" data-toggle="collapse" data-target="#menu" data-key="lng-item"></button>
-                 
+                      
 
                 </nav>
 
