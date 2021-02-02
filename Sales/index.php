@@ -404,11 +404,42 @@ if(!isset($_SESSION["active"]))
 
        </script>     
             <p class="centered">
-              <b>   <span style="font-size: 28px;" >فاتورة اللحوم   </span> </b>  <br/><br/> 
+              <b>   <span style="font-size: 28px;" > مؤسسة صفاء سعيد عويضة </span> </b>  <br/><br/> 
 
-                     <span class="print-branch-name"></span><span>-  فرع - </span><span class="print-branch-number"></span><br/><br/>
-                     <span> (0504675794) - رقم الهاتف </span> <br/><br/>
+                     <span>  فرع - </span> <span class="print-branch-name"></span> <!-- - <span class="print-branch-number"></span> --> <br/> <br/>
+                     
+    </p>                 
+  
+                     <!--
+                      <span> 0504675794 </span> -  <span> رقم الجوال </span> <br/><br/> 
+                     <span> 0505157232  </span> -  <span> رقم الجوال </span> <br/><br/> 
+                   -->
+                   
+                     <center>
+			
+			<table cellpadding="5" id="totalAmountTable">
+			
+				<tbody>
+					<tr>
+						<td style="border:1px solid black;"> <span> 0504675794 </span> </td>
+						<td rowspan="2" style="font-size:20px"> <b> <span> <i class="fa fa-phone" style="font-size:36px"></i> <br/> رقم الجوال   </span> </b> </td>
+					</tr>
+					
+					<tr>
+						<td  style="border:1px solid black;"> <span> 0505157232  </span> </td>
+						
+					</tr>
+					
+				
+				</tbody>
+				
+			</table>
+				
+			</center>
+                     
+<br/><p class="centered">
                      <span> (30030208860003) - الرقم الضريبي </span> <br/><br/> 
+                     
                          <b> <span style="font-size: 28px; border:2px solid black; padding:5px;">
                      <span >   رقم الفاتورة   </span><span class="print-invoice-number"></span>
                          </span> </b>  <br/><br/>
@@ -451,8 +482,8 @@ if(!isset($_SESSION["active"]))
 					
 					<tr>
 
-						<td> <span> ريال  </span><span class="print-cash-balance"></span>  </td>
-						<td> <b> <span> المتبقية </span> </b>  </td>
+						<td> <span> ريال </span><span class="print-cash-received"></span> </td>
+						<td> <b> <span> المتبقي  </span> </b>  </td>
 					</tr>
 				</tbody>
 				
@@ -464,8 +495,8 @@ if(!isset($_SESSION["active"]))
 			
             <p class="centered">
 				
-				<span style="font-size: 28px;">  15% ضريبة القيمة المضافة </span>   <br/><br/>
-				<span style="font-size: 24px;"> شكرا لك على الشراء </span>  <br/><br/>
+				<span style="font-size: 28px;">  شامل القيمة المضافة </span>   <br/><br/>
+				<span style="font-size: 24px;"> شكرلك على زيارتنا </span>  <br/><br/>
 				<span style="font-size: 22px;"> قيم تجربتك معنا اليوم </span>  <br/><br/>
 			
 			
