@@ -305,7 +305,7 @@ CREATE TABLE `meat_sellers` (
 --
 
 INSERT INTO `meat_sellers` (`id`, `name`, `email`, `password`, `branch_id`, `is_allow`, `created_at`, `updated_at`, `username`) VALUES
-(1, 'سراج', 'cashier1', '12345', 1, 0, '2020-12-21 02:31:07', '2020-12-21 02:31:07', 'cashier1');
+(1, 'سراج', 'cashier1', '$2y$10$7md2udBuNkQ9dibxmNqm4uhL456pvrOuJOEDjWGXuaE4wsTNPiZLq', 1, 0, '2020-12-21 02:31:07', '2020-12-21 02:31:07', 'cashier1');
 
 -- --------------------------------------------------------
 
