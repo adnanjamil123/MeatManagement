@@ -482,7 +482,7 @@ if(!isset($_SESSION["active"]))
 					
 					<tr>
 
-						<td> <span> ريال </span><span class="print-cash-received"></span> </td>
+						<td> <span> ريال </span><span class="print-cash-balance"></span> </td>
 						<td> <b> <span> المتبقي  </span> </b>  </td>
 					</tr>
 				</tbody>
