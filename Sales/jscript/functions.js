@@ -257,7 +257,7 @@ $(document).ready(function(){
           }
           
          
-          $(".print").prop("disabled",false);
+          
         
         $user = $("#user-data").attr("data-uid");
         $branch = $("#user-data").attr("data-branch");
@@ -281,6 +281,7 @@ $(document).ready(function(){
         $(".save").prop("disabled",true);
         $(".item-buttons").prop("disabled", true);
         $(".new").prop("disabled",false);
+        
      });
 
         
@@ -355,12 +356,14 @@ $(document).ready(function(){
             invoice_total:$invoice_total
         },function(data){
             if(data){
-               
                 $("div .invoice-number").text(data); 
                 invoice_number = data;
+                print();
+                $(".print").prop("disabled",false);
             }
             
         })
+       
             $('.invoice-balance').text(balance);
             $('.invoice-cr').text(cash_received);
             $(".balance-data").css("display","block");
