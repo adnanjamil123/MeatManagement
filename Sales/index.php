@@ -168,6 +168,7 @@ if(!isset($_SESSION["active"]))
         {
             display:none;
         }
+        
         @media print {
         .noprint {
             display:none;
@@ -180,7 +181,12 @@ if(!isset($_SESSION["active"]))
         </style>
     
         <div class="main container-fluid noprint vh-100" style="background:#204b6d">
-
+        <div class="search-modal" id="overlay">
+            <button class="btn btn-primary spinner" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="visually-hidden">Loading...</span>
+            </button>
+        </div>
         <div class="modal" id="itemsModal">
                         <div class="modal-dialog modal-dialog-centered" aria-modal="true">
                             <div class="modal-content">

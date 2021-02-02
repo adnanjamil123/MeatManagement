@@ -72,6 +72,7 @@ require_once ('functions.php');
     $sql2="UPDATE meat_orders SET invoice_no = $invoice_no, status = 'invoiced' WHERE id = $order_no";
 
     if(mysqli_query($db , $sql2)){
+      sleep(5);
       echo $invoice_no;
     }else
     {

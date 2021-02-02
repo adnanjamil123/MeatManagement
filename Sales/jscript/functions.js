@@ -291,6 +291,7 @@ $(document).ready(function(){
 
     function save_items(bal,received)
     {
+        $("#overlay").css("display","block");
         var cash_received = parseFloat(received).toFixed(2);
         var balance = parseFloat(bal).toFixed(2);
         var invoice_values = new Array();
@@ -358,6 +359,7 @@ $(document).ready(function(){
             if(data){
                 $("div .invoice-number").text(data); 
                 invoice_number = data;
+                $("#overlay").css("display","none");
                 print();
                 $(".print").prop("disabled",false);
             }
