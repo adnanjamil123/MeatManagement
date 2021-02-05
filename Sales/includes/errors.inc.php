@@ -138,6 +138,7 @@ function loginUser($db, $username, $pwd)
         $_SESSION["branch"] = $user_exist["branch_id"];
         $_SESSION["active"] = $user_exist["is_allow"];
         $_SESSION["uid"] = $user_exist["id"];
+        $_SESSION["LAST_ACTIVITY"] = time();
 
         header("location: ../index.php");
         exit();

@@ -33,6 +33,43 @@ $(document).ready(function(){
 		return time;
         
     };
+    function write_expenses(data)
+    {
+        var str = data.substring(1,7);
+        if(str == "option")
+        {
+            $("#expense").html(data);
+            $('#expenses').modal('show');
+        }else
+        {
+            alert("No connection to database.");
+        }
+        
+    }
+    function fetch_expenses()
+    {
+        var xttp = new XMLHttpRequest;
+        xttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200)
+            {
+                    write_expenses(this.response);
+               
+            }else if(this.readyState == 4 && this.status != 200)
+            {
+                alert("There is no response from server.");
+            }
+        }
+        xttp.open("GET","load_data.php?q=expenses",true);
+        xttp.send();
+    }
+
+    $(".exp-btn").click(function(){
+        
+        fetch_expenses();
+      
+       
+    })
+
     $("#received").keyup(function(event) {
         if (event.keyCode === 13) {
             $("#btn-add").click();

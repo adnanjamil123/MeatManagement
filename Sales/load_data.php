@@ -79,3 +79,8 @@ require_once ('functions.php');
     }
     
   }
+  
+  if(isset($_GET['q']))
+  {
+    echo expenses();
+  }

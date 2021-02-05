@@ -187,7 +187,15 @@ padding:10px;
     background: url(/link/to/your/image);
     background-size: 100%;
 }
-.menu-items:hover
+
+.dropdown-item:hover
 {
-    color: black;
+    background:#204b6d;
+}
+
+.dropdown-item:hover a{
+    color: white;
+}
+.dropdown-item:hover i{
+    color: white;
 }

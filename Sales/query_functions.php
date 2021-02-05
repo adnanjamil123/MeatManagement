@@ -30,7 +30,21 @@ function query_items($category_id, $limit = 20, $offset= 0){
 
         return $results;
 }
+function query_expenses(){
 
+    global $db;
+
+    arabic_data();
+
+    $sql = "SELECT * FROM meat_expense_categories WHERE meat_expense_categories.is_allow=0";
+   
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+   
+    return $results;
+        
+}
 
 
 function get_vat()

@@ -112,6 +112,7 @@ let langdata = {
                 "lng-enter":"Save changes",
                 "lng-cancel":"Close",
                 "lng-item":"Items",
+                "lng-exp":"Expenses",
             }
         },
         "ar":{ 
@@ -147,7 +148,8 @@ let langdata = {
                 "lng-cr":"المبلغ المستلم",
                 "lng-enter":"أدخل",
                 "lng-cancel":"إلغاء",
-                "lng-item":"العناصر",    
+                "lng-item":"العناصر",   
+                "lng-exp":"منصرف", 
 
             }
         }

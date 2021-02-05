@@ -3,6 +3,16 @@
 
 session_start();
 
+if (isset($_SESSION["LAST_ACTIVITY"])) {
+    if (time() - $_SESSION["LAST_ACTIVITY"] > 60*60) {
+        // last request was more than 30 minutes ago
+        session_unset();     // unset $_SESSION variable for the run-time 
+        session_destroy();   // destroy session data in storage
+    } else if (time() - $_SESSION["LAST_ACTIVITY"] > 60) {
+        $_SESSION["LAST_ACTIVITY"] = time(); // update last activity time stamp
+    }
+}
+
 function language()
 {
     if(isset($_COOKIE['lang']))
@@ -59,6 +69,19 @@ if(!isset($_SESSION["active"]))
        
         
         <script>
+            var time = new Date().getTime();
+            $(document.body).bind("mousemove keypress", function(e) {
+                time = new Date().getTime();
+            });
+
+            function refresh() {
+                if(new Date().getTime() - time >= 1000*60*60) 
+                    window.location.reload(true);
+                else 
+                    setTimeout(refresh, 10000);
+            }
+
+     setTimeout(refresh, 10000);
         $(document).ready(function(){
             var elem = "#fprice";
             var elem2 = "#fqty";
@@ -152,7 +175,7 @@ if(!isset($_SESSION["active"]))
                 $("#received").prop("disabled",false); 
             }
         }
-           
+         
         </script>
 
         <style>
@@ -209,9 +232,6 @@ if(!isset($_SESSION["active"]))
                                         
                                         <div class="row col-5 form-check item-sizes pl-5">
 
-
-                                            
-
                                         </div>
                                     </div><!--modal-body-->
                                 <div class="modal-footer">
@@ -250,6 +270,33 @@ if(!isset($_SESSION["active"]))
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="expenses">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" data-key="lng-exp">Expenses</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-around">
+                            <input type="date">
+                            <div><label for="exp-amount" data-key="lng-total">Total</label>
+                            <input id="exp-amount" type = "number" class="" step="1" autofocus></input></div>
+                           
+                        </div>
+                       <div class="mt-2" >
+                            <select name="expenses" class="" id="expense">
+                                    
+                                </select>
+                       </div>
+                        
+
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
                 <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
@@ -257,14 +304,18 @@ if(!isset($_SESSION["active"]))
                        <div class="ml-auto mr-5 dropdown">
                             <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
-                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <li class="dropdown-item">
-                                    <a class="nav-link p-0 text-center d-inline" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
-                                    <i class="fa fa-user-times" style="color:orange"></i>
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray">
+                                <li class="row dropdown-item text-center">
+                                    <i class="col-3 fa fa-user-times"></i>
+                                    <a class="col-6 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
                                 </li>
-                                <a class="dropdown-item" href="#">
-                                    <span>Expenses</span>
-                                </a>
+                                <li class="row dropdown-item text-center" >
+                                     <i class="col-3 fa fa-cart-plus"></i>
+                                    <a class="col-6 exp-btn" href="#" data-key="lng-exp">
+                                        Expenses
+                                    </a>
+                                   
+                                </li>
                            </ul>
                        </div>
                        <button class="btn btn-primary d-md-none d-block bg-white text-dark ml-5" data-toggle="collapse" data-target="#menu" data-key="lng-item"></button>

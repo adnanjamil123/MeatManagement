@@ -28,8 +28,21 @@ require_once ('query_functions.php');
         }
     } 
 
-   
-    
+   function expenses()
+   {
+       
+            $expenses = mysqli_fetch_all(query_expenses() , MYSQLI_ASSOC);
+           
+
+                foreach($expenses as $expense)
+                    {
+                        $exp = $expense['name'];
+                        $id = $expense['id'];
+                        echo "<option value='$exp' data-id='$id'>$exp</option>";
+                     }
+            
+          
+    }
     function create_order($db, $username, $branch)
     {
         
