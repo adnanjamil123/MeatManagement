@@ -68,7 +68,7 @@ $(document).ready(function(){
     $('#expenses').on('show.bs.modal', function () {
        
         $(".valid-data").css("visibility", "hidden");
-        $("#remarks").val("*");
+        $("#remarks").val("");
         $("#exp-amount").val("");
 
     })

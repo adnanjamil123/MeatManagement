@@ -303,27 +303,23 @@ if(!isset($_SESSION["active"]))
                                         <label for="input-date" data-key="lng-date">Date</label>
                                         <input class="" id="input-date" type="date"  min="2018-01-01" max="2030-12-31" readonly>
                                     </div>
-                                    
-                                    <div class="col-7">
-                                        <label for="exp-amount" data-key="lng-amt">Total</label>
-                                        <input id="exp-amount" type = "number" class="" step="1" autofocus></input>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row  align-items-end justify-content-center">
-                                <div  class="col-4" >
+                                    <div  class="col-6" >
                                     <label for="expense" data-key="lng-cat">Category</label>
                                     <select name="expenses"id="expense">
                                             
                                     </select>
-                                </div>
-
-                                <div class="col-7">
-                                        <label for="remarks" data-key="lng-rmk"></label>
-                                        <input type="text" id="remarks"></input>
+                                     </div>
+                                    
+                                    <div class="col-10 pt-3 justify-self-between">
+                                            <label for="exp-amount" data-key="lng-amt">Total</label>
+                                            <input id="exp-amount" type = "number" class="" step="1" autofocus></input>
+                                        </div>
+                                    <div class="col-10">
+                                            <label for="remarks" data-key="lng-rmk"></label>
+                                            <textarea class="w-100 p-2" type="textarea" id="remarks" style="resize:none"></textarea>
+                                    </div>
                                 </div>
                             </div>
-                        
             
                         <div class="modal-footer">
 
@@ -349,9 +345,9 @@ if(!isset($_SESSION["active"]))
                                 </li>
                                 <li class="row dropdown-item text-center m-0" >
                                      <i class="col-3 fa fa-cart-plus"></i>
-                                    <a class="col-6 exp-btn" href="#" data-key="lng-exp">
+                                    <button class="col-6 exp-btn" data-key="lng-exp">
                                         Expenses
-                                    </a>
+                                    </button>
                                    
                                 </li>
                            </ul>
