@@ -113,6 +113,11 @@ let langdata = {
                 "lng-cancel":"Close",
                 "lng-item":"Items",
                 "lng-exp":"Expenses",
+                "lng-amt":"Amount",
+                "lng-rmk":"Remarks",
+                "lng-cat":"Category",
+                "lng-date":"Date",
+                "lng-valid":"Please enter valid data.",
             }
         },
         "ar":{ 
@@ -150,6 +155,11 @@ let langdata = {
                 "lng-cancel":"إلغاء",
                 "lng-item":"العناصر",   
                 "lng-exp":"منصرف", 
+                "lng-amt":"كمية",
+                "lng-rmk":"ملاحظة",
+                "lng-cat":"فئة",
+                "lng-date":"تاريخ",
+                "lng-valid":"الرجاء إدخال بيانات صحيحة",
 
             }
         }

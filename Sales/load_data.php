@@ -84,3 +84,14 @@ require_once ('functions.php');
   {
     echo expenses();
   }
+
+  if(isset($_POST['date']) && isset($_POST['amount'])&& isset($_POST['expense']))
+  {
+    $date = $_POST['date'];
+    $amount = $_POST['amount'];
+    $expense = $_POST['expense'];
+    $remark = $_POST['remark'];
+    $seller = $_POST['seller'];
+
+    insert_expense($db,$date,$amount,$expense,$remark,$seller);
+  }

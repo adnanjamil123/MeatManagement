@@ -33,6 +33,58 @@ $(document).ready(function(){
 		return time;
         
     };
+
+    function Validate_expense()
+    {
+        var amount = $("#exp-amount").val();
+        if(amount == "" || amount <= 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    $("#btn-add-exp").click(function(){
+
+        var date = $("#input-date").val();
+        var amount = $("#exp-amount").val();
+        var expense = $( "#expense option:selected" ).attr("data-id");
+        var remark = $("#remarks").val();
+        var seller= $("#user-data").attr("data-uid");
+
+        if(Validate_expense())
+        {
+            
+            save_expense(date,amount,expense,remark,seller);
+            $('#expenses').modal('hide');
+        }
+        else
+        {
+            $(".valid-data").css("visibility", "visible");
+        }
+    })
+    $('#expenses').on('show.bs.modal', function () {
+       
+        $(".valid-data").css("visibility", "hidden");
+        $("#remarks").val("*");
+        $("#exp-amount").val("");
+
+    })
+    
+
+    function save_expense(date,amount,expense,remark,seller)
+    {
+        $.post("load_data.php",{
+            date:date,
+            amount:amount,
+            expense:expense,
+            remark:remark,
+            seller:seller
+        },function(data){
+            console.log(data);
+        })
+    }
+
     function write_expenses(data)
     {
         var str = data.substring(1,7);

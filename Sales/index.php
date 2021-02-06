@@ -69,6 +69,9 @@ if(!isset($_SESSION["active"]))
        
         
         <script>
+
+          
+
             var time = new Date().getTime();
             $(document.body).bind("mousemove keypress", function(e) {
                 time = new Date().getTime();
@@ -83,6 +86,22 @@ if(!isset($_SESSION["active"]))
 
      setTimeout(refresh, 10000);
         $(document).ready(function(){
+
+            function get_date()
+            {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                //today = mm + '/' + dd + '/' + yyyy;
+                today = yyyy + '-' + mm + '-' + dd;
+                return today;
+            }
+
+            var dateControl = document.getElementById("input-date");
+            dateControl.value = get_date();
+        
             var elem = "#fprice";
             var elem2 = "#fqty";
             var value = $(elem).val();
@@ -150,8 +169,7 @@ if(!isset($_SESSION["active"]))
 
              })
         
-
-        
+          
         
              function focusout(elem)
             {
@@ -250,6 +268,7 @@ if(!isset($_SESSION["active"]))
                     <div class="modal-header bg-white text-dark">
                         <h2 class="modal-title" data-key="lng-cr">
                         </h2>
+                        
                     </div>
                     <div class="row modal-body justify-content-center">
                         <div><input id="received" onfocusout="focusout(received)" type = "number" class="w-100" step="0.01" autofocus value = 0></input></div>
@@ -270,34 +289,53 @@ if(!isset($_SESSION["active"]))
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="expenses">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" data-key="lng-exp">Expenses</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-around">
-                            <input type="date">
-                            <div><label for="exp-amount" data-key="lng-total">Total</label>
-                            <input id="exp-amount" type = "number" class="" step="1" autofocus></input></div>
-                           
-                        </div>
-                       <div class="mt-2" >
-                            <select name="expenses" class="" id="expense">
-                                    
-                                </select>
-                       </div>
-                        
 
+        <div class="modal" id="expenses">
+            <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header text-white" style="background:#204b6d">
+                            <h4 class="modal-title" data-key="lng-exp">Expenses</h4>
+                            <button type="button" data-dismiss="modal" class="close text-white"><span>&times;</span></button>
+                        </div>
+                            <div class="modal-body">
+                                <div class="row align-items-end justify-content-center">
+                                    <div class="col-4">
+                                        <label for="input-date" data-key="lng-date">Date</label>
+                                        <input class="" id="input-date" type="date"  min="2018-01-01" max="2030-12-31" readonly>
+                                    </div>
+                                    
+                                    <div class="col-7">
+                                        <label for="exp-amount" data-key="lng-amt">Total</label>
+                                        <input id="exp-amount" type = "number" class="" step="1" autofocus></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row  align-items-end justify-content-center">
+                                <div  class="col-4" >
+                                    <label for="expense" data-key="lng-cat">Category</label>
+                                    <select name="expenses"id="expense">
+                                            
+                                    </select>
+                                </div>
+
+                                <div class="col-7">
+                                        <label for="remarks" data-key="lng-rmk"></label>
+                                        <input type="text" id="remarks"></input>
+                                </div>
+                            </div>
+                        
+            
+                        <div class="modal-footer">
+
+                            <span class="valid-data" style="visibility:hidden;color:red" data-key="lng-valid"></span>
+                            <button class="btn-add-exp btn text-light btn-primary" id="btn-add-exp" data-key="lng-add">
+                                    Add
+                            </button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                    
-                    </div>
-                </div>
             </div>
         </div>
-                <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
+                        <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   

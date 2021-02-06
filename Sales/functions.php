@@ -125,5 +125,30 @@ require_once ('query_functions.php');
             mysqli_stmt_close($stmt);
        };
 
+       function insert_expense($db,$date,$amount,$expense,$remark,$seller)
+       {
+        arabic_data();
+        $sql = "INSERT INTO meat_expenses(date,amount,expense_cat_id,remarks,seller_id) VALUES 
+        ( ?, ?, ?, ? , ?);";
+
+        $stmt = mysqli_stmt_init($db);
+                
+        if(!mysqli_stmt_prepare($stmt, $sql)){
+            echo"statement failed";
+            exit();
+        }
+        mysqli_stmt_bind_param($stmt, "sdisi", $date, $amount, $expense, $remark, $seller);
+
+        if(mysqli_stmt_execute($stmt))
+        {
+            echo "success";
+        }else
+        {
+            echo "fail";
+        }
+      
+        mysqli_stmt_close($stmt);
+       }
+
        
         
