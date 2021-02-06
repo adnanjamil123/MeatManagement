@@ -299,7 +299,7 @@ if(!isset($_SESSION["active"]))
                         </div>
                             <div class="modal-body">
                                 <div class="row align-items-end justify-content-center">
-                                    <div class="col-4">
+                                    <div class="col-4 pl-1">
                                         <label for="input-date" data-key="lng-date">Date</label>
                                         <input class="" id="input-date" type="date"  min="2018-01-01" max="2030-12-31" readonly>
                                     </div>
@@ -342,12 +342,12 @@ if(!isset($_SESSION["active"]))
                        <div class="ml-auto mr-5 dropdown">
                             <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
-                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray">
-                                <li class="row dropdown-item text-center">
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray;right:100px">
+                                <li class="row dropdown-item text-center m-0">
                                     <i class="col-3 fa fa-user-times"></i>
                                     <a class="col-6 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
                                 </li>
-                                <li class="row dropdown-item text-center" >
+                                <li class="row dropdown-item text-center m-0" >
                                      <i class="col-3 fa fa-cart-plus"></i>
                                     <a class="col-6 exp-btn" href="#" data-key="lng-exp">
                                         Expenses
@@ -361,7 +361,14 @@ if(!isset($_SESSION["active"]))
 
                 </nav>
 
-              
+              <div class="bg-white notification" style="width:250px;position:absolute;z-index:100;right:10px;display:none">
+                <div class="bg-dark text-light">
+                <h6 class="p-1">Notification</h6>
+                </div>
+                <div>
+                 <p class="notification-msg p-1" data-key=""></p>
+                </div>
+              </div>
 
             <div class="row sales-section bg-light justify-content-around" style="height:90vh; margin:auto, background:aliceblue;">
 

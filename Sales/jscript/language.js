@@ -118,6 +118,7 @@ let langdata = {
                 "lng-cat":"Category",
                 "lng-date":"Date",
                 "lng-valid":"Please enter valid data.",
+                "lng-exp-saved":"Expense Saved"
             }
         },
         "ar":{ 
@@ -160,6 +161,7 @@ let langdata = {
                 "lng-cat":"فئة",
                 "lng-date":"تاريخ",
                 "lng-valid":"الرجاء إدخال بيانات صحيحة",
+                "lng-exp-saved":"حفظ المصاريف"
 
             }
         }

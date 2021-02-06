@@ -47,16 +47,18 @@ $(document).ready(function(){
     $("#btn-add-exp").click(function(){
 
         var date = $("#input-date").val();
-        var amount = $("#exp-amount").val();
+        var amount = parseFloat($("#exp-amount").val(),2);
         var expense = $( "#expense option:selected" ).attr("data-id");
         var remark = $("#remarks").val();
         var seller= $("#user-data").attr("data-uid");
 
         if(Validate_expense())
         {
+
             
             save_expense(date,amount,expense,remark,seller);
             $('#expenses').modal('hide');
+            notify("Expense Saved.");
         }
         else
         {
@@ -74,14 +76,16 @@ $(document).ready(function(){
 
     function save_expense(date,amount,expense,remark,seller)
     {
+        $("#overlay").css("display","block");
         $.post("load_data.php",{
             date:date,
             amount:amount,
             expense:expense,
             remark:remark,
             seller:seller
-        },function(data){
-            console.log(data);
+        },function(){
+
+            $("#overlay").css("display","none");
         })
     }
 
@@ -90,10 +94,12 @@ $(document).ready(function(){
         var str = data.substring(1,7);
         if(str == "option")
         {
+            $("#overlay").css("display","none");
             $("#expense").html(data);
             $('#expenses').modal('show');
         }else
         {
+            $("#overlay").css("display","none");
             alert("No connection to database.");
         }
         
@@ -108,6 +114,7 @@ $(document).ready(function(){
                
             }else if(this.readyState == 4 && this.status != 200)
             {
+                $("#overlay").css("display","none");
                 alert("There is no response from server.");
             }
         }
@@ -117,6 +124,7 @@ $(document).ready(function(){
 
     $(".exp-btn").click(function(){
         
+        $("#overlay").css("display","block");
         fetch_expenses();
       
        
@@ -300,6 +308,16 @@ $(document).ready(function(){
         {
             return 1;
         }
+
+    }
+
+    function notify(msg)
+    {
+        $(".notification-msg").text(msg);
+        $(".notification").fadeIn(1500);
+        setInterval(function(){
+            $(".notification").fadeOut(1500);
+        },5000)
 
     }
      function save_invoice(cash_received){
