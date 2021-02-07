@@ -83,11 +83,14 @@ $(document).ready(function(){
             expense:expense,
             remark:remark,
             seller:seller
-        },function(){
-
-            $("#overlay").css("display","none");
-            notify("حفظ المصاريف");
-            return;
+        },function(data){
+            
+            if(data == "success")
+            {
+                $("#overlay").css("display","none");
+                notify("حفظ المصاريف");
+                return;
+            }
         })
 
         $("#overlay").css("display","none");
@@ -248,7 +251,9 @@ $(document).ready(function(){
         $(".new").prop("disabled",false);
         $(".save").prop("disabled",true);
         $(".clear").prop("disabled",true);
+        $(".new").click();
         }
+        
         
         
     })
@@ -468,16 +473,31 @@ $(document).ready(function(){
             invoice_v:$invoice_vat,
             invoice_total:$invoice_total
         },function(data){
-            if(data){
+            
+            if(!isNaN(data))
+            {
                 $("div .invoice-number").text(data); 
                 invoice_number = data;
                 $("#overlay").css("display","none");
                 print();
                 $(".print").prop("disabled",false);
+                notify("تم حفظ الفاتورة بنجاح");
             }
             
+            if(isNaN(data))
+            {
+                $("#overlay").css("display","none");
+                $(".save").prop("disabled",false);
+                notify("الفاتورة غير محفوظة");
+            }
         })
-       
+            .fail(function(data){
+            $("#overlay").css("display","none");
+            $(".save").prop("disabled",false);
+            notify("الفاتورة غير محفوظة");
+        })
+
+            
             $('.invoice-balance').text(balance);
             $('.invoice-cr').text(cash_received);
             $(".balance-data").css("display","block");

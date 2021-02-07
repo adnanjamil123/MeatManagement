@@ -359,12 +359,12 @@ if(!isset($_SESSION["active"]))
 
                 </nav>
 
-              <div class="bg-white notification" style="width:250px;position:absolute;z-index:100;right:10px;display:none">
-                <div class="bg-dark text-light">
+              <div class="notification" style="width:250px;position:absolute;z-index:100;right:10px;bottom:30px;display:none">
+                <div class="bg-primary text-light">
                 <h6 class="p-1">Notification</h6>
                 </div>
                 <div>
-                 <p class="notification-msg p-1" data-key=""></p>
+                 <p class="notification-msg p-1 bg-white text-dark" data-key=""></p>
                 </div>
               </div>
 
