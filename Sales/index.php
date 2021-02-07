@@ -299,23 +299,23 @@ if(!isset($_SESSION["active"]))
                         </div>
                             <div class="modal-body">
                                 <div class="row align-items-end justify-content-center">
-                                    <div class="col-4 pl-1">
-                                        <label for="input-date" data-key="lng-date">Date</label>
-                                        <input class="" id="input-date" type="date"  min="2018-01-01" max="2030-12-31" readonly>
+                                    <div class="col-10 col-md-5">
+                                        <label for="input-date" data-key="lng-date">Date</label><br>
+                                        <input class="w-100" id="input-date" type="date"  min="2018-01-01" max="2030-12-31" readonly>
                                     </div>
-                                    <div  class="col-6" >
-                                    <label for="expense" data-key="lng-cat">Category</label>
-                                    <select name="expenses"id="expense">
+                                    <div  class="col-10 col-md-5 pl-md-5">
+                                    <label for="expense" data-key="lng-cat">Category</label><br>
+                                    <select class="w-100" name="expenses"id="expense">
                                             
                                     </select>
                                      </div>
                                     
-                                    <div class="col-10 pt-3 justify-self-between">
-                                            <label for="exp-amount" data-key="lng-amt">Total</label>
-                                            <input id="exp-amount" type = "number" class="" step="1" autofocus></input>
+                                    <div class="col-10 pt-3 justify-content-center">
+                                            <label for="exp-amount" data-key="lng-amt">Total</label><br>
+                                            <input id="exp-amount" type = "number" class="w-100" step="1" autofocus></input>
                                         </div>
                                     <div class="col-10">
-                                            <label for="remarks" data-key="lng-rmk"></label>
+                                            <label for="remarks" data-key="lng-rmk"></label><br>
                                             <textarea class="w-100 p-2" type="textarea" id="remarks" style="resize:none"></textarea>
                                     </div>
                                 </div>
@@ -339,16 +339,18 @@ if(!isset($_SESSION["active"]))
                             <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray;right:100px">
-                                <li class="row dropdown-item text-center m-0">
-                                    <i class="col-3 fa fa-user-times"></i>
-                                    <a class="col-6 text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
-                                </li>
-                                <li class="row dropdown-item text-center m-0" >
-                                     <i class="col-3 fa fa-cart-plus"></i>
-                                    <button class="col-6 exp-btn" data-key="lng-exp">
+                               
+                                <li class="dropdown-item text-center exp-btn" >
+                                     <i class="fa fa-cart-plus p-2"></i>
+                                    <span class="pl-2" data-key="lng-exp" style="user-select:none">
                                         Expenses
-                                    </button>
+                                    </span>
                                    
+                                </li>
+                                <br>
+                                <li class="dropdown-item text-center p-0" style="background-color:white;cursor:default">
+                                    <i class="fa fa-user-times"></i>
+                                    <a class="text-center" href="includes/logout.inc.php" data-key="lng-log">Log out</a>
                                 </li>
                            </ul>
                        </div>

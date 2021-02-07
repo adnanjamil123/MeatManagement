@@ -191,11 +191,14 @@ padding:10px;
 .dropdown-item:hover
 {
     background:#204b6d;
+    cursor: pointer;
 }
 
-.dropdown-item:hover a{
+
+.dropdown-item:hover span{
     color: white;
 }
 .dropdown-item:hover i{
-    color: white;
+    color: orange;
 }
+

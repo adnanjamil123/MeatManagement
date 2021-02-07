@@ -58,7 +58,7 @@ $(document).ready(function(){
             
             save_expense(date,amount,expense,remark,seller);
             $('#expenses').modal('hide');
-            notify("Expense Saved.");
+            
         }
         else
         {
@@ -86,7 +86,12 @@ $(document).ready(function(){
         },function(){
 
             $("#overlay").css("display","none");
+            notify("حفظ المصاريف");
+            return;
         })
+
+        $("#overlay").css("display","none");
+        notify("حساب لم يتم حفظه");
     }
 
     function write_expenses(data)
