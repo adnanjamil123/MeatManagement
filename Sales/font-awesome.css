@@ -201,4 +201,8 @@ padding:10px;
 .dropdown-item:hover i{
     color: orange;
 }
+.dropdown-menu
+{
+    left: -30px;
+}
 

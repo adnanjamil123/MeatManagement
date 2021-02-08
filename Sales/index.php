@@ -338,7 +338,7 @@ if(!isset($_SESSION["active"]))
                        <div class="ml-auto mr-5 dropdown">
                             <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='".$_SESSION["name"]."' data-uid='".$_SESSION["uid"]."' data-branch='".$_SESSION["branch"]."'>".$_SESSION["name"]."</p>"); ?></span>
-                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray;right:100px">
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background:lightgray">
                                
                                 <li class="dropdown-item text-center exp-btn" >
                                      <i class="fa fa-cart-plus p-2"></i>
@@ -360,7 +360,7 @@ if(!isset($_SESSION["active"]))
                 </nav>
 
               <div class="notification" style="width:250px;position:absolute;z-index:100;right:10px;bottom:30px;display:none">
-                <div class="bg-primary text-light">
+                <div class="bg-success text-light">
                 <h6 class="p-1">Notification</h6>
                 </div>
                 <div>
