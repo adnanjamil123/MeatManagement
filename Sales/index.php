@@ -289,7 +289,32 @@ if(!isset($_SESSION["active"]))
                 </div>
             </div>
         </div>
-
+        <div class="modal fade" id="discount-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title">
+                            Discount
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <label for="discount-total" data-key="lng-total"></label>
+                            <span class="invoice-tv font-weight-bold" id="discount-total-inv">0.00</span>
+                        </div>
+                        <div>
+                            <label for="discount-amt" data-key="lng-amt"></label>
+                            <input type="number" class="discount-amt" id="discount-amt">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-add btn text-light btn-primary" id="btn-add"data-key="lng-enter">
+                            Apply Discount 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal" id="expenses">
             <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -331,7 +356,7 @@ if(!isset($_SESSION["active"]))
                     </div>
             </div>
         </div>
-                        <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
+                <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
                      <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
                      <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
@@ -432,7 +457,7 @@ if(!isset($_SESSION["active"]))
                                    
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
-                                        <th scope="col" class=""></th>
+                                        <th scope="col" class=""><button class="btn" data-toggle="modal" data-target="#discount-modal">Add Discount</button></th>
                                         <th scope="col" class=" d-none d-lg-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
