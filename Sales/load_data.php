@@ -62,10 +62,11 @@ require_once ('functions.php');
     $invoice_wv = $_POST['invoice_wv'];
     $order_no = $_POST['order_no'];
     $invoice_vat = $_POST['invoice_v'];
+    $discount = $_POST['discount'];
 
     
 
-    $invoice_no = (int)create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total );
+    $invoice_no = (int)create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total, $discount );
 
     
 

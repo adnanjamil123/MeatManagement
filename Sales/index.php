@@ -308,7 +308,7 @@ if(!isset($_SESSION["active"]))
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-add btn text-light btn-primary" id="btn-add"data-key="lng-enter">
+                        <button class="btn-add btn text-light btn-primary" id="btn-discount"data-key="lng-enter">
                             Apply Discount 
                         </button>
                     </div>
@@ -457,7 +457,7 @@ if(!isset($_SESSION["active"]))
                                    
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
-                                        <th scope="col" class=""><button class="btn" data-toggle="modal" data-target="#discount-modal">Add Discount</button></th>
+                                        <th scope="col" class=""><button class="btn btn-primary" data-toggle="modal" data-target="#discount-modal">+</button></th>
                                         <th scope="col" class=" d-none d-lg-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
@@ -519,6 +519,10 @@ if(!isset($_SESSION["active"]))
             <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
             <a href=""  class="en lang-selected pr-2" onclick="lang_change('en')">EN</a>
             |<a href="" class="ar pl-2" onclick="lang_change('ar')">AR</a></span>
+            <span class="ml-sm-5" style="float:left">
+                <span>Discount</span>
+                <span id="discount-given">0.00</span>
+            </span>
             <span class="float-right pr-5 d-md-none">
                 <span data-key="lng-invoice"></span>
                 <span class="invoice-number" id="mb-invoice"></span>

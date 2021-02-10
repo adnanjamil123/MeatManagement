@@ -99,13 +99,13 @@ require_once ('query_functions.php');
             
         };
 
-       function create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total ){
+       function create_invoice($db, $order_no, $invoice_wv, $invoice_vat, $invoice_total, $discount ){
          //invoice_no	order_no	date	status	total_wvat	vat	total
 
          arabic_data();
 
-         $sql = "INSERT INTO meat_invoices (order_id,	total_wvat,	vat_amount,invoice_total) VALUES 
-         (?, ?, ?, ?);";
+         $sql = "INSERT INTO meat_invoices (order_id,	total_wvat,	vat_amount,invoice_total,discount_amount) VALUES 
+         (?, ?, ?, ?, ?);";
 
             $stmt = mysqli_stmt_init($db);
                     
@@ -113,7 +113,7 @@ require_once ('query_functions.php');
                 echo"statement failed";
                 exit();
             }
-            mysqli_stmt_bind_param($stmt, "iddd", $order_no, $invoice_wv, $invoice_vat, $invoice_total);
+            mysqli_stmt_bind_param($stmt, "idddd", $order_no, $invoice_wv, $invoice_vat, $invoice_total,$discount);
 
             if(mysqli_stmt_execute($stmt)) { 
                 $invoice_number = mysqli_insert_id($db);

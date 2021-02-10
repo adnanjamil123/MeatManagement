@@ -17,6 +17,8 @@ $(document).ready(function(){
 
 })
 
+
+
 $(document).ready(function(){
   $("div .internet-status").text("Connected");
 
@@ -59,7 +61,9 @@ function update_totals()
 
     })
 
-   $(".invoice-tv").text(total_vat.toFixed(2));
+    var dis = parseFloat($("#discount-given").text(),2);
+
+   $(".invoice-tv").text((total_vat-dis).toFixed(2));
 
    $(".invoice-twv").text(total.toFixed(2));
 
@@ -69,6 +73,18 @@ function update_totals()
     vat = $(".invoice-v").text(vat);
 
 }
+
+$(document).ready(function(){
+
+  $("#btn-discount").click(function(){
+
+    $disc = parseFloat($("#discount-amt").val(),2);
+    $("#discount-given").text($disc);
+    update_totals();
+    $("#discount-modal").modal('hide');
+  })
+
+})
 
    //show.bs.modal
 

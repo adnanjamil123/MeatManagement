@@ -34,6 +34,8 @@ $(document).ready(function(){
         
     };
 
+    
+
     function Validate_expense()
     {
         var amount = $("#exp-amount").val();
@@ -414,10 +416,16 @@ $(document).ready(function(){
         var invoice_values = new Array();
         $payment_method = $("input[name='payment-opt']:checked").val();
         
+        
         $order_no = parseInt($(".order-no").text(),10);   // integer
 
         $invoice_wv = parseFloat($(".invoice-twv").text()).toFixed(2);//invoice without vat in decimals
         $invoice_vat = parseFloat($(".invoice-v").text()).toFixed(2);//invoice  vat in decimals
+
+        $discount = parseFloat($("#discount-given").text()).toFixed(2);
+        
+        //this is total invoice amount saving in Db.
+        
         $invoice_total = parseFloat($("#total-inv").text()).toFixed(2);//invoice total vat in decimals
         
        
@@ -471,7 +479,8 @@ $(document).ready(function(){
             order_no: $order_no,
             invoice_wv:$invoice_wv,
             invoice_v:$invoice_vat,
-            invoice_total:$invoice_total
+            invoice_total:$invoice_total,
+            discount:$discount
         },function(data){
             
             if(!isNaN(data))
