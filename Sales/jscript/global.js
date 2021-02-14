@@ -56,13 +56,11 @@ function update_totals()
 
         total_vat += parseFloat($(this).find(".item-total").text());
 
-
-
-
     })
 
     var dis = parseFloat($("#discount-given").text(),2);
 
+    $("#amt-before-total").text((total_vat).toFixed(2));
    $(".invoice-tv").text((total_vat-dis).toFixed(2));
 
    $(".invoice-twv").text(total.toFixed(2));
@@ -82,6 +80,11 @@ $(document).ready(function(){
     $("#discount-given").text($disc);
     update_totals();
     $("#discount-modal").modal('hide');
+  })
+
+  $("#discount-amt").change(function(){
+    
+    update_totals();
   })
 
 })
@@ -129,6 +132,22 @@ $(document).ready(function(){
     $('#fqty').val(1);
 
     });
+
+    $("#discount-modal").on('shown.bs.modal', function(){
+
+      var total = parseFloat($(".invoice-tv").text());
+      var dis = parseFloat($("#discount-given").text(),2);
+      $("#discount-amt").val(dis);
+      
+      if(total > 0)
+      {
+        $("#discount-amt").prop("disabled", false);
+      }else
+      {
+        $("#discount-amt").prop("disabled", true);
+      }
+
+    })
 
     $('#itemsModal').on('shown.bs.modal', function (e) {
 

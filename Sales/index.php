@@ -299,6 +299,10 @@ if(!isset($_SESSION["active"]))
                     </div>
                     <div class="modal-body">
                         <div>
+                            <label for="amt-before-total" data-key="lng-total"></label>
+                            <span class="font-weight-bold" id="amt-before-total">0.00</span>
+                        </div>
+                        <div>
                             <label for="discount-total" data-key="lng-total"></label>
                             <span class="invoice-tv font-weight-bold" id="discount-total-inv">0.00</span>
                         </div>
