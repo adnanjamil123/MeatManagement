@@ -60,6 +60,11 @@ function update_totals()
 
     var dis = parseFloat($("#discount-given").text(),2);
 
+    if(total_vat < dis)
+    {
+      dis = 0.00;
+      $("#discount-given").text(dis)
+    }
     $("#amt-before-total").text((total_vat).toFixed(2));
    $(".invoice-tv").text((total_vat-dis).toFixed(2));
 
@@ -77,6 +82,15 @@ $(document).ready(function(){
   $("#btn-discount").click(function(){
 
     $disc = parseFloat($("#discount-amt").val(),2);
+    console.log($disc);
+    if(isNaN($disc))
+    {
+      $("#discount-amt").val(0.00);
+      update_totals();
+    $("#discount-modal").modal('hide');
+    return;
+    }
+
     $("#discount-given").text($disc);
     update_totals();
     $("#discount-modal").modal('hide');
@@ -133,7 +147,7 @@ $(document).ready(function(){
 
     });
 
-    $("#discount-modal").on('shown.bs.modal', function(){
+    $("#discount-modal").on('show.bs.modal', function(){
 
       var total = parseFloat($(".invoice-tv").text());
       var dis = parseFloat($("#discount-given").text(),2);
