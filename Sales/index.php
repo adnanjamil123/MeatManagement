@@ -292,27 +292,27 @@ if(!isset($_SESSION["active"]))
         <div class="modal fade" id="discount-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="modal-title">
-                            Discount
+                    <div class="modal-header" style="background:#204b6d">
+                        <div class="modal-title text-light" >
+                            <h3 data-key="lng-disc">Discount</h3>
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div>
-                            <label for="amt-before-total" data-key="lng-total"></label>
+                        <div class="d-flex justify-content-around p-1 border">
+                            <label for="amt-before-total" data-key="lng-twd"></label>
                             <span class="font-weight-bold" id="amt-before-total">0.00</span>
                         </div>
-                        <div>
-                            <label for="discount-total" data-key="lng-total"></label>
+                        <div class="d-flex justify-content-around p-1 border">
+                            <label for="discount-total" data-key="lng-td"></label>
                             <span class="invoice-tv font-weight-bold" id="discount-total-inv">0.00</span>
                         </div>
-                        <div>
-                            <label for="discount-amt" data-key="lng-amt"></label>
+                        <div class="pt-3">
+                            <label for="discount-amt" data-key="lng-disc"></label>
                             <input type="number" class="discount-amt" id="discount-amt">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn-add btn text-light btn-primary" id="btn-discount"data-key="lng-enter">
+                        <button class="btn text-light btn-primary" id="btn-discount"data-key="lng-disc2">
                             Apply Discount 
                         </button>
                     </div>
@@ -461,7 +461,7 @@ if(!isset($_SESSION["active"]))
                                    
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
-                                        <th scope="col" class=""><button class="btn btn-primary" data-toggle="modal" data-target="#discount-modal">+</button></th>
+                                        <th scope="col"><button class="btn bg-white text-dark btn-disc" data-toggle="modal" data-target="#discount-modal"><i class="fa fa-tags pr-md-2"></i><span class="d-none d-md-inline-block"data-key="lng-disc"></span></button></th>
                                         <th scope="col" class=" d-none d-lg-table-cell" data-key="lng-code">ITEM CODE</th>
                                         <th scope="col" data-key="lng-desc">ITEM DESCRIPTION</th>
                                         <th scope="col" data-key="lng-qty">QTY</th>
@@ -615,7 +615,10 @@ if(!isset($_SESSION["active"]))
 						<td> <span> ريال </span><span class="print-invoice-total"></span> </td>
 						<td> <b> <span>  مجموع </span> </b> </td>
 					</tr>
-					
+					<tr>
+						<td> <span> ريال </span><span class="" id="print-discount-given"></span> </td>
+						<td> <b> <span>  خصم </span> </b> </td>
+					</tr>
 					<tr>
 						<td> <span> ريال </span><span class="print-cash-received"></span> </td>
 						<td> <b> <span>  المبلغ المستلم </span> </b> </td>

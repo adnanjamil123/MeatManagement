@@ -118,7 +118,11 @@ let langdata = {
                 "lng-cat":"Category",
                 "lng-date":"Date",
                 "lng-valid":"Please enter valid data.",
-                "lng-exp-saved":"Expense Saved"
+                "lng-exp-saved":"Expense Saved",
+                "lng-disc":"Discount",
+                "lng-disc2":"Apply Discount",
+                "lng-twd":"Total without discount",
+                "lng-td":"Total with discount",
             }
         },
         "ar":{ 
@@ -161,7 +165,11 @@ let langdata = {
                 "lng-cat":"فئة",
                 "lng-date":"تاريخ",
                 "lng-valid":"الرجاء إدخال بيانات صحيحة",
-                "lng-exp-saved":"حفظ المصاريف"
+                "lng-exp-saved":"حفظ المصاريف",
+                "lng-disc":"خصم",
+                "lng-disc2":"تطبيق الخصم",
+                "lng-twd":"المجموع بدون خصم",
+                "lng-td":"المجموع مع الخصم",
 
             }
         }

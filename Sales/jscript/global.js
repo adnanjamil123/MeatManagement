@@ -82,12 +82,22 @@ $(document).ready(function(){
   $("#btn-discount").click(function(){
 
     $disc = parseFloat($("#discount-amt").val(),2);
-    console.log($disc);
+    $total =  parseFloat($("#amt-before-total").text(),2);
+
+    if($disc < 0)
+    {
+      return;
+    }
+
+    if($disc > $total)
+    {
+      return;
+    }
     if(isNaN($disc))
     {
       $("#discount-amt").val(0.00);
       update_totals();
-    $("#discount-modal").modal('hide');
+      $("#discount-modal").modal('hide');
     return;
     }
 
@@ -99,6 +109,7 @@ $(document).ready(function(){
   $("#discount-amt").change(function(){
     
     update_totals();
+
   })
 
 })
@@ -149,7 +160,7 @@ $(document).ready(function(){
 
     $("#discount-modal").on('show.bs.modal', function(){
 
-      var total = parseFloat($(".invoice-tv").text());
+      var total = parseFloat($("#amt-before-total").text(),2);
       var dis = parseFloat($("#discount-given").text(),2);
       $("#discount-amt").val(dis);
       

@@ -167,7 +167,7 @@ $(document).ready(function(){
     {   
         var currentdate = DisplayCurrentTime();
 	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
-
+        var disc = parseFloat($("#discount-given").text(),2);
         $(".print-branch-name").text(user_data[1]);
         $(".print-branch-number").text(user_data[0]);
         $(".print-invoice-number").text(invoice_number);
@@ -176,6 +176,7 @@ $(document).ready(function(){
         $(".print-cash-received").text(invoice_data[0]['cash']);
         $(".print-cash-balance").text(invoice_data[0]['bal']);
         $(".print-date").text(current_date);
+        $("#print-discount-given").text(disc);
 
     
       
@@ -218,6 +219,7 @@ $(document).ready(function(){
         $("#tbody").html(old_table_html);
         $(".clear").prop("disabled",false);
         $(".invoice-status").text("Open");
+        $(".btn-disc").prop("disabled", false);
 
         $(".new").prop("disabled",true);
         
@@ -491,6 +493,7 @@ $(document).ready(function(){
                 print();
                 $(".print").prop("disabled",false);
                 notify("تم حفظ الفاتورة بنجاح");
+                $(".btn-disc").prop("disabled", true);
             }
             
             if(isNaN(data))
