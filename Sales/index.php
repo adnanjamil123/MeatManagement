@@ -104,8 +104,10 @@ if(!isset($_SESSION["active"]))
         
             var elem = "#fprice";
             var elem2 = "#fqty";
+            var elem3 = "#discount-amt";
             var value = $(elem).val();
             var value2 = $(elem2).val();
+            var value3 = $(elem3).val();
             var auto = false;
             var auto2 = false;
             
@@ -113,6 +115,7 @@ if(!isset($_SESSION["active"]))
             {
                 auto = false;
                 auto2 = false;
+                auto3 = false;
             })
 
             $(elem2).on('click focusout change', function(e) {
@@ -139,6 +142,32 @@ if(!isset($_SESSION["active"]))
                 }
 
             });
+
+            $(elem3).on('click focusout change', function(e) {
+            
+            if(e.type == "click")
+            {   
+                value3 = $(elem3).val();
+                $(elem3).val("");
+                auto3 = true;
+            }
+            if(e.type == "focusout")
+            {  
+            if(auto3)
+            {
+                $(elem3).val(value3);
+            }
+                
+                
+            }
+            if(e.type == "change")
+            {
+                auto3 = true;
+                value3 = $(elem3).val();
+            }
+
+        });
+
 
          
             $(elem).on('click focusout change', function(e) {
