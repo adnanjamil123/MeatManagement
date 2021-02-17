@@ -298,11 +298,11 @@ if(!isset($_SESSION["active"]))
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div class="d-flex justify-content-around p-1 border">
+                        <div class="d-flex justify-content-between p-1 border">
                             <label for="amt-before-total" data-key="lng-twd"></label>
                             <span class="font-weight-bold" id="amt-before-total">0.00</span>
                         </div>
-                        <div class="d-flex justify-content-around p-1 border">
+                        <div class="d-flex justify-content-between p-1 border">
                             <label for="discount-total" data-key="lng-td"></label>
                             <span class="invoice-tv font-weight-bold" id="discount-total-inv">0.00</span>
                         </div>
@@ -523,7 +523,7 @@ if(!isset($_SESSION["active"]))
             <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
             <a href=""  class="en lang-selected pr-2" onclick="lang_change('en')">EN</a>
             |<a href="" class="ar pl-2" onclick="lang_change('ar')">AR</a></span>
-            <span class="ml-sm-5" style="float:left">
+            <span class="ml-sm-5 d-none" style="float:left">
                 <span>Discount</span>
                 <span id="discount-given">0.00</span>
             </span>
