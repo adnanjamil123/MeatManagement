@@ -168,11 +168,13 @@ $(document).ready(function(){
         var currentdate = DisplayCurrentTime();
 	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
         var disc = parseFloat($("#discount-given").text(),2);
+        var total = (invoice_data[0]['total'])-disc;
+
         $(".print-branch-name").text(user_data[1]);
         $(".print-branch-number").text(user_data[0]);
         $(".print-invoice-number").text(invoice_number);
         $(".print-username").text(user_data[2]);
-        $(".print-invoice-total").text(invoice_data[0]['total']);
+        $(".print-invoice-total").text(total);
         $(".print-cash-received").text(invoice_data[0]['cash']);
         $(".print-cash-balance").text(invoice_data[0]['bal']);
         $(".print-date").text(current_date);
@@ -424,11 +426,11 @@ $(document).ready(function(){
         $invoice_wv = parseFloat($(".invoice-twv").text()).toFixed(2);//invoice without vat in decimals
         $invoice_vat = parseFloat($(".invoice-v").text()).toFixed(2);//invoice  vat in decimals
 
-        $discount = parseFloat($("#discount-given").text()).toFixed(2);
+        $discount = parseFloat($("#discount-given").text());
         
         //this is total invoice amount saving in Db.
-        
-        $invoice_total = parseFloat($("#total-inv").text()).toFixed(2);//invoice total vat in decimals
+        var inv = parseFloat($("#total-inv").text());
+        $invoice_total = parseFloat(inv + $discount).toFixed(2);//invoice total vat in decimals
         
        
 
