@@ -358,14 +358,16 @@ $(document).ready(function(){
      $qty = (parseFloat($qty2)).toFixed(2);
      $uom =$('.modal-uom').text();
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
-     $vat = $("#item_clicked").attr('data-vat');
+     $vat = parseFloat($("#item_clicked").attr('data-vat'));
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
-     $price_without_vat= ($('#fprice').val())*(1-$vat).toFixed(2);
+     $pwv = $('#fprice').val();
+     $vatt = 1+$vat;
+     $price_without_vat= $pwv/$vatt;
       $total = ($qty * $price_with_vat).toFixed(2);
     //  $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
-      
+      debugger;
      $('#tbody').append(`<tr id="Row">
       <td class="text-center noprint">
        <button class="btn btn-remove text-light" style="background:#204b6d"

@@ -27,6 +27,8 @@ require_once ('db.php');
 require_once ('query_functions.php');
 require_once ('functions.php');
 
+
+
 //echo test();
 
 if(!isset($_SESSION["active"]))
@@ -523,7 +525,7 @@ if(!isset($_SESSION["active"]))
                                 <li class='list-group-item'><span data-key="lng-invoice"></span><br><span class="invoice-number"></span></li>
                                 <li class='invoice-status list-group-item text-danger d-none'><b></b></li>
                                 <li class='inv-wt list-group-item  vat-display'><span data-key="lng-wvat">TOTAL(Without VAT)</span>&#58;&nbsp;<br><span class='invoice-twv font-weight-bold'></span></li>
-                                <li class='invvat list-group-item vat-display'><span data-key="lng-vat">VAT</span>&#58;&nbsp;<br><span class='invoice-v font-weight-bold'></span></li>
+                                <li class='invvat list-group-item'><span data-key="lng-vat">VAT</span><br><span class='invoice-v font-weight-bold'></span></li>
                                 <li class='inv-total list-group-item'><span data-key="lng-total">TOTAL</span><br/><span class='invoice-tv font-weight-bold' id="total-inv"></span></li>
 
                                 <li class='list-group-item' style="background:#204b6d"><div class='form-check-inline text-light'><input class='form-check-input text-light'  type='radio' name='payment-opt' value='cash' checked><span data-key="lng-cash">cash</span></input> 
@@ -640,6 +642,14 @@ if(!isset($_SESSION["active"]))
 			<table id="totalAmountTable">
 			
 				<tbody>
+                     <tr>
+						<td> <span> ريال </span><span class="print-twv"></span> </td>
+						<td> <b> <span>  المجموع بدون ضريبة</span> </b> </td>
+					</tr>
+                     <tr>
+						<td> <span> ريال </span><span class="print-vat"></span> </td>
+						<td> <b> <span>%</span><span><?php echo ((mysqli_fetch_all(get_vat() , MYSQLI_ASSOC))[0]['tax_value'])*100;?></span><span>  ضريبة</span> </b> </td>
+					</tr>
 					<tr>
 						<td> <span> ريال </span><span class="print-invoice-total"></span> </td>
 						<td> <b> <span>  مجموع </span> </b> </td>
