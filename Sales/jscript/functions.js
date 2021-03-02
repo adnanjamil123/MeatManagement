@@ -169,6 +169,7 @@ $(document).ready(function(){
 	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
         var disc = parseFloat($("#discount-given").text());
         var total = ((invoice_data[0]['total'])-disc).toFixed(2);
+        var tbdisc = parseFloat(invoice_data[0]['total']);
         var wvat = parseFloat(invoice_data[0]['wvat']);
         var vat = parseFloat(invoice_data[0]['vat']);
 
@@ -183,6 +184,8 @@ $(document).ready(function(){
         $("#print-discount-given").text(disc.toFixed(2));
         $(".print-twv").text(wvat.toFixed(2));
         $(".print-vat").text(vat.toFixed(2));
+        $(".print-before-total").text(tbdisc.toFixed(2));
+
 
     
       

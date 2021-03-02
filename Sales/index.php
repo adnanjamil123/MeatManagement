@@ -650,13 +650,17 @@ if(!isset($_SESSION["active"]))
 						<td> <span> ريال </span><span class="print-vat"></span> </td>
 						<td> <b> <span>%</span><span><?php echo ((mysqli_fetch_all(get_vat() , MYSQLI_ASSOC))[0]['tax_value'])*100;?></span><span>  ضريبة</span> </b> </td>
 					</tr>
-					<tr>
-						<td> <span> ريال </span><span class="print-invoice-total"></span> </td>
+                    <tr>
+						<td> <span> ريال </span><span class="print-before-total"></span> </td>
 						<td> <b> <span>  مجموع </span> </b> </td>
 					</tr>
 					<tr>
 						<td> <span> ريال </span><span class="" id="print-discount-given"></span> </td>
 						<td> <b> <span>  خصم </span> </b> </td>
+					</tr>
+                    <tr>
+						<td> <span> ريال </span><span class="print-invoice-total"></span> </td>
+						<td> <b> <span>  المجموع بعد الخصم </span> </b> </td>
 					</tr>
 					<tr>
 						<td> <span> ريال </span><span class="print-cash-received"></span> </td>
