@@ -644,7 +644,7 @@ if(!isset($_SESSION["active"]))
 				<tbody>
                      <tr>
 						<td> <span> ريال </span><span class="print-twv"></span> </td>
-						<td> <b> <span>  المجموع بدون ضريبة</span> </b> </td>
+						<td> <b> <span>  المجموع  </span> </b> </td>
 					</tr>
                      <tr>
 						<td> <span> ريال </span><span class="print-vat"></span> </td>

@@ -362,7 +362,8 @@ $(document).ready(function(){
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $pwv = $('#fprice').val();
      $vatt = 1+$vat;
-     $price_without_vat= $pwv*(1-$vat);
+     //$price_without_vat= $pwv*(1-$vat);
+     $price_without_vat= $pwv/$vatt;
       $total = ($qty * $price_with_vat).toFixed(2);
     //  $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
