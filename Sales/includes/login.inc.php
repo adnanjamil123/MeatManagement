@@ -7,6 +7,8 @@ if(isset($_POST["submit"]))
 
     require_once ('../config.php');
     require_once ('errors.inc.php');
+    
+    
 
     if(emptyInputLogin($username, $pwd) !== false)
     {

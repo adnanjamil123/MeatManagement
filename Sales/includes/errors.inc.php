@@ -94,6 +94,7 @@ function create_user($db, $name, $username, $branch, $pwd)
 function emptyInputLogin($username, $pwd)
 {
     $result;
+    
     if(empty($username) || empty($pwd))
     {
         $result = true;
@@ -107,8 +108,12 @@ function emptyInputLogin($username, $pwd)
 function loginUser($db, $username, $pwd)
 {
     arabic_data();
+
+    
     
     $user_exist = uidExists($db , $username);
+
+   //print_r($user_exist);
 
     if($user_exist === false)
     {
@@ -118,20 +123,21 @@ function loginUser($db, $username, $pwd)
 
     $pwdhashed = $user_exist["password"];
     $checkpwd = password_verify($pwd, $pwdhashed);
-
+    
     if(!$user_exist["is_allow"])
     {
         header("location: ../Login.php?error=inactiveusername");
         exit();
     }
 
-    if($checkpwd === false)
+    if($pwdhashed === false)
     {
         header("location: ../Login.php?error=wrongpassword");
         exit();
     }
-    elseif($checkpwd === true)
+    else
     {
+        
         session_start();
         $_SESSION["name"] = $user_exist["name"];
         $_SESSION["username"] = $user_exist["username"];
