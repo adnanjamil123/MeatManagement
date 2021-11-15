@@ -129,7 +129,9 @@ $(document).ready(function(){
             }
         }
         xttp.open("GET","load_data.php?q=expenses",true);
+       
         xttp.send();
+       
     }
 
     $(".exp-btn").click(function(){
