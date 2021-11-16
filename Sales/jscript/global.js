@@ -368,7 +368,7 @@ $(document).ready(function(){
     //  $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
-      debugger;
+      
      $('#tbody').append(`<tr id="Row">
       <td class="text-center noprint">
        <button class="btn btn-remove text-light" style="background:#204b6d"
@@ -381,7 +381,7 @@ $(document).ready(function(){
            <td class="row-index text-center item-text">
             ${$desc}</td>
 
-            <td class="row-index text-center item-qty">
+            <td class="row-index text-center item-qty" onclick="editSelected(this)">
             ${$qty}</td>
 
             <td class="row-index text-center item-uom d-none d-xl-table-cell">

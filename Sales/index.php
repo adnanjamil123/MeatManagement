@@ -68,6 +68,7 @@ if(!isset($_SESSION["active"]))
         <script src="jscript/trap_focus.js"></script>
         <script src="jscript/functions.js"></script>
         <script src="jscript/xmlRequets.js"></script>
+        <script src="jscript/configuration.js"></script>
        
         
         <script>
@@ -229,9 +230,7 @@ if(!isset($_SESSION["active"]))
 
         <style>
 
-        .vat-display{
-           display:none; 
-        }
+        
         .list-group-item{
             /* padding: .5rem 0.5rem; */
             background:white;
@@ -491,7 +490,7 @@ if(!isset($_SESSION["active"]))
 
                             <div  class="col  items-table table-responsive" style="max-height:80vh">
 
-                           <div class="container">
+                           <div class="container items-container">
                                 <input type="text" id="search" name="search" placeholder="search here..">
                                 <button onclick="fetch_item()" class="btn btn-success">Add item</button>
                                 <span class="text-primary item-name" id="item-name">hello</span> 
