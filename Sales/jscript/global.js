@@ -353,11 +353,19 @@ $(document).ready(function(){
         return;
       }
 
+      //item description
      $desc = $('#itemsModal .modal-title').text();
-     $qty2 = $('#fqty').val();
-     $qty = (parseFloat($qty2)).toFixed(2);
+
+     //quantity added from modal
+     $qty = parseFloat($('#fqty').val()).toFixed(2);
+
+    // unit of measurement
      $uom =$('.modal-uom').text();
+
+     //size of item depending on choice f/h/q
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
+
+
      $vat = parseFloat($("#item_clicked").attr('data-vat'));
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $pwv = $('#fprice').val();
@@ -381,7 +389,7 @@ $(document).ready(function(){
            <td class="row-index text-center item-text">
             ${$desc}</td>
 
-            <td class="row-index text-center item-qty" onclick="editSelected(this)">
+            <td class="row-index text-center item-qty">
             ${$qty}</td>
 
             <td class="row-index text-center item-uom d-none d-xl-table-cell">
@@ -415,5 +423,17 @@ $(document).ready(function(){
 
 
 });
+
+
+var vatGlobal = $.getJSON('jscript/config.json' ,function(data){
+  vatGlobal= data.options.vatPercent
+  
+})
+
+  
+
+
+  
+
 
 
