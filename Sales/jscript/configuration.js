@@ -20,19 +20,28 @@ $.getJSON('jscript/config.json', function(data) {
 function editSelected(e)
 {   
     
-    
+    oldValue = e.innerText
     e.id ="uniqueId"
     e.innerHTML = `<input class="w-50" type="text" id="temp-input" onfocusout="deleteTempInput(this)"></input>`
+    
+    $("#temp-input").val(oldValue)
     $("#temp-input").focus()
     $("#temp-input").select()
+
+    
 }
 
 function deleteTempInput(obj)
 {
+    var objVal = (obj.value).trim()
+    if(objVal == "" || isNaN(objVal))
+    {
+        objVal = 1
+    }
     rowId = $(obj).closest('tr').attr('id');
 
     document.getElementById("uniqueId").innerHTML = ""
-   document.getElementById("uniqueId").innerText = obj.value
+   document.getElementById("uniqueId").innerText = objVal
    document.getElementById("uniqueId").id = ""
 
    update(rowId)

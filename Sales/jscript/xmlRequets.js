@@ -91,7 +91,7 @@ function addItem(item) {
          <td class="row-index text-center item-text">
           ${$itemName}</td>
 
-          <td style="background:#204b6d" class="row-index text-center lead text-light item-qty" name="qty" id="" onclick="editSelected(this,${$itemQty})">
+          <td style="background:#204b6d" class="row-index text-center lead text-light item-qty" name="qty" id="" onclick="editSelected(this)">
           ${$itemQty}</td>
 
           <td class="row-index text-center item-uom d-none d-xl-table-cell">
