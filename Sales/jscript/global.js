@@ -353,11 +353,19 @@ $(document).ready(function(){
         return;
       }
 
+      //item description
      $desc = $('#itemsModal .modal-title').text();
-     $qty2 = $('#fqty').val();
-     $qty = (parseFloat($qty2)).toFixed(2);
+
+     //quantity added from modal
+     $qty = parseFloat($('#fqty').val()).toFixed(2);
+
+    // unit of measurement
      $uom =$('.modal-uom').text();
+
+     //size of item depending on choice f/h/q
      $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
+
+
      $vat = parseFloat($("#item_clicked").attr('data-vat'));
      $item_id = $("#itemsModal .modal-title").attr('data-id-item');
      $pwv = $('#fprice').val();
@@ -368,7 +376,7 @@ $(document).ready(function(){
     //  $total = $qty * $price_with_vat;
      $total_without_vat = ($qty * $price_without_vat).toFixed(2);
      $vat2 = ($total-$total_without_vat).toFixed(2);
-      debugger;
+      
      $('#tbody').append(`<tr id="Row">
       <td class="text-center noprint">
        <button class="btn btn-remove text-light" style="background:#204b6d"
@@ -415,5 +423,21 @@ $(document).ready(function(){
 
 
 });
+
+
+var vatGlobal = $.getJSON('jscript/config.json' ,function(data){
+  vatGlobal= data.options.vatPercent
+  
+})
+var editGlobal = $.getJSON('jscript/config.json' ,function(data){
+  editGlobal= data.options.quantityEditable
+  
+})
+
+  
+
+
+  
+
 
 

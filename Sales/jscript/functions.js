@@ -1,4 +1,4 @@
-
+var invoiceStatus
 $(document).ready(function(){
 
     var items_print = new Array();
@@ -129,7 +129,9 @@ $(document).ready(function(){
             }
         }
         xttp.open("GET","load_data.php?q=expenses",true);
+       
         xttp.send();
+       
     }
 
     $(".exp-btn").click(function(){
@@ -211,6 +213,7 @@ $(document).ready(function(){
     $(".save, .print, .clear").prop("disabled",true);
 
     $(".new").click(function(){
+        invoiceStatus="open"
         invoice_data=[];
         user_data=[];
         items_print=[];
@@ -522,6 +525,7 @@ $(document).ready(function(){
             $('.invoice-balance').text(balance);
             $('.invoice-cr').text(cash_received);
             $(".balance-data").css("display","block");
+            invoiceStatus="close"
             invoice_data.push(invoice_values);
        
     }

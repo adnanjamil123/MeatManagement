@@ -1,0 +1,10 @@
+{
+    "options":{
+
+        "itemAddOption":"TRUE",
+        "vat":"TRUE",
+        "vatPercent":"15",
+        "quantityEditable":"TRUE"
+        
+    }
+}

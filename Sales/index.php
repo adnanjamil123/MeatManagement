@@ -67,7 +67,8 @@ if(!isset($_SESSION["active"]))
         <script src="jscript/global.js"></script>
         <script src="jscript/trap_focus.js"></script>
         <script src="jscript/functions.js"></script>
-        
+        <script src="jscript/xmlRequets.js"></script>
+        <script src="jscript/configuration.js"></script>
        
         
         <script>
@@ -229,9 +230,7 @@ if(!isset($_SESSION["active"]))
 
         <style>
 
-        .vat-display{
-           display:none; 
-        }
+        
         .list-group-item{
             /* padding: .5rem 0.5rem; */
             background:white;
@@ -393,7 +392,7 @@ if(!isset($_SESSION["active"]))
         </div>
                 <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
-                     <a class="navbar-brand" href="#" style="color:orange">MMS |</a>   
+                     <a class="navbar-brand" href="#" style="color:orange">AS |</a>   
                      <span  class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>   
                        <div class="ml-auto mr-5 dropdown">
                             <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
@@ -483,13 +482,22 @@ if(!isset($_SESSION["active"]))
                             <!-- <button type="button" class="save-print btn col-2" data-key="btn-sp"  >SAVE & PRINT</button> -->
 
                         </div><!--order-buttons-->
-                            
+                           
+
                         <div class="row invoice noprint" style="margin-top:10px;">
+
+                        
 
                             <div  class="col  items-table table-responsive" style="max-height:80vh">
 
+                           <div class="container items-container">
+                                <input type="text" id="search" onkeypress="handleKey(event)" name="search" placeholder="search here..">
+                                <button onclick="fetch_item()"  class="btn btn-success">Add item</button>
+                                <span class="text-primary item-name" id="item-name"></span> 
+                           </div>
+
                                 <table id="tbody" class="noprint table  table-light table-striped table-bordered table-hover" style="visibility:hidden;">
-                                   
+                                
                                     <thead class="text-light noprint" style="background:#204b6d">
                                         <tr>
                                         <th scope="col"><button class="btn bg-white text-dark btn-disc" data-toggle="modal" data-target="#discount-modal"><i class="fa fa-tags pr-md-2"></i><span class="d-none d-md-inline-block"data-key="lng-disc"></span></button></th>
@@ -694,6 +702,7 @@ if(!isset($_SESSION["active"]))
            <button id="btnPrint" class="hidden-print">Print</button>
 			
         </div>
-    </body>
     
+        </body>
+        
 </html>
