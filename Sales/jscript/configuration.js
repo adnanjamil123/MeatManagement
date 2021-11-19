@@ -20,6 +20,13 @@ $.getJSON('jscript/config.json', function(data) {
 function editSelected(e)
 {   
     
+
+    if(editGlobal != "TRUE" || invoiceStatus == "close")
+    {
+       
+        return
+    }
+    
     oldValue = e.innerText
     e.id ="uniqueId"
     e.innerHTML = `<input class="w-50" type="text" id="temp-input" onfocusout="deleteTempInput(this)"></input>`
@@ -34,7 +41,7 @@ function editSelected(e)
 function deleteTempInput(obj)
 {
     var objVal = (obj.value).trim()
-    if(objVal == "" || isNaN(objVal))
+    if(objVal == "" || isNaN(objVal) || objVal == 0)
     {
         objVal = 1
     }
@@ -81,7 +88,14 @@ function update(tableRow)
         }
         
     })
-    addedVat = 1 + (vat/100)
+   
+    
+    
+     
+    addedVat = parseFloat(1 + (vat/100)).toFixed(2)
+    
+    vat = parseFloat(qty*(price*vatGlobal)/100).toFixed(2)
+    
     vatAddedToItemPrice = parseFloat(price*$addedVat).toFixed(2)
     totalWithoutVat=parseFloat(price * qty).toFixed(2)
     totalAmount = parseFloat(vatAddedToItemPrice * qty).toFixed(2)

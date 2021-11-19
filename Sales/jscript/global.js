@@ -429,6 +429,10 @@ var vatGlobal = $.getJSON('jscript/config.json' ,function(data){
   vatGlobal= data.options.vatPercent
   
 })
+var editGlobal = $.getJSON('jscript/config.json' ,function(data){
+  editGlobal= data.options.quantityEditable
+  
+})
 
   
 

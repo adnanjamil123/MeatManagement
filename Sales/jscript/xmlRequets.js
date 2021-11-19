@@ -1,5 +1,11 @@
 
-
+function handleKey(e)
+{
+    if(e.keyCode == 13)
+    {
+        fetch_item()
+    }
+}
 
 function fetch_item() {
     item = document.getElementById("search").value;
@@ -66,10 +72,10 @@ function addItem(item) {
 
     //vat pertange getting from config file
    
-    $vatPercentage = parseInt(vatGlobal)
     
-    $addedVat = 1 + ($vatPercentage/100)
-
+    $addedVat = parseFloat(1 + (vatGlobal/100)).toFixed(2)
+    
+    $vatPercentage = parseFloat($itemQty*($itemPrice*vatGlobal)/100).toFixed(2)
     
     $vatAddedToItemPrice = parseFloat($itemPrice*$addedVat).toFixed(2)
     
