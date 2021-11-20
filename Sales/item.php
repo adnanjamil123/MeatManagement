@@ -33,7 +33,7 @@ function item($code)
     global $db;
 
 
-    $sql = "SELECT * FROM meat_sale_items WHERE id = $code";
+    $sql = "SELECT * FROM meat_sale_items WHERE id = $code LIMIT 1";
 
    
     $results = mysqli_query($db , $sql);

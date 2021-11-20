@@ -491,9 +491,9 @@ if(!isset($_SESSION["active"]))
                             <div  class="col  items-table table-responsive" style="max-height:80vh">
 
                            <div class="container items-container">
-                                <input type="text" id="search" onkeypress="handleKey(event)" name="search" placeholder="search here..">
-                                <button onclick="fetch_item()"  class="btn btn-success">Add item</button>
-                                <span class="text-primary item-name" id="item-name"></span> 
+                                <input type="text" id="search" onkeypress="handleKey(event)" name="search" placeholder="Barcode here..">
+                                <button class="ml-4" onclick="fetch_item()" >Add item</button>
+                                <span class="item-name ml-3 p-2" id="item-name">Item description</span> 
                            </div>
 
                                 <table id="tbody" class="noprint table  table-light table-striped table-bordered table-hover" style="visibility:hidden;">

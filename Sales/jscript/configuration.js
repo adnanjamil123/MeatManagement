@@ -20,16 +20,19 @@ $.getJSON('jscript/config.json', function(data) {
 function editSelected(e)
 {   
     
-
     if(editGlobal != "TRUE" || invoiceStatus == "close")
     {
        
         return
     }
     
+    if(!$("#uniqueId").length == 0) {
+        
+        document.getElementById("uniqueId").id = ""
+    }
     oldValue = e.innerText
     e.id ="uniqueId"
-    e.innerHTML = `<input class="w-50" type="text" id="temp-input" onfocusout="deleteTempInput(this)"></input>`
+    e.innerHTML = `<input class="w-50" type="text" id="temp-input" onkeypress="inputhandleKey(event)" onfocusout="deleteTempInput(this)"></input>`
     
     $("#temp-input").val(oldValue)
     $("#temp-input").focus()
@@ -37,10 +40,17 @@ function editSelected(e)
 
     
 }
+function inputhandleKey(e) {
+    if (e.keyCode == 13) {
+        deleteTempInput(e.target)
+    }
+}
 
 function deleteTempInput(obj)
 {
+    
     var objVal = (obj.value).trim()
+    
     if(objVal == "" || isNaN(objVal) || objVal == 0)
     {
         objVal = 1
@@ -49,11 +59,13 @@ function deleteTempInput(obj)
 
     document.getElementById("uniqueId").innerHTML = ""
    document.getElementById("uniqueId").innerText = objVal
-   document.getElementById("uniqueId").id = ""
+   
 
    update(rowId)
+   // document.getElementById("uniqueId").id = ""
 
 }
+
 
 function update(tableRow)
 {

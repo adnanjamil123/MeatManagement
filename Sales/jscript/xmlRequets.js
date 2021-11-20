@@ -1,28 +1,34 @@
 
-function handleKey(e)
-{
-    if(e.keyCode == 13)
-    {
+function handleKey(e) {
+    if (e.keyCode == 13) {
         fetch_item()
     }
 }
 
 function fetch_item() {
     item = document.getElementById("search").value;
-
+    $("#search").val("")
 
     if (validate(item.trim())) {
         var xttp = new XMLHttpRequest;
         xttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
-                result = JSON.parse(xttp.response)
+
+                try {
 
 
-                document.getElementById("item-name").innerText = result[0].name
+                    result = JSON.parse(xttp.response)
+                    
+                    document.getElementById("item-name").innerText = result[0].name
+                    addItem(result)
+                    $("#item-name").css('color' , 'black')
 
-                addItem(result)
+                } catch (e) {
 
+                    $("#item-name").css('color' , 'red')
+                    $("#item-name").text("Item not exits")
+                }
 
 
             } else if (this.readyState == 4 && this.status != 200) {
@@ -32,7 +38,7 @@ function fetch_item() {
         xttp.open("GET", "item.php?a=" + item, true);
         xttp.send();
     } else {
-        console.log("please enter valid data.")
+        $("#item-name").text("Please enter valid value.")
     }
 
 
@@ -42,8 +48,6 @@ function validate(data) {
     if (isNaN(data)) {
         return false
     }
-
-
     if (data === "") {
         return false
     }
@@ -58,7 +62,10 @@ function validate(data) {
 
 
 function addItem(item) {
-    
+
+    if ((!invoiceStatus) || invoiceStatus == "close") {
+        $(".new").click()
+    }
     //items id
     $itemId = item[0].id
     //items description
@@ -71,20 +78,20 @@ function addItem(item) {
     $itemPrice = item[0].price
 
     //vat pertange getting from config file
-   
-    
-    $addedVat = parseFloat(1 + (vatGlobal/100)).toFixed(2)
-    
-    $vatPercentage = parseFloat($itemQty*($itemPrice*vatGlobal)/100).toFixed(2)
-    
-    $vatAddedToItemPrice = parseFloat($itemPrice*$addedVat).toFixed(2)
-    
+
+
+    $addedVat = parseFloat(1 + (vatGlobal / 100)).toFixed(2)
+
+    $vatPercentage = parseFloat($itemQty * ($itemPrice * vatGlobal) / 100).toFixed(2)
+
+    $vatAddedToItemPrice = parseFloat($itemPrice * $addedVat).toFixed(2)
+
     $totalWithoutVat = parseFloat($itemPrice * $itemQty).toFixed(2)
 
     $totalAmount = parseFloat($vatAddedToItemPrice * $itemQty).toFixed(2)
 
     var row = $('#tbody tr').length;
-    
+
     $('#tbody').append(`<tr id="tr${row}">
     <td class="text-center noprint">
      <button class="btn btn-remove text-light" style="background:#204b6d"
