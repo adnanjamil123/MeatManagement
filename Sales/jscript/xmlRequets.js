@@ -22,7 +22,7 @@ function fetch_item() {
                     
                     document.getElementById("item-name").innerText = result[0].name
                     addItem(result)
-                    $("#item-name").css('color' , 'black')
+                    $("#item-name").css('color' , 'white')
 
                 } catch (e) {
 
@@ -68,6 +68,7 @@ function addItem(item) {
     }
     //items id
     $itemId = item[0].id
+    $itemBarcode = item[0].item_barcode
     //items description
     $itemName = item[0].name
     $itemQty = parseFloat(1.00).toFixed(2)
@@ -99,7 +100,7 @@ function addItem(item) {
      </td>
 
           <td class="row-index text-center item-id d-none d-lg-table-cell">
-          ${$itemId}</td>
+          ${$itemId}-${$itemBarcode}</td>
 
          <td class="row-index text-center item-text">
           ${$itemName}</td>
