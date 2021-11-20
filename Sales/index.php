@@ -490,7 +490,7 @@ if(!isset($_SESSION["active"]))
 
                             <div  class="col  items-table table-responsive" style="max-height:80vh">
 
-                           <div class="container items-container">
+                           <div class="p-2 ml-1 mb-2 items-container border border-primary">
                                 <input type="text" id="search" onkeypress="handleKey(event)" name="search" placeholder="Barcode here..">
                                 <button class="ml-4" onclick="fetch_item()" >Add item</button>
                                 <span class="item-name ml-3 p-2" id="item-name">Item description</span> 

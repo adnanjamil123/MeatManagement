@@ -70,7 +70,7 @@ function addItem(item) {
     $itemId = item[0].id
     //items description
     $itemName = item[0].name
-    $itemQty = 1.00
+    $itemQty = parseFloat(1.00).toFixed(2)
     //item UOM default PC
     $itemUom = "Pc"
     //item size default normal
