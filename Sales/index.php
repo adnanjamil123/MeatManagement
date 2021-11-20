@@ -393,6 +393,10 @@ if (!isset($_SESSION["active"])) {
                         <span class="pl-2" data-key="lng-exp" style="user-select:none">
                             Expenses
                         </span>
+                        <br>
+                        <a href="./purchase.php">
+                            Purchase
+                        </a>
 
                     </li>
                     <br>
