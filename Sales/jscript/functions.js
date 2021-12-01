@@ -1,6 +1,6 @@
 var invoiceStatus
 $(document).ready(function(){
-
+    
     var items_print = new Array();
     var invoice_data = new Array();
     var invoice_number = 0;
@@ -506,6 +506,7 @@ $(document).ready(function(){
                 $(".print").prop("disabled",false);
                 notify("تم حفظ الفاتورة بنجاح");
                 $(".btn-disc").prop("disabled", true);
+                getQRCodeForInvoice(data)
             }
             
             if(isNaN(data))
@@ -527,7 +528,42 @@ $(document).ready(function(){
             $(".balance-data").css("display","block");
             invoiceStatus="close"
             invoice_data.push(invoice_values);
+
+            
        
     }
 
 })
+
+function getQRCodeForInvoice(invoice)
+{
+    let dataForQR = getBasicData()
+    let invforQR = invoice
+
+     dataForQR.push(invforQR)
+
+    let Req = new XMLHttpRequest()
+
+    Req.onreadystatechange = function(){
+
+        try{
+
+            if(this.readyState == 4 && this.status == 200)
+            {
+                console.log(Req.responseText)
+            }
+        }catch(e)
+        {
+
+        }
+    }
+    Req.open("GET", "load_data.php?qr="+dataForQR,true)
+    Req.send()
+
+   
+}
+
+function getBasicData()
+{
+    return QRData
+}

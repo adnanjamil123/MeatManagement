@@ -16,6 +16,55 @@ require_once ('functions.php');
      
  }
 
+ if(isset($_REQUEST['qr']))
+ {
+   
+    $dataArray= array();
+    $data= explode(",",$_REQUEST['qr']);
+
+    for($x = 0; $x < 3; $x++){
+
+      switch($x){
+        case 0:{
+          $dataArray["name"] = $data[$x];
+        }
+        case 1:{
+          $dataArray["vatRegistration"] = $data[$x];
+        }
+        case 2:{
+          $dataArray["invoice"] = $data[$x];
+        }
+      
+      }
+
+    }
+    
+    $invoiceData=getInvoiceData($dataArray["invoice"]);
+
+    $seller = getTVLforValue("01", $dataArray["name"]);
+    $vatReg = getTVLforValue("02", $dataArray["vatRegistration"]);
+    $timestamp = getTVLforValue("03",  $invoiceData["created_at"]);
+    $invoiceTotal = getTVLforValue("04",  $invoiceData["invoice_total"]);
+    $vatTotalBuff = getTVLforValue("05",  $invoiceData["vat_amount"]);
+
+    $allArray = array($seller,$vatReg,$timestamp,$invoiceTotal,$vatTotalBuff);
+    $dataToBase = implode("", $allArray);
+   print_r($dataToBase);
+
+    
+     
+ }
+
+ function getTVLforValue($tag, $value)
+ {
+  $tagUtf = $tag<17?"0".dechex($tag):dechex($tag);
+  $valueLengthUtf = strlen($value)<17?"0".dechex(strlen($value)):dechex(strlen($value));
+  $valueUtf = bin2hex($value);
+
+  $UtfArray = array($tagUtf,$valueLengthUtf,$valueUtf);
+  return implode("",$UtfArray);
+ }
+
  if(isset($_POST['item_id']) && isset($_POST['order_no']))
  {
     $order_no = $_POST['order_no'];

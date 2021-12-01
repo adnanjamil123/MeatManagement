@@ -1,3 +1,9 @@
+var QRData = ""
+
+
+$.getJSON('jscript/config.json',(res)=> QRData=[res.info.name,res.info.vatNumber])
+
+
 function lang_change(lng)
  {
  $.post("includes/language.inc.php",{
@@ -444,6 +450,8 @@ if(data.options.displaySidebar != "TRUE")
 }
   
 })
+
+
 
   
 

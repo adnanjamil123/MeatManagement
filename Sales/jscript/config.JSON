@@ -5,7 +5,15 @@
         "vat":"TRUE",
         "vatPercent":"15",
         "quantityEditable":"TRUE",
-        "displaySidebar":"FALSE"
+        "displaySidebar":"FALSE",
+        "QRCode":"TRUE"
         
+    },
+    "info":{
+        "name":"لرجاء إدخال بيانات صحيحة",
+        "vatNumber": "25352365005656565656565656565"
+
     }
+
+    
 }

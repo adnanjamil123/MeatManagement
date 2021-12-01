@@ -67,6 +67,8 @@ if (!isset($_SESSION["active"])) {
     <script src="jscript/functions.js"></script>
     <script src="jscript/xmlRequets.js"></script>
     <script src="jscript/configuration.js"></script>
+    <script src="jscript/qrcode.min.js"></script>
+    <script src="jscript/qrCode.js"></script>
 
 
     <script>
@@ -207,7 +209,7 @@ if (!isset($_SESSION["active"])) {
 
     <style>
         .displayNone {
-            display: none!important;
+            display: none !important;
         }
 
         .item-name {
@@ -705,13 +707,19 @@ if (!isset($_SESSION["active"])) {
 
 
         </p>
+        <br>
+        <div id="qrcode">
 
+
+        </div>
 
         <br /><br /><br /><br />
         <button id="btnPrint" class="hidden-print">Print</button>
 
     </div>
-
+    <script>
+       
+    </script>
 </body>
 
 </html>
