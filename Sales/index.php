@@ -68,7 +68,7 @@ if (!isset($_SESSION["active"])) {
     <script src="jscript/functions.js"></script>
     <script src="jscript/xmlRequets.js"></script>
     <script src="jscript/configuration.js"></script>
-    
+
 
 
     <script>
@@ -396,8 +396,9 @@ if (!isset($_SESSION["active"])) {
                             Expenses
                         </span>
                         <br>
-                        <a href="./purchase.php">
-                            Purchase
+                       
+                        <a id="Purchase "href="./purchase.php">
+                        
                         </a>
 
                     </li>
@@ -717,7 +718,7 @@ if (!isset($_SESSION["active"])) {
 
     </div>
     <script>
-       
+
     </script>
 </body>
 
