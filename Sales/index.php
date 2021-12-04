@@ -493,7 +493,12 @@ if (!isset($_SESSION["active"])) {
                         <div class="p-2 ml-1 mb-2 items-container" style="background:#204b6d">
                             <input type="text" autocomplete="off" id="search" onkeypress="handleKey(event)" name="search" placeholder="Barcode here..">
                             <button class="ml-4" onclick="fetch_item()">Add item</button>
-                            <span class="item-name ml-3 p-2" id="item-name">Item description</span>
+                            <span class="item-name ml-3 mr-5 p-2" id="item-name">Item description</span>
+
+                            <span class="ml-5 ms-auto">
+                                <input type="text" placeholder="item name">
+                                <input type="text" placeholder="selling price">
+                            </span>
                         </div>
 
                         <table id="tbody" class="noprint table  table-light table-striped table-bordered table-hover" style="visibility:hidden;">
