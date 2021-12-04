@@ -64,11 +64,11 @@ if (!isset($_SESSION["active"])) {
     <script src="jscript/language.js"></script>
     <script src="jscript/global.js"></script>
     <script src="jscript/trap_focus.js"></script>
+    <script src="jscript/qrcode.min.js"></script>
     <script src="jscript/functions.js"></script>
     <script src="jscript/xmlRequets.js"></script>
     <script src="jscript/configuration.js"></script>
-    <script src="jscript/qrcode.min.js"></script>
-    <script src="jscript/qrCode.js"></script>
+    
 
 
     <script>
@@ -514,7 +514,6 @@ if (!isset($_SESSION["active"])) {
                             </tbody>
                         </table>
 
-
                     </div>
                     <!--items-table-->
 
@@ -708,7 +707,7 @@ if (!isset($_SESSION["active"])) {
 
         </p>
         <br>
-        <div id="qrcode">
+        <div class="centered" id="qrcode">
 
 
         </div>

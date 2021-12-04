@@ -1,5 +1,11 @@
-var invoiceStatus
+var invoiceStatus;
+var QR;
+var generatedQrCode;
+
+
 $(document).ready(function(){
+
+    
     
     var items_print = new Array();
     var invoice_data = new Array();
@@ -164,11 +170,13 @@ $(document).ready(function(){
 
     })
     
+   
 
     function print()
     {   
+        
         var currentdate = DisplayCurrentTime();
-	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/;
+	    var current_date =  currentdate   /*"15/01/2021 18 35 PM"*/
         var disc = parseFloat($("#discount-given").text());
         var total = ((invoice_data[0]['total'])-disc).toFixed(2);
         var tbdisc = parseFloat(invoice_data[0]['total']);
@@ -188,7 +196,7 @@ $(document).ready(function(){
         $(".print-vat").text(vat.toFixed(2));
         $(".print-before-total").text(tbdisc.toFixed(2));
 
-
+        
     
       
             $.each(items_print,function(key, value){
@@ -205,15 +213,18 @@ $(document).ready(function(){
             })
         
         
-
+            
         $('#print-div').load(window.location.href +  ' #print-div');
+            
        
+        generatedQrCode = new QRCode(document.getElementById("qrcode"), QR); 
         window.print();
     }
     $(".save, .print, .clear").prop("disabled",true);
 
     $(".new").click(function(){
         invoiceStatus="open"
+       
         invoice_data=[];
         user_data=[];
         items_print=[];
@@ -234,6 +245,9 @@ $(document).ready(function(){
         $(".btn-disc").prop("disabled", false);
 
         $(".new").prop("disabled",true);
+        
+
+        
         
 
         
@@ -499,14 +513,20 @@ $(document).ready(function(){
             
             if(!isNaN(data))
             {
+                
                 $("div .invoice-number").text(data); 
                 invoice_number = data;
                 $("#overlay").css("display","none");
-                print();
+                
+                getQRCodeForInvoice(data, print)
+                
+                
+                    
+                
                 $(".print").prop("disabled",false);
                 notify("تم حفظ الفاتورة بنجاح");
                 $(".btn-disc").prop("disabled", true);
-                getQRCodeForInvoice(data)
+                
             }
             
             if(isNaN(data))
@@ -535,29 +555,34 @@ $(document).ready(function(){
 
 })
 
-function getQRCodeForInvoice(invoice)
+function getQRCodeForInvoice(invoice, callback)
 {
     let dataForQR = getBasicData()
     let invforQR = invoice
-
-     dataForQR.push(invforQR)
+    
+     //dataForQR.push(invforQR)
 
     let Req = new XMLHttpRequest()
 
+    
     Req.onreadystatechange = function(){
 
         try{
 
             if(this.readyState == 4 && this.status == 200)
             {
-                console.log(Req.responseText)
+                
+                QR = Req.responseText
+              
+                callback()
+                                
             }
         }catch(e)
         {
 
         }
     }
-    Req.open("GET", "load_data.php?qr="+dataForQR,true)
+    Req.open("GET", "load_data.php?qr="+dataForQR+"&inv="+invoice,true)
     Req.send()
 
    

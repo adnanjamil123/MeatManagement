@@ -3,6 +3,8 @@
 require_once ('db.php');
 require_once ('functions.php');
 
+
+
  if(isset($_POST['user']) && isset($_POST['branch']))
  {
     $username = $_POST['user'];
@@ -22,7 +24,7 @@ require_once ('functions.php');
     $dataArray= array();
     $data= explode(",",$_REQUEST['qr']);
 
-    for($x = 0; $x < 3; $x++){
+    for($x = 0; $x < 2; $x++){
 
       switch($x){
         case 0:{
@@ -31,29 +33,51 @@ require_once ('functions.php');
         case 1:{
           $dataArray["vatRegistration"] = $data[$x];
         }
-        case 2:{
-          $dataArray["invoice"] = $data[$x];
-        }
-      
+             
       }
 
     }
+    $dataArray["invoice"] = $_REQUEST['inv'];
+    
     
     $invoiceData=getInvoiceData($dataArray["invoice"]);
 
     $seller = getTVLforValue("01", $dataArray["name"]);
     $vatReg = getTVLforValue("02", $dataArray["vatRegistration"]);
-    $timestamp = getTVLforValue("03",  $invoiceData["created_at"]);
+    $timestamp = getTVLforValue("03",  addTInString($invoiceData["created_at"]));
     $invoiceTotal = getTVLforValue("04",  $invoiceData["invoice_total"]);
     $vatTotalBuff = getTVLforValue("05",  $invoiceData["vat_amount"]);
 
     $allArray = array($seller,$vatReg,$timestamp,$invoiceTotal,$vatTotalBuff);
     $dataToBase = implode("", $allArray);
-   print_r($dataToBase);
 
+  
+    echo base64_encode(hex2bin($dataToBase));
     
      
  }
+
+
+function addTInString($str){
+
+$result = "";
+
+for($b = 0; $b < strlen($str); $b++){
+
+    if($str[$b] == " ")
+    {
+        $result .= "T";
+    }else
+    {
+        $result .= $str[$b];
+    }
+}
+
+return $result .= "Z";
+
+
+}
+
 
  function getTVLforValue($tag, $value)
  {
