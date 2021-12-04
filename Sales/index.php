@@ -211,7 +211,9 @@ if (!isset($_SESSION["active"])) {
         .displayNone {
             display: none !important;
         }
-
+        .vat-display{
+            display: none;
+        }
         .item-name {
             color: white
         }
