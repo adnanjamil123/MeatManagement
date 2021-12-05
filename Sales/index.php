@@ -211,9 +211,11 @@ if (!isset($_SESSION["active"])) {
         .displayNone {
             display: none !important;
         }
-        .vat-display{
+
+        .vat-display {
             display: none;
         }
+
         .item-name {
             color: white
         }
@@ -398,9 +400,9 @@ if (!isset($_SESSION["active"])) {
                             Expenses
                         </span>
                         <br>
-                       
-                        <a id="Purchase "href="./purchase.php">
-                        
+
+                        <a id="Purchase " href="./purchase.php">
+
                         </a>
 
                     </li>
@@ -594,26 +596,26 @@ if (!isset($_SESSION["active"])) {
     </div>
     <!--main-->
 
-    <div class="ticket print yesprint" id="print-div">
+    <div class=".container ticket print yesprint" id="print-div">
 
-        <script>
-
-
-        </script>
-        <p class="centered">
+       <center>
+            <p class="centered">
+            <h2>Simplified Tax Invoice</h2>
             <b> <span style="font-size: 28px;"> مؤسسة صفاء سعيد عويضة </span> </b> <br /><br />
-
+           
             <span> فرع - </span> <span class="print-branch-name"></span> <!-- - <span class="print-branch-number"></span> --> <br /> <br />
-
-        </p>
+           
+            </p>
+       </center>
 
         <!--
-                      <span> 0504675794 </span> -  <span> رقم الجوال </span> <br/><br/> 
-                     <span> 0505157232  </span> -  <span> رقم الجوال </span> <br/><br/> 
-                   -->
+            <span> 0504675794 </span> -  <span> رقم الجوال </span> <br/><br/> 
+            <span> 0505157232  </span> -  <span> رقم الجوال </span> <br/><br/> 
+        -->
+
+
 
         <center>
-
             <table cellpadding="5" id="totalAmountTable">
 
                 <tbody>
@@ -633,6 +635,7 @@ if (!isset($_SESSION["active"])) {
             </table>
 
         </center>
+
 
         <br />
         <p class="centered">
