@@ -1,9 +1,83 @@
 
 function handleKey(e) {
+
     if (e.keyCode == 13) {
-        fetch_item()
+        if (e.target.id == "search") {
+
+            fetch_item()
+        }
+        if (e.target.id == "createItemCode") {
+
+            createItem()
+        }
     }
 }
+
+function createItem() {
+    //get data
+    $("#createItemCode").css("border-color", "black")
+    $("#createItemName").css("border-color", "black")
+    $("#createItemPrice").css("border-color", "black")
+
+    let vl =  $("#createItemCode").val()
+    $("#createItemCode").val(parseInt(vl))
+
+    let createItemBarCode = $("#createItemCode").val()
+    let createItemNameInput = $("#createItemName").val()
+    let createItemPriceInput = $("#createItemPrice").val()
+
+    
+    let dataObj = { createItemCode: createItemBarCode, createItemName: createItemNameInput, createItemPrice: createItemPriceInput }
+
+    console.log(validateItems(dataObj))
+    //vallidate items
+
+    //post items
+
+    //clear fields and set focus
+
+
+    //fill add item
+
+
+}
+
+function validateItems(items) {
+
+    for (const [key, value] of Object.entries(items)) {
+        if (value == "") {
+            $("#" + key).css("border-color", "red")
+            return false
+        }
+        if (key == "createItemCode") {
+            if (value == "0") {
+                $("#" + key).css("border-color", "red")
+                return false
+            }
+            if (isNaN(value)) {
+                $("#" + key).css("border-color", "red")
+                return false
+            }
+            if (value % 1 != 0) {
+                $("#" + key).css("border-color", "red")
+                return false
+            }
+          
+        }
+        if (key == "createItemPrice") {
+            if (value == "0") {
+                $("#" + key).css("border-color", "red")
+                return false
+            }
+            if (isNaN(value)) {
+                $("#" + key).css("border-color", "red")
+                return false
+            }
+        }
+    }
+    return true
+}
+
 
 function fetch_item() {
     item = document.getElementById("search").value;
@@ -19,14 +93,14 @@ function fetch_item() {
 
 
                     result = JSON.parse(xttp.response)
-                    
+
                     document.getElementById("item-name").innerText = result[0].name
                     addItem(result)
-                    $("#item-name").css('color' , 'white')
+                    $("#item-name").css('color', 'white')
 
                 } catch (e) {
 
-                    $("#item-name").css('color' , 'red')
+                    $("#item-name").css('color', 'red')
                     $("#item-name").text("Item not exits")
                 }
 
