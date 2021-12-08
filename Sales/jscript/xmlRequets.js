@@ -20,7 +20,10 @@ function createItem() {
     $("#createItemPrice").css("border-color", "black")
 
     let vl =  $("#createItemCode").val()
-    $("#createItemCode").val(parseInt(vl))
+    if(vl != ""){
+        $("#createItemCode").val(parseInt(vl))
+    }
+    
 
     let createItemBarCode = $("#createItemCode").val()
     let createItemNameInput = $("#createItemName").val()
@@ -29,15 +32,29 @@ function createItem() {
     
     let dataObj = { createItemCode: createItemBarCode, createItemName: createItemNameInput, createItemPrice: createItemPriceInput }
 
-    console.log(validateItems(dataObj))
-    //vallidate items
+    if(validateItems(dataObj)){
 
-    //post items
+        let xhr = new XMLHttpRequest
+        
+        xhr.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200 ){
+                
 
-    //clear fields and set focus
+              console.log("item created")
+                $("#createItemCode").val("")
+                $("#createItemName").val("")
+                $("#createItemPrice").val("")
 
+                $("#search").val(createItemBarCode)
+                $("#search").focus()
+            }
+        }
 
-    //fill add item
+        xhr.open("GET", "item.php?barcode="+createItemBarCode+"&itemName="+createItemNameInput+"&itemPrice="+createItemPriceInput+"&pass=true", true)
+        xhr.send()
+      
+    
+    }
 
 
 }

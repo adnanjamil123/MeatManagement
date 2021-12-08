@@ -2,6 +2,12 @@
 require_once ('config.php');
 require_once ('query_functions.php');
 
+if(isset($_REQUEST['pass']))
+{
+        createItem($_REQUEST);
+        echo true;
+}
+
 function createItem($items)
 {
     Global $db;
@@ -30,7 +36,7 @@ function createItem($items)
     mysqli_stmt_bind_param($stmt, "isdiiiiii", $barcode,$itemName,$itemPrice,$unitType,$priceStatus,$optionStatus,$weightStatus,$salesCatId,$isAllow);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ./purchase.php?status=success");
+    //header("location: ./purchase.php?status=success");
 }
 
 if(isset($_REQUEST["barcode"]) && isset($_REQUEST["itemName"]) && isset($_REQUEST["itemPrice"])){
