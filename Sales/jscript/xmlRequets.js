@@ -194,7 +194,7 @@ function addItem(item) {
          <td class="row-index text-center item-text">
           ${$itemName}</td>
 
-          <td style="background:#204b6d" class="row-index text-center lead text-light item-qty" name="qty" id="" onclick="editSelected(this)">
+          <td  class="row-index text-center lead item-qty" name="qty" id="" onclick="editSelected(this)">
           ${$itemQty}</td>
 
           <td class="row-index text-center item-uom d-none d-xl-table-cell">
@@ -203,7 +203,7 @@ function addItem(item) {
          <td class="row-index text-center item-size d-none d-lg-table-cell">
             ${$itemSize}</td>
 
-            <td style="background:#204b6d" class="row-index text-center lead   text-light item-price d-none d-sm-table-cell" name="price" onclick="editSelected(this,${$itemPrice})">
+            <td  class="row-index text-center lead  item-price d-none d-sm-table-cell" name="price" onclick="editSelected(this,${$itemPrice})">
             ${$itemPrice}</td>
 
             <td class="row-index text-center item-vat vat-display" name="vat">
