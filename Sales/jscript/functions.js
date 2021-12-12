@@ -224,7 +224,12 @@ $(document).ready(function(){
 
     $(".new").click(function(){
         invoiceStatus="open"
-       
+        
+        if(itemAO == "TRUE")
+        {
+            $("#search").focus()
+        }
+
         invoice_data=[];
         user_data=[];
         items_print=[];

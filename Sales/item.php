@@ -21,6 +21,10 @@ function createItem($items)
     $salesCatId =1;
     $isAllow =0;
 
+    if(item($barcode)){
+        echo "item already exists";
+    };
+
     $sql = "INSERT INTO meat_sale_items (item_barcode, name, price, unit_type, price_status, options_status, weight_status, sale_cat_id, is_allow) VALUES 
             (?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
@@ -33,7 +37,7 @@ function createItem($items)
 
     
 
-    mysqli_stmt_bind_param($stmt, "isdiiiiii", $barcode,$itemName,$itemPrice,$unitType,$priceStatus,$optionStatus,$weightStatus,$salesCatId,$isAllow);
+    mysqli_stmt_bind_param($stmt, "ssdiiiiii", $barcode,$itemName,$itemPrice,$unitType,$priceStatus,$optionStatus,$weightStatus,$salesCatId,$isAllow);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     //header("location: ./purchase.php?status=success");
@@ -86,6 +90,7 @@ function ValidateItem($items){
 
 if(isset($_REQUEST['a']))
 {
+
     
     arabic_data();
 
@@ -107,7 +112,7 @@ function item($code)
     global $db;
 
 
-    $sql = "SELECT * FROM meat_sale_items WHERE $code IN(id,item_barcode) LIMIT 1";
+    $sql = "SELECT * FROM meat_sale_items WHERE '$code' IN(id,item_barcode) LIMIT 1";
 
    
     $results = mysqli_query($db , $sql);

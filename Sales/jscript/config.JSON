@@ -2,12 +2,13 @@
     "options":{
 
         "itemAddOption":"TRUE",
+        "createItem":"FALSE",
         "vat":"FALSE",
         "vatPercent":"15",
-        "quantityEditable":"TRUE",
-        "displaySidebar":"FALSE",
-        "QRCode":"TRUE",
-        "purchases":"TRUE"
+        "quantityEditable":"FALSE",
+        "displaySidebar":"TRUE",
+        "QRCode":"FALSE",
+        "purchases":"FALSE"
         
     },
     "info":{

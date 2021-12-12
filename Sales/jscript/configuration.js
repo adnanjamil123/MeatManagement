@@ -1,12 +1,30 @@
-$.getJSON('jscript/config.json', function(data) {
+var itemAO = $.getJSON('jscript/config.json', function(data) {
     if(data.options.itemAddOption == "TRUE")
     {
+        itemAO = "TRUE"
         $(".items-container").css("display","block")
+        // $(".items-container").addClass("d-flex")
+        $("#search").focus();
+
         
-    }else{
+        
+    }else if (data.options.itemAddOption == "FALSE") 
+    {
         $(".items-container").css("display","none")
+        itemAO="FALSE"
     }
 
+    if(data.options.createItem == "TRUE")
+    {
+        itemAO = "TRUE"
+        $(".createIt").css("display","block")
+        $(".createIt").addClass("d-flex")
+        
+    }else if (data.options.createItem == "FALSE") 
+    {
+        $(".createIt").css("display","none")
+      
+    }
   
 });
 

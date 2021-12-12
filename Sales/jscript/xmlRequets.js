@@ -19,28 +19,28 @@ function createItem() {
     $("#createItemName").css("border-color", "black")
     $("#createItemPrice").css("border-color", "black")
 
-    let vl =  $("#createItemCode").val()
-    if(vl != ""){
-        $("#createItemCode").val(parseInt(vl))
-    }
-    
+    // let vl =  $("#createItemCode").val()
+    // // if(vl != ""){
+    // //     $("#createItemCode").val(parseInt(vl))
+    // // }
+
 
     let createItemBarCode = $("#createItemCode").val()
     let createItemNameInput = $("#createItemName").val()
     let createItemPriceInput = $("#createItemPrice").val()
 
-    
+
     let dataObj = { createItemCode: createItemBarCode, createItemName: createItemNameInput, createItemPrice: createItemPriceInput }
 
     if(validateItems(dataObj)){
 
         let xhr = new XMLHttpRequest
-        
+
         xhr.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200 ){
-                
 
-              console.log("item created")
+
+
                 $("#createItemCode").val("")
                 $("#createItemName").val("")
                 $("#createItemPrice").val("")
@@ -52,8 +52,8 @@ function createItem() {
 
         xhr.open("GET", "item.php?barcode="+createItemBarCode+"&itemName="+createItemNameInput+"&itemPrice="+createItemPriceInput+"&pass=true", true)
         xhr.send()
-      
-    
+
+
     }
 
 
@@ -66,21 +66,18 @@ function validateItems(items) {
             $("#" + key).css("border-color", "red")
             return false
         }
-        if (key == "createItemCode") {
-            if (value == "0") {
-                $("#" + key).css("border-color", "red")
-                return false
-            }
-            if (isNaN(value)) {
-                $("#" + key).css("border-color", "red")
-                return false
-            }
-            if (value % 1 != 0) {
-                $("#" + key).css("border-color", "red")
-                return false
-            }
-          
-        }
+        // if (key == "createItemCode") {
+        //     if (value == "0") {
+        //         $("#" + key).css("border-color", "red")
+        //         return false
+        //     }
+
+        //     if (value % 1 != 0) {
+        //         $("#" + key).css("border-color", "red")
+        //         return false
+        //     }
+
+        // }
         if (key == "createItemPrice") {
             if (value == "0") {
                 $("#" + key).css("border-color", "red")
@@ -106,14 +103,13 @@ function fetch_item() {
             if (this.readyState == 4 && this.status == 200) {
 
 
+                result = JSON.parse(xttp.response)
+                document.getElementById("item-name").innerText = result[0].name
+                addItem(result)
+                $("#item-name").css('color', 'white')
                 try {
 
 
-                    result = JSON.parse(xttp.response)
-
-                    document.getElementById("item-name").innerText = result[0].name
-                    addItem(result)
-                    $("#item-name").css('color', 'white')
 
                 } catch (e) {
 
@@ -126,8 +122,10 @@ function fetch_item() {
 
             }
         }
-        xttp.open("GET", "item.php?a=" + item, true);
-        xttp.send();
+        var params = `a=${item}`;
+        xttp.open("POST", "item.php", true);
+        xttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xttp.send(params);
     } else {
         $("#item-name").text("Please enter valid value.")
     }
@@ -136,9 +134,9 @@ function fetch_item() {
 }
 
 function validate(data) {
-    if (isNaN(data)) {
-        return false
-    }
+    // if (isNaN(data)) {
+    //     return false
+    // }
     if (data === "") {
         return false
     }

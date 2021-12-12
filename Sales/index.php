@@ -492,19 +492,19 @@ if (!isset($_SESSION["active"])) {
 
                     <div class="col  items-table table-responsive" style="max-height:80vh">
 
-                        <div class="p-2 ml-1 mb-2 items-container d-flex" style="background:#204b6d">
-                            <span class="mr-auto">
+                        <div class="p-2 ml-1 mb-1 items-container p-2">
+                            <div class="mr-auto d-flex justify-content-center p-2" style="background:#204b6d">
                                 <input type="text" autocomplete="off" id="search" onkeypress="handleKey(event)" name="search" placeholder="Barcode here..">
                                 <button class="ml-4" onclick="fetch_item()">Add item</button>
                                 <span class="item-name ml-3 mr-5 p-2" id="item-name">Item description</span>
-                            </span>
+                            </div><br>
 
-                            <span class="ml-auto">
-                                <input type="text" autocomplete="off" id="createItemCode" onkeypress="handleKey(event)" name="createItem" placeholder="Barcode here..">
-                                <input type="text" id="createItemName" placeholder="item name">
-                                <input type="text" id="createItemPrice" placeholder="price without vat">
+                            <div class="createIt justify-content-center p-3 bg-info" >
+                                <input type="text" class="mr-3" autocomplete="off" id="createItemCode" onkeypress="handleKey(event)" name="createItem" placeholder="Barcode here..">
+                                <input type="text" class="mr-3" id="createItemName" placeholder="item name">
+                                <input type="text" class="mr-3" id="createItemPrice" placeholder="price without vat">
                                 <button type="button" class="create-item" id="create-item" onclick="createItem()">Create Item</button>
-                            </span>
+                            </div>
                         </div>
 
                         <table id="tbody" class="noprint table  table-light table-striped table-bordered table-hover" style="visibility:hidden;">
