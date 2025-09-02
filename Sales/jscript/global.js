@@ -46,6 +46,7 @@ $(document).ready(function () {
   // this is for data to be transferred from button to modal
   function update_totals() {
 
+   
     var total = 0;
 
     var total_vat = 0;
@@ -174,14 +175,7 @@ $(document).ready(function () {
     $qty_disabled = $($button).attr('data-qty-disable');
     $price = $($button).val();
 
-    // if($('#fqty').focus())
-    // {
-    //   $('#fqty').select();
-    // }
-    // if($('#fprice').focus())
-    // {
-    //   $('#fprice').select();
-    // }
+   
     if ($price > 0) {
 
       $("#fprice").prop("disabled", true);
@@ -389,11 +383,28 @@ $(document).ready(function () {
 
   })
 
-  $("#tbody").bind("DOMSubtreeModified", function () {
-    update_totals();
-  });
+  // $("#tbody").bind("DOMSubtreeModified", function () {
+  //   console.log("table changed");
+  //   update_totals();
+  // });
 
+// Select the target node
+const tbody = document.getElementById("tbody");
 
+// Create a MutationObserver instance
+const observer = new MutationObserver((mutationsList, observer) => {
+    for (let mutation of mutationsList) {
+        if (mutation.type === "childList" || mutation.type === "subtree") {
+           update_totals();
+        }
+    }
+});
+
+// Observer configuration
+const config = { childList: true, subtree: true };
+
+// Start observing the target node
+observer.observe(tbody, config);
 
 
 });

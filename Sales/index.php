@@ -61,8 +61,8 @@ if (!isset($_SESSION["active"])) {
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="jscript/language.js"></script>
     <script src="jscript/global.js"></script>
+    <script src="jscript/language.js"></script>
     <script src="jscript/trap_focus.js"></script>
     <script src="jscript/qrcode.min.js"></script>
     <script src="jscript/functions.js"></script>
@@ -73,6 +73,9 @@ if (!isset($_SESSION["active"])) {
 
     <script>
         var time = new Date().getTime();
+
+      
+  
         $(document.body).bind("mousemove keypress", function(e) {
             time = new Date().getTime();
         });
@@ -85,8 +88,11 @@ if (!isset($_SESSION["active"])) {
         }
 
         setTimeout(refresh, 10000);
-        $(document).ready(function() {
+        $(document).ready(function() {     
+               
+ 
 
+            
             function get_date() {
                 var today = new Date();
                 var dd = String(today.getDate()).padStart(2, '0');
@@ -523,7 +529,8 @@ if (!isset($_SESSION["active"])) {
                                     <th scope="col" data-key="lng-total">TOTAL</th>
                                 </tr>
                             </thead>
-                            <tbody class="noprint">
+                            <tbody class="noprint" id="tbody">
+                                <!--items here-->
 
                             </tbody>
                         </table>
