@@ -166,27 +166,27 @@ if (!isset($_SESSION["active"])) {
 
 
 
-            $(elem).on('click focusout change', function(e) {
+            // $(elem).on('click focusout change', function(e) {
 
-                if (e.type == "click") {
+            //     if (e.type == "click") {
 
-                    value = $(elem).val();
-                    $(elem).val("");
-                    auto = true;
-                }
-                if (e.type == "focusout") {
-                    if (auto) {
-                        $(elem).val(value);
-                    }
+            //         value = $(elem).val();
+            //         $(elem).val("");
+            //         auto = true;
+            //     }
+            //     if (e.type == "focusout") {
+            //         if (auto) {
+            //             $(elem).val(value);
+            //         }
 
 
-                }
-                if (e.type == "change") {
-                    auto = true;
-                    value = $(elem).val();
-                }
+            //     }
+            //     if (e.type == "change") {
+            //         auto = true;
+            //         value = $(elem).val();
+            //     }
 
-            });
+            // });
 
         })
 
@@ -267,7 +267,9 @@ if (!isset($_SESSION["active"])) {
 
                         </div>
                         <div class="col-3">
-                            <div><label for="fqty" data-key="lng-qty">Qty:</label><input id="fqty" type="number" value=1 class="w-100 fqty" step="1"></input></div>
+                            <div><label for="fqty" data-key="lng-qty">Qty:</label>
+                            <input id="fqty" type="number" min="1" value="1" class="w-100 fqty" step="1"></input>
+                        </div>
 
                         </div>
                         <div class="col-1 pt-4">
