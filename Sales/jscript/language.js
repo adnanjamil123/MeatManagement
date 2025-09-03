@@ -95,7 +95,7 @@ let langdata = {
                 "lng-desc":"DESCRIPTION",
                 "lng-code":"CODE",
                 "lng-log":"Sign Out",
-                "lng-logo":"MEAT SHOP",
+                "lng-logo":"Watches Store",
                 "lng-quarter":"QUARTER",
                 "lng-special":"Special",
                 "lng-more":"More",

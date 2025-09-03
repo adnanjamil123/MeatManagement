@@ -17,7 +17,7 @@ function language()
     if (isset($_COOKIE['lang'])) {
         echo $_COOKIE['lang'];
     } else {
-        echo "ar";
+        echo "en";
     }
 }
 require_once('db.php');
@@ -394,7 +394,7 @@ if (!isset($_SESSION["active"])) {
         <nav class="navbar navbar-expand-md navbar-dark p-0" style="background:#204b6d">
 
             <a class="navbar-brand" href="#" style="color:orange">AS |</a>
-            <span class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong>Meat Management |</strong> </span>
+            <span class="navbar-text text-white user-select-none d-none d-sm-inline" data-key="lng-logo"><strong></strong> </span>
             <div class="ml-auto mr-5 dropdown">
                 <span class="navbar-text dropdown-toggle" type="button" data-toggle="dropdown"><?php echo ("<p class='d-inline text-white m-0 font-weight-bold' style = 'text-transform:uppercase;' id='user-data' 
                             data-username='" . $_SESSION["name"] . "' data-uid='" . $_SESSION["uid"] . "' data-branch='" . $_SESSION["branch"] . "'>" . $_SESSION["name"] . "</p>"); ?></span>
@@ -588,10 +588,10 @@ if (!isset($_SESSION["active"])) {
 
             <div class="text-center text-light noprint " style="background-color: rgba(0, 0, 0, 0.2)">
                 <span class="internet-status d-none d-sm-inline-block"></span>
-                <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
+                <!-- <span class="language ml-3 d-none d-sm-inline-block" style="float:left">
                     <a href="" class="en lang-selected pr-2" onclick="lang_change('en')">EN</a>
                     |<a href="" class="ar pl-2" onclick="lang_change('ar')">AR</a></span>
-                <span class="ml-sm-5 d-none" style="float:left">
+                <span class="ml-sm-5 d-none" style="float:left"> -->
                     <span>Discount</span>
                     <span id="discount-given">0.00</span>
                 </span>
