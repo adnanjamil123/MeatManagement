@@ -2,9 +2,20 @@
     "options":{
 
         "itemAddOption":"TRUE",
-        "vat":"TRUE",
+        "createItem":"TRUE",
+        "vat":"FALSE",
         "vatPercent":"15",
-        "quantityEditable":"TRUE"
+        "quantityEditable":"TRUE",
+        "displaySidebar":"TRUE",
+        "QRCode":"FALSE",
+        "purchases":"FALSE"
         
+    },
+    "info":{
+        "name":"Watches Store",
+        "vatNumber": "65323565"
+
     }
+
+    
 }

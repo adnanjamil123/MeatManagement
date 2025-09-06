@@ -95,5 +95,19 @@ function get_branch_name($branch_id)
 
         return $results;
 };
+function getInvoiceData($invoiceNo)
+{
+    global $db;
 
+    $sql = "SELECT * FROM meat_invoices WHERE id = $invoiceNo LIMIT 1";
+
+    
+    $results = mysqli_query($db , $sql);
+
+    confirm_result_set($results);
+
+   $row = mysqli_fetch_array($results);
+
+        return  $row;
+}
 

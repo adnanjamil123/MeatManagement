@@ -1,146 +1,139 @@
-function lang_change(lng)
- {
- $.post("includes/language.inc.php",{
-   language:lng
- },function(){
+var QRData = ""
 
- })
+
+$.getJSON('jscript/config.json', (res) => QRData = [res.info.name, res.info.vatNumber])
+
+
+function lang_change(lng) {
+  $.post("includes/language.inc.php", {
+    language: lng
+  }, function () {
+
+  })
 
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
 
   $lang = $("html").attr("lang");
   $('a').removeClass("lang-selected");
-  $('.'+$lang).addClass("lang-selected");
+  $('.' + $lang).addClass("lang-selected");
 
 
 })
 
-
-
-$(document).ready(function(){
+$(document).ready(function () {
   $("div .internet-status").text("Connected");
 
   // this is for checking internet connection.
-  function handleConnectionChange(event){
+  function handleConnectionChange(event) {
 
-    if(event.type == "offline"){
-        $("div .internet-status").text("Disconnected");
+    if (event.type == "offline") {
+      $("div .internet-status").text("Disconnected");
     }
-    if(event.type == "online"){
+    if (event.type == "online") {
 
       $("div .internet-status").text("Connected");
     }
 
     console.log(new Date(event.timeStamp));
-}
+  }
 
-window.addEventListener('online', handleConnectionChange);
-window.addEventListener('offline', handleConnectionChange);
+  window.addEventListener('online', handleConnectionChange);
+  window.addEventListener('offline', handleConnectionChange);
 
 
-// this is for data to be transferred from button to modal
-function update_totals()
-{
+  // this is for data to be transferred from button to modal
+  function update_totals() {
 
+   
     var total = 0;
 
     var total_vat = 0;
 
     var vat = 0
 
-    $("#tbody tr:not(:first)").each(function(){
+    $("#tbody tr:not(:first)").each(function () {
 
-        total += parseFloat($(this).find(".item-without-vat").text());
+      total += parseFloat($(this).find(".item-without-vat").text());
 
-        total_vat += parseFloat($(this).find(".item-total").text());
+      total_vat += parseFloat($(this).find(".item-total").text());
 
     })
 
-    var dis = parseFloat($("#discount-given").text(),2);
+    var dis = parseFloat($("#discount-given").text(), 2);
 
-    if(total_vat < dis)
-    {
+    if (total_vat < dis) {
       dis = 0.00;
       $("#discount-given").text(dis)
     }
     $("#amt-before-total").text((total_vat).toFixed(2));
-   $(".invoice-tv").text((total_vat-dis).toFixed(2));
+    $(".invoice-tv").text((total_vat - dis).toFixed(2));
 
-   $(".invoice-twv").text(total.toFixed(2));
+    $(".invoice-twv").text(total.toFixed(2));
 
-   vat = (total_vat-total).toFixed(2);
+    vat = (total_vat - total).toFixed(2);
 
     // vat = $(".invoice-v").text(($(".invoice-tv").text()-$(".invoice-twv").text()).toFixed(2));
     vat = $(".invoice-v").text(vat);
 
-}
+  }
 
-$(document).ready(function(){
+  $(document).ready(function () {
 
-  $("#btn-discount").click(function(){
+    $("#btn-discount").click(function () {
 
-    $disc = parseFloat($("#discount-amt").val(),2);
-    $total =  parseFloat($("#amt-before-total").text(),2);
+      $disc = parseFloat($("#discount-amt").val(), 2);
+      $total = parseFloat($("#amt-before-total").text(), 2);
 
-    if($disc < 0)
-    {
-      return;
-    }
+      if ($disc < 0) {
+        return;
+      }
 
-    if($disc > $total)
-    {
-      return;
-    }
-    if(isNaN($disc))
-    {
-      $("#discount-amt").val(0.00);
+      if ($disc > $total) {
+        return;
+      }
+      if (isNaN($disc)) {
+        $("#discount-amt").val(0.00);
+        update_totals();
+        $("#discount-modal").modal('hide');
+        return;
+      }
+
+      $("#discount-given").text($disc);
       update_totals();
       $("#discount-modal").modal('hide');
-    return;
-    }
+    })
 
-    $("#discount-given").text($disc);
-    update_totals();
-    $("#discount-modal").modal('hide');
-  })
+    $("#discount-amt").change(function () {
 
-  $("#discount-amt").change(function(){
-    
-    update_totals();
+      update_totals();
+
+    })
 
   })
 
-})
+  //show.bs.modal
 
-   //show.bs.modal
-
-    $('#itemsModal').on('show.bs.modal', function (e) {
+  $('#itemsModal').on('show.bs.modal', function (e) {
 
     var $button = e.relatedTarget;
     var theLanguage = $('html').attr("lang");
     $uom = $($button).attr('data-uom');
 
-    if($uom == "2")
-    {
-      if(theLanguage == "en")
-      {
+    if ($uom == "2") {
+      if (theLanguage == "en") {
         $uom = "piece";
-      }else
-      {
+      } else {
         $uom = "قطعة"
       }
-    }else if($uom == "1")
-    {
-      if(theLanguage == "en")
-      {
+    } else if ($uom == "1") {
+      if (theLanguage == "en") {
         $uom = "Kg";
-      }else
-      {
+      } else {
         $uom = "كيلو"
       }
-    }else{
+    } else {
       $uom = "";
     }
 
@@ -156,69 +149,55 @@ $(document).ready(function(){
 
     $('#fqty').val(1);
 
-    });
+  });
 
-    $("#discount-modal").on('show.bs.modal', function(){
+  $("#discount-modal").on('show.bs.modal', function () {
 
-      var total = parseFloat($("#amt-before-total").text(),2);
-      var dis = parseFloat($("#discount-given").text(),2);
-      $("#discount-amt").val(dis);
-      
-      if(total > 0)
-      {
-        $("#discount-amt").prop("disabled", false);
-      }else
-      {
-        $("#discount-amt").prop("disabled", true);
-      }
+    var total = parseFloat($("#amt-before-total").text(), 2);
+    var dis = parseFloat($("#discount-given").text(), 2);
+    $("#discount-amt").val(dis);
 
-    })
+    if (total > 0) {
+      $("#discount-amt").prop("disabled", false);
+    } else {
+      $("#discount-amt").prop("disabled", true);
+    }
 
-    $('#itemsModal').on('shown.bs.modal', function (e) {
+  })
 
-      var $button = e.relatedTarget;
-      var theLanguage = $('html').attr("lang");
+  $('#itemsModal').on('shown.bs.modal', function (e) {
+
+    var $button = e.relatedTarget;
+    var theLanguage = $('html').attr("lang");
 
 
-      $show_sizes = $($button).attr('data-size');
-      $qty_disabled = $($button).attr('data-qty-disable');
-      $price = $($button).val();
+    $show_sizes = $($button).attr('data-size');
+    $qty_disabled = $($button).attr('data-qty-disable');
+    $price = $($button).val();
 
-      // if($('#fqty').focus())
-      // {
-      //   $('#fqty').select();
-      // }
-      // if($('#fprice').focus())
-      // {
-      //   $('#fprice').select();
-      // }
-      if($price > 0 )
-      {
+   
+    if ($price > 0) {
 
-        $( "#fprice" ).prop( "disabled", true );
-        // $('#fqty').focus();
-          $('#fqty').select();
+      $("#fprice").prop("disabled", true);
+      // $('#fqty').focus();
+      $('#fqty').select();
 
-      }else
-      {
-        $( "#fprice" ).prop( "disabled", false );
-        // $('#fprice').focus();
-         $('#fprice').select();
-      }
+    } else {
+      $("#fprice").prop("disabled", false);
+      // $('#fprice').focus();
+      $('#fprice').select();
+    }
 
-      if($show_sizes == 0)
-      {
+    if ($show_sizes == 0) {
 
-        $('div .item-sizes').hide();
+      $('div .item-sizes').hide();
 
-      }else if($show_sizes == 1)
-      {
-        $('div .item-sizes').show();
-        if(theLanguage == "en")
-        {
+    } else if ($show_sizes == 1) {
+      $('div .item-sizes').show();
+      if (theLanguage == "en") {
 
-          $('div .item-sizes').html(
-            `<label class="col form-check-label text-success">
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-success">
                 <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>SMALL
             </label>
 
@@ -229,12 +208,11 @@ $(document).ready(function(){
             <label class="col form-check-label text-info">
                 <input type="radio" class="form-check-input" name="optradio" value="كبير">LARGE
             </label>`
-          );
-        }else if(theLanguage == "ar")
-        {
+        );
+      } else if (theLanguage == "ar") {
 
-          $('div .item-sizes').html(
-            `<label class="col form-check-label text-success">
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-success">
                 <input type="radio" class="form-check-input" name="optradio" value="صغير" checked>صغير
             </label>
 
@@ -245,17 +223,15 @@ $(document).ready(function(){
             <label class="col form-check-label text-info">
             <input type="radio" class="form-check-input" name="optradio" value="كبير">كبير
             </label>`
-          );
-        }
+        );
+      }
 
-      }else if($show_sizes == 2)
-      {
-        $('div .item-sizes').show();
-        if(theLanguage == "en")
-        {
+    } else if ($show_sizes == 2) {
+      $('div .item-sizes').show();
+      if (theLanguage == "en") {
 
-          $('div .item-sizes').html(
-            `<label class="col form-check-label text-danger">
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-danger">
                 <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>FULL
             </label>
 
@@ -266,12 +242,11 @@ $(document).ready(function(){
             <label class="col form-check-label  text-success">
                 <input type="radio" class="form-check-input" name="optradio" value="ربع">QUARTER
             </label>`
-          );
-        }else if(theLanguage == "ar")
-        {
+        );
+      } else if (theLanguage == "ar") {
 
-          $('div .item-sizes').html(
-            `<label class="col form-check-label text-danger">
+        $('div .item-sizes').html(
+          `<label class="col form-check-label text-danger">
                 <input type="radio" class="form-check-input" name="optradio" value="كامل" checked>كامل
             </label>
 
@@ -282,102 +257,95 @@ $(document).ready(function(){
             <label class="col form-check-label  text-success">
             <input type="radio" class="form-check-input" name="optradio" value="ربع">ربع
             </label>`
-          );
-        }
-
-
+        );
       }
 
 
-      if($qty_disabled == "FALSE")
-      {
+    }
 
-        $( ".fqty" ).prop( "disabled", false );
 
-      }else
-      {
-        $( ".fqty" ).prop( "disabled", true );
-      }
+    if ($qty_disabled == "FALSE") {
 
-    })
-   
-    //var rowIdx = 0;
-    $(".btn-confirm").click(function(){
+      $(".fqty").prop("disabled", false);
 
-      $price_w = parseFloat($('#fprice').val());
-      $price_with_vat= ($price_w).toFixed(2);
-      $qty = $('#fqty').val();
-      
-      if(isNaN($price_with_vat))
-      {
-       // $('#fprice').focus();
-        $('#fprice').val(0);
-        $('#fprice').select();
+    } else {
+      $(".fqty").prop("disabled", true);
+    }
 
-        return;
-      }
-      if(isNaN($qty))
-      {
-       // $('#fprice').focus();
-        $('#fprice').val(0);
-        $('#fprice').select();
+  })
 
-        return;
-      }
-      if($price_with_vat == "-")
-      {
-        //$('#fprice').focus();
-        $('#fprice').val(0);
-        $('#fprice').select();
+  //var rowIdx = 0;
+  $(".btn-confirm").click(function () {
 
-        return;
-      }
+    $price_w = parseFloat($('#fprice').val());
+    $price_with_vat = ($price_w).toFixed(2);
+    $qty = $('#fqty').val();
 
-      if( $price_with_vat <= 0)
-      {
+    if (isNaN($price_with_vat)) {
+      // $('#fprice').focus();
+      $('#fprice').val(0);
+      $('#fprice').select();
 
-        //$('#fprice').focus();
-        $('#fprice').val(0);
-        $('#fprice').select();
+      return;
+    }
+    if (isNaN($qty)) {
+      // $('#fprice').focus();
+      $('#fprice').val(0);
+      $('#fprice').select();
 
-        return;
-      }
+      return;
+    }
+    if ($price_with_vat == "-") {
+      //$('#fprice').focus();
+      $('#fprice').val(0);
+      $('#fprice').select();
 
-      if( $qty <= 0)
-      {
+      return;
+    }
 
-       // $('#fqty').focus();
-        $('#fqty').val(0);
-        $('#fqty').select();
+    if ($price_with_vat <= 0) {
 
-        return;
-      }
+      //$('#fprice').focus();
+      $('#fprice').val(0);
+      $('#fprice').select();
 
-      //item description
-     $desc = $('#itemsModal .modal-title').text();
+      return;
+    }
 
-     //quantity added from modal
-     $qty = parseFloat($('#fqty').val()).toFixed(2);
+    if ($qty <= 0) {
+
+      // $('#fqty').focus();
+      $('#fqty').val(0);
+      $('#fqty').select();
+
+      return;
+    }
+
+    //item description
+    $desc = $('#itemsModal .modal-title').text();
+
+    //quantity added from modal
+    $qty = parseFloat($('#fqty').val()).toFixed(2);
 
     // unit of measurement
-     $uom =$('.modal-uom').text();
+    $uom = $('.modal-uom').text();
 
-     //size of item depending on choice f/h/q
-     $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() :" ";
+    //size of item depending on choice f/h/q
+    $size = $('div .item-sizes').is(':visible') ? $("input[name='optradio']:checked").val() : " ";
 
 
-     $vat = parseFloat($("#item_clicked").attr('data-vat'));
-     $item_id = $("#itemsModal .modal-title").attr('data-id-item');
-     $pwv = $('#fprice').val();
-     $vatt = 1+$vat;
-     //$price_without_vat= $pwv*(1-$vat);
-     $price_without_vat= $pwv/$vatt;
-      $total = ($qty * $price_with_vat).toFixed(2);
+    $vat = parseFloat($("#item_clicked").attr('data-vat'));
+    $item_id = $("#itemsModal .modal-title").attr('data-id-item');
+    $pwv = $('#fprice').val();
+    $vatt = 1 + $vat;
+    //$price_without_vat= $pwv*(1-$vat);
+    $price_without_vat = $pwv / $vatt;
+    $total = ($qty * $price_with_vat).toFixed(2);
     //  $total = $qty * $price_with_vat;
-     $total_without_vat = ($qty * $price_without_vat).toFixed(2);
-     $vat2 = ($total-$total_without_vat).toFixed(2);
-      
-     $('#tbody').append(`<tr id="Row">
+    $total_without_vat = ($qty * $price_without_vat).toFixed(2);
+    $vat2 = ($total - $total_without_vat).toFixed(2);
+
+    $('#tbody').append(`<tr id="Row">
       <td class="text-center noprint">
        <button class="btn btn-remove text-light" style="background:#204b6d"
            type="button" onclick='$(this).parent().parent().remove()'> <i class="fa fa-trash"></i></button>
@@ -411,33 +379,62 @@ $(document).ready(function(){
             ${$total}</td>
       </tr>`);
 
-      $('.modal').modal('hide');
+    $('.modal').modal('hide');
 
-    })
+  })
 
-    $("#tbody").bind("DOMSubtreeModified", function() {
-      update_totals();
-  });
+  // $("#tbody").bind("DOMSubtreeModified", function () {
+  //   console.log("table changed");
+  //   update_totals();
+  // });
 
+// Select the target node
+const tbody = document.getElementById("tbody");
 
+// Create a MutationObserver instance
+const observer = new MutationObserver((mutationsList, observer) => {
+    for (let mutation of mutationsList) {
+        if (mutation.type === "childList" || mutation.type === "subtree") {
+           update_totals();
+        }
+    }
+});
+
+// Observer configuration
+const config = { childList: true, subtree: true };
+
+// Start observing the target node
+observer.observe(tbody, config);
 
 
 });
 
 
-var vatGlobal = $.getJSON('jscript/config.json' ,function(data){
-  vatGlobal= data.options.vatPercent
-  
-})
-var editGlobal = $.getJSON('jscript/config.json' ,function(data){
-  editGlobal= data.options.quantityEditable
-  
+var vatGlobal = $.getJSON('jscript/config.json', function (data) {
+  vatGlobal = data.options.vatPercent
+
 })
 
-  
+var editGlobal = $.getJSON('jscript/config.json', function (data) {
+  editGlobal = data.options.quantityEditable
+
+})
+
+$.getJSON('jscript/config.json', function (data) {
+  if (data.options.displaySidebar != "TRUE") {
+
+    $("#menu").addClass("displayNone")
+
+  }
+
+})
 
 
-  
+
+
+
+
+
 
 
 

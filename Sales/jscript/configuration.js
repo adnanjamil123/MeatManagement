@@ -1,18 +1,29 @@
-$.getJSON('jscript/config.json', function(data) {
-    if(data.options.itemAddOption === "TRUE")
+var itemAO = $.getJSON('jscript/config.json', function(data) {
+    if(data.options.itemAddOption == "TRUE")
     {
+        itemAO = "TRUE"
         $(".items-container").css("display","block")
+        // $(".items-container").addClass("d-flex")
+        $("#search").focus();
+
         
-    }else{
+        
+    }else if (data.options.itemAddOption == "FALSE") 
+    {
         $(".items-container").css("display","none")
+        itemAO="FALSE"
     }
 
-    if(data.options.vat === "TRUE")
+    if(data.options.createItem == "TRUE")
     {
-        $(".vat-display").css("display","block")
+        itemAO = "TRUE"
+        $(".createIt").css("display","block")
+        $(".createIt").addClass("d-flex")
         
-    }else{
-        $(".vat-display").css("display","none")
+    }else if (data.options.createItem == "FALSE") 
+    {
+        $(".createIt").css("display","none")
+      
     }
   
 });
@@ -20,16 +31,19 @@ $.getJSON('jscript/config.json', function(data) {
 function editSelected(e)
 {   
     
-
     if(editGlobal != "TRUE" || invoiceStatus == "close")
     {
        
         return
     }
     
+    if(!$("#uniqueId").length == 0) {
+        
+        document.getElementById("uniqueId").id = ""
+    }
     oldValue = e.innerText
     e.id ="uniqueId"
-    e.innerHTML = `<input class="w-50" type="text" id="temp-input" onfocusout="deleteTempInput(this)"></input>`
+    e.innerHTML = `<input class="w-50" type="text" id="temp-input" onkeypress="inputhandleKey(event)" onfocusout="deleteTempInput(this)"></input>`
     
     $("#temp-input").val(oldValue)
     $("#temp-input").focus()
@@ -37,10 +51,17 @@ function editSelected(e)
 
     
 }
+function inputhandleKey(e) {
+    if (e.keyCode == 13) {
+        deleteTempInput(e.target)
+    }
+}
 
 function deleteTempInput(obj)
 {
+    
     var objVal = (obj.value).trim()
+    
     if(objVal == "" || isNaN(objVal) || objVal == 0)
     {
         objVal = 1
@@ -49,11 +70,13 @@ function deleteTempInput(obj)
 
     document.getElementById("uniqueId").innerHTML = ""
    document.getElementById("uniqueId").innerText = objVal
-   document.getElementById("uniqueId").id = ""
+   
 
    update(rowId)
+   // document.getElementById("uniqueId").id = ""
 
 }
+
 
 function update(tableRow)
 {
